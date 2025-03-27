@@ -1,111 +1,481 @@
-@prefix : <urn:absolute:3/> .
+@prefix : <https://hereditary.dei.unipd.it/ontology/gutbrain#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <urn:absolute:3/> .
+@base <https://hereditary.dei.unipd.it/ontology/gutbrain#> .
 
-<https://hereditary.dei.unipd.it/ontology/gutbrain> rdf:type owl:Ontology ;
-                                                     rdfs:label "Author: Samuel Piron" .
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema> rdf:type owl:Ontology ;
+                                                            owl:versionIRI <https://hereditary.dei.unipd.it/ontology/gutbrain/1.0/> ;
+                                                            owl:imports <http://www.w3.org/2004/02/skos/core> ;
+                                                            rdfs:label "Author: Samuel Piron" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/issued
+<http://purl.org/dc/terms/issued> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/modified
+<http://purl.org/dc/terms/modified> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/publisher
+<http://purl.org/dc/terms/publisher> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#administred
+:administred rdf:type owl:ObjectProperty .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#changeAbundance
+:changeAbundance rdf:type owl:ObjectProperty .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#changeEffect
+:changeEffect rdf:type owl:ObjectProperty .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#changeExpression
+:changeExpression rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#composedOf
+:composedOf rdf:type owl:ObjectProperty .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#containedIn
+:containedIn rdf:type owl:ObjectProperty .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#contains
+:contains rdf:type owl:ObjectProperty .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#impact
+:impact rdf:type owl:ObjectProperty .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#influence
+:influence rdf:type owl:ObjectProperty .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#interact
+:interact rdf:type owl:ObjectProperty .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#isLinkedTo
+:isLinkedTo rdf:type owl:ObjectProperty .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#locatedIn
+:locatedIn rdf:type owl:ObjectProperty .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#partOf
+:partOf rdf:type owl:ObjectProperty .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#producedBy
+:producedBy rdf:type owl:ObjectProperty .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#relatedTo
+:relatedTo rdf:type owl:ObjectProperty .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#strike
+:strike rdf:type owl:ObjectProperty .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#target
+:target rdf:type owl:ObjectProperty .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#treatedBy
+:treatedBy rdf:type owl:ObjectProperty .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#usedBy
+:usedBy rdf:type owl:ObjectProperty .
+
 
 #################################################################
 #    Classes
 #################################################################
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#AnatomicalLocation
-:AnatomicalLocation rdf:type owl:Class .
-
-
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain#Animal
 :Animal rdf:type owl:Class ;
-        rdfs:subClassOf :Organism .
-
-
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#Assay
-:Assay rdf:type owl:Class .
+        rdfs:subClassOf :Organism ;
+        rdfs:comment "A living organism that has membranous cell walls, requires oxygen and organic foods, and is capable of voluntary movement, as distinguished from a plant or mineral. [Definition Source: NCI]"@en ;
+        rdfs:label "Animal"@en .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain#BiomedicalTechnique
 :BiomedicalTechnique rdf:type owl:Class ;
-                     rdfs:subClassOf :Assay .
+                     rdfs:subClassOf <https://w3id.org/brainteaser/ontology/genomics/schema/Assay> ;
+                     rdfs:comment "Research concerned with the application of biological and physiological principles to clinical medicine. [Definition Source: NCI]"@en ;
+                     rdfs:label "Biomedical Technique"@en .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain#Chemical
 :Chemical rdf:type owl:Class ;
-          rdfs:subClassOf <https://w3id.org/brainteaser/ontology/schema/InterventionOrProcedure> .
+          rdfs:subClassOf <https://w3id.org/brainteaser/ontology/schema/InterventionOrProcedure> ;
+          rdfs:comment "A chemical substance is a portion of matter of constant composition, composed of molecular entities of the same type or of different types. [Definition Source: CHEBI]"@en ;
+          rdfs:label "Chemical"@en .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#Class
+:Class rdf:type owl:Class ;
+       rdfs:subClassOf :Phylum ;
+       rdfs:comment "A collection of taxonomic subdivisions directly under Phylum. It is a major group of organisms, e.g. Mammalia, Reptilia, Gastropoda, Insecta, etc that contains a large number of different sublineages, but have shared characteristics in common (e.g. warm-blooded, fur, six legs etc). [Definition Source: NCI]"@en ;
+       rdfs:label "Class"@en .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain#DietarySupplement
 :DietarySupplement rdf:type owl:Class ;
-                   rdfs:subClassOf :Food .
+                   rdfs:subClassOf :Food ;
+                   rdfs:comment "Products in capsule, tablet or liquid form that provide dietary ingredients, and that are intended to be taken by mouth to increase the intake of nutrients. Dietary supplements can include macronutrients, such as proteins, carbohydrates, and fats; and/or MICRONUTRIENTS, such as VITAMINS; MINERALS; and PHYTOCHEMICALS. [Definition Source: MeSH]"@en ;
+                   rdfs:label "Dietary Supplement"@en .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#Dominium
+:Dominium rdf:type owl:Class ;
+          rdfs:label "Dominium"@en .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain#Drug
 :Drug rdf:type owl:Class ;
-      rdfs:subClassOf <https://w3id.org/brainteaser/ontology/schema/InterventionOrProcedure> .
+      rdfs:subClassOf <https://w3id.org/brainteaser/ontology/schema/InterventionOrProcedure> ;
+      rdfs:comment "Any substance which when absorbed into a living organism may modify one or more of its functions. The term is generally accepted for a substance taken for a therapeutic purpose, but is also commonly used for abused substances. [Definition Source: CHEBI]"@en ;
+      rdfs:label "Drug"@en .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain#ExperimentalResult
-:ExperimentalResult rdf:type owl:Class .
+:ExperimentalResult rdf:type owl:Class ;
+                    rdfs:comment "The outcome of an experiment or set of experiments, including observations and primary, processed, and analyzed data. [Definition Source: NCI]"@en ;
+                    rdfs:label "Experimental Result"@en .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#Family
+:Family rdf:type owl:Class ;
+        rdfs:subClassOf :Order ;
+        rdfs:comment "A taxonomic category between Order and Genus. It consists of a group of organisms among which the differences are quite minor, e.g. Equiidae - horses and their relatives. [Definition Source: NCI]"@en ;
+        rdfs:label "Family"@en .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain#Food
 :Food rdf:type owl:Class ;
-      rdfs:subClassOf <https://w3id.org/brainteaser/ontology/schema/InterventionOrProcedure> .
-
-
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#Gene
-:Gene rdf:type owl:Class .
+      rdfs:subClassOf <https://w3id.org/brainteaser/ontology/schema/InterventionOrProcedure> ;
+      rdfs:comment "A group of materials of either plant, animal or artificial origin containing essential body nutrients that can be ingested by an organism to produce energy, stimulate growth, and maintain life. [Definition Source: NCI]"@en ;
+      rdfs:label "Food"@en .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain#Genome
 :Genome rdf:type owl:Class ;
-        rdfs:comment "The genetic complement of an organism, including all of its GENES, as represented in its DNA, or in some cases, its RNA." .
+        rdfs:comment "The genetic complement of an organism, including all of its GENES, as represented in its DNA, or in some cases, its RNA. [Definition Source: MeSH]"@en ;
+        rdfs:label "Genome"@en .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#Genus
+:Genus rdf:type owl:Class ;
+       rdfs:subClassOf :Family ;
+       rdfs:comment "A taxonomic category ranking below a family (or Subfamily) and above a species and generally consisting of a group of species exhibiting similar characteristics. [Definition Source: NCI]"@en ;
+       rdfs:label "Genus"@en .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain#Human
 :Human rdf:type owl:Class ;
-       rdfs:subClassOf :Organism .
+       rdfs:subClassOf :Organism ;
+       rdfs:comment "The bipedal primate mammal, Homo sapiens; belonging to man or mankind; pertaining to man or to the race of man; use of man as experimental subject or unit of analysis in research. [Definition Source: NCI]"@en ;
+       rdfs:label "Human"@en .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#Mention
+:Mention rdf:type owl:Class ;
+         rdfs:comment "Word or Phrase that is inside a sentence."@en ;
+         rdfs:label "Mention"@en .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain#Metabolite
-:Metabolite rdf:type owl:Class .
+:Metabolite rdf:type owl:Class ;
+            rdfs:comment "Any intermediate or product resulting from metabolism. The term 'metabolite' subsumes the classes commonly known as primary and secondary metabolites. [Definition Source: CHEBI]"@en ;
+            rdfs:label "Metabolite"@en .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain#Microbiome
 :Microbiome rdf:type owl:Class ;
-            rdfs:comment "A biome that consists of a collection of microorganisms (i.e., microbiota) and the surrounding environment where the microorganisms reside." .
+            rdfs:comment "A biome that consists of a collection of microorganisms (i.e., microbiota) and the surrounding environment where the microorganisms reside. [Definition Source: NCI]"@en ;
+            rdfs:label "Microbiome"@en .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#Neurotransmitter
-:Neurotransmitter rdf:type owl:Class .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#Order
+:Order rdf:type owl:Class ;
+       rdfs:subClassOf :Class ;
+       rdfs:comment "A taxonomic category between Class and Family. It is group of organisms that although differing quite a bit among themselves still have a large degree of characteristics in common. [Definition Source: NCI]"@en ;
+       rdfs:label "Order"@en .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain#Organism
-:Organism rdf:type owl:Class .
+:Organism rdf:type owl:Class ;
+          rdfs:comment "A living entity. [Definition Source: NCI]"@en ;
+          rdfs:label "Organism"@en .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#Paper
+:Paper rdf:type owl:Class ;
+       rdfs:comment "An article reporting original research, published in a peer-reviewed journal. [Definition Source: ONTOAVIDA]"@en ;
+       rdfs:label "Paper"@en .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#PaperAbstract
+:PaperAbstract rdf:type owl:Class ;
+               rdfs:comment "A written summary of the important points of a scientific article. [Definition Source: NCI]"@en ;
+               rdfs:label "Paper Abstract"@en .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#PaperCollection
+:PaperCollection rdf:type owl:Class ;
+                 rdfs:comment "Paper Collection"@en ,
+                              "The type of the collection where there are the papers."@en .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#PaperTitle
+:PaperTitle rdf:type owl:Class ;
+            rdfs:comment "An official descriptive name of a document, e.g. the long name of a study protocol provided by the study sponsor. [Definition Source: NCI]"@en ;
+            rdfs:label "Paper Title"@en .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#Phylum
+:Phylum rdf:type owl:Class ;
+        rdfs:subClassOf :SuperKingdom ;
+        rdfs:comment "A major division of a biological kingdom, consisting of closely-related classes; represents a basic fundamental pattern of organization and, presumably, a common descent. [Definition Source: NCI]"@en ;
+        rdfs:label "Phylum"@en .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#Project
+:Project rdf:type owl:Class ;
+         rdfs:comment "Any specifically defined piece of work that is undertaken or attempted to meet a single requirement. [Definition Source: NCI]"@en ;
+         rdfs:label "Project"@en .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#Sample
+:Sample rdf:type owl:Class ;
+        rdfs:comment "Any material sample taken from a biological entity for testing, diagnostic, propagation, treatment or research purposes, including a sample obtained from a living organism or taken from the biological object after halting of all its life functions. Biospecimen can contain one or more components including but not limited to cellular molecules, cells, tissues, organs, body fluids, embryos, and body excretory products. [Definition Source: NCI]"@en ;
+        rdfs:label "Sample"@en .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#Sentence
+:Sentence rdf:type owl:Class ;
+          rdfs:comment "A set of words that is complete in itself, conveying a statement, question, exclamation, or command and typically containing an explicit or implied subject and a predicate containing a finite verb. [Definition Source: NCI]"@en ;
+          rdfs:label "Sentence"@en .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain#Specimen
-:Specimen rdf:type owl:Class .
+:Specimen rdf:type owl:Class ;
+          rdfs:comment "A part of a thing, or of several things, taken to demonstrate or to determine the character of the whole, e.g. a substance, or portion of material obtained for use in testing, examination, or study; particularly, a preparation of tissue or bodily fluid taken for examination or diagnosis. [Definition Source: NCI]"@en ;
+          rdfs:label "Specimen"@en .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain#SpecimenCollectionProcess
-:SpecimenCollectionProcess rdf:type owl:Class .
+:SpecimenCollectionProcess rdf:type owl:Class ;
+                           rdfs:comment "The rule which guides how a specimen collection should be performed. [Definition Source: NCI]"@en ;
+                           rdfs:label "Specimen Collection Process"@en .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain#StatisticalTechnique
 :StatisticalTechnique rdf:type owl:Class ;
-                      rdfs:subClassOf :Assay .
+                      rdfs:subClassOf <https://w3id.org/brainteaser/ontology/genomics/schema/Assay> ;
+                      rdfs:comment "A method of analyzing or representing statistical data; a procedure for calculating a statistic. [Definition Source: NCI]"@en ;
+                      rdfs:label "Statistical Technique"@en .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#SuperKingdom
+:SuperKingdom rdf:type owl:Class ;
+              rdfs:subClassOf :Dominium ;
+              rdfs:comment "The highest taxonomic rank, immediately above phylum or division. There are five biological kingdoms (Monera, Protista, Plantae, Fungi, Animalia) into which organisms are grouped, based on common characteristics. [Definition Source: NCI]"@en ;
+              rdfs:label "Super Kingdom"@en .
+
+
+###  https://w3id.org/brainteaser/ontology/genomics/schema/Assay
+<https://w3id.org/brainteaser/ontology/genomics/schema/Assay> rdf:type owl:Class ;
+                                                              rdfs:comment "The assay used to produce measurement. [Definition Source: Phenopacket v2]"@en ;
+                                                              rdfs:label "Assay"@en .
+
+
+###  https://w3id.org/brainteaser/ontology/schema/AnatomicalSite
+<https://w3id.org/brainteaser/ontology/schema/AnatomicalSite> rdf:type owl:Class ;
+                                                              rdfs:comment "Named locations of or within the body. [Definition Source: NCI]"@en ;
+                                                              rdfs:label "Anatomic Site"@en .
 
 
 ###  https://w3id.org/brainteaser/ontology/schema/DiseaseDisorderOrFinding
 <https://w3id.org/brainteaser/ontology/schema/DiseaseDisorderOrFinding> rdf:type owl:Class ;
-                                                                        rdfs:comment "A condition that is relevant to human neoplasms and non-neoplastic disorders. This includes observations, test results, history and other concepts relevant to the characterization of human pathologic conditions. [Definition Source: NCI]"@en .
+                                                                        rdfs:comment "A condition that is relevant to human neoplasms and non-neoplastic disorders. This includes observations, test results, history and other concepts relevant to the characterization of human pathologic conditions. [Definition Source: NCI]"@en ;
+                                                                        rdfs:label "Disease, Disorder or Finding"@en .
+
+
+###  https://w3id.org/brainteaser/ontology/schema/Gene
+<https://w3id.org/brainteaser/ontology/schema/Gene> rdf:type owl:Class ;
+                                                    rdfs:comment "A functional unit of heredity which occupies a specific position on a particular chromosome and serves as the template for a product that contributes to a phenotype or a biological function. [Definition Source: NCI]"@en ;
+                                                    rdfs:label "Gene"@en .
 
 
 ###  https://w3id.org/brainteaser/ontology/schema/InterventionOrProcedure
-<https://w3id.org/brainteaser/ontology/schema/InterventionOrProcedure> rdf:type owl:Class .
+<https://w3id.org/brainteaser/ontology/schema/InterventionOrProcedure> rdf:type owl:Class ;
+                                                                       rdfs:comment "An activity that produces an effect, or that is intended to alter the course of a disease in a patient or population. This is a general term that encompasses the medical, social, behavioral, and environmental acts that can have preventive, therapeutic, or palliative effects. [Definition Source: NCI]"@en ;
+                                                                       rdfs:label "Intervention or Procedure"@en .
+
+
+###  https://w3id.org/hereditary/ontology/genomics/schema/Species
+<https://w3id.org/hereditary/ontology/genomics/schema/Species> rdf:type owl:Class ;
+                                                               rdfs:subClassOf :Genus ;
+                                                               rdfs:comment "A group of organisms that differ from all other groups of organisms and that are capable of breeding and producing fertile offspring. [Definition Source: NCI]"@en ;
+                                                               rdfs:label "Species"@en .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+<http://purl.org/dc/elements/1.1/> <http://purl.org/dc/terms/modified> "2012-06-14"^^xsd:date ;
+                                   <http://purl.org/dc/terms/publisher> <http://purl.org/dc/aboutdcmi#DCMI> ;
+                                   <http://purl.org/dc/terms/title> "Dublin Core Metadata Element Set, Version 1.1"@en .
+
+
+<http://purl.org/dc/elements/1.1/contributor> <http://purl.org/dc/terms/description> "The guidelines for using names of persons or organizations as creators also apply to contributors.  Typically, the name of a Contributor should be used to indicate the entity."@en ;
+                                              <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
+                                              rdfs:comment "An entity responsible for making contributions to the resource."@en ;
+                                              rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> ;
+                                              rdfs:label "Contributor"@en ;
+                                              <http://www.w3.org/2004/02/skos/core#note> "A [second property](/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/contributor) with the same name as this property has been declared in the [dcterms: namespace](http://purl.org/dc/terms/).  See the Introduction to the document [DCMI Metadata Terms](/specifications/dublin-core/dcmi-terms/) for an explanation."@en .
+
+
+<http://purl.org/dc/elements/1.1/coverage> <http://purl.org/dc/terms/description> "Spatial topic and spatial applicability may be a named place or a location specified by its geographic coordinates. Temporal topic may be a named period, date, or date range. A jurisdiction may be a named administrative entity or a geographic place to which the resource applies. Recommended practice is to use a controlled vocabulary such as the Getty Thesaurus of Geographic Names [[TGN](https://www.getty.edu/research/tools/vocabulary/tgn/index.html)]. Where appropriate, named places or time periods may be used in preference to numeric identifiers such as sets of coordinates or date ranges."@en ;
+                                           <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
+                                           rdfs:comment "The spatial or temporal topic of the resource, spatial applicability of the resource, or jurisdiction under which the resource is relevant."@en ;
+                                           rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> ;
+                                           rdfs:label "Coverage"@en ;
+                                           <http://www.w3.org/2004/02/skos/core#note> "A [second property](/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/coverage) with the same name as this property has been declared in the [dcterms: namespace](http://purl.org/dc/terms/).  See the Introduction to the document [DCMI Metadata Terms](/specifications/dublin-core/dcmi-terms/) for an explanation."@en .
+
+
+<http://purl.org/dc/elements/1.1/creator> <http://purl.org/dc/terms/description> "Examples of a Creator include a person, an organization, or a service. Typically, the name of a Creator should be used to indicate the entity."@en ;
+                                          <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
+                                          rdfs:comment "An entity primarily responsible for making the resource."@en ;
+                                          rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> ;
+                                          rdfs:label "Creator"@en ;
+                                          <http://www.w3.org/2004/02/skos/core#note> "A [second property](/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/creator) with the same name as this property has been declared in the [dcterms: namespace](http://purl.org/dc/terms/).  See the Introduction to the document [DCMI Metadata Terms](/specifications/dublin-core/dcmi-terms/) for an explanation."@en .
+
+
+<http://purl.org/dc/elements/1.1/date> <http://purl.org/dc/terms/description> "Date may be used to express temporal information at any level of granularity.  Recommended practice is to express the date, date/time, or period of time according to ISO 8601-1 [[ISO 8601-1](https://www.iso.org/iso-8601-date-and-time-format.html)] or a published profile of the ISO standard, such as the W3C Note on Date and Time Formats [[W3CDTF](https://www.w3.org/TR/NOTE-datetime)] or the Extended Date/Time Format Specification [[EDTF](http://www.loc.gov/standards/datetime/)].  If the full date is unknown, month and year (YYYY-MM) or just year (YYYY) may be used. Date ranges may be specified using ISO 8601 period of time specification in which start and end dates are separated by a '/' (slash) character.  Either the start or end date may be missing."@en ;
+                                       <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
+                                       rdfs:comment "A point or period of time associated with an event in the lifecycle of the resource."@en ;
+                                       rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> ;
+                                       rdfs:label "Date"@en ;
+                                       <http://www.w3.org/2004/02/skos/core#note> "A [second property](/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/date) with the same name as this property has been declared in the [dcterms: namespace](http://purl.org/dc/terms/).  See the Introduction to the document [DCMI Metadata Terms](/specifications/dublin-core/dcmi-terms/) for an explanation."@en .
+
+
+<http://purl.org/dc/elements/1.1/description> <http://purl.org/dc/terms/description> "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."@en ;
+                                              <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
+                                              rdfs:comment "An account of the resource."@en ;
+                                              rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> ;
+                                              rdfs:label "Description"@en ;
+                                              <http://www.w3.org/2004/02/skos/core#note> "A [second property](/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/description) with the same name as this property has been declared in the [dcterms: namespace](http://purl.org/dc/terms/).  See the Introduction to the document [DCMI Metadata Terms](/specifications/dublin-core/dcmi-terms/) for an explanation."@en .
+
+
+<http://purl.org/dc/elements/1.1/format> <http://purl.org/dc/terms/description> "Recommended practice is to use a controlled vocabulary where available. For example, for file formats one could use the list of Internet Media Types [[MIME](https://www.iana.org/assignments/media-types/media-types.xhtml)]."@en ;
+                                         <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
+                                         rdfs:comment "The file format, physical medium, or dimensions of the resource."@en ;
+                                         rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> ;
+                                         rdfs:label "Format"@en ;
+                                         <http://www.w3.org/2004/02/skos/core#note> "A [second property](/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/format) with the same name as this property has been declared in the [dcterms: namespace](http://purl.org/dc/terms/).  See the Introduction to the document [DCMI Metadata Terms](/specifications/dublin-core/dcmi-terms/) for an explanation."@en .
+
+
+<http://purl.org/dc/elements/1.1/identifier> <http://purl.org/dc/terms/description> "Recommended practice is to identify the resource by means of a string conforming to an identification system."@en ;
+                                             <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
+                                             rdfs:comment "An unambiguous reference to the resource within a given context."@en ;
+                                             rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> ;
+                                             rdfs:label "Identifier"@en ;
+                                             <http://www.w3.org/2004/02/skos/core#note> "A [second property](/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/identifier) with the same name as this property has been declared in the [dcterms: namespace](http://purl.org/dc/terms/).  See the Introduction to the document [DCMI Metadata Terms](/specifications/dublin-core/dcmi-terms/) for an explanation."@en .
+
+
+<http://purl.org/dc/elements/1.1/language> <http://purl.org/dc/terms/description> "Recommended practice is to use either a non-literal value representing a language from a controlled vocabulary such as ISO 639-2 or ISO 639-3, or a literal value consisting of an IETF Best Current Practice 47 [[IETF-BCP47](https://tools.ietf.org/html/bcp47)] language tag."@en ;
+                                           <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
+                                           rdfs:comment "A language of the resource."@en ;
+                                           rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> ;
+                                           rdfs:label "Language"@en ;
+                                           <http://www.w3.org/2004/02/skos/core#note> "A [second property](/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/language) with the same name as this property has been declared in the [dcterms: namespace](http://purl.org/dc/terms/).  See the Introduction to the document [DCMI Metadata Terms](/specifications/dublin-core/dcmi-terms/) for an explanation."@en .
+
+
+<http://purl.org/dc/elements/1.1/publisher> <http://purl.org/dc/terms/description> "Examples of a Publisher include a person, an organization, or a service. Typically, the name of a Publisher should be used to indicate the entity."@en ;
+                                            <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
+                                            rdfs:comment "An entity responsible for making the resource available."@en ;
+                                            rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> ;
+                                            rdfs:label "Publisher"@en ;
+                                            <http://www.w3.org/2004/02/skos/core#note> "A [second property](/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/publisher) with the same name as this property has been declared in the [dcterms: namespace](http://purl.org/dc/terms/).  See the Introduction to the document [DCMI Metadata Terms](/specifications/dublin-core/dcmi-terms/) for an explanation."@en .
+
+
+<http://purl.org/dc/elements/1.1/relation> <http://purl.org/dc/terms/description> "Recommended practice is to identify the related resource by means of a URI. If this is not possible or feasible, a string conforming to a formal identification system may be provided."@en ;
+                                           <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
+                                           rdfs:comment "A related resource."@en ;
+                                           rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> ;
+                                           rdfs:label "Relation"@en ;
+                                           <http://www.w3.org/2004/02/skos/core#note> "A [second property](/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/relation) with the same name as this property has been declared in the [dcterms: namespace](http://purl.org/dc/terms/).  See the Introduction to the document [DCMI Metadata Terms](/specifications/dublin-core/dcmi-terms/) for an explanation."@en .
+
+
+<http://purl.org/dc/elements/1.1/rights> <http://purl.org/dc/terms/description> "Typically, rights information includes a statement about various property rights associated with the resource, including intellectual property rights."@en ;
+                                         <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
+                                         rdfs:comment "Information about rights held in and over the resource."@en ;
+                                         rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> ;
+                                         rdfs:label "Rights"@en ;
+                                         <http://www.w3.org/2004/02/skos/core#note> "A [second property](/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/rights) with the same name as this property has been declared in the [dcterms: namespace](http://purl.org/dc/terms/).  See the Introduction to the document [DCMI Metadata Terms](/specifications/dublin-core/dcmi-terms/) for an explanation."@en .
+
+
+<http://purl.org/dc/elements/1.1/source> <http://purl.org/dc/terms/description> "The described resource may be derived from the related resource in whole or in part. Recommended best practice is to identify the related resource by means of a string conforming to a formal identification system."@en ;
+                                         <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
+                                         rdfs:comment "A related resource from which the described resource is derived."@en ;
+                                         rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> ;
+                                         rdfs:label "Source"@en ;
+                                         <http://www.w3.org/2004/02/skos/core#note> "A [second property](/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/source) with the same name as this property has been declared in the [dcterms: namespace](http://purl.org/dc/terms/).  See the Introduction to the document [DCMI Metadata Terms](/specifications/dublin-core/dcmi-terms/) for an explanation."@en .
+
+
+<http://purl.org/dc/elements/1.1/subject> <http://purl.org/dc/terms/description> "Typically, the subject will be represented using keywords, key phrases, or classification codes.  Recommended best practice is to use a controlled vocabulary."@en ;
+                                          <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
+                                          rdfs:comment "The topic of the resource."@en ;
+                                          rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> ;
+                                          rdfs:label "Subject"@en ;
+                                          <http://www.w3.org/2004/02/skos/core#note> "A [second property](/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/subject) with the same name as this property has been declared in the [dcterms: namespace](http://purl.org/dc/terms/).  See the Introduction to the document [DCMI Metadata Terms](/specifications/dublin-core/dcmi-terms/) for an explanation."@en .
+
+
+<http://purl.org/dc/elements/1.1/title> <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
+                                        rdfs:comment "A name given to the resource."@en ;
+                                        rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> ;
+                                        rdfs:label "Title"@en ;
+                                        <http://www.w3.org/2004/02/skos/core#note> "A [second property](/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/title) with the same name as this property has been declared in the [dcterms: namespace](http://purl.org/dc/terms/).  See the Introduction to the document [DCMI Metadata Terms](/specifications/dublin-core/dcmi-terms/) for an explanation."@en .
+
+
+<http://purl.org/dc/elements/1.1/type> <http://purl.org/dc/terms/description> "Recommended practice is to use a controlled vocabulary such as the DCMI Type Vocabulary [[DCMI-TYPE](http://dublincore.org/documents/dcmi-type-vocabulary/)]. To describe the file format, physical medium, or dimensions of the resource, use the Format element."@en ;
+                                       <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
+                                       rdfs:comment "The nature or genre of the resource."@en ;
+                                       rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> ;
+                                       rdfs:label "Type"@en ;
+                                       <http://www.w3.org/2004/02/skos/core#note> "A [second property](/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/type) with the same name as this property has been declared in the [dcterms: namespace](http://purl.org/dc/terms/).  See the Introduction to the document [DCMI Metadata Terms](/specifications/dublin-core/dcmi-terms/) for an explanation."@en .
 
 
 ###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
