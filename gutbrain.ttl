@@ -9,7 +9,8 @@
 <https://hereditary.dei.unipd.it/ontology/gutbrain/schema> rdf:type owl:Ontology ;
                                                             owl:versionIRI <https://hereditary.dei.unipd.it/ontology/gutbrain/1.0/> ;
                                                             owl:imports <http://www.w3.org/2004/02/skos/core> ;
-                                                            rdfs:label "Author: Samuel Piron" .
+                                                            rdfs:label "Author: Samuel Piron" ;
+                                                            owl:versionInfo 1.0 .
 
 #################################################################
 #    Annotation properties
@@ -39,81 +40,364 @@ xsd:date rdf:type rdfs:Datatype .
 #    Object Properties
 #################################################################
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#administred
-:administred rdf:type owl:ObjectProperty .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#administered
+:administered rdf:type owl:ObjectProperty ;
+              rdfs:domain <https://w3id.org/brainteaser/ontology/schema/InterventionOrProcedure> ;
+              rdfs:range :Organism ;
+              rdfs:comment "It defines the relationship between the intervention or procedure and the organism."@en ;
+              rdfs:label "administered"@en .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#changeAbundance
-:changeAbundance rdf:type owl:ObjectProperty .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#changeAbundance
+:changeAbundance rdf:type owl:ObjectProperty ;
+                 rdfs:domain [ rdf:type owl:Class ;
+                               owl:unionOf ( <https://w3id.org/brainteaser/ontology/schema/DiseaseDisorderOrFinding>
+                                             <https://w3id.org/brainteaser/ontology/schema/InterventionOrProcedure>
+                                           )
+                             ] ;
+                 rdfs:range [ rdf:type owl:Class ;
+                              owl:unionOf ( :Microbiome
+                                            <https://w3id.org/hereditary/ontology/genomics/schema/Species>
+                                          )
+                            ] ;
+                 rdfs:label "changeAbundance"@en .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#changeEffect
-:changeEffect rdf:type owl:ObjectProperty .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#changeEffect
+:changeEffect rdf:type owl:ObjectProperty ;
+              rdfs:domain <https://w3id.org/brainteaser/ontology/schema/InterventionOrProcedure> ;
+              rdfs:range <https://w3id.org/brainteaser/ontology/schema/DiseaseDisorderOrFinding> ;
+              rdfs:comment "It indicates that a drug or substance alters or modifies the course or symptoms of a disease or disorder."@en ;
+              rdfs:label "changeEffect"@en .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#changeExpression
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#changeExpression
 :changeExpression rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf owl:topObjectProperty .
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  rdfs:domain [ rdf:type owl:Class ;
+                                owl:unionOf ( :Microbiome
+                                              <https://w3id.org/brainteaser/ontology/schema/InterventionOrProcedure>
+                                              <https://w3id.org/hereditary/ontology/genomics/schema/Species>
+                                            )
+                              ] ;
+                  rdfs:range <https://w3id.org/brainteaser/ontology/schema/Gene> ;
+                  rdfs:comment "It explains how a bacteria or the microbiome can change the expression of a gene."@en ;
+                  rdfs:label "changeExpression"@en .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#composedOf
-:composedOf rdf:type owl:ObjectProperty .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#composedOf
+:composedOf rdf:type owl:ObjectProperty ;
+            rdfs:domain [ rdf:type owl:Class ;
+                          owl:unionOf ( :PaperAbstract
+                                        :PaperTitle
+                                      )
+                        ] ;
+            rdfs:range :Sentence ;
+            rdfs:comment "This relationship describes the connection between the abstracts and titles and the sentences that compose them."@en ;
+            rdfs:label "composedOf"@en .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#containedIn
-:containedIn rdf:type owl:ObjectProperty .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#containedIn
+:containedIn rdf:type owl:ObjectProperty ;
+             rdfs:comment "It describes the relationship between the mention and the sentence and the entities and the mention."@en ;
+             rdfs:label "containedIn"@en .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#contains
-:contains rdf:type owl:ObjectProperty .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#contains
+:contains rdf:type owl:ObjectProperty ;
+          rdfs:domain <http://www.w3.org/2004/02/skos/core#Collection> ;
+          rdfs:range :Paper ;
+          rdfs:comment "It explains that each collection is composed of papers."@en ;
+          rdfs:label "contains"@en .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#impact
-:impact rdf:type owl:ObjectProperty .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#hasAbstract
+:hasAbstract rdf:type owl:ObjectProperty ;
+             rdfs:domain :Paper ;
+             rdfs:range :PaperAbstract ;
+             rdfs:comment "It underlines that a paper contains an abstract."@en ;
+             rdfs:label "hasAbstract"@en .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#influence
-:influence rdf:type owl:ObjectProperty .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#hasTtitle
+:hasTtitle rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf owl:topObjectProperty ;
+           rdfs:domain :Paper ;
+           rdfs:range :PaperTitle ;
+           rdfs:comment "It underlines that a paper contains a title."@en ;
+           rdfs:label "hasTitle"@en .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#interact
-:interact rdf:type owl:ObjectProperty .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#impact
+:impact rdf:type owl:ObjectProperty ;
+        rdfs:domain :Drug ;
+        rdfs:range :Microbiome ;
+        rdfs:comment "It describes the effect or change when is strongly associated with alterations in biological or microbiological aspects, like microbiota or gut health."@en ;
+        rdfs:label "impact"@en .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#isLinkedTo
-:isLinkedTo rdf:type owl:ObjectProperty .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#influence
+:influence rdf:type owl:ObjectProperty ;
+           rdfs:domain [ rdf:type owl:Class ;
+                         owl:unionOf ( <https://w3id.org/brainteaser/ontology/schema/InterventionOrProcedure>
+                                       <https://w3id.org/hereditary/ontology/genomics/schema/Species>
+                                     )
+                       ] ;
+           rdfs:range <https://w3id.org/brainteaser/ontology/schema/DiseaseDisorderOrFinding> ;
+           rdfs:comment "Represents the effect or impact of a dietary supplements or other substances and often diseases, disorders, or health conditions."@en ;
+           rdfs:label "influence"@en .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#locatedIn
-:locatedIn rdf:type owl:ObjectProperty .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#interact
+:interact rdf:type owl:ObjectProperty ;
+          rdfs:domain [ rdf:type owl:Class ;
+                        owl:unionOf ( :Chemical
+                                      :Drug
+                                      <https://w3id.org/brainteaser/ontology/schema/DiseaseDisorderOrFinding>
+                                      <https://w3id.org/hereditary/ontology/genomics/schema/Species>
+                                    )
+                      ] ;
+          rdfs:range [ rdf:type owl:Class ;
+                       owl:unionOf ( :Chemical
+                                     :Drug
+                                     <https://w3id.org/brainteaser/ontology/schema/InterventionOrProcedure>
+                                     <https://w3id.org/hereditary/ontology/genomics/schema/Species>
+                                   )
+                     ] ;
+          rdfs:comment "It explains what can influence DDF"@en ;
+          rdfs:label "interact"@en .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#partOf
-:partOf rdf:type owl:ObjectProperty .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#isLinkedTo
+:isLinkedTo rdf:type owl:ObjectProperty ;
+            rdfs:domain :Microbiome ;
+            rdfs:range <https://w3id.org/brainteaser/ontology/schema/DiseaseDisorderOrFinding> ;
+            rdfs:comment "It defines a relatioship between microbiota and a disease or health condition."@en ;
+            rdfs:label "isLinkedTo"@en .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#producedBy
-:producedBy rdf:type owl:ObjectProperty .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#locatedIn
+:locatedIn rdf:type owl:ObjectProperty ;
+           rdfs:domain [ rdf:type owl:Class ;
+                         owl:unionOf ( :Chemical
+                                       :Microbiome
+                                       <https://w3id.org/brainteaser/ontology/schema/AnatomicalSite>
+                                     )
+                       ] ;
+           rdfs:range [ rdf:type owl:Class ;
+                        owl:unionOf ( :Organism
+                                      <https://w3id.org/brainteaser/ontology/schema/AnatomicalSite>
+                                    )
+                      ] ;
+           rdfs:comment "It defines the relationship between an organism and its location in the Microbiome."@en ;
+           rdfs:label "locatedIn"@en .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#relatedTo
-:relatedTo rdf:type owl:ObjectProperty .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#partOf
+:partOf rdf:type owl:ObjectProperty ;
+        rdfs:domain [ rdf:type owl:Class ;
+                      owl:unionOf ( :Genome
+                                    :Metabolite
+                                    :Sentence
+                                    <https://w3id.org/brainteaser/ontology/schema/Gene>
+                                    <https://w3id.org/hereditary/ontology/genomics/schema/Species>
+                                  )
+                    ] ;
+        rdfs:range [ rdf:type owl:Class ;
+                     owl:unionOf ( :Chemical
+                                   :Genome
+                                   :Microbiome
+                                   :PaperAbstract
+                                   :PaperTitle
+                                 )
+                   ] ;
+        rdfs:comment "It defines the relationship between Bacterias and Microbiome."@en ;
+        rdfs:label "partOf"@en .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#strike
-:strike rdf:type owl:ObjectProperty .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#producedBy
+:producedBy rdf:type owl:ObjectProperty ;
+            rdfs:domain [ rdf:type owl:Class ;
+                          owl:unionOf ( :Drug
+                                        :Metabolite
+                                      )
+                        ] ;
+            rdfs:range :Microbiome ;
+            rdfs:comment "It defines the relationship between the drug or metabolite and the microbiome."@en ;
+            rdfs:label "producedBy"@en .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#target
-:target rdf:type owl:ObjectProperty .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#relatedTo
+:relatedTo rdf:type owl:ObjectProperty ;
+           rdfs:domain :Neurotransmitter ;
+           rdfs:range :Microbiome ;
+           rdfs:comment "It defines the relationship between the neurotransmitter and the microbiome."@en ;
+           rdfs:label "relatedTo"@en .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#treatedBy
-:treatedBy rdf:type owl:ObjectProperty .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#strike
+:strike rdf:type owl:ObjectProperty ;
+        rdfs:domain <https://w3id.org/brainteaser/ontology/schema/DiseaseDisorderOrFinding> ;
+        rdfs:range <https://w3id.org/brainteaser/ontology/schema/AnatomicalSite> ;
+        rdfs:comment "It defines the relationship between the disease, disorder and finding and the anatomical location."@en ;
+        rdfs:label "strike"@en .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#usedBy
-:usedBy rdf:type owl:ObjectProperty .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#target
+:target rdf:type owl:ObjectProperty ;
+        rdfs:domain <https://w3id.org/brainteaser/ontology/schema/DiseaseDisorderOrFinding> ;
+        rdfs:range :Organism ;
+        rdfs:comment "It is used to specify that a particular disease or health disorder primarily affects or concerns a specific population or biological entity."@en ;
+        rdfs:label "target"@en .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#treatedBy
+:treatedBy rdf:type owl:ObjectProperty ;
+           rdfs:domain <https://w3id.org/brainteaser/ontology/schema/DiseaseDisorderOrFinding> ;
+           rdfs:range <https://w3id.org/brainteaser/ontology/schema/InterventionOrProcedure> ;
+           rdfs:comment "It explains that the disease, disorder or finding is treated by the intervention or procedure."@en ;
+           rdfs:label "treatedBy"@en .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#usedBy
+:usedBy rdf:type owl:ObjectProperty ;
+        rdfs:domain [ rdf:type owl:Class ;
+                      owl:unionOf ( :Animal
+                                    :Human
+                                    :Microbiome
+                                  )
+                    ] ;
+        rdfs:range :BiomedicalTechnique ;
+        rdfs:comment "This relationship suggests the employment or use of specific biomedical techniques or methods on particular biological entities, usually in experimental setups."@en ;
+        rdfs:label "usedBy"@en .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#usedInProject
+:usedInProject rdf:type owl:ObjectProperty ;
+               rdfs:domain :Sample ;
+               rdfs:range :Project ;
+               rdfs:comment "It defines the relationship between the Project and the Sample associated with it."@en ;
+               rdfs:label "usedInProject"@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#NCBITaxonId
+:NCBITaxonId rdf:type owl:DatatypeProperty .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#SRRNumber
+:SRRNumber rdf:type owl:DatatypeProperty .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#SRSNumber
+:SRSNumber rdf:type owl:DatatypeProperty .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#avgLength
+:avgLength rdf:type owl:DatatypeProperty .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#meanRelativeAbundance
+:meanRelativeAbundance rdf:type owl:DatatypeProperty .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#medianRelativeAbundance
+:medianRelativeAbundance rdf:type owl:DatatypeProperty .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#numberOfRunsFound
+:numberOfRunsFound rdf:type owl:DatatypeProperty .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#paperAnnotator
+:paperAnnotator rdf:type owl:DatatypeProperty .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#paperId
+:paperId rdf:type owl:DatatypeProperty .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#paperJournal
+:paperJournal rdf:type owl:DatatypeProperty .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#paperYear
+:paperYear rdf:type owl:DatatypeProperty .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#patientHealthStatus
+:patientHealthStatus rdf:type owl:DatatypeProperty .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#projectId
+:projectId rdf:type owl:DatatypeProperty .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#projectLink
+:projectLink rdf:type owl:DatatypeProperty .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#projectNotes
+:projectNotes rdf:type owl:DatatypeProperty .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#projectSubjects
+:projectSubjects rdf:type owl:DatatypeProperty .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#publicationDate
+:publicationDate rdf:type owl:DatatypeProperty .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#regionIsoCode
+:regionIsoCode rdf:type owl:DatatypeProperty .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#sampleRegion
+:sampleRegion rdf:type owl:DatatypeProperty .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#sampleType
+:sampleType rdf:type owl:DatatypeProperty .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#scientificName
+:scientificName rdf:type owl:DatatypeProperty .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#sdRelativeAbundance
+:sdRelativeAbundance rdf:type owl:DatatypeProperty .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#totalBases
+:totalBases rdf:type owl:DatatypeProperty .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#usedAmplicon
+:usedAmplicon rdf:type owl:DatatypeProperty .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#usedBeadBeating
+:usedBeadBeating rdf:type owl:DatatypeProperty .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#usedIntrument
+:usedIntrument rdf:type owl:DatatypeProperty .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#usedKit
+:usedKit rdf:type owl:DatatypeProperty .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#usedLibrarySource
+:usedLibrarySource rdf:type owl:DatatypeProperty .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#usedLibraryStrategy
+:usedLibraryStrategy rdf:type owl:DatatypeProperty .
 
 
 #################################################################
@@ -131,6 +415,7 @@ xsd:date rdf:type rdfs:Datatype .
 :BiomedicalTechnique rdf:type owl:Class ;
                      rdfs:subClassOf <https://w3id.org/brainteaser/ontology/genomics/schema/Assay> ;
                      rdfs:comment "Research concerned with the application of biological and physiological principles to clinical medicine. [Definition Source: NCI]"@en ;
+                     rdfs:isDefinedBy "http://purl.obolibrary.org/obo/NCIT_C15188" ;
                      rdfs:label "Biomedical Technique"@en .
 
 
@@ -155,11 +440,6 @@ xsd:date rdf:type rdfs:Datatype .
                    rdfs:label "Dietary Supplement"@en .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#Dominium
-:Dominium rdf:type owl:Class ;
-          rdfs:label "Dominium"@en .
-
-
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain#Drug
 :Drug rdf:type owl:Class ;
       rdfs:subClassOf <https://w3id.org/brainteaser/ontology/schema/InterventionOrProcedure> ;
@@ -170,6 +450,7 @@ xsd:date rdf:type rdfs:Datatype .
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain#ExperimentalResult
 :ExperimentalResult rdf:type owl:Class ;
                     rdfs:comment "The outcome of an experiment or set of experiments, including observations and primary, processed, and analyzed data. [Definition Source: NCI]"@en ;
+                    rdfs:isDefinedBy "http://purl.obolibrary.org/obo/NCIT_C76125" ;
                     rdfs:label "Experimental Result"@en .
 
 
@@ -207,12 +488,6 @@ xsd:date rdf:type rdfs:Datatype .
        rdfs:label "Human"@en .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#Mention
-:Mention rdf:type owl:Class ;
-         rdfs:comment "Word or Phrase that is inside a sentence."@en ;
-         rdfs:label "Mention"@en .
-
-
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain#Metabolite
 :Metabolite rdf:type owl:Class ;
             rdfs:comment "Any intermediate or product resulting from metabolism. The term 'metabolite' subsumes the classes commonly known as primary and secondary metabolites. [Definition Source: CHEBI]"@en ;
@@ -223,6 +498,12 @@ xsd:date rdf:type rdfs:Datatype .
 :Microbiome rdf:type owl:Class ;
             rdfs:comment "A biome that consists of a collection of microorganisms (i.e., microbiota) and the surrounding environment where the microorganisms reside. [Definition Source: NCI]"@en ;
             rdfs:label "Microbiome"@en .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#Neurotransmitter
+:Neurotransmitter rdf:type owl:Class ;
+                  rdfs:comment "Endogenous signaling molecules that alter the behavior of neurons or effector cells. Neurotransmitter is used here in its most general sense, including not only messengers that act directly to regulate ion channels, but also those that act through second messenger systems, and those that act at a distance from their site of release. Included are neuromodulators, neuroregulators, neuromediators, and neurohumors, whether or not acting at synapses. [Definition Source: NCI]"@en ;
+                  rdfs:label "Neurotransmitter"@en .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain#Order
@@ -238,30 +519,6 @@ xsd:date rdf:type rdfs:Datatype .
           rdfs:label "Organism"@en .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#Paper
-:Paper rdf:type owl:Class ;
-       rdfs:comment "An article reporting original research, published in a peer-reviewed journal. [Definition Source: ONTOAVIDA]"@en ;
-       rdfs:label "Paper"@en .
-
-
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#PaperAbstract
-:PaperAbstract rdf:type owl:Class ;
-               rdfs:comment "A written summary of the important points of a scientific article. [Definition Source: NCI]"@en ;
-               rdfs:label "Paper Abstract"@en .
-
-
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#PaperCollection
-:PaperCollection rdf:type owl:Class ;
-                 rdfs:comment "Paper Collection"@en ,
-                              "The type of the collection where there are the papers."@en .
-
-
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#PaperTitle
-:PaperTitle rdf:type owl:Class ;
-            rdfs:comment "An official descriptive name of a document, e.g. the long name of a study protocol provided by the study sponsor. [Definition Source: NCI]"@en ;
-            rdfs:label "Paper Title"@en .
-
-
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain#Phylum
 :Phylum rdf:type owl:Class ;
         rdfs:subClassOf :SuperKingdom ;
@@ -269,65 +526,107 @@ xsd:date rdf:type rdfs:Datatype .
         rdfs:label "Phylum"@en .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#Project
-:Project rdf:type owl:Class ;
-         rdfs:comment "Any specifically defined piece of work that is undertaken or attempted to meet a single requirement. [Definition Source: NCI]"@en ;
-         rdfs:label "Project"@en .
-
-
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#Sample
-:Sample rdf:type owl:Class ;
-        rdfs:comment "Any material sample taken from a biological entity for testing, diagnostic, propagation, treatment or research purposes, including a sample obtained from a living organism or taken from the biological object after halting of all its life functions. Biospecimen can contain one or more components including but not limited to cellular molecules, cells, tissues, organs, body fluids, embryos, and body excretory products. [Definition Source: NCI]"@en ;
-        rdfs:label "Sample"@en .
-
-
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#Sentence
-:Sentence rdf:type owl:Class ;
-          rdfs:comment "A set of words that is complete in itself, conveying a statement, question, exclamation, or command and typically containing an explicit or implied subject and a predicate containing a finite verb. [Definition Source: NCI]"@en ;
-          rdfs:label "Sentence"@en .
-
-
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#Specimen
-:Specimen rdf:type owl:Class ;
-          rdfs:comment "A part of a thing, or of several things, taken to demonstrate or to determine the character of the whole, e.g. a substance, or portion of material obtained for use in testing, examination, or study; particularly, a preparation of tissue or bodily fluid taken for examination or diagnosis. [Definition Source: NCI]"@en ;
-          rdfs:label "Specimen"@en .
-
-
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#SpecimenCollectionProcess
-:SpecimenCollectionProcess rdf:type owl:Class ;
-                           rdfs:comment "The rule which guides how a specimen collection should be performed. [Definition Source: NCI]"@en ;
-                           rdfs:label "Specimen Collection Process"@en .
-
-
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain#StatisticalTechnique
 :StatisticalTechnique rdf:type owl:Class ;
                       rdfs:subClassOf <https://w3id.org/brainteaser/ontology/genomics/schema/Assay> ;
                       rdfs:comment "A method of analyzing or representing statistical data; a procedure for calculating a statistic. [Definition Source: NCI]"@en ;
+                      rdfs:isDefinedBy "http://purl.obolibrary.org/obo/NCIT_C19044" ;
                       rdfs:label "Statistical Technique"@en .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain#SuperKingdom
 :SuperKingdom rdf:type owl:Class ;
-              rdfs:subClassOf :Dominium ;
+              rdfs:subClassOf :Domain ;
               rdfs:comment "The highest taxonomic rank, immediately above phylum or division. There are five biological kingdoms (Monera, Protista, Plantae, Fungi, Animalia) into which organisms are grouped, based on common characteristics. [Definition Source: NCI]"@en ;
               rdfs:label "Super Kingdom"@en .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#Domain
+:Domain rdf:type owl:Class ;
+        rdfs:label "Dominium"@en .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#Mention
+:Mention rdf:type owl:Class ;
+         rdfs:comment "Word or Phrase that is inside a sentence."@en ;
+         rdfs:label "Mention"@en .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#Paper
+:Paper rdf:type owl:Class ;
+       rdfs:comment "An article reporting original research, published in a peer-reviewed journal. [Definition Source: ONTOAVIDA]"@en ;
+       rdfs:label "Paper"@en .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#PaperAbstract
+:PaperAbstract rdf:type owl:Class ;
+               rdfs:comment "A written summary of the important points of a scientific article. [Definition Source: NCI]"@en ;
+               rdfs:label "Paper Abstract"@en .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#PaperCollection
+:PaperCollection rdf:type owl:Class ;
+                 rdfs:comment "Paper Collection"@en ,
+                              "The type of the collection where there are the papers."@en .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#PaperTitle
+:PaperTitle rdf:type owl:Class ;
+            rdfs:comment "An official descriptive name of a document, e.g. the long name of a study protocol provided by the study sponsor. [Definition Source: NCI]"@en ;
+            rdfs:label "Paper Title"@en .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#Project
+:Project rdf:type owl:Class ;
+         rdfs:comment "Any specifically defined piece of work that is undertaken or attempted to meet a single requirement. [Definition Source: NCI]"@en ;
+         rdfs:isDefinedBy "http://purl.obolibrary.org/obo/NCIT_C47885" ;
+         rdfs:label "Project"@en .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#Sample
+:Sample rdf:type owl:Class ;
+        rdfs:comment "Any material sample taken from a biological entity for testing, diagnostic, propagation, treatment or research purposes, including a sample obtained from a living organism or taken from the biological object after halting of all its life functions. Biospecimen can contain one or more components including but not limited to cellular molecules, cells, tissues, organs, body fluids, embryos, and body excretory products. [Definition Source: NCI]"@en ;
+        rdfs:isDefinedBy "http://purl.obolibrary.org/obo/NCIT_C70699" ;
+        rdfs:label "Sample"@en .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#Sentence
+:Sentence rdf:type owl:Class ;
+          rdfs:comment "A set of words that is complete in itself, conveying a statement, question, exclamation, or command and typically containing an explicit or implied subject and a predicate containing a finite verb. [Definition Source: NCI]"@en ;
+          rdfs:isDefinedBy "http://purl.obolibrary.org/obo/NCIT_C62638" ;
+          rdfs:label "Sentence"@en .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#Specimen
+:Specimen rdf:type owl:Class ;
+          rdfs:comment "A part of a thing, or of several things, taken to demonstrate or to determine the character of the whole, e.g. a substance, or portion of material obtained for use in testing, examination, or study; particularly, a preparation of tissue or bodily fluid taken for examination or diagnosis. [Definition Source: NCI]"@en ;
+          rdfs:label "Specimen"@en .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#SpecimenCollectionProcess
+:SpecimenCollectionProcess rdf:type owl:Class ;
+                           rdfs:comment "The rule which guides how a specimen collection should be performed. [Definition Source: NCI]"@en ;
+                           rdfs:label "Specimen Collection Process"@en .
 
 
 ###  https://w3id.org/brainteaser/ontology/genomics/schema/Assay
 <https://w3id.org/brainteaser/ontology/genomics/schema/Assay> rdf:type owl:Class ;
                                                               rdfs:comment "The assay used to produce measurement. [Definition Source: Phenopacket v2]"@en ;
+                                                              rdfs:isDefinedBy "http://purl.obolibrary.org/obo/OBI_0000070" ;
                                                               rdfs:label "Assay"@en .
 
 
 ###  https://w3id.org/brainteaser/ontology/schema/AnatomicalSite
 <https://w3id.org/brainteaser/ontology/schema/AnatomicalSite> rdf:type owl:Class ;
                                                               rdfs:comment "Named locations of or within the body. [Definition Source: NCI]"@en ;
+                                                              rdfs:isDefinedBy "http://purl.obolibrary.org/obo/NCIT_C13717" ;
                                                               rdfs:label "Anatomic Site"@en .
 
 
 ###  https://w3id.org/brainteaser/ontology/schema/DiseaseDisorderOrFinding
 <https://w3id.org/brainteaser/ontology/schema/DiseaseDisorderOrFinding> rdf:type owl:Class ;
                                                                         rdfs:comment "A condition that is relevant to human neoplasms and non-neoplastic disorders. This includes observations, test results, history and other concepts relevant to the characterization of human pathologic conditions. [Definition Source: NCI]"@en ;
+                                                                        rdfs:isDefinedBy "http://purl.obolibrary.org/obo/NCIT_C7057" ;
                                                                         rdfs:label "Disease, Disorder or Finding"@en .
 
 
