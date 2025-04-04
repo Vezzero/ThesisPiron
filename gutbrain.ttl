@@ -79,7 +79,7 @@ xsd:gYear rdf:type rdfs:Datatype .
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#changeEffect
 :changeEffect rdf:type owl:ObjectProperty ;
-              rdfs:domain gutbrain:Drug ;
+              rdfs:domain :Drug ;
               rdfs:range <https://w3id.org/brainteaser/ontology/schema/DiseaseDisorderOrFinding> ;
               rdfs:comment "It indicates that a drug or substance alters or modifies the course or symptoms of a disease or disorder."@en ;
               rdfs:label "changeEffect"@en .
@@ -162,7 +162,7 @@ xsd:gYear rdf:type rdfs:Datatype .
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#impact
 :impact rdf:type owl:ObjectProperty ;
-        rdfs:domain gutbrain:Drug ;
+        rdfs:domain :Drug ;
         rdfs:range :Microbiome ;
         rdfs:comment "It describes the effect or change when is strongly associated with alterations in biological or microbiological aspects, like microbiota or gut health."@en ;
         rdfs:label "impact"@en .
@@ -183,15 +183,15 @@ xsd:gYear rdf:type rdfs:Datatype .
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#interact
 :interact rdf:type owl:ObjectProperty ;
           rdfs:domain [ rdf:type owl:Class ;
-                        owl:unionOf ( gutbrain:Chemical
-                                      gutbrain:Drug
+                        owl:unionOf ( :Chemical
+                                      :Drug
                                       <https://w3id.org/brainteaser/ontology/schema/DiseaseDisorderOrFinding>
                                       <https://w3id.org/hereditary/ontology/genomics/schema/Species>
                                     )
                       ] ;
           rdfs:range [ rdf:type owl:Class ;
-                       owl:unionOf ( gutbrain:Chemical
-                                     gutbrain:Drug
+                       owl:unionOf ( :Chemical
+                                     :Drug
                                      <https://w3id.org/brainteaser/ontology/schema/InterventionOrProcedure>
                                      <https://w3id.org/hereditary/ontology/genomics/schema/Species>
                                    )
@@ -211,7 +211,7 @@ xsd:gYear rdf:type rdfs:Datatype .
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#locatedIn
 :locatedIn rdf:type owl:ObjectProperty ;
            rdfs:domain [ rdf:type owl:Class ;
-                         owl:unionOf ( gutbrain:Chemical
+                         owl:unionOf ( :Chemical
                                        :Microbiome
                                        <https://w3id.org/brainteaser/ontology/schema/AnatomicalSite>
                                      )
@@ -228,8 +228,8 @@ xsd:gYear rdf:type rdfs:Datatype .
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#partOf
 :partOf rdf:type owl:ObjectProperty ;
         rdfs:domain [ rdf:type owl:Class ;
-                      owl:unionOf ( gutbrain:Genome
-                                    gutbrain:Metabolite
+                      owl:unionOf ( gutbrain:Metabolite
+                                    :Genome
                                     :Microbiome
                                     :Sentence
                                     <https://w3id.org/brainteaser/ontology/schema/Gene>
@@ -237,10 +237,10 @@ xsd:gYear rdf:type rdfs:Datatype .
                                   )
                     ] ;
         rdfs:range [ rdf:type owl:Class ;
-                     owl:unionOf ( gutbrain:Chemical
-                                   gutbrain:Genome
-                                   gutbrain:Microbiota
+                     owl:unionOf ( :Chemical
+                                   :Genome
                                    :Microbiome
+                                   :Microbiota
                                    :PaperAbstract
                                    :PaperTitle
                                  )
@@ -252,8 +252,8 @@ xsd:gYear rdf:type rdfs:Datatype .
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#producedBy
 :producedBy rdf:type owl:ObjectProperty ;
             rdfs:domain [ rdf:type owl:Class ;
-                          owl:unionOf ( gutbrain:Drug
-                                        gutbrain:Metabolite
+                          owl:unionOf ( gutbrain:Metabolite
+                                        :Drug
                                       )
                         ] ;
             rdfs:range :Microbiome ;
@@ -530,25 +530,6 @@ gutbrain:Animal rdf:type owl:Class ;
                 rdfs:subClassOf gutbrain:Organism .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#Chemical
-gutbrain:Chemical rdf:type owl:Class ;
-                  rdfs:subClassOf <https://w3id.org/brainteaser/ontology/schema/InterventionOrProcedure> .
-
-
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#Drug
-gutbrain:Drug rdf:type owl:Class ;
-              rdfs:subClassOf <https://w3id.org/brainteaser/ontology/schema/InterventionOrProcedure> .
-
-
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#Food
-gutbrain:Food rdf:type owl:Class ;
-              rdfs:subClassOf <https://w3id.org/brainteaser/ontology/schema/InterventionOrProcedure> .
-
-
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#Genome
-gutbrain:Genome rdf:type owl:Class .
-
-
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain#Human
 gutbrain:Human rdf:type owl:Class ;
                rdfs:subClassOf gutbrain:Organism .
@@ -558,16 +539,8 @@ gutbrain:Human rdf:type owl:Class ;
 gutbrain:Metabolite rdf:type owl:Class .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#Microbiota
-gutbrain:Microbiota rdf:type owl:Class .
-
-
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain#Organism
 gutbrain:Organism rdf:type owl:Class .
-
-
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#Specimen
-gutbrain:Specimen rdf:type owl:Class .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#BiomedicalTechnique
@@ -577,6 +550,14 @@ gutbrain:Specimen rdf:type owl:Class .
                      rdfs:isDefinedBy "http://purl.obolibrary.org/obo/NCIT_C15188" ;
                      rdfs:label "Biomedical Technique"@en ;
                      <http://www.w3.org/2004/02/skos/core#exactMatch> "http://purl.obolibrary.org/obo/NCIT_C15188" .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#Chemical
+:Chemical rdf:type owl:Class ;
+          rdfs:subClassOf <https://w3id.org/brainteaser/ontology/schema/InterventionOrProcedure> ;
+          rdfs:comment "A chemical substance is a portion of matter of constant composition, composed of molecular entities of the same type or of different types. [Definition Source: CHEBI]"@en ;
+          rdfs:label "Chemical"@en ;
+          <http://www.w3.org/2004/02/skos/core#exactMatch> "http://purl.obolibrary.org/obo/CHEBI_59999" .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#Class
@@ -589,7 +570,7 @@ gutbrain:Specimen rdf:type owl:Class .
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#DietarySupplement
 :DietarySupplement rdf:type owl:Class ;
-                   rdfs:subClassOf gutbrain:Food ;
+                   rdfs:subClassOf :Food ;
                    rdfs:comment "Products in capsule, tablet or liquid form that provide dietary ingredients, and that are intended to be taken by mouth to increase the intake of nutrients. Dietary supplements can include macronutrients, such as proteins, carbohydrates, and fats; and/or MICRONUTRIENTS, such as VITAMINS; MINERALS; and PHYTOCHEMICALS. [Definition Source: MeSH]"@en ;
                    rdfs:label "Dietary Supplement"@en ;
                    <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.ncbi.nlm.nih.gov/mesh/68019587" .
@@ -600,6 +581,14 @@ gutbrain:Specimen rdf:type owl:Class .
         rdfs:comment "A taxonomic category above that of Kingdom."@en ;
         rdfs:label "Domain"@en ;
         <http://www.w3.org/2004/02/skos/core#exactMatch> "http://purl.obolibrary.org/obo/NCIT_C62706" .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#Drug
+:Drug rdf:type owl:Class ;
+      rdfs:subClassOf <https://w3id.org/brainteaser/ontology/schema/InterventionOrProcedure> ;
+      rdfs:comment "Any substance which when absorbed into a living organism may modify one or more of its functions. The term is generally accepted for a substance taken for a therapeutic purpose, but is also commonly used for abused substances. [Definition Source: CHEBI]"@en ;
+      rdfs:label "Drug"@en ;
+      <http://www.w3.org/2004/02/skos/core#exactMatch> "http://purl.obolibrary.org/obo/CHEBI_23888" .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#ExperimentalResult
@@ -615,6 +604,21 @@ gutbrain:Specimen rdf:type owl:Class .
         rdfs:comment "A taxonomic category between Order and Genus. It consists of a group of organisms among which the differences are quite minor, e.g. Equiidae - horses and their relatives. [Definition Source: NCI]"@en ;
         rdfs:label "Family"@en ;
         <http://www.w3.org/2004/02/skos/core#exactMatch> "http://purl.obolibrary.org/obo/NCIT_C45290" .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#Food
+:Food rdf:type owl:Class ;
+      rdfs:subClassOf <https://w3id.org/brainteaser/ontology/schema/InterventionOrProcedure> ;
+      rdfs:comment "A group of materials of either plant, animal or artificial origin containing essential body nutrients that can be ingested by an organism to produce energy, stimulate growth, and maintain life. [Definition Source: NCI]"@en ;
+      rdfs:label "Food"@en ;
+      <http://www.w3.org/2004/02/skos/core#exactMatch> "http://purl.obolibrary.org/obo/NCIT_C62695" .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#Genome
+:Genome rdf:type owl:Class ;
+        rdfs:comment "The genetic complement of an organism, including all of its GENES, as represented in its DNA, or in some cases, its RNA. [Definition Source: MeSH]"@en ;
+        rdfs:label "Genome"@en ;
+        <http://www.w3.org/2004/02/skos/core#exactMatch> "https://www.ncbi.nlm.nih.gov/mesh/68016678" .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#Genus
@@ -638,11 +642,16 @@ gutbrain:Specimen rdf:type owl:Class .
             <http://www.w3.org/2004/02/skos/core#exactMatch> "http://purl.obolibrary.org/obo/OHMI_0000003" .
 
 
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#Microbiota
+:Microbiota rdf:type owl:Class ;
+            rdfs:label "Microbiota"@en .
+
+
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#Neurotransmitter
 :Neurotransmitter rdf:type owl:Class ;
                   rdfs:comment "Endogenous signaling molecules that alter the behavior of neurons or effector cells. Neurotransmitter is used here in its most general sense, including not only messengers that act directly to regulate ion channels, but also those that act through second messenger systems, and those that act at a distance from their site of release. Included are neuromodulators, neuroregulators, neuromediators, and neurohumors, whether or not acting at synapses. [Definition Source: NCI]"@en ;
                   rdfs:label "Neurotransmitter"@en ;
-                  <http://www.w3.org/2004/02/skos/core#exactMatch> "http://purl.obolibrary.org/obo/CHEBI:25512" .
+                  <http://www.w3.org/2004/02/skos/core#exactMatch> "http://purl.obolibrary.org/obo/NCIT_C687" .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#Order
@@ -706,11 +715,18 @@ gutbrain:Specimen rdf:type owl:Class .
           rdfs:label "Sentence"@en .
 
 
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#Specimen
+:Specimen rdf:type owl:Class ;
+          rdfs:comment "A material entity that is collected for potential use as an input upon which measurements or observations are performed. [Definition Source: OBI]"@en ;
+          rdfs:label "Specimen"@en ;
+          <http://www.w3.org/2004/02/skos/core#exactMatch> "http://purl.obolibrary.org/obo/OBI_0100051" .
+
+
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#SpecimenCollectionProcess
 :SpecimenCollectionProcess rdf:type owl:Class ;
-                           rdfs:comment "The rule which guides how a specimen collection should be performed. [Definition Source: NCI]"@en ;
+                           rdfs:comment "A planned process with the objective to obtain a material entity for potential use as an input upon which measurements or observations are performed. [Definition Source: OBI]"@en ;
                            rdfs:label "Specimen Collection Process"@en ;
-                           <http://www.w3.org/2004/02/skos/core#exactMatch> "http://purl.obolibrary.org/obo/NCIT_C164426" .
+                           <http://www.w3.org/2004/02/skos/core#exactMatch> "http://purl.obolibrary.org/obo/OBI_0000659" .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#StatisticalTechnique
@@ -807,23 +823,26 @@ gutbrain:Bronze rdf:type owl:NamedIndividual ,
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain#Chemical
 gutbrain:Chemical rdf:type owl:NamedIndividual ,
-                           <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+                           <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+                  rdfs:label "Chemical"@en .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain#Drug
 gutbrain:Drug rdf:type owl:NamedIndividual ,
-                       <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+                       <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+              rdfs:label "Drug"@en .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#Experimental_Result
-gutbrain:Experimental_Result rdf:type owl:NamedIndividual ,
-                                      <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
-                             rdfs:label "Experimental Result"@en .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#ExperimentalResult
+gutbrain:ExperimentalResult rdf:type owl:NamedIndividual ,
+                                     <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+                            rdfs:label "Experimental Result"@en .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain#Food
 gutbrain:Food rdf:type owl:NamedIndividual ,
-                       <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+                       <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+              rdfs:label "Food"@en .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain#Gene
@@ -834,11 +853,13 @@ gutbrain:Gene rdf:type owl:NamedIndividual ,
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain#Genome
 gutbrain:Genome rdf:type owl:NamedIndividual ,
-                         <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+                         <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+                rdfs:label "Genome"@en .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain#Gold
-gutbrain:Gold rdf:type owl:NamedIndividual ;
+gutbrain:Gold rdf:type owl:NamedIndividual ,
+                       :PaperCollection ;
               rdfs:label "Gold Collection"@en .
 
 
@@ -854,7 +875,10 @@ gutbrain:Metabolite rdf:type owl:NamedIndividual ,
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain#Microbiota
 gutbrain:Microbiota rdf:type owl:NamedIndividual ,
-                             <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+                             <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+                    rdfs:comment "The collection of microorganisms existing in the intestines of an organism. [Definition Source: NCI]"@en ;
+                    rdfs:label "Microbiota" ;
+                    <http://www.w3.org/2004/02/skos/core#exactMatch> "http://purl.obolibrary.org/obo/NCIT_C93019" .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain#Organism
@@ -863,7 +887,8 @@ gutbrain:Organism rdf:type owl:NamedIndividual ,
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain#Platinum
-gutbrain:Platinum rdf:type owl:NamedIndividual ;
+gutbrain:Platinum rdf:type owl:NamedIndividual ,
+                           :PaperCollection ;
                   rdfs:label "Platinum Collection"@en .
 
 
@@ -875,7 +900,8 @@ gutbrain:Species rdf:type owl:NamedIndividual ,
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain#Specimen
 gutbrain:Specimen rdf:type owl:NamedIndividual ,
-                           <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+                           <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+                  rdfs:label "Specimen"@en .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain#SpecimenCollectionProcess
@@ -896,34 +922,34 @@ gutbrain:dietarySupplement rdf:type owl:NamedIndividual ,
                            rdfs:label "Dietary Supplement"@en .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#Disease_or_Disorder
-:Disease_or_Disorder rdf:type owl:NamedIndividual ,
-                              <http://www.w3.org/2004/02/skos/core#Concept> ,
-                              <https://w3id.org/brainteaser/ontology/schema/DiseaseDisorderOrFinding> ;
-                     <http://www.w3.org/2004/02/skos/core#inScheme> :diseaseDisorderOrFindingTaxonomy ;
-                     rdfs:label "Disease or Disorder"@en .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#diseaseDisorderOrFindingTaxonomy
+gutbrain:diseaseDisorderOrFindingTaxonomy rdf:type owl:NamedIndividual ,
+                                                   <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+                                          <http://www.w3.org/2004/02/skos/core#hasTopConcept> <https://hereditary.dei.unipd.it/ontology/gutbrain/#DiseaseOrDisorder> ,
+                                                                                              :Finding ;
+                                          rdfs:label "Disease, Disorder or Finding Taxonomy"@en .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain#interventionOrProcedure
+gutbrain:interventionOrProcedure rdf:type owl:NamedIndividual ,
+                                          <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+                                 rdfs:label "Intervention or Procedure"@en .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/#DiseaseOrDisorder
+<https://hereditary.dei.unipd.it/ontology/gutbrain/#DiseaseOrDisorder> rdf:type owl:NamedIndividual ,
+                                                                                <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                                                <https://w3id.org/brainteaser/ontology/schema/DiseaseDisorderOrFinding> ;
+                                                                       <http://www.w3.org/2004/02/skos/core#inScheme> gutbrain:diseaseDisorderOrFindingTaxonomy ;
+                                                                       rdfs:label "Disease or Disorder"@en .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#Finding
 :Finding rdf:type owl:NamedIndividual ,
                   <http://www.w3.org/2004/02/skos/core#Concept> ,
                   <https://w3id.org/brainteaser/ontology/schema/DiseaseDisorderOrFinding> ;
-         <http://www.w3.org/2004/02/skos/core#inScheme> :diseaseDisorderOrFindingTaxonomy ;
+         <http://www.w3.org/2004/02/skos/core#inScheme> gutbrain:diseaseDisorderOrFindingTaxonomy ;
          rdfs:label "Finding"@en .
-
-
-###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#diseaseDisorderOrFindingTaxonomy
-:diseaseDisorderOrFindingTaxonomy rdf:type owl:NamedIndividual ,
-                                           <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
-                                  <http://www.w3.org/2004/02/skos/core#hasTopConcept> :Disease_or_Disorder ,
-                                                                                      :Finding ;
-                                  rdfs:label "Disease, Disorder or Finding Taxonomy"@en .
-
-
-###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#interventionOrProcedure
-:interventionOrProcedure rdf:type owl:NamedIndividual ,
-                                  <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
-                         rdfs:label "Intervention or Procedure"@en .
 
 
 #################################################################
@@ -1054,34 +1080,22 @@ gutbrain:dietarySupplement rdf:type owl:NamedIndividual ,
                                        <http://www.w3.org/2004/02/skos/core#note> "A [second property](/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/type) with the same name as this property has been declared in the [dcterms: namespace](http://purl.org/dc/terms/).  See the Introduction to the document [DCMI Metadata Terms](/specifications/dublin-core/dcmi-terms/) for an explanation."@en .
 
 
-gutbrain:Animal rdfs:label "Animal"@en .
+gutbrain:Animal rdfs:label "Animal"@en ;
+                <http://www.w3.org/2004/02/skos/core#exactMatch> "http://purl.obolibrary.org/obo/NCBITaxon_33208" .
 
 
-gutbrain:Chemical rdfs:label "Chemical"@en .
+gutbrain:Human rdfs:label "Human"@en ;
+               <http://www.w3.org/2004/02/skos/core#exactMatch> "http://purl.obolibrary.org/obo/NCBITaxon_9606" .
 
 
-gutbrain:Drug rdfs:label "Drug"@en .
+gutbrain:Metabolite rdfs:comment "Any substance involved in metabolism, either as a product of metabolism or as necessary for metabolism. [Definition Source: NCI]"@en ;
+                    rdfs:label "Metabolite"@en ;
+                    <http://www.w3.org/2004/02/skos/core#exactMatch> "http://purl.obolibrary.org/obo/CHEBI:25212" .
 
 
-gutbrain:Food rdfs:label "Food"@en .
-
-
-gutbrain:Genome rdfs:label "Genome"@en .
-
-
-gutbrain:Human rdfs:label "Human"@en .
-
-
-gutbrain:Metabolite rdfs:label "Metabolite"@en .
-
-
-gutbrain:Microbiota rdfs:label "Microbiota" .
-
-
-gutbrain:Organism rdfs:label "Organism"@en .
-
-
-gutbrain:Specimen rdfs:label "Specimen"@en .
+gutbrain:Organism rdfs:comment "A living entity. [Definition Source: NCI]"@en ;
+                  rdfs:label "Organism"@en ;
+                  <http://www.w3.org/2004/02/skos/core#exactMatch> "http://purl.obolibrary.org/obo/NCIT_C14250" .
 
 
 ###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
