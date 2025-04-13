@@ -1,11 +1,11 @@
-@prefix : <https://hereditary.dei.unipd.it/ontology/gutbrain/schema#> .
+@prefix : <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptSchema/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix gutbrain: <https://hereditary.dei.unipd.it/ontology/gutbrain#> .
-@base <https://hereditary.dei.unipd.it/ontology/gutbrain/schema#> .
+@base <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptSchema/> .
 
 <https://hereditary.dei.unipd.it/ontology/gutbrain/schema> rdf:type owl:Ontology ;
                                                             owl:versionIRI <https://hereditary.dei.unipd.it/ontology/gutbrain/1.0/> ;
@@ -318,207 +318,207 @@ xsd:gYear rdf:type rdfs:Datatype .
 #    Data properties
 #################################################################
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#NCBITaxonId
-gutbrain:NCBITaxonId rdf:type owl:DatatypeProperty ;
-                     rdfs:domain <https://w3id.org/hereditary/ontology/genomics/schema/Species> ;
-                     rdfs:range xsd:integer ;
-                     rdfs:label "NCBITaxonId" .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/NCBITaxonId
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/NCBITaxonId> rdf:type owl:DatatypeProperty ;
+                                                                       rdfs:domain <https://w3id.org/hereditary/ontology/genomics/schema/Species> ;
+                                                                       rdfs:range xsd:integer ;
+                                                                       rdfs:label "NCBITaxonId" .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#SRRNumber
-gutbrain:SRRNumber rdf:type owl:DatatypeProperty ;
-                   rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Sample> ;
-                   rdfs:range rdf:PlainLiteral ;
-                   rdfs:label "SRRNumber" .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/SRRNumber
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/SRRNumber> rdf:type owl:DatatypeProperty ;
+                                                                     rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Sample> ;
+                                                                     rdfs:range rdf:PlainLiteral ;
+                                                                     rdfs:label "SRRNumber" .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#SRSNumber
-gutbrain:SRSNumber rdf:type owl:DatatypeProperty ;
-                   rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Sample> ;
-                   rdfs:range rdf:PlainLiteral ;
-                   rdfs:label "SRSNumber" .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/SRSNumber
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/SRSNumber> rdf:type owl:DatatypeProperty ;
+                                                                     rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Sample> ;
+                                                                     rdfs:range rdf:PlainLiteral ;
+                                                                     rdfs:label "SRSNumber" .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#avgLength
-gutbrain:avgLength rdf:type owl:DatatypeProperty ;
-                   rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Project> ;
-                   rdfs:range xsd:float ;
-                   rdfs:label "avgLength" .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/avgLength
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/avgLength> rdf:type owl:DatatypeProperty ;
+                                                                     rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Project> ;
+                                                                     rdfs:range xsd:float ;
+                                                                     rdfs:label "avgLength" .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#meanRelativeAbundance
-gutbrain:meanRelativeAbundance rdf:type owl:DatatypeProperty ;
-                               rdfs:domain <https://w3id.org/hereditary/ontology/genomics/schema/Species> ;
-                               rdfs:range xsd:float ;
-                               rdfs:label "meanRelativeAbundance" .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/meanRelativeAbundance
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/meanRelativeAbundance> rdf:type owl:DatatypeProperty ;
+                                                                                 rdfs:domain <https://w3id.org/hereditary/ontology/genomics/schema/Species> ;
+                                                                                 rdfs:range xsd:float ;
+                                                                                 rdfs:label "meanRelativeAbundance" .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#medianRelativeAbundance
-gutbrain:medianRelativeAbundance rdf:type owl:DatatypeProperty ;
-                                 rdfs:domain <https://w3id.org/hereditary/ontology/genomics/schema/Species> ;
-                                 rdfs:range xsd:float ;
-                                 rdfs:label "medianRelativeAbundance" .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/medianRelativeAbundance
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/medianRelativeAbundance> rdf:type owl:DatatypeProperty ;
+                                                                                   rdfs:domain <https://w3id.org/hereditary/ontology/genomics/schema/Species> ;
+                                                                                   rdfs:range xsd:float ;
+                                                                                   rdfs:label "medianRelativeAbundance" .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#numberOfRunsFound
-gutbrain:numberOfRunsFound rdf:type owl:DatatypeProperty ;
-                           rdfs:domain <https://w3id.org/hereditary/ontology/genomics/schema/Species> ;
-                           rdfs:range xsd:integer ;
-                           rdfs:label "numberOfRunsFound" .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/numberOfRunsFound
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/numberOfRunsFound> rdf:type owl:DatatypeProperty ;
+                                                                             rdfs:domain <https://w3id.org/hereditary/ontology/genomics/schema/Species> ;
+                                                                             rdfs:range xsd:integer ;
+                                                                             rdfs:label "numberOfRunsFound" .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#paperAnnotator
-gutbrain:paperAnnotator rdf:type owl:DatatypeProperty ;
-                        rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Paper> ;
-                        rdfs:range rdf:PlainLiteral ;
-                        rdfs:label "paperAnnotator" .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/paperAnnotator
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/paperAnnotator> rdf:type owl:DatatypeProperty ;
+                                                                          rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Paper> ;
+                                                                          rdfs:range rdf:PlainLiteral ;
+                                                                          rdfs:label "paperAnnotator" .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#paperId
-gutbrain:paperId rdf:type owl:DatatypeProperty ;
-                 rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Paper> ;
-                 rdfs:range xsd:integer ;
-                 rdfs:label "paperId" .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/paperId
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/paperId> rdf:type owl:DatatypeProperty ;
+                                                                   rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Paper> ;
+                                                                   rdfs:range xsd:integer ;
+                                                                   rdfs:label "paperId" .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#paperJournal
-gutbrain:paperJournal rdf:type owl:DatatypeProperty ;
-                      rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Paper> ;
-                      rdfs:range rdf:PlainLiteral ;
-                      rdfs:label "paperJournal" .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/paperJournal
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/paperJournal> rdf:type owl:DatatypeProperty ;
+                                                                        rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Paper> ;
+                                                                        rdfs:range rdf:PlainLiteral ;
+                                                                        rdfs:label "paperJournal" .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#paperYear
-gutbrain:paperYear rdf:type owl:DatatypeProperty ;
-                   rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Paper> ;
-                   rdfs:range xsd:gYear ;
-                   rdfs:label "paperYear" .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/paperYear
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/paperYear> rdf:type owl:DatatypeProperty ;
+                                                                     rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Paper> ;
+                                                                     rdfs:range xsd:gYear ;
+                                                                     rdfs:label "paperYear" .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#patientHealthStatus
-gutbrain:patientHealthStatus rdf:type owl:DatatypeProperty ;
-                             rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Project> ;
-                             rdfs:range rdf:PlainLiteral ;
-                             rdfs:label "patientHealthStatus" .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/patientHealthStatus
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/patientHealthStatus> rdf:type owl:DatatypeProperty ;
+                                                                               rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Project> ;
+                                                                               rdfs:range rdf:PlainLiteral ;
+                                                                               rdfs:label "patientHealthStatus" .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#projectId
-gutbrain:projectId rdf:type owl:DatatypeProperty ;
-                   rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Project> ;
-                   rdfs:range xsd:integer ;
-                   rdfs:label "projectId" .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/projectId
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/projectId> rdf:type owl:DatatypeProperty ;
+                                                                     rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Project> ;
+                                                                     rdfs:range xsd:integer ;
+                                                                     rdfs:label "projectId" .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#projectLink
-gutbrain:projectLink rdf:type owl:DatatypeProperty ;
-                     rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Project> ;
-                     rdfs:range rdf:PlainLiteral ;
-                     rdfs:label "projectLink" .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/projectLink
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/projectLink> rdf:type owl:DatatypeProperty ;
+                                                                       rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Project> ;
+                                                                       rdfs:range rdf:PlainLiteral ;
+                                                                       rdfs:label "projectLink" .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#projectNotes
-gutbrain:projectNotes rdf:type owl:DatatypeProperty ;
-                      rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Project> ;
-                      rdfs:range rdf:PlainLiteral ;
-                      rdfs:label "projectNotes" .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/projectNotes
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/projectNotes> rdf:type owl:DatatypeProperty ;
+                                                                        rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Project> ;
+                                                                        rdfs:range rdf:PlainLiteral ;
+                                                                        rdfs:label "projectNotes" .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#projectSubjects
-gutbrain:projectSubjects rdf:type owl:DatatypeProperty ;
-                         rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Project> ;
-                         rdfs:range rdf:PlainLiteral ;
-                         rdfs:label "projectSubjects" .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/projectSubjects
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/projectSubjects> rdf:type owl:DatatypeProperty ;
+                                                                           rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Project> ;
+                                                                           rdfs:range rdf:PlainLiteral ;
+                                                                           rdfs:label "projectSubjects" .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#publicationDate
-gutbrain:publicationDate rdf:type owl:DatatypeProperty ;
-                         rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Sample> ;
-                         rdfs:range xsd:dateTime ;
-                         rdfs:label "publicationDate" .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/publicationDate
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/publicationDate> rdf:type owl:DatatypeProperty ;
+                                                                           rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Sample> ;
+                                                                           rdfs:range xsd:dateTime ;
+                                                                           rdfs:label "publicationDate" .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#regionIsoCode
-gutbrain:regionIsoCode rdf:type owl:DatatypeProperty ;
-                       rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Sample> ;
-                       rdfs:range xsd:dateTime ;
-                       rdfs:label "regionIsoCode" .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/regionIsoCode
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/regionIsoCode> rdf:type owl:DatatypeProperty ;
+                                                                         rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Sample> ;
+                                                                         rdfs:range xsd:dateTime ;
+                                                                         rdfs:label "regionIsoCode" .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#sampleRegion
-gutbrain:sampleRegion rdf:type owl:DatatypeProperty ;
-                      rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Sample> ;
-                      rdfs:range rdf:PlainLiteral ;
-                      rdfs:label "sampleRegion" .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/sampleRegion
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/sampleRegion> rdf:type owl:DatatypeProperty ;
+                                                                        rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Sample> ;
+                                                                        rdfs:range rdf:PlainLiteral ;
+                                                                        rdfs:label "sampleRegion" .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#sampleType
-gutbrain:sampleType rdf:type owl:DatatypeProperty ;
-                    rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Sample> ;
-                    rdfs:range rdf:PlainLiteral ;
-                    rdfs:label "sampleType" .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/sampleType
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/sampleType> rdf:type owl:DatatypeProperty ;
+                                                                      rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Sample> ;
+                                                                      rdfs:range rdf:PlainLiteral ;
+                                                                      rdfs:label "sampleType" .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#scientificName
-gutbrain:scientificName rdf:type owl:DatatypeProperty ;
-                        rdfs:domain <https://w3id.org/hereditary/ontology/genomics/schema/Species> ;
-                        rdfs:range rdf:PlainLiteral ;
-                        rdfs:label "scientificName" .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/scientificName
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/scientificName> rdf:type owl:DatatypeProperty ;
+                                                                          rdfs:domain <https://w3id.org/hereditary/ontology/genomics/schema/Species> ;
+                                                                          rdfs:range rdf:PlainLiteral ;
+                                                                          rdfs:label "scientificName" .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#sdRelativeAbundance
-gutbrain:sdRelativeAbundance rdf:type owl:DatatypeProperty ;
-                             rdfs:domain <https://w3id.org/hereditary/ontology/genomics/schema/Species> ;
-                             rdfs:range xsd:float ;
-                             rdfs:label "sdRelativeAbundance" .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/sdRelativeAbundance
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/sdRelativeAbundance> rdf:type owl:DatatypeProperty ;
+                                                                               rdfs:domain <https://w3id.org/hereditary/ontology/genomics/schema/Species> ;
+                                                                               rdfs:range xsd:float ;
+                                                                               rdfs:label "sdRelativeAbundance" .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#totalBases
-gutbrain:totalBases rdf:type owl:DatatypeProperty ;
-                    rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Sample> ;
-                    rdfs:range xsd:integer ;
-                    rdfs:label "totalBases" .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/totalBases
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/totalBases> rdf:type owl:DatatypeProperty ;
+                                                                      rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Sample> ;
+                                                                      rdfs:range xsd:integer ;
+                                                                      rdfs:label "totalBases" .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#usedAmplicon
-gutbrain:usedAmplicon rdf:type owl:DatatypeProperty ;
-                      rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Project> ;
-                      rdfs:range rdf:PlainLiteral ;
-                      rdfs:label "usedAmplicon" .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/usedAmplicon
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/usedAmplicon> rdf:type owl:DatatypeProperty ;
+                                                                        rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Project> ;
+                                                                        rdfs:range rdf:PlainLiteral ;
+                                                                        rdfs:label "usedAmplicon" .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#usedBeadBeating
-gutbrain:usedBeadBeating rdf:type owl:DatatypeProperty ;
-                         rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Project> ;
-                         rdfs:range xsd:boolean ;
-                         rdfs:label "usedBeadBeating" .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/usedBeadBeating
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/usedBeadBeating> rdf:type owl:DatatypeProperty ;
+                                                                           rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Project> ;
+                                                                           rdfs:range xsd:boolean ;
+                                                                           rdfs:label "usedBeadBeating" .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#usedIntrument
-gutbrain:usedIntrument rdf:type owl:DatatypeProperty ;
-                       rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Sample> ;
-                       rdfs:range rdf:PlainLiteral ;
-                       rdfs:label "usedInstrument" .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/usedIntrument
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/usedIntrument> rdf:type owl:DatatypeProperty ;
+                                                                         rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Sample> ;
+                                                                         rdfs:range rdf:PlainLiteral ;
+                                                                         rdfs:label "usedInstrument" .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#usedKit
-gutbrain:usedKit rdf:type owl:DatatypeProperty ;
-                 rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Project> ;
-                 rdfs:range rdf:PlainLiteral ;
-                 rdfs:label "usedKit" .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/usedKit
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/usedKit> rdf:type owl:DatatypeProperty ;
+                                                                   rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Project> ;
+                                                                   rdfs:range rdf:PlainLiteral ;
+                                                                   rdfs:label "usedKit" .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#usedLibrarySource
-gutbrain:usedLibrarySource rdf:type owl:DatatypeProperty ;
-                           rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Sample> ;
-                           rdfs:range rdf:PlainLiteral ;
-                           rdfs:label "usedLibrarySource" .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/usedLibrarySource
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/usedLibrarySource> rdf:type owl:DatatypeProperty ;
+                                                                             rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Sample> ;
+                                                                             rdfs:range rdf:PlainLiteral ;
+                                                                             rdfs:label "usedLibrarySource" .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#usedLibraryStrategy
-gutbrain:usedLibraryStrategy rdf:type owl:DatatypeProperty ;
-                             rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Sample> ;
-                             rdfs:range rdf:PlainLiteral ;
-                             rdfs:label "usedLibraryStrategy" .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/usedLibraryStrategy
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/usedLibraryStrategy> rdf:type owl:DatatypeProperty ;
+                                                                               rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Sample> ;
+                                                                               rdfs:range rdf:PlainLiteral ;
+                                                                               rdfs:label "usedLibraryStrategy" .
 
 
 #################################################################
@@ -598,9 +598,7 @@ gutbrain:usedLibraryStrategy rdf:type owl:DatatypeProperty ;
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Food
 <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Food> rdf:type owl:Class ;
                                                                 rdfs:subClassOf <https://w3id.org/brainteaser/ontology/schema/InterventionOrProcedure> ;
-                                                                rdfs:comment "A group of materials of either plant, animal or artificial origin containing essential body nutrients that can be ingested by an organism to produce energy, stimulate growth, and maintain life. [Definition Source: NCI]"@en ;
-                                                                rdfs:label "Food"@en ;
-                                                                <http://www.w3.org/2004/02/skos/core#exactMatch> "http://purl.obolibrary.org/obo/NCIT_C62695" .
+                                                                rdfs:label "Food"@en .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Genome
@@ -802,164 +800,170 @@ gutbrain:usedLibraryStrategy rdf:type owl:DatatypeProperty ;
 #    Individuals
 #################################################################
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#AnatomicSite
-gutbrain:AnatomicSite rdf:type owl:NamedIndividual ,
-                               <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
-                      rdfs:label "Anatomic Site"@en .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/resource/Gold
+<https://hereditary.dei.unipd.it/ontology/gutbrain/resource/Gold> rdf:type owl:NamedIndividual ,
+                                                                           <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/PaperCollection> ;
+                                                                  rdfs:label "Gold Collection"@en .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#Animal
-gutbrain:Animal rdf:type owl:NamedIndividual ,
-                         <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/AnatomicSite
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/AnatomicSite> rdf:type owl:NamedIndividual ,
+                                                                                               <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+                                                                                      rdfs:label "Anatomic Site"@en .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#Assay
-gutbrain:Assay rdf:type owl:NamedIndividual ,
-                        <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
-               rdfs:label "Assay"@en .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Animal
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Animal> rdf:type owl:NamedIndividual ,
+                                                                                         <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+                                                                                rdfs:label "Animal"@en .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#BiomedicalTechnique
-gutbrain:BiomedicalTechnique rdf:type owl:NamedIndividual ,
-                                      <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
-                             rdfs:label "Biomedical Technique"@en .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Assay
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Assay> rdf:type owl:NamedIndividual ,
+                                                                                        <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+                                                                               rdfs:label "Assay"@en .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#Bronze
-gutbrain:Bronze rdf:type owl:NamedIndividual ,
-                         <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/PaperCollection> ;
-                rdfs:label "Bronze Collection"@en .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/BiomedicalTechnique
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/BiomedicalTechnique> rdf:type owl:NamedIndividual ,
+                                                                                                      <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+                                                                                             rdfs:label "Biomedical Technique"@en .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#Chemical
-gutbrain:Chemical rdf:type owl:NamedIndividual ,
-                           <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
-                  rdfs:label "Chemical"@en .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Chemical
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Chemical> rdf:type owl:NamedIndividual ,
+                                                                                           <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+                                                                                  rdfs:label "Chemical"@en .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#Drug
-gutbrain:Drug rdf:type owl:NamedIndividual ,
-                       <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
-              rdfs:label "Drug"@en .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Drug
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Drug> rdf:type owl:NamedIndividual ,
+                                                                                       <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+                                                                              rdfs:label "Drug"@en .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#ExperimentalResult
-gutbrain:ExperimentalResult rdf:type owl:NamedIndividual ,
-                                     <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
-                            rdfs:label "Experimental Result"@en .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/ExperimentalResult
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/ExperimentalResult> rdf:type owl:NamedIndividual ,
+                                                                                                     <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+                                                                                            rdfs:label "Experimental Result"@en .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#Food
-gutbrain:Food rdf:type owl:NamedIndividual ,
-                       <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
-              rdfs:label "Food"@en .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Food
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Food> rdf:type owl:NamedIndividual ,
+                                                                                       <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+                                                                              rdfs:comment "A group of materials of either plant, animal or artificial origin containing essential body nutrients that can be ingested by an organism to produce energy, stimulate growth, and maintain life. [Definition Source: NCI]"@en ;
+                                                                              rdfs:label "Food"@en ;
+                                                                              <http://www.w3.org/2004/02/skos/core#exactMatch> "http://purl.obolibrary.org/obo/NCIT_C62695" .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#Gene
-gutbrain:Gene rdf:type owl:NamedIndividual ,
-                       <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
-              rdfs:label "Gene"@en .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Gene
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Gene> rdf:type owl:NamedIndividual ,
+                                                                                       <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+                                                                              rdfs:label "Gene"@en .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#Genome
-gutbrain:Genome rdf:type owl:NamedIndividual ,
-                         <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
-                rdfs:label "Genome"@en .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Genome
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Genome> rdf:type owl:NamedIndividual ,
+                                                                                         <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+                                                                                rdfs:label "Genome"@en .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#Gold
-gutbrain:Gold rdf:type owl:NamedIndividual ,
-                       <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/PaperCollection> ;
-              rdfs:label "Gold Collection"@en .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Human
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Human> rdf:type owl:NamedIndividual ,
+                                                                                        <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+                                                                               rdfs:label "Human"@en .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#Human
-gutbrain:Human rdf:type owl:NamedIndividual ,
-                        <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Metabolite
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Metabolite> rdf:type owl:NamedIndividual ,
+                                                                                             <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+                                                                                    rdfs:label "Metabolite"@en .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#Metabolite
-gutbrain:Metabolite rdf:type owl:NamedIndividual ,
-                             <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Microbiome
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Microbiome> rdf:type owl:NamedIndividual ,
+                                                                                             <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+                                                                                    rdfs:label "Microbiome"@en .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#Microbiota
-gutbrain:Microbiota rdf:type owl:NamedIndividual ,
-                             <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
-                    rdfs:comment "The collection of microorganisms existing in the intestines of an organism. [Definition Source: NCI]"@en ;
-                    rdfs:label "Microbiota" ;
-                    <http://www.w3.org/2004/02/skos/core#exactMatch> "http://purl.obolibrary.org/obo/NCIT_C93019" .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Microbiota
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Microbiota> rdf:type owl:NamedIndividual ,
+                                                                                             <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+                                                                                    rdfs:comment "The collection of microorganisms existing in the intestines of an organism. [Definition Source: NCI]"@en ;
+                                                                                    rdfs:label "Microbiota" ;
+                                                                                    <http://www.w3.org/2004/02/skos/core#exactMatch> "http://purl.obolibrary.org/obo/NCIT_C93019" .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#Organism
-gutbrain:Organism rdf:type owl:NamedIndividual ,
-                           <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Species
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Species> rdf:type owl:NamedIndividual ,
+                                                                                          <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+                                                                                 rdfs:label "Species"@en .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#Platinum
-gutbrain:Platinum rdf:type owl:NamedIndividual ,
-                           <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/PaperCollection> ;
-                  rdfs:label "Platinum Collection"@en .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Specimen
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Specimen> rdf:type owl:NamedIndividual ,
+                                                                                           <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+                                                                                  rdfs:label "Specimen"@en .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#Species
-gutbrain:Species rdf:type owl:NamedIndividual ,
-                          <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
-                 rdfs:label "Species"@en .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/SpecimenCollectionProcess
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/SpecimenCollectionProcess> rdf:type owl:NamedIndividual ,
+                                                                                                            <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+                                                                                                   rdfs:label "Specimen Collection Process"@en .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#Specimen
-gutbrain:Specimen rdf:type owl:NamedIndividual ,
-                           <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
-                  rdfs:label "Specimen"@en .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/StatisticalTechnique
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/StatisticalTechnique> rdf:type owl:NamedIndividual ,
+                                                                                                       <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+                                                                                              rdfs:label "Statistical Technique"@en .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#SpecimenCollectionProcess
-gutbrain:SpecimenCollectionProcess rdf:type owl:NamedIndividual ,
-                                            <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
-                                   rdfs:label "Specimen Collection Process"@en .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/dietarySupplement
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/dietarySupplement> rdf:type owl:NamedIndividual ,
+                                                                                                    <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+                                                                                           rdfs:label "Dietary Supplement"@en .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#StatisticalTechnique
-gutbrain:StatisticalTechnique rdf:type owl:NamedIndividual ,
-                                       <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
-                              rdfs:label "Statistical Technique"@en .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/diseaseDisorderOrFindingTaxonomy
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/diseaseDisorderOrFindingTaxonomy> rdf:type owl:NamedIndividual ,
+                                                                                                                   <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+                                                                                                          <http://www.w3.org/2004/02/skos/core#hasTopConcept> <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/resource/DiseaseOrDisorder> ,
+                                                                                                                                                              <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/resource/Finding> ;
+                                                                                                          rdfs:label "Disease, Disorder or Finding Taxonomy"@en .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#dietarySupplement
-gutbrain:dietarySupplement rdf:type owl:NamedIndividual ,
-                                    <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
-                           rdfs:label "Dietary Supplement"@en .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/interventionOrProcedure
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/interventionOrProcedure> rdf:type owl:NamedIndividual ,
+                                                                                                          <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+                                                                                                 rdfs:label "Intervention or Procedure"@en .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#diseaseDisorderOrFindingTaxonomy
-gutbrain:diseaseDisorderOrFindingTaxonomy rdf:type owl:NamedIndividual ,
-                                                   <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
-                                          <http://www.w3.org/2004/02/skos/core#hasTopConcept> <https://hereditary.dei.unipd.it/ontology/gutbrain/#DiseaseOrDisorder> ,
-                                                                                              :Finding ;
-                                          rdfs:label "Disease, Disorder or Finding Taxonomy"@en .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/resource/Bronze
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/resource/Bronze> rdf:type owl:NamedIndividual ,
+                                                                                    <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/PaperCollection> ;
+                                                                           rdfs:label "Bronze Collection"@en .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain#interventionOrProcedure
-gutbrain:interventionOrProcedure rdf:type owl:NamedIndividual ,
-                                          <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
-                                 rdfs:label "Intervention or Procedure"@en .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/resource/DiseaseOrDisorder
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/resource/DiseaseOrDisorder> rdf:type owl:NamedIndividual ,
+                                                                                               <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                                                               <https://w3id.org/brainteaser/ontology/schema/DiseaseDisorderOrFinding> ;
+                                                                                      <http://www.w3.org/2004/02/skos/core#inScheme> <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/diseaseDisorderOrFindingTaxonomy> ;
+                                                                                      rdfs:label "Disease or Disorder"@en .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain/#DiseaseOrDisorder
-<https://hereditary.dei.unipd.it/ontology/gutbrain/#DiseaseOrDisorder> rdf:type owl:NamedIndividual ,
-                                                                                <http://www.w3.org/2004/02/skos/core#Concept> ,
-                                                                                <https://w3id.org/brainteaser/ontology/schema/DiseaseDisorderOrFinding> ;
-                                                                       <http://www.w3.org/2004/02/skos/core#inScheme> gutbrain:diseaseDisorderOrFindingTaxonomy ;
-                                                                       rdfs:label "Disease or Disorder"@en .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/resource/Finding
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/resource/Finding> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.w3.org/2004/02/skos/core#Concept> ,
+                                                                                     <https://w3id.org/brainteaser/ontology/schema/DiseaseDisorderOrFinding> ;
+                                                                            <http://www.w3.org/2004/02/skos/core#inScheme> <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/diseaseDisorderOrFindingTaxonomy> ;
+                                                                            rdfs:label "Finding"@en .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema#Finding
-:Finding rdf:type owl:NamedIndividual ,
-                  <http://www.w3.org/2004/02/skos/core#Concept> ,
-                  <https://w3id.org/brainteaser/ontology/schema/DiseaseDisorderOrFinding> ;
-         <http://www.w3.org/2004/02/skos/core#inScheme> gutbrain:diseaseDisorderOrFindingTaxonomy ;
-         rdfs:label "Finding"@en .
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/resource/Platinum
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/resource/Platinum> rdf:type owl:NamedIndividual ,
+                                                                                      <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/PaperCollection> ;
+                                                                             rdfs:label "Platinum Collection"@en .
 
 
 #################################################################
