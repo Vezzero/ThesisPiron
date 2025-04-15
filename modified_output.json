@@ -1,0 +1,1001 @@
+{
+  "38068763": {
+    "pmid": "38068763",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Depressive Symptoms"
+      }
+    ]
+  },
+  "35965349": {
+    "pmid": "35965349",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "chicken gut microbiome"
+      }
+    ]
+  },
+  "34870091": {
+    "pmid": "34870091",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "oral and gut microbiota"
+      }
+    ]
+  },
+  "28158162": {
+    "pmid": "28158162",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Probiotics"
+      }
+    ]
+  },
+  "34172092": {
+    "pmid": "34172092",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "acetate-producing bacteria"
+      }
+    ]
+  },
+  "37845499": {
+    "pmid": "37845499",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "host microbiome"
+      }
+    ]
+  },
+  "37371676": {
+    "pmid": "37371676",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Autoimmune Diseases"
+      }
+    ]
+  },
+  "37574818": {
+    "pmid": "37574818",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Lactobacillus plantarum CCFM8661"
+      }
+    ]
+  },
+  "37571393": {
+    "pmid": "37571393",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Neurodegenerative Diseases"
+      }
+    ]
+  },
+  "37841274": {
+    "pmid": "37841274",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Melanin"
+      }
+    ]
+  },
+  "37485660": {
+    "pmid": "37485660",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Flavonoids from Seabuckthorn"
+      }
+    ]
+  },
+  "31955786": {
+    "pmid": "31955786",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Neuroactive compounds"
+      }
+    ]
+  },
+  "34098340": {
+    "pmid": "34098340",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "maternal prenatal gut microbiota"
+      }
+    ]
+  },
+  "38350463": {
+    "pmid": "38350463",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "GABA"
+      }
+    ]
+  },
+  "29352709": {
+    "pmid": "29352709",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "patients"
+      }
+    ]
+  },
+  "33511258": {
+    "pmid": "33511258",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Probiotic consumption"
+      }
+    ]
+  },
+  "33422110": {
+    "pmid": "33422110",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "dextran sodium sulphate"
+      }
+    ]
+  },
+  "34985325": {
+    "pmid": "34985325",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Gut Microbiome"
+      }
+    ]
+  },
+  "36550591": {
+    "pmid": "36550591",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Xingpijieyu formula"
+      }
+    ]
+  },
+  "30459574": {
+    "pmid": "30459574",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Oral Probiotics"
+      }
+    ]
+  },
+  "38026003": {
+    "pmid": "38026003",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "intestinal microbiota"
+      }
+    ]
+  },
+  "33194817": {
+    "pmid": "33194817",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Multiomics Study"
+      }
+    ]
+  },
+  "29022384": {
+    "pmid": "29022384",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "maternal vaginal microbiota"
+      }
+    ]
+  },
+  "29857583": {
+    "pmid": "29857583",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Parkinson's Disease"
+      }
+    ]
+  },
+  "34758889": {
+    "pmid": "34758889",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "cognitive impairment"
+      }
+    ]
+  },
+  "37881577": {
+    "pmid": "37881577",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Repeated Social Defeat Stress"
+      }
+    ]
+  },
+  "36984505": {
+    "pmid": "36984505",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "<i>Helicobacter pylori</i>-Related Hyperhomocysteinemia"
+      }
+    ]
+  },
+  "32979562": {
+    "pmid": "32979562",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Shotgun metagenomics"
+      }
+    ]
+  },
+  "34961418": {
+    "pmid": "34961418",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Berberine"
+      }
+    ]
+  },
+  "25034760": {
+    "pmid": "25034760",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Autoimmune diseases"
+      }
+    ]
+  },
+  "33067915": {
+    "pmid": "33067915",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Autism Spectrum Disorder"
+      }
+    ]
+  },
+  "33271210": {
+    "pmid": "33271210",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "probiotic supplementation"
+      }
+    ]
+  },
+  "36794003": {
+    "pmid": "36794003",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "High-fiber diet"
+      }
+    ]
+  },
+  "38132705": {
+    "pmid": "38132705",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "gut microbiome"
+      }
+    ]
+  },
+  "36900437": {
+    "pmid": "36900437",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Fermented Wheat Germ"
+      }
+    ]
+  },
+  "34603341": {
+    "pmid": "34603341",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Butylated Starch"
+      }
+    ]
+  },
+  "34422393": {
+    "pmid": "34422393",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "dysbiosis"
+      }
+    ]
+  },
+  "35914559": {
+    "pmid": "35914559",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "trichloroethylene"
+      }
+    ]
+  },
+  "38422755": {
+    "pmid": "38422755",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "hospitalized older adults"
+      }
+    ]
+  },
+  "37228957": {
+    "pmid": "37228957",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "neurological disorders"
+      }
+    ]
+  },
+  "30717162": {
+    "pmid": "30717162",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Fecal Microbiota"
+      }
+    ]
+  },
+  "31248424": {
+    "pmid": "31248424",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Altered gut microbiota"
+      }
+    ]
+  },
+  "37469436": {
+    "pmid": "37469436",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Exopolysaccharide"
+      }
+    ]
+  },
+  "31179435": {
+    "pmid": "31179435",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "intestinal microbiota"
+      }
+    ]
+  },
+  "37995075": {
+    "pmid": "37995075",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Depression"
+      }
+    ]
+  },
+  "35326429": {
+    "pmid": "35326429",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Hydrogen Sulfide"
+      }
+    ]
+  },
+  "31083360": {
+    "pmid": "31083360",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Prebiotics"
+      }
+    ]
+  },
+  "38010793": {
+    "pmid": "38010793",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Multi-omics analyses"
+      }
+    ]
+  },
+  "31685046": {
+    "pmid": "31685046",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Shotgun metagenomics"
+      }
+    ]
+  },
+  "34444820": {
+    "pmid": "34444820",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Probiotic NVP-1704"
+      }
+    ]
+  },
+  "34092293": {
+    "pmid": "34092293",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Danggui Buxue Decoction"
+      }
+    ]
+  },
+  "37927130": {
+    "pmid": "37927130",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "<i>Lactobacillus reuteri</i> ATG-F4"
+      }
+    ]
+  },
+  "35432226": {
+    "pmid": "35432226",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Gut Microbiome"
+      }
+    ]
+  },
+  "36757367": {
+    "pmid": "36757367",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "irritable bowel disease"
+      }
+    ]
+  },
+  "36493975": {
+    "pmid": "36493975",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "subdiaphragmatic vagus nerve"
+      }
+    ]
+  },
+  "37213508": {
+    "pmid": "37213508",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "colorectal cancer"
+      }
+    ]
+  },
+  "33046051": {
+    "pmid": "33046051",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "gut microbiome"
+      }
+    ]
+  },
+  "38204948": {
+    "pmid": "38204948",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "polycystic ovarian syndrome"
+      }
+    ]
+  },
+  "31952911": {
+    "pmid": "31952911",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "patients"
+      }
+    ]
+  },
+  "29023380": {
+    "pmid": "29023380",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Brain"
+      }
+    ]
+  },
+  "28572752": {
+    "pmid": "28572752",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Chronic alcohol overconsumption"
+      }
+    ]
+  },
+  "36346385": {
+    "pmid": "36346385",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "motor deficits"
+      }
+    ]
+  },
+  "32459708": {
+    "pmid": "32459708",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "gut microbiota"
+      }
+    ]
+  },
+  "33177907": {
+    "pmid": "33177907",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Inflammation"
+      }
+    ]
+  },
+  "38089822": {
+    "pmid": "38089822",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "gut microbiota"
+      }
+    ]
+  },
+  "31646148": {
+    "pmid": "31646148",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "depression"
+      }
+    ]
+  },
+  "23981537": {
+    "pmid": "23981537",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "cell danger response"
+      }
+    ]
+  },
+  "37657622": {
+    "pmid": "37657622",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "gut microbiome"
+      }
+    ]
+  },
+  "36760344": {
+    "pmid": "36760344",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Alteration of faecal microbiota balance"
+      }
+    ]
+  },
+  "33722869": {
+    "pmid": "33722869",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "anxiety"
+      }
+    ]
+  },
+  "34776854": {
+    "pmid": "34776854",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Gut Microbiome"
+      }
+    ]
+  },
+  "28976454": {
+    "pmid": "28976454",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Gut"
+      }
+    ]
+  },
+  "31053995": {
+    "pmid": "31053995",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "N-acylphosphatidyl ethanolamines"
+      }
+    ]
+  },
+  "38576868": {
+    "pmid": "38576868",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Bipolar disorder"
+      }
+    ]
+  },
+  "37511699": {
+    "pmid": "37511699",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Pharmacomicrobiomics"
+      }
+    ]
+  },
+  "37464164": {
+    "pmid": "37464164",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Gastrointestinal and Microbiome Profiling"
+      }
+    ]
+  },
+  "37368331": {
+    "pmid": "37368331",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Gut Microbiota"
+      }
+    ]
+  },
+  "37396336": {
+    "pmid": "37396336",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "voluntary wheel running"
+      }
+    ]
+  },
+  "36517709": {
+    "pmid": "36517709",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Porphyra haitanensis Polysaccharides"
+      }
+    ]
+  },
+  "37978477": {
+    "pmid": "37978477",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "intestinal microbe"
+      }
+    ]
+  },
+  "33713734": {
+    "pmid": "33713734",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Affective disorders"
+      }
+    ]
+  },
+  "34830610": {
+    "pmid": "34830610",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Gut Microbiome"
+      }
+    ]
+  },
+  "29843470": {
+    "pmid": "29843470",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Depression"
+      }
+    ]
+  },
+  "32469834": {
+    "pmid": "32469834",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "human gut microbiota"
+      }
+    ]
+  },
+  "37960197": {
+    "pmid": "37960197",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Gut Microbiota"
+      }
+    ]
+  },
+  "30707176": {
+    "pmid": "30707176",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "vasovagal syncope"
+      }
+    ]
+  },
+  "38139446": {
+    "pmid": "38139446",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Gut Microbiota"
+      }
+    ]
+  },
+  "37209162": {
+    "pmid": "37209162",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Bacillus licheniformis"
+      }
+    ]
+  },
+  "36738999": {
+    "pmid": "36738999",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "High-cholesterol diet"
+      }
+    ]
+  },
+  "37627638": {
+    "pmid": "37627638",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Multi-Omics Approach"
+      }
+    ]
+  },
+  "30394313": {
+    "pmid": "30394313",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "gut microbiota-associated epitopes"
+      }
+    ]
+  },
+  "34393849": {
+    "pmid": "34393849",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Haemophilus"
+      }
+    ]
+  },
+  "37606895": {
+    "pmid": "37606895",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "post-acute Coronavirus disease (COVID)-19 syndrome"
+      }
+    ]
+  },
+  "38508549": {
+    "pmid": "38508549",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "plant polysaccharides"
+      }
+    ]
+  },
+  "36564391": {
+    "pmid": "36564391",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Inflammatory microbes and genes"
+      }
+    ]
+  },
+  "37095530": {
+    "pmid": "37095530",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Positive mood-related gut microbiota"
+      }
+    ]
+  },
+  "35083314": {
+    "pmid": "35083314",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "small bowel microbiome"
+      }
+    ]
+  },
+  "37377497": {
+    "pmid": "37377497",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "triphala polyphenols"
+      }
+    ]
+  },
+  "37207228": {
+    "pmid": "37207228",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Toll-like receptors"
+      }
+    ]
+  },
+  "38707924": {
+    "pmid": "38707924",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "anxiety"
+      }
+    ]
+  },
+  "30584306": {
+    "pmid": "30584306",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Firmicutes"
+      }
+    ]
+  },
+  "34422879": {
+    "pmid": "34422879",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Age-Related Neurodegeneration"
+      }
+    ]
+  },
+  "26927355": {
+    "pmid": "26927355",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Type 2 Diabetes Mellitus"
+      }
+    ]
+  },
+  "38409102": {
+    "pmid": "38409102",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "traumatic stress"
+      }
+    ]
+  },
+  "38318337": {
+    "pmid": "38318337",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "microbial metabolites"
+      }
+    ]
+  },
+  "33105830": {
+    "pmid": "33105830",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "Probiotics"
+      }
+    ]
+  },
+  "33212907": {
+    "pmid": "33212907",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "<i>Lacticaseibacillus rhamnosus</i> Probiotic"
+      }
+    ]
+  },
+  "36698474": {
+    "pmid": "36698474",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "neurological and mental disorders"
+      }
+    ]
+  },
+  "37481569": {
+    "pmid": "37481569",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "gut microbiome"
+      }
+    ]
+  },
+  "30818031": {
+    "pmid": "30818031",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "gut microbiota"
+      }
+    ]
+  },
+  "37168424": {
+    "pmid": "37168424",
+    "sentences": [
+      {
+        "sent_id": 0,
+        "entity": "gut microbiota"
+      }
+    ]
+  }
+}

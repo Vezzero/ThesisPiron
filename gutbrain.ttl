@@ -114,10 +114,15 @@ xsd:gYear rdf:type rdfs:Datatype .
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/containedIn
 <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/containedIn> rdf:type owl:ObjectProperty ;
                                                                        rdfs:domain [ rdf:type owl:Class ;
-                                                                                     owl:unionOf ( <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/DietarySupplement>
-                                                                                                   <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Mention>
+                                                                                     owl:unionOf ( <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Animal>
+                                                                                                   <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/BiomedicalTechnique>
+                                                                                                   <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/DietarySupplement>
+                                                                                                   <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Drug>
+                                                                                                   <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Food>
+                                                                                                   <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Human>
                                                                                                    <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Microbiome>
                                                                                                    <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Organism>
+                                                                                                   <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/StatisticalTechnique>
                                                                                                    <https://w3id.org/brainteaser/ontology/genomics/schema/Assay>
                                                                                                    <https://w3id.org/brainteaser/ontology/schema/AnatomicalSite>
                                                                                                    <https://w3id.org/brainteaser/ontology/schema/DiseaseDisorderOrFinding>
@@ -129,7 +134,6 @@ xsd:gYear rdf:type rdfs:Datatype .
                                                                        rdfs:range [ rdf:type owl:Class ;
                                                                                     owl:unionOf ( <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Mention>
                                                                                                   <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Sample>
-                                                                                                  <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Sentence>
                                                                                                 )
                                                                                   ] ;
                                                                        rdfs:comment "It describes the relationship between the mention and the sentence and the entities and the mention."@en ;
@@ -212,12 +216,14 @@ xsd:gYear rdf:type rdfs:Datatype .
 <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/locatedIn> rdf:type owl:ObjectProperty ;
                                                                      rdfs:domain [ rdf:type owl:Class ;
                                                                                    owl:unionOf ( <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Chemical>
+                                                                                                 <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Mention>
                                                                                                  <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Microbiome>
                                                                                                  <https://w3id.org/brainteaser/ontology/schema/AnatomicalSite>
                                                                                                )
                                                                                  ] ;
                                                                      rdfs:range [ rdf:type owl:Class ;
                                                                                   owl:unionOf ( <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Organism>
+                                                                                                <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Sentence>
                                                                                                 <https://w3id.org/brainteaser/ontology/schema/AnatomicalSite>
                                                                                               )
                                                                                 ] ;
