@@ -380,6 +380,13 @@ xsd:gYear rdf:type rdfs:Datatype .
                                                                           rdfs:label "paperAnnotator" .
 
 
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/paperAuthor
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/paperAuthor> rdf:type owl:DatatypeProperty ;
+                                                                       rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Paper> ;
+                                                                       rdfs:range rdf:PlainLiteral ;
+                                                                       rdfs:label "paperAuthor"@en .
+
+
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/paperId
 <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/paperId> rdf:type owl:DatatypeProperty ;
                                                                    rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Paper> ;
