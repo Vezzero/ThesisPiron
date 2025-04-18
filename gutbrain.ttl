@@ -541,15 +541,15 @@ xsd:gYear rdf:type rdfs:Datatype .
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Animal
 <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Animal> rdf:type owl:Class ;
                                                                   rdfs:subClassOf <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Organism> ;
+                                                                  rdfs:comment "A non-human living organism that has membranous cell walls, requires oxygen and organic foods, and is capable of voluntary movement, as distinguished from a plant or mineral. [Definition Source: NCI]"@en ;
                                                                   rdfs:label "Animal"@en ;
-                                                                  <http://www.w3.org/2004/02/skos/core#exactMatch> "http://purl.obolibrary.org/obo/NCBITaxon_33208" .
+                                                                  <http://www.w3.org/2004/02/skos/core#exactMatch> "http://purl.obolibrary.org/obo/NCIT_C14182" .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/BiomedicalTechnique
 <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/BiomedicalTechnique> rdf:type owl:Class ;
                                                                                rdfs:subClassOf <https://w3id.org/brainteaser/ontology/genomics/schema/Assay> ;
                                                                                rdfs:comment "Research concerned with the application of biological and physiological principles to clinical medicine. [Definition Source: NCI]"@en ;
-                                                                               rdfs:isDefinedBy "http://purl.obolibrary.org/obo/NCIT_C15188" ;
                                                                                rdfs:label "Biomedical Technique"@en ;
                                                                                <http://www.w3.org/2004/02/skos/core#exactMatch> "http://purl.obolibrary.org/obo/NCIT_C15188" .
 
@@ -611,7 +611,9 @@ xsd:gYear rdf:type rdfs:Datatype .
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Food
 <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Food> rdf:type owl:Class ;
                                                                 rdfs:subClassOf <https://w3id.org/brainteaser/ontology/schema/InterventionOrProcedure> ;
-                                                                rdfs:label "Food"@en .
+                                                                rdfs:comment "A functional unit of heredity which occupies a specific position on a particular chromosome and serves as the template for a product that contributes to a phenotype or a biological function. [Definition Source: SNOMEDCT]"@en ;
+                                                                rdfs:label "Food"@en ;
+                                                                <http://www.w3.org/2004/02/skos/core#exactMatch> "http://purl.bioontology.org/ontology/SNOMEDCT/67271001" .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Genome
@@ -632,6 +634,7 @@ xsd:gYear rdf:type rdfs:Datatype .
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Human
 <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Human> rdf:type owl:Class ;
                                                                  rdfs:subClassOf <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Organism> ;
+                                                                 rdfs:comment "Members of the species Homo sapiens. [Definition Source: NCBI]"@en ;
                                                                  rdfs:label "Human"@en ;
                                                                  <http://www.w3.org/2004/02/skos/core#exactMatch> "http://purl.obolibrary.org/obo/NCBITaxon_9606" .
 
@@ -651,7 +654,7 @@ xsd:gYear rdf:type rdfs:Datatype .
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Microbiome
 <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Microbiome> rdf:type owl:Class ;
-                                                                      rdfs:comment "A biome that consists of a collection of microorganisms (i.e., microbiota) and the surrounding environment where the microorganisms reside. [Definition Source: NCI]"@en ;
+                                                                      rdfs:comment "This term refers to the entire habitat, including the microorganisms (bacteria, archaea, lower and higher eukaryotes, and viruses), their genomes (i.e., genes), and the surrounding environmental conditions.. [Definition Source: OHMI]"@en ;
                                                                       rdfs:label "Microbiome"@en ;
                                                                       <http://www.w3.org/2004/02/skos/core#exactMatch> "http://purl.obolibrary.org/obo/OHMI_0000003" .
 
@@ -753,8 +756,7 @@ xsd:gYear rdf:type rdfs:Datatype .
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/StatisticalTechnique
 <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/StatisticalTechnique> rdf:type owl:Class ;
                                                                                 rdfs:subClassOf <https://w3id.org/brainteaser/ontology/genomics/schema/Assay> ;
-                                                                                rdfs:comment "A method of analyzing or representing statistical data; a procedure for calculating a statistic. [Definition Source: NCI]"@en ;
-                                                                                rdfs:isDefinedBy "http://purl.obolibrary.org/obo/NCIT_C19044" ;
+                                                                                rdfs:comment "A method of calculating, analyzing, or representing statistical data. [Definition Source: NCI]"@en ;
                                                                                 rdfs:label "Statistical Technique"@en ;
                                                                                 <http://www.w3.org/2004/02/skos/core#exactMatch> "http://purl.obolibrary.org/obo/NCIT_C19044" .
 
