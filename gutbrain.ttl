@@ -352,6 +352,34 @@ xsd:gYear rdf:type rdfs:Datatype .
                                                                      rdfs:label "avgLength" .
 
 
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/hasAbstractText
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/hasAbstractText> rdf:type owl:DatatypeProperty ;
+                                                                           rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/PaperAbstract> ;
+                                                                           rdfs:range rdf:PlainLiteral ;
+                                                                           rdfs:label "hasAbstractText"@en .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/hasMentionText
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/hasMentionText> rdf:type owl:DatatypeProperty ;
+                                                                          rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Mention> ;
+                                                                          rdfs:range rdf:PlainLiteral ;
+                                                                          rdfs:label "hasMentionText"@en .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/hasSentenceText
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/hasSentenceText> rdf:type owl:DatatypeProperty ;
+                                                                           rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Sentence> ;
+                                                                           rdfs:range rdf:PlainLiteral ;
+                                                                           rdfs:label "hasSentenceText"@en .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/hasTitleText
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/hasTitleText> rdf:type owl:DatatypeProperty ;
+                                                                        rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/PaperTitle> ;
+                                                                        rdfs:range rdf:PlainLiteral ;
+                                                                        rdfs:label "hasTitleText"@en .
+
+
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/meanRelativeAbundance
 <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/meanRelativeAbundance> rdf:type owl:DatatypeProperty ;
                                                                                  rdfs:domain <https://w3id.org/hereditary/ontology/genomics/schema/Species> ;
@@ -912,7 +940,7 @@ xsd:gYear rdf:type rdfs:Datatype .
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Species
 <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Species> rdf:type owl:NamedIndividual ,
                                                                                           <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
-                                                                                 rdfs:label "Species"@en .
+                                                                                 rdfs:label "Species Concept Scheme"@en .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Specimen
