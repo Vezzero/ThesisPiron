@@ -852,89 +852,85 @@ xsd:gYear rdf:type rdfs:Datatype .
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/AnatomicSite
 <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/AnatomicSite> rdf:type owl:NamedIndividual ,
                                                                                                <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
-                                                                                      rdfs:label "Anatomic Site"@en .
+                                                                                      rdfs:label "Anatomic Site Concept Scheme"@en .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Animal
 <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Animal> rdf:type owl:NamedIndividual ,
                                                                                          <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
-                                                                                rdfs:label "Animal"@en .
+                                                                                rdfs:label "Animal Concept Scheme"@en .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Assay
 <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Assay> rdf:type owl:NamedIndividual ,
                                                                                         <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
-                                                                               rdfs:label "Assay"@en .
+                                                                               rdfs:label "Assay Concept Scheme"@en .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/BiomedicalTechnique
 <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/BiomedicalTechnique> rdf:type owl:NamedIndividual ,
                                                                                                       <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
-                                                                                             rdfs:label "Biomedical Technique"@en .
+                                                                                             rdfs:label "Biomedical Technique Concept Scheme"@en .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Chemical
 <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Chemical> rdf:type owl:NamedIndividual ,
                                                                                            <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
-                                                                                  rdfs:label "Chemical"@en .
+                                                                                  rdfs:label "Chemical Concept Scheme"@en .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Drug
 <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Drug> rdf:type owl:NamedIndividual ,
                                                                                        <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
-                                                                              rdfs:label "Drug"@en .
+                                                                              rdfs:label "Drug Concept Scheme"@en .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/ExperimentalResult
 <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/ExperimentalResult> rdf:type owl:NamedIndividual ,
                                                                                                      <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
-                                                                                            rdfs:label "Experimental Result"@en .
+                                                                                            rdfs:label "Experimental Result Concept Scheme"@en .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Food
 <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Food> rdf:type owl:NamedIndividual ,
                                                                                        <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
-                                                                              rdfs:comment "A group of materials of either plant, animal or artificial origin containing essential body nutrients that can be ingested by an organism to produce energy, stimulate growth, and maintain life. [Definition Source: NCI]"@en ;
-                                                                              rdfs:label "Food"@en ;
-                                                                              <http://www.w3.org/2004/02/skos/core#exactMatch> "http://purl.obolibrary.org/obo/NCIT_C62695" .
+                                                                              rdfs:label "Food Concept Scheme"@en .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Gene
 <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Gene> rdf:type owl:NamedIndividual ,
                                                                                        <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
-                                                                              rdfs:label "Gene"@en .
+                                                                              rdfs:label "Gene Concept Scheme"@en .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Genome
 <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Genome> rdf:type owl:NamedIndividual ,
                                                                                          <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
-                                                                                rdfs:label "Genome"@en .
+                                                                                rdfs:label "Genome Concept Scheme"@en .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Human
 <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Human> rdf:type owl:NamedIndividual ,
                                                                                         <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
-                                                                               rdfs:label "Human"@en .
+                                                                               rdfs:label "Human Concept Scheme"@en .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Metabolite
 <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Metabolite> rdf:type owl:NamedIndividual ,
                                                                                              <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
-                                                                                    rdfs:label "Metabolite"@en .
+                                                                                    rdfs:label "Metabolite Concept Scheme"@en .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Microbiome
 <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Microbiome> rdf:type owl:NamedIndividual ,
                                                                                              <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
-                                                                                    rdfs:label "Microbiome"@en .
+                                                                                    rdfs:label "Microbiome Concept Scheme"@en .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Microbiota
 <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Microbiota> rdf:type owl:NamedIndividual ,
                                                                                              <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
-                                                                                    rdfs:comment "The collection of microorganisms existing in the intestines of an organism. [Definition Source: NCI]"@en ;
-                                                                                    rdfs:label "Microbiota" ;
-                                                                                    <http://www.w3.org/2004/02/skos/core#exactMatch> "http://purl.obolibrary.org/obo/NCIT_C93019" .
+                                                                                    rdfs:label "Microbiota Concept Scheme"@en .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Species
@@ -946,25 +942,25 @@ xsd:gYear rdf:type rdfs:Datatype .
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Specimen
 <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Specimen> rdf:type owl:NamedIndividual ,
                                                                                            <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
-                                                                                  rdfs:label "Specimen"@en .
+                                                                                  rdfs:label "Specimen Concept Scheme"@en .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/SpecimenCollectionProcess
 <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/SpecimenCollectionProcess> rdf:type owl:NamedIndividual ,
                                                                                                             <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
-                                                                                                   rdfs:label "Specimen Collection Process"@en .
+                                                                                                   rdfs:label "Specimen Collection Process Concept Scheme"@en .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/StatisticalTechnique
 <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/StatisticalTechnique> rdf:type owl:NamedIndividual ,
                                                                                                        <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
-                                                                                              rdfs:label "Statistical Technique"@en .
+                                                                                              rdfs:label "Statistical Technique Concept Scheme"@en .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/dietarySupplement
 <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/dietarySupplement> rdf:type owl:NamedIndividual ,
                                                                                                     <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
-                                                                                           rdfs:label "Dietary Supplement"@en .
+                                                                                           rdfs:label "Dietary Supplement Concept Scheme"@en .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/diseaseDisorderOrFindingTaxonomy
@@ -972,13 +968,13 @@ xsd:gYear rdf:type rdfs:Datatype .
                                                                                                                    <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
                                                                                                           <http://www.w3.org/2004/02/skos/core#hasTopConcept> <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/resource/DiseaseOrDisorder> ,
                                                                                                                                                               <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/resource/Finding> ;
-                                                                                                          rdfs:label "Disease, Disorder or Finding Taxonomy"@en .
+                                                                                                          rdfs:label "Disease, Disorder or Finding Concept Scheme"@en .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/interventionOrProcedure
 <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/interventionOrProcedure> rdf:type owl:NamedIndividual ,
                                                                                                           <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
-                                                                                                 rdfs:label "Intervention or Procedure"@en .
+                                                                                                 rdfs:label "Intervention or Procedure Concept Scheme"@en .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/resource/Bronze
