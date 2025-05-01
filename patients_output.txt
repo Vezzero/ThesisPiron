@@ -1,8 +1,9 @@
-M01.643      Patients                       (D010361)
-M01.643.050  Adolescent, Hospitalized       (D000298)
-M01.643.154  Adolescent, Institutionalized  (D000299)
-M01.643.259  Child, Hospitalized            (D002673)
-M01.643.364  Child, Institutionalized       (D002674)
-M01.643.470  Inpatients                     (D007297)
-M01.643.550  No-Show Patients               (D000067455)
-M01.643.630  Outpatients                    (D010045)
+Patients [D010361]
+  Adolescent, Hospitalized [D000298]
+    Adolescent, Institutionalized [D000299]
+    Child, Hospitalized [D002673]
+    Child, Institutionalized [D002674]
+    Inpatients [D007297]
+    No-Show Patients [D000067455]
+    Outpatients [D010045]
+
