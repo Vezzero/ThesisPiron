@@ -879,6 +879,18 @@ xsd:gYear rdf:type rdfs:Datatype .
                                                                                   rdfs:label "Chemical Concept Scheme"@en .
 
 
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/DietarySupplement
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/DietarySupplement> rdf:type owl:NamedIndividual ,
+                                                                                                    <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+                                                                                           rdfs:label "Dietary Supplement Concept Scheme"@en .
+
+
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/DiseaseDisorderOrFindingConceptScheme
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/DiseaseDisorderOrFindingConceptScheme> rdf:type owl:NamedIndividual ,
+                                                                                                                        <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+                                                                                                               rdfs:label "Disease, Disorder or Finding Concept Scheme"@en .
+
+
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Drug
 <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Drug> rdf:type owl:NamedIndividual ,
                                                                                        <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
@@ -957,20 +969,6 @@ xsd:gYear rdf:type rdfs:Datatype .
                                                                                               rdfs:label "Statistical Technique Concept Scheme"@en .
 
 
-###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/dietarySupplement
-<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/dietarySupplement> rdf:type owl:NamedIndividual ,
-                                                                                                    <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
-                                                                                           rdfs:label "Dietary Supplement Concept Scheme"@en .
-
-
-###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/diseaseDisorderOrFindingTaxonomy
-<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/diseaseDisorderOrFindingTaxonomy> rdf:type owl:NamedIndividual ,
-                                                                                                                   <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
-                                                                                                          <http://www.w3.org/2004/02/skos/core#hasTopConcept> <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/resource/DiseaseOrDisorder> ,
-                                                                                                                                                              <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/resource/Finding> ;
-                                                                                                          rdfs:label "Disease, Disorder or Finding Concept Scheme"@en .
-
-
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/interventionOrProcedure
 <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/interventionOrProcedure> rdf:type owl:NamedIndividual ,
                                                                                                           <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
@@ -981,22 +979,6 @@ xsd:gYear rdf:type rdfs:Datatype .
 <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/resource/Bronze> rdf:type owl:NamedIndividual ,
                                                                                     <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/PaperCollection> ;
                                                                            rdfs:label "Bronze Collection"@en .
-
-
-###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/resource/DiseaseOrDisorder
-<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/resource/DiseaseOrDisorder> rdf:type owl:NamedIndividual ,
-                                                                                               <http://www.w3.org/2004/02/skos/core#Concept> ,
-                                                                                               <https://w3id.org/brainteaser/ontology/schema/DiseaseDisorderOrFinding> ;
-                                                                                      <http://www.w3.org/2004/02/skos/core#inScheme> <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/diseaseDisorderOrFindingTaxonomy> ;
-                                                                                      rdfs:label "Disease or Disorder"@en .
-
-
-###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/resource/Finding
-<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/resource/Finding> rdf:type owl:NamedIndividual ,
-                                                                                     <http://www.w3.org/2004/02/skos/core#Concept> ,
-                                                                                     <https://w3id.org/brainteaser/ontology/schema/DiseaseDisorderOrFinding> ;
-                                                                            <http://www.w3.org/2004/02/skos/core#inScheme> <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/diseaseDisorderOrFindingTaxonomy> ;
-                                                                            rdfs:label "Finding"@en .
 
 
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/resource/Platinum
