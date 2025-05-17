@@ -27,41 +27,36 @@ def get_ncit_description(ncit_id: str, txt_file_path: str) -> str:
 
     raise KeyError(f"NCIT ID '{ncit_id}' not found in '{txt_file_path}'.")
 
-def get_foodon_description(foodon_id: str, txt_file_path: str) -> str:
+def get_foodon_description(fragment: str, txt_file_path: str) -> str:
     """
-    Look up the FOODON definition for the given ID in a text file where entries
-    run across multiple lines and end like:
-       some text … — (FOODON_03510048)
-
-    foodon_id can be '03510048' or 'FOODON_03510048'.
-    Returns the full multi-line definition (joined into one line).
-    Raises KeyError if not found.
+    Given either '03510048' or 'FOODON_03510048', returns exactly
+    the text between the two em-dashes on the matching line of
+    foodon_full_taxonomy.txt.
     """
-    # normalize to full FOODON_xxxxxxxx form
-    m = re.search(r"(\d+)$", foodon_id)
+    # 1) Normalize to exactly “FOODON_XXXXXXXX”
+    m = re.search(r"(\d+)$", fragment)
     if not m:
-        raise ValueError(f"Can't parse FOODON numeric ID from '{foodon_id}'")
-    num = m.group(1).zfill(8)              # zero-pad if needed
-    lookup = f"FOODON_{num}"
+        raise ValueError(f"Can't parse FOODON numeric ID from '{fragment}'")
+    lookup = f"FOODON_{m.group(1).zfill(8)}"
 
-    # read whole file and split on blank‐line boundaries
+    # 2) Build a regex matching “<anything> — <definition> — (FOODON_xxxx)”
+    #    Uses the literal em-dash U+2014 (—) that your file uses.
+    pattern = re.compile(
+        rf"""
+        ^.*?                 # skip up to the first em-dash
+        —\s*                 # em-dash + optional space
+        (?P<body>.*?)        # capture the definition text, non-greedy
+        \s*—\s*              # next em-dash + optional space
+        \(\s*{re.escape(lookup)}\s*\)  # (FOODON_XXXXXXXX)
+        """,
+        re.VERBOSE
+    )
+
     with open(txt_file_path, "r", encoding="utf-8") as fh:
-        text = fh.read()
-    blocks = re.split(r"\n\s*\n+", text)
-
-    # find the block ending with our lookup in parentheses or brackets
-    for block in blocks:
-        if re.search(rf"[\(\[]\s*{lookup}\s*[\)\]]\s*$", block):
-            # remove trailing “— (FOODON_xxx)” or variants
-            cleaned = re.sub(
-                rf"\s*[—–-]?\s*[\(\[]\s*{lookup}\s*[\)\]].*$",
-                "",
-                block,
-                flags=re.MULTILINE
-            )
-            # combine lines and collapse whitespace
-            lines = [ln.strip() for ln in cleaned.splitlines() if ln.strip()]
-            return " ".join(lines)
+        for line in fh:
+            match = pattern.match(line)
+            if match:
+                return match.group("body").strip()
 
     raise KeyError(f"FOODON ID '{lookup}' not found in '{txt_file_path}'.")
 

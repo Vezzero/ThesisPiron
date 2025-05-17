@@ -513,6 +513,13 @@ xsd:gYear rdf:type rdfs:Datatype .
                                                                                rdfs:label "sdRelativeAbundance" .
 
 
+###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/taggedAs
+<https://hereditary.dei.unipd.it/ontology/gutbrain/schema/taggedAs> rdf:type owl:DatatypeProperty ;
+                                                                    rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Mention> ;
+                                                                    rdfs:range rdf:PlainLiteral ;
+                                                                    rdfs:label "taggedAs"@en .
+
+
 ###  https://hereditary.dei.unipd.it/ontology/gutbrain/schema/totalBases
 <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/totalBases> rdf:type owl:DatatypeProperty ;
                                                                       rdfs:domain <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Sample> ;
