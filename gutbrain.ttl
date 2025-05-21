@@ -9,7 +9,8 @@
 
 <https://hereditary.dei.unipd.it/ontology/gutbrain/schema> rdf:type owl:Ontology ;
                                                             owl:versionIRI <https://hereditary.dei.unipd.it/ontology/gutbrain/1.0/> ;
-                                                            owl:imports <http://www.w3.org/2004/02/skos/core> ;
+                                                            owl:imports <file:/C:/Users/samue/OneDrive/Desktop/ThesisPiron/rdf/gutbrain_entities.ttl> ,
+                                                                        <http://www.w3.org/2004/02/skos/core> ;
                                                             rdfs:label "Author: Samuel Piron" ;
                                                             owl:versionInfo 1.0 .
 
