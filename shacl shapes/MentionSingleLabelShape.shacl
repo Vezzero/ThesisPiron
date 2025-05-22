@@ -1,0 +1,14 @@
+@prefix sh:    <http://www.w3.org/ns/shacl#> .
+@prefix gutprop: <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+
+# Shape to verify that a Mention has at most one rdfs:label value
+
+gutprop:MentionLabelCardinalityShape
+    a sh:NodeShape ;
+    sh:targetClass gutprop:Mention ;
+    sh:property [
+        sh:path       rdfs:label ;
+        sh:maxCount   1 ;
+        sh:message    "Each Mention must have at most one rdfs:label." ;
+    ] .
