@@ -1744,14 +1744,6 @@ This work has been supported by the HEREDITARY project
     
 
 
-    <!-- http://purl.org/dc/terms/AgentClass -->
-
-    <owl:Class rdf:about="http://purl.org/dc/terms/AgentClass">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-    </owl:Class>
-    
-
-
     <!-- http://www.w3.org/2000/01/rdf-schema#Class -->
 
     <owl:Class rdf:about="http://www.w3.org/2000/01/rdf-schema#Class"/>
