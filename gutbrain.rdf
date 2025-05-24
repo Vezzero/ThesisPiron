@@ -1744,153 +1744,11 @@ This work has been supported by the HEREDITARY project
     
 
 
-    <!-- http://purl.org/dc/terms/Agent -->
-
-    <owl:Class rdf:about="http://purl.org/dc/terms/Agent"/>
-    
-
-
     <!-- http://purl.org/dc/terms/AgentClass -->
 
     <owl:Class rdf:about="http://purl.org/dc/terms/AgentClass">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
     </owl:Class>
-    
-
-
-    <!-- http://purl.org/dc/terms/BibliographicResource -->
-
-    <owl:Class rdf:about="http://purl.org/dc/terms/BibliographicResource"/>
-    
-
-
-    <!-- http://purl.org/dc/terms/FileFormat -->
-
-    <owl:Class rdf:about="http://purl.org/dc/terms/FileFormat">
-        <rdfs:subClassOf rdf:resource="http://purl.org/dc/terms/MediaType"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/dc/terms/Frequency -->
-
-    <owl:Class rdf:about="http://purl.org/dc/terms/Frequency"/>
-    
-
-
-    <!-- http://purl.org/dc/terms/Jurisdiction -->
-
-    <owl:Class rdf:about="http://purl.org/dc/terms/Jurisdiction">
-        <rdfs:subClassOf rdf:resource="http://purl.org/dc/terms/LocationPeriodOrJurisdiction"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/dc/terms/LicenseDocument -->
-
-    <owl:Class rdf:about="http://purl.org/dc/terms/LicenseDocument">
-        <rdfs:subClassOf rdf:resource="http://purl.org/dc/terms/RightsStatement"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/dc/terms/LinguisticSystem -->
-
-    <owl:Class rdf:about="http://purl.org/dc/terms/LinguisticSystem"/>
-    
-
-
-    <!-- http://purl.org/dc/terms/Location -->
-
-    <owl:Class rdf:about="http://purl.org/dc/terms/Location">
-        <rdfs:subClassOf rdf:resource="http://purl.org/dc/terms/LocationPeriodOrJurisdiction"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/dc/terms/LocationPeriodOrJurisdiction -->
-
-    <owl:Class rdf:about="http://purl.org/dc/terms/LocationPeriodOrJurisdiction"/>
-    
-
-
-    <!-- http://purl.org/dc/terms/MediaType -->
-
-    <owl:Class rdf:about="http://purl.org/dc/terms/MediaType">
-        <rdfs:subClassOf rdf:resource="http://purl.org/dc/terms/MediaTypeOrExtent"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/dc/terms/MediaTypeOrExtent -->
-
-    <owl:Class rdf:about="http://purl.org/dc/terms/MediaTypeOrExtent"/>
-    
-
-
-    <!-- http://purl.org/dc/terms/MethodOfAccrual -->
-
-    <owl:Class rdf:about="http://purl.org/dc/terms/MethodOfAccrual"/>
-    
-
-
-    <!-- http://purl.org/dc/terms/MethodOfInstruction -->
-
-    <owl:Class rdf:about="http://purl.org/dc/terms/MethodOfInstruction"/>
-    
-
-
-    <!-- http://purl.org/dc/terms/PeriodOfTime -->
-
-    <owl:Class rdf:about="http://purl.org/dc/terms/PeriodOfTime">
-        <rdfs:subClassOf rdf:resource="http://purl.org/dc/terms/LocationPeriodOrJurisdiction"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/dc/terms/PhysicalMedium -->
-
-    <owl:Class rdf:about="http://purl.org/dc/terms/PhysicalMedium">
-        <rdfs:subClassOf rdf:resource="http://purl.org/dc/terms/MediaType"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/dc/terms/PhysicalResource -->
-
-    <owl:Class rdf:about="http://purl.org/dc/terms/PhysicalResource"/>
-    
-
-
-    <!-- http://purl.org/dc/terms/Policy -->
-
-    <owl:Class rdf:about="http://purl.org/dc/terms/Policy"/>
-    
-
-
-    <!-- http://purl.org/dc/terms/ProvenanceStatement -->
-
-    <owl:Class rdf:about="http://purl.org/dc/terms/ProvenanceStatement"/>
-    
-
-
-    <!-- http://purl.org/dc/terms/RightsStatement -->
-
-    <owl:Class rdf:about="http://purl.org/dc/terms/RightsStatement"/>
-    
-
-
-    <!-- http://purl.org/dc/terms/SizeOrDuration -->
-
-    <owl:Class rdf:about="http://purl.org/dc/terms/SizeOrDuration">
-        <rdfs:subClassOf rdf:resource="http://purl.org/dc/terms/MediaTypeOrExtent"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/dc/terms/Standard -->
-
-    <owl:Class rdf:about="http://purl.org/dc/terms/Standard"/>
     
 
 
@@ -1948,9 +1806,9 @@ This work has been supported by the HEREDITARY project
 
     <owl:Class rdf:about="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/DietarySupplement">
         <rdfs:subClassOf rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Food"/>
-        <rdfs:comment xml:lang="en">Products in capsule, tablet or liquid form that provide dietary ingredients, and that are intended to be taken by mouth to increase the intake of nutrients. Dietary supplements can include macronutrients, such as proteins, carbohydrates, and fats; and/or MICRONUTRIENTS, such as VITAMINS; MINERALS; and PHYTOCHEMICALS. [Definition Source: MeSH]</rdfs:comment>
+        <rdfs:comment xml:lang="en">Oral preparations containing dietary ingredient(s) intended to supplement the diet. Dietary ingredients include vitamins, minerals, herbs, amino acids, extracts and metabolites. [Definition Source: NCIT]</rdfs:comment>
         <rdfs:label xml:lang="en">Dietary Supplement</rdfs:label>
-        <skos:exactMatch>https://www.ncbi.nlm.nih.gov/mesh/68019587</skos:exactMatch>
+        <skos:exactMatch>http://purl.obolibrary.org/obo/NCIT_C1505</skos:exactMatch>
     </owl:Class>
     
 
@@ -2129,7 +1987,7 @@ This work has been supported by the HEREDITARY project
     <!-- https://hereditary.dei.unipd.it/ontology/gutbrain/schema/PaperCollection -->
 
     <owl:Class rdf:about="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/PaperCollection">
-        <rdfs:comment xml:lang="en">The type of the collection where there are the papers.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The type of the collection where the papers are stored.</rdfs:comment>
         <rdfs:label xml:lang="en">Paper Collection</rdfs:label>
     </owl:Class>
     
@@ -2187,7 +2045,11 @@ This work has been supported by the HEREDITARY project
 
     <!-- https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Species -->
 
-    <owl:Class rdf:about="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Species"/>
+    <owl:Class rdf:about="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Species">
+        <rdfs:comment xml:lang="en">A group of organisms that differ from all other groups of organisms and that are capable of breeding and producing fertile offspring. [Definition Source: NCIT]</rdfs:comment>
+        <rdfs:label xml:lang="en">Species</rdfs:label>
+        <skos:exactMatch>http://purl.obolibrary.org/obo/NCIT_C45293</skos:exactMatch>
+    </owl:Class>
     
 
 
@@ -2250,12 +2112,6 @@ This work has been supported by the HEREDITARY project
         <rdfs:label xml:lang="en">Anatomic Site</rdfs:label>
         <skos:exactMatch>http://purl.obolibrary.org/obo/NCIT_C13717</skos:exactMatch>
     </owl:Class>
-    
-
-
-    <!-- https://w3id.org/brainteaser/ontology/schema/DietarySupplement -->
-
-    <owl:Class rdf:about="https://w3id.org/brainteaser/ontology/schema/DietarySupplement"/>
     
 
 
@@ -2419,7 +2275,7 @@ This work has been supported by the HEREDITARY project
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/CHEBI_15335">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdf:type rdf:resource="https://w3id.org/brainteaser/ontology/schema/DietarySupplement"/>
+        <rdf:type rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/DietarySupplement"/>
         <skos:inScheme rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/DietarySupplement"/>
         <schema:changeExpression rdf:resource="http://purl.obolibrary.org/obo/NCIT_C125468"/>
         <schema:containedIn rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/resource/mention/a0f0530e51234b6a"/>
@@ -2820,7 +2676,7 @@ This work has been supported by the HEREDITARY project
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/CHEBI_192105">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdf:type rdf:resource="https://w3id.org/brainteaser/ontology/schema/DietarySupplement"/>
+        <rdf:type rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/DietarySupplement"/>
         <skos:inScheme rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/DietarySupplement"/>
         <schema:changeExpression rdf:resource="http://purl.obolibrary.org/obo/NCIT_C125468"/>
         <schema:containedIn rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/resource/mention/3f2e5443a3320065"/>
@@ -2936,7 +2792,7 @@ This work has been supported by the HEREDITARY project
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/CHEBI_230487">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdf:type rdf:resource="https://w3id.org/brainteaser/ontology/schema/DietarySupplement"/>
+        <rdf:type rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/DietarySupplement"/>
         <skos:inScheme rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/DietarySupplement"/>
         <schema:administered rdf:resource="https://www.ncbi.nlm.nih.gov/mesh/D000328"/>
         <schema:containedIn rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/resource/mention/4f4df10c763f69e7"/>
@@ -3031,7 +2887,7 @@ This work has been supported by the HEREDITARY project
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/CHEBI_25212">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdf:type rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Chemical"/>
-        <rdf:type rdf:resource="https://w3id.org/brainteaser/ontology/schema/DietarySupplement"/>
+        <rdf:type rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/DietarySupplement"/>
         <skos:inScheme rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Chemical"/>
         <skos:inScheme rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/DietarySupplement"/>
         <schema:containedIn rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/resource/mention/b254c4435ebeb8d6"/>
@@ -3108,7 +2964,7 @@ This work has been supported by the HEREDITARY project
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/CHEBI_26195">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdf:type rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Chemical"/>
-        <rdf:type rdf:resource="https://w3id.org/brainteaser/ontology/schema/DietarySupplement"/>
+        <rdf:type rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/DietarySupplement"/>
         <skos:inScheme rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Chemical"/>
         <skos:inScheme rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/DietarySupplement"/>
         <schema:containedIn rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/resource/mention/e5bdff1db3fb9530"/>
@@ -3144,7 +3000,7 @@ This work has been supported by the HEREDITARY project
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/CHEBI_26666">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdf:type rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Chemical"/>
-        <rdf:type rdf:resource="https://w3id.org/brainteaser/ontology/schema/DietarySupplement"/>
+        <rdf:type rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/DietarySupplement"/>
         <skos:inScheme rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Chemical"/>
         <skos:inScheme rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/DietarySupplement"/>
         <schema:containedIn rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/resource/mention/b6fb2e551df68f04"/>
@@ -3190,7 +3046,7 @@ This work has been supported by the HEREDITARY project
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/CHEBI_27027">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdf:type rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Chemical"/>
-        <rdf:type rdf:resource="https://w3id.org/brainteaser/ontology/schema/DietarySupplement"/>
+        <rdf:type rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/DietarySupplement"/>
         <skos:inScheme rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Chemical"/>
         <skos:inScheme rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/DietarySupplement"/>
         <schema:containedIn rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/resource/mention/a70f62a7549291f9"/>
@@ -3432,7 +3288,7 @@ This work has been supported by the HEREDITARY project
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/CHEBI_33290">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdf:type rdf:resource="https://w3id.org/brainteaser/ontology/schema/DietarySupplement"/>
+        <rdf:type rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/DietarySupplement"/>
         <skos:inScheme rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/DietarySupplement"/>
         <schema:containedIn rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/resource/mention/f507452717a62d18"/>
         <rdfs:comment>CHEBI Match</rdfs:comment>
@@ -3669,7 +3525,7 @@ This work has been supported by the HEREDITARY project
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/CHEBI_5181">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdf:type rdf:resource="https://w3id.org/brainteaser/ontology/schema/DietarySupplement"/>
+        <rdf:type rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/DietarySupplement"/>
         <skos:inScheme rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/DietarySupplement"/>
         <schema:changeExpression rdf:resource="http://purl.obolibrary.org/obo/NCIT_C125468"/>
         <schema:containedIn rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/resource/mention/e720e20c35e5f983"/>
@@ -3684,7 +3540,7 @@ This work has been supported by the HEREDITARY project
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/CHEBI_5262">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdf:type rdf:resource="https://w3id.org/brainteaser/ontology/schema/DietarySupplement"/>
+        <rdf:type rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/DietarySupplement"/>
         <skos:inScheme rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/DietarySupplement"/>
         <schema:changeExpression rdf:resource="http://purl.obolibrary.org/obo/NCIT_C125468"/>
         <schema:containedIn rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/resource/mention/41b80d8baa659f1b"/>
@@ -3839,7 +3695,7 @@ This work has been supported by the HEREDITARY project
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/CHEBI_67554">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdf:type rdf:resource="https://w3id.org/brainteaser/ontology/schema/DietarySupplement"/>
+        <rdf:type rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/DietarySupplement"/>
         <skos:inScheme rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/DietarySupplement"/>
         <schema:changeExpression rdf:resource="http://purl.obolibrary.org/obo/NCIT_C125468"/>
         <schema:containedIn rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/resource/mention/da919798e8a0f5ca"/>
@@ -3854,7 +3710,7 @@ This work has been supported by the HEREDITARY project
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/CHEBI_69120">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdf:type rdf:resource="https://w3id.org/brainteaser/ontology/schema/DietarySupplement"/>
+        <rdf:type rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/DietarySupplement"/>
         <skos:inScheme rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/DietarySupplement"/>
         <schema:changeExpression rdf:resource="http://purl.obolibrary.org/obo/NCIT_C125468"/>
         <schema:containedIn rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/resource/mention/ac6aa742389ef1ed"/>
@@ -4104,7 +3960,7 @@ This work has been supported by the HEREDITARY project
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/FOODON_03420177">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdf:type rdf:resource="https://w3id.org/brainteaser/ontology/schema/DietarySupplement"/>
+        <rdf:type rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/DietarySupplement"/>
         <skos:inScheme rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/DietarySupplement"/>
         <schema:containedIn rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/resource/mention/419c71f2bddb3f76"/>
         <rdfs:comment>FOODON Match</rdfs:comment>
@@ -4584,8 +4440,8 @@ This work has been supported by the HEREDITARY project
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/NCBITaxon_1578">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdf:type rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/DietarySupplement"/>
         <rdf:type rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Species"/>
-        <rdf:type rdf:resource="https://w3id.org/brainteaser/ontology/schema/DietarySupplement"/>
         <skos:broaderTransitive rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_2"/>
         <skos:inScheme rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Bacteria"/>
         <skos:inScheme rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/DietarySupplement"/>
@@ -4924,7 +4780,7 @@ This work has been supported by the HEREDITARY project
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/NCBITaxon_193516">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdf:type rdf:resource="https://w3id.org/brainteaser/ontology/schema/DietarySupplement"/>
+        <rdf:type rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/DietarySupplement"/>
         <skos:inScheme rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/DietarySupplement"/>
         <schema:containedIn rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/resource/mention/b42ad2dd3e3386a8"/>
         <schema:containedIn rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/resource/mention/c102bb18cdbcb85d"/>
@@ -4995,8 +4851,8 @@ This work has been supported by the HEREDITARY project
         <schema:influence rdf:resource="http://purl.obolibrary.org/obo/OMIT_0005141"/>
         <schema:partOf rdf:resource="http://purl.obolibrary.org/obo/OHMI_0000002"/>
         <schema:partOf rdf:resource="http://purl.obolibrary.org/obo/OHMI_0000463"/>
-        <rdfs:comment>&quot;Dysregulated_bacteria&quot; refers to bacteria that exhibit abnormal or aberrant behavior, growth, or metabolism, often indicative of a pathological condition or disease. [Definition Source: llama3-8b-8192]</rdfs:comment>
         <rdfs:comment>NCBITaxon Match</rdfs:comment>
+        <rdfs:comment>Unicellular, prokaryotic organisms that reproduce by cell division and usually have cell walls; can be shaped like spheres, rods or spirals and can be found in virtually any environment. [Definition Source: NCIT]</rdfs:comment>
         <rdfs:label>Bacteria</rdfs:label>
     </owl:NamedIndividual>
     
@@ -5544,7 +5400,7 @@ This work has been supported by the HEREDITARY project
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/NCBITaxon_47715">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdf:type rdf:resource="https://w3id.org/brainteaser/ontology/schema/DietarySupplement"/>
+        <rdf:type rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/DietarySupplement"/>
         <skos:inScheme rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/DietarySupplement"/>
         <schema:containedIn rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/resource/mention/5c55510e77655d01"/>
         <rdfs:comment>Lacticaseibacillus rhamnosus is a species of Gram-positive, catalase-negative, rod-shaped bacteria that is commonly found in fermented foods and has been associated with various health benefits. [Definition Source: llama3-8b-8192]</rdfs:comment>
@@ -6275,7 +6131,7 @@ This work has been supported by the HEREDITARY project
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/NCIT_C1215">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdf:type rdf:resource="https://w3id.org/brainteaser/ontology/schema/DietarySupplement"/>
+        <rdf:type rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/DietarySupplement"/>
         <skos:inScheme rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/DietarySupplement"/>
         <schema:changeExpression rdf:resource="http://purl.obolibrary.org/obo/NCIT_C125468"/>
         <schema:containedIn rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/resource/mention/8a05a2479f5fd17d"/>
@@ -6965,7 +6821,7 @@ This work has been supported by the HEREDITARY project
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/NCIT_C1424">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdf:type rdf:resource="https://w3id.org/brainteaser/ontology/schema/DietarySupplement"/>
+        <rdf:type rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/DietarySupplement"/>
         <skos:inScheme rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/DietarySupplement"/>
         <schema:changeExpression rdf:resource="http://purl.obolibrary.org/obo/NCIT_C125468"/>
         <schema:containedIn rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/resource/mention/85662370651998b3"/>
@@ -6980,7 +6836,7 @@ This work has been supported by the HEREDITARY project
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/NCIT_C14258">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdf:type rdf:resource="https://w3id.org/brainteaser/ontology/schema/DietarySupplement"/>
+        <rdf:type rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/DietarySupplement"/>
         <skos:inScheme rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/DietarySupplement"/>
         <schema:containedIn rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/resource/mention/13453d56adcf2b84"/>
         <schema:impact rdf:resource="http://purl.obolibrary.org/obo/OHMI_0000463"/>
@@ -7051,7 +6907,7 @@ This work has been supported by the HEREDITARY project
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/NCIT_C15222">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdf:type rdf:resource="https://w3id.org/brainteaser/ontology/schema/DietarySupplement"/>
+        <rdf:type rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/DietarySupplement"/>
         <skos:inScheme rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/DietarySupplement"/>
         <schema:containedIn rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/resource/mention/e119be34fc2d134d"/>
         <schema:influence rdf:resource="http://purl.obolibrary.org/obo/MONDO_0004466"/>
@@ -7067,7 +6923,7 @@ This work has been supported by the HEREDITARY project
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/NCIT_C152359">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdf:type rdf:resource="https://w3id.org/brainteaser/ontology/schema/DietarySupplement"/>
+        <rdf:type rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/DietarySupplement"/>
         <skos:inScheme rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/DietarySupplement"/>
         <schema:changeExpression rdf:resource="http://purl.obolibrary.org/obo/NCIT_C125468"/>
         <schema:containedIn rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/resource/mention/b36935305560ba28"/>
@@ -7126,7 +6982,7 @@ This work has been supported by the HEREDITARY project
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/NCIT_C165169">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdf:type rdf:resource="https://w3id.org/brainteaser/ontology/schema/DietarySupplement"/>
+        <rdf:type rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/DietarySupplement"/>
         <skos:inScheme rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/DietarySupplement"/>
         <schema:containedIn rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/resource/mention/0386d428db5563fb"/>
         <rdfs:comment>A typical, daily diet. In the United States a typical diet consists of about 2,200 calories per day, with 50% of calories from carbohydrates, 15% protein, and 35% fat. [Definition Source: NCIT]</rdfs:comment>
@@ -7342,7 +7198,7 @@ This work has been supported by the HEREDITARY project
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/NCIT_C1814">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdf:type rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Chemical"/>
-        <rdf:type rdf:resource="https://w3id.org/brainteaser/ontology/schema/DietarySupplement"/>
+        <rdf:type rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/DietarySupplement"/>
         <skos:inScheme rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Chemical"/>
         <skos:inScheme rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/DietarySupplement"/>
         <schema:containedIn rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/resource/mention/be7a97576e871c53"/>
@@ -8069,7 +7925,7 @@ This work has been supported by the HEREDITARY project
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/NCIT_C28269">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdf:type rdf:resource="https://w3id.org/brainteaser/ontology/schema/DietarySupplement"/>
+        <rdf:type rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/DietarySupplement"/>
         <skos:inScheme rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/DietarySupplement"/>
         <schema:changeExpression rdf:resource="http://purl.obolibrary.org/obo/NCIT_C125468"/>
         <schema:changeExpression rdf:resource="http://purl.obolibrary.org/obo/NCIT_C17380"/>
@@ -8909,7 +8765,7 @@ This work has been supported by the HEREDITARY project
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/NCIT_C38126">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdf:type rdf:resource="https://w3id.org/brainteaser/ontology/schema/DietarySupplement"/>
+        <rdf:type rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/DietarySupplement"/>
         <skos:inScheme rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/DietarySupplement"/>
         <schema:changeExpression rdf:resource="http://purl.obolibrary.org/obo/NCIT_C125468"/>
         <schema:containedIn rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/resource/mention/5937fe2e5946246f"/>
@@ -8953,7 +8809,7 @@ This work has been supported by the HEREDITARY project
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/NCIT_C401">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdf:type rdf:resource="https://w3id.org/brainteaser/ontology/schema/DietarySupplement"/>
+        <rdf:type rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/DietarySupplement"/>
         <skos:inScheme rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/DietarySupplement"/>
         <schema:changeExpression rdf:resource="http://purl.obolibrary.org/obo/NCIT_C125468"/>
         <schema:changeExpression rdf:resource="http://purl.obolibrary.org/obo/NCIT_C21521"/>
@@ -9017,7 +8873,7 @@ This work has been supported by the HEREDITARY project
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/NCIT_C459">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdf:type rdf:resource="https://w3id.org/brainteaser/ontology/schema/DietarySupplement"/>
+        <rdf:type rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/DietarySupplement"/>
         <skos:inScheme rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/DietarySupplement"/>
         <schema:containedIn rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/resource/mention/0a4969fa7a43db61"/>
         <schema:containedIn rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/resource/mention/06c7945e848256ab"/>
@@ -9356,7 +9212,7 @@ This work has been supported by the HEREDITARY project
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/NCIT_C64763">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdf:type rdf:resource="https://w3id.org/brainteaser/ontology/schema/DietarySupplement"/>
+        <rdf:type rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/DietarySupplement"/>
         <skos:inScheme rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/DietarySupplement"/>
         <schema:containedIn rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/resource/mention/a80e97acc1fa2a29"/>
         <schema:containedIn rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/resource/mention/d639d28e1e3c0f83"/>
@@ -9377,7 +9233,7 @@ This work has been supported by the HEREDITARY project
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/NCIT_C68466">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdf:type rdf:resource="https://w3id.org/brainteaser/ontology/schema/DietarySupplement"/>
+        <rdf:type rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/DietarySupplement"/>
         <skos:inScheme rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/DietarySupplement"/>
         <schema:changeExpression rdf:resource="http://purl.obolibrary.org/obo/NCIT_C125468"/>
         <schema:containedIn rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/resource/mention/7a69e2d36db7b5e9"/>
@@ -9393,7 +9249,7 @@ This work has been supported by the HEREDITARY project
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/NCIT_C68488">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdf:type rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Chemical"/>
-        <rdf:type rdf:resource="https://w3id.org/brainteaser/ontology/schema/DietarySupplement"/>
+        <rdf:type rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/DietarySupplement"/>
         <skos:inScheme rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Chemical"/>
         <skos:inScheme rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/DietarySupplement"/>
         <schema:containedIn rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/resource/mention/c68d8e774fb9f2f1"/>
@@ -9443,7 +9299,7 @@ This work has been supported by the HEREDITARY project
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/NCIT_C69427">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdf:type rdf:resource="https://w3id.org/brainteaser/ontology/schema/DietarySupplement"/>
+        <rdf:type rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/DietarySupplement"/>
         <skos:inScheme rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/DietarySupplement"/>
         <schema:containedIn rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/resource/mention/06acdbb7e67dd591"/>
         <schema:containedIn rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/resource/mention/572687c2f383f410"/>
@@ -9472,7 +9328,7 @@ This work has been supported by the HEREDITARY project
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/NCIT_C73337">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdf:type rdf:resource="https://w3id.org/brainteaser/ontology/schema/DietarySupplement"/>
+        <rdf:type rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/DietarySupplement"/>
         <skos:inScheme rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/DietarySupplement"/>
         <schema:containedIn rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/resource/mention/313b0783ca1eef98"/>
         <rdfs:comment>Casein [Definition Source: NCIT]</rdfs:comment>
@@ -9528,7 +9384,7 @@ This work has been supported by the HEREDITARY project
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/NCIT_C76202">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdf:type rdf:resource="https://w3id.org/brainteaser/ontology/schema/DietarySupplement"/>
+        <rdf:type rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/DietarySupplement"/>
         <skos:inScheme rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/DietarySupplement"/>
         <schema:containedIn rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/resource/mention/360acf009cdccd32"/>
         <schema:containedIn rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/resource/mention/4611117882ef35b7"/>
@@ -9591,7 +9447,7 @@ This work has been supported by the HEREDITARY project
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/NCIT_C83551">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdf:type rdf:resource="https://w3id.org/brainteaser/ontology/schema/DietarySupplement"/>
+        <rdf:type rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/DietarySupplement"/>
         <skos:inScheme rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/DietarySupplement"/>
         <schema:administered rdf:resource="https://www.ncbi.nlm.nih.gov/mesh/68010361"/>
         <schema:containedIn rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/resource/mention/37c0562223f76655"/>
@@ -9730,7 +9586,7 @@ This work has been supported by the HEREDITARY project
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/NCIT_C87652">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdf:type rdf:resource="https://w3id.org/brainteaser/ontology/schema/DietarySupplement"/>
+        <rdf:type rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/DietarySupplement"/>
         <skos:inScheme rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/DietarySupplement"/>
         <schema:changeExpression rdf:resource="http://purl.obolibrary.org/obo/NCIT_C125468"/>
         <schema:containedIn rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/resource/mention/c12047d2b585cf6a"/>
@@ -9944,7 +9800,7 @@ This work has been supported by the HEREDITARY project
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/NCIT_C99230">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdf:type rdf:resource="https://w3id.org/brainteaser/ontology/schema/DietarySupplement"/>
+        <rdf:type rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/DietarySupplement"/>
         <skos:inScheme rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/DietarySupplement"/>
         <schema:containedIn rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/resource/mention/ab0f73baac9a6c9e"/>
         <schema:containedIn rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/resource/mention/e7cc94dabb8462a6"/>
@@ -10760,7 +10616,7 @@ This work has been supported by the HEREDITARY project
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/OMIT_0026689">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdf:type rdf:resource="https://w3id.org/brainteaser/ontology/schema/DietarySupplement"/>
+        <rdf:type rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/DietarySupplement"/>
         <skos:inScheme rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/DietarySupplement"/>
         <schema:containedIn rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/resource/mention/0a7aceedb35fe4f6"/>
         <schema:containedIn rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/resource/mention/0039582f66674d14"/>
@@ -11078,7 +10934,7 @@ This work has been supported by the HEREDITARY project
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/XCO_0001093">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdf:type rdf:resource="https://w3id.org/brainteaser/ontology/schema/DietarySupplement"/>
+        <rdf:type rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/DietarySupplement"/>
         <skos:inScheme rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/DietarySupplement"/>
         <schema:changeExpression rdf:resource="http://purl.obolibrary.org/obo/NCIT_C125468"/>
         <schema:containedIn rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/resource/mention/ee31c414b535ebaa"/>
@@ -55376,8 +55232,8 @@ This work has been supported by the HEREDITARY project
 
     <owl:NamedIndividual rdf:about="https://uts.nlm.nih.gov/uts/umls/concept/C0525033">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdf:type rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/DietarySupplement"/>
         <rdf:type rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/Species"/>
-        <rdf:type rdf:resource="https://w3id.org/brainteaser/ontology/schema/DietarySupplement"/>
         <skos:broaderTransitive rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_2"/>
         <skos:inScheme rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/Bacteria"/>
         <skos:inScheme rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/DietarySupplement"/>
@@ -57532,7 +57388,7 @@ This work has been supported by the HEREDITARY project
 
     <owl:NamedIndividual rdf:about="https://www.ncbi.nlm.nih.gov/mesh/67520904">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdf:type rdf:resource="https://w3id.org/brainteaser/ontology/schema/DietarySupplement"/>
+        <rdf:type rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/DietarySupplement"/>
         <skos:inScheme rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/DietarySupplement"/>
         <schema:containedIn rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/resource/mention/9bc7799bb3ffb78b"/>
         <schema:containedIn rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/resource/mention/97e6765250991b03"/>
@@ -57598,7 +57454,7 @@ This work has been supported by the HEREDITARY project
 
     <owl:NamedIndividual rdf:about="https://www.ncbi.nlm.nih.gov/mesh/68019587">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdf:type rdf:resource="https://w3id.org/brainteaser/ontology/schema/DietarySupplement"/>
+        <rdf:type rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/DietarySupplement"/>
         <skos:inScheme rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/schema/conceptScheme/DietarySupplement"/>
         <schema:containedIn rdf:resource="https://hereditary.dei.unipd.it/ontology/gutbrain/resource/mention/e48bd01c871a7280"/>
         <rdfs:comment>&quot;Dietary supplementation refers to the addition of one or more nutrients or other substances to a person&apos;s diet to improve overall health or prevent deficiency diseases.&quot; [Definition Source: llama3-8b-8192]</rdfs:comment>
