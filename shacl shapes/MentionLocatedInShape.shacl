@@ -1,5 +1,5 @@
 @prefix sh:      <http://www.w3.org/ns/shacl#> .
-@prefix gutprop: <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/> .
+@prefix gutprop: <https://w3id.org/hereditary/ontology/gutbrain/schema/> .
 
 # Shape to ensure every Mention has at least one locatedIn property
 gutprop:MentionLocatedInShape

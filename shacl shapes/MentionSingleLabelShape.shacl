@@ -1,5 +1,5 @@
 @prefix sh:    <http://www.w3.org/ns/shacl#> .
-@prefix gutprop: <https://hereditary.dei.unipd.it/ontology/gutbrain/schema/> .
+@prefix gutprop: <https://w3id.org/hereditary/ontology/gutbrain/schema/> .
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 
 # Shape to verify that a Mention has at most one rdfs:label value

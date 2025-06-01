@@ -3901,7 +3901,7 @@
   {
     "pmid": "33938181",
     "sent_id": 3,
-    "sentence": "GIP had a potent disruptive action on drug efflux pumps of the multidrug resistant bacteria <i>E.",
+    "sentence": "GIP had a potent disruptive action on drug efflux pumps of the multidrug resistant bacteria",
     "entities": [
       {
         "text_span": "GIP",
@@ -3916,14 +3916,24 @@
   {
     "pmid": "33938181",
     "sent_id": 4,
-    "sentence": "coli TG1</i> and <i>E.",
-    "entities": []
+    "sentence": "<i>E. coli TG1</i> and",
+    "entities": [
+      {
+        "text_span": "E. coli TG1",
+        "label": "bacteria"
+      }
+    ]
   },
   {
     "pmid": "33938181",
     "sent_id": 5,
-    "sentence": "amylovora 1189</i> strains.",
-    "entities": []
+    "sentence": "<i>E. amylovora 1189</i> strains.",
+    "entities": [
+      {
+        "text_span": "E. amylovora 1189",
+        "label": "bacteria"
+      }
+    ]
   },
   {
     "pmid": "33938181",
@@ -3951,7 +3961,7 @@
   {
     "pmid": "33938181",
     "sent_id": 7,
-    "sentence": "While GIP was devoid of direct antimicrobial activity, it has a potent membrane depolarizing effect, and at low concentrations, it significantly potentiated the activity of eight antibiotics and bile salt by reducing MICs by 4-8-fold in <i>E.",
+    "sentence": "While GIP was devoid of direct antimicrobial activity, it has a potent membrane depolarizing effect, and at low concentrations, it significantly potentiated the activity of eight antibiotics and bile salt by reducing MICs by 4-8-fold",
     "entities": [
       {
         "text_span": "GIP",
@@ -3974,14 +3984,24 @@
   {
     "pmid": "33938181",
     "sent_id": 8,
-    "sentence": "coli TG1</i> and 4-20-fold in <i>E.",
-    "entities": []
+    "sentence": "in <i>E. coli TG1</i> and 4-20-fold in",
+    "entities": [
+      {
+        "text_span": "E. coli TG1",
+        "label": "bacteria"
+      }
+    ]
   },
   {
     "pmid": "33938181",
     "sent_id": 9,
-    "sentence": "amylovora 1189</i>.",
-    "entities": []
+    "sentence": "<i>E. amylovora 1189</i>.",
+    "entities": [
+      {
+        "text_span": "E. amylovora 1189",
+        "label": "bacteria"
+      }
+    ]
   },
   {
     "pmid": "33938181",
@@ -6907,31 +6927,40 @@
   {
     "pmid": "37655441",
     "sent_id": 2,
-    "sentence": "Yet, the verdict is still out on the definitive role of <i>P.",
+    "sentence": "Yet, the verdict is still out on the definitive role of",
     "entities": []
   },
   {
     "pmid": "37655441",
     "sent_id": 3,
-    "sentence": "copri</i> in human health, and on the effect of different diets on its relative abundance in the gut microbiome.",
+    "sentence": "<i>P. copri</i> in human health, and on the effect of different diets on its relative abundance in the gut microbiome.",
     "entities": [
       {
         "text_span": "gut microbiome",
         "label": "microbiome"
+      },
+      {
+        "text_span": "P. copri",
+        "label": "bacteria"
       }
     ]
   },
   {
     "pmid": "37655441",
     "sent_id": 4,
-    "sentence": "The puzzling discrepancies among <i>P.",
+    "sentence": "The puzzling discrepancies among",
     "entities": []
   },
   {
     "pmid": "37655441",
     "sent_id": 5,
-    "sentence": "copri</i> studies have only recently been attributed to the diversity of its strains, which substantially differ in their encoded metabolic patterns from the commonly used reference strain.",
-    "entities": []
+    "sentence": "<i>P. copri</i> studies have only recently been attributed to the diversity of its strains, which substantially differ in their encoded metabolic patterns from the commonly used reference strain.",
+    "entities": [
+      {
+        "text_span": "<i>P. copri</i>",
+        "label": "bacteria"
+      }
+    ]
   },
   {
     "pmid": "37655441",
@@ -6947,26 +6976,30 @@
   {
     "pmid": "37655441",
     "sent_id": 7,
-    "sentence": "Here, we scrutinize <i>P.",
+    "sentence": "Here, we scrutinize",
     "entities": []
   },
   {
     "pmid": "37655441",
     "sent_id": 8,
-    "sentence": "copri</i>, its versatile metabolic potential, and the hypotheses behind the conflicting observations on its association with diet and human health.",
-    "entities": []
+    "sentence": "<i>P. copri</i>, its versatile metabolic potential, and the hypotheses behind the conflicting observations on its association with diet and human health.",
+    "entities": [
+      {
+        "text_span": "<i>P. copri</i>",
+        "label": "bacteria"
+      }
+    ]
   },
   {
     "pmid": "37655441",
     "sent_id": 9,
-    "sentence": "We also provide suggestions for designing studies and bioinformatics pipelines to better research <i>P.",
-    "entities": []
-  },
-  {
-    "pmid": "37655441",
-    "sent_id": 10,
-    "sentence": "copri</i>.",
-    "entities": []
+    "sentence": "We also provide suggestions for designing studies and bioinformatics pipelines to better research <i>P. copri</i>.",
+    "entities": [
+      {
+        "text_span": "<i>P. copri</i>",
+        "label": "bacteria"
+      }
+    ]
   },
   {
     "pmid": "36651663",
@@ -25132,7 +25165,7 @@
   {
     "pmid": "36191806",
     "sent_id": 5,
-    "sentence": "LEfSe (linear discriminant analysis effect size) analysis revealed that the species Lactobacillus sp.",
+    "sentence": "LEfSe (linear discriminant analysis effect size) analysis revealed that",
     "entities": [
       {
         "text_span": "LEfSe (linear discriminant analysis effect size) analysis",
@@ -25143,7 +25176,7 @@
   {
     "pmid": "36191806",
     "sent_id": 6,
-    "sentence": "BL302, the species Lactobacillus hominis, and the species Lactobacillus reuteri, were identified as potential microbial markers in the KO + SDV group.",
+    "sentence": "the species Lactobacillus sp. BL302, the species Lactobacillus hominis, and the species Lactobacillus reuteri, were identified as potential microbial markers in the KO + SDV group.",
     "entities": [
       {
         "text_span": "SDV",
@@ -25160,6 +25193,10 @@
       {
         "text_span": "KO + SDV group",
         "label": "animal"
+      },
+      {
+        "text_span": "Lactobacillus sp. BL302",
+        "label": "bacteria"
       }
     ]
   },

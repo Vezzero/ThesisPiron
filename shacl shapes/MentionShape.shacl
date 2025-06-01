@@ -1,30 +1,12 @@
-uris = [
-    "https://uts.nlm.nih.gov/uts/umls/concept/C0001956",
-    "https://w3id.org/brainteaser/ontology/schema/DiseaseDisorderOrFinding",
-    "skos:Concept",
-    "https://uts.nlm.nih.gov/uts/umls/concept/C0006826",
-    
-]
+@prefix sh:      <http://www.w3.org/ns/shacl#> .
+@prefix gutprop: <https://w3id.org/hereditary/ontology/gutbrain/schema/> .
 
-# Deduplicate URIs
-unique_uris = set(uris)
-
-# For each URI, fetch an LLM-based definition and add as rdfs:comment
-for uri_str in unique_uris:
-    # Normalize prefixed URIs like skos:Concept
-    if ':' in uri_str and not uri_str.startswith(('http://','https://')):
-        prefix, local = uri_str.split(':',1)
-        uri = Namespace(graph.namespace_manager.store[prefix])[local]
-    else:
-        uri = URIRef(uri_str)
-    definition = get_llm_definition(str(uri))
-    comment_literal = Literal(f"{definition} [Definition Source: llama3-8b-8192]", datatype=XSD.string)
-    g.set((uri, RDFS.comment, comment_literal))
-
-# Serialize
-
-output_file = os.path.join(save_path, "gutbrain_entities_unique_mentions.ttl")
-with open(output_file, "w", encoding="utf-8") as f_out:
-    f_out.write(g.serialize(format="turtle"))
-
-print(f"Saved graph with unique mentions to {output_file}")
+# Shape to ensure each Mention has at most one hasMentionText
+gutprop:MentionHasMentionTextCardinalityShape
+    a sh:NodeShape ;
+    sh:targetClass gutprop:Mention ;
+    sh:property [
+        sh:path       gutprop:hasMentionText ;
+        sh:maxCount   1 ;
+        sh:message    "Each Mention must have at most one hasMentionText value." ;
+    ] .

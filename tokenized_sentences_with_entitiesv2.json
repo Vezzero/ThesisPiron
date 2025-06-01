@@ -10261,13 +10261,18 @@
   {
     "pmid": "37469436",
     "sent_id": 3,
-    "sentence": "In the present study, we discovered a <i>L.",
-    "entities": []
+    "sentence": "In the present study, we discovered a <i>L. fermentum</i> strain",
+    "entities": [
+      {
+        "text_span": "<i>L. fermentum</i> strain",
+        "label": "bacteria"
+      }
+    ]
   },
   {
     "pmid": "37469436",
     "sent_id": 4,
-    "sentence": "fermentum</i> strain, GR1009, isolated from the same source of PS150, and found that GR1009 is phenotypically distinct but genetically similar to PS150.",
+    "sentence": "GR1009, isolated from the same source of PS150, and found that GR1009 is phenotypically distinct but genetically similar to PS150.",
     "entities": [
       {
         "text_span": "PS150",
@@ -11750,7 +11755,7 @@
   {
     "pmid": "38010793",
     "sent_id": 8,
-    "sentence": "More importantly, three increased microbiota including <i>Turicibacter</i>, <i>Coprococcus 1</i>, and Eggerthellaceae positively modulated the associations of unbalanced dietary intake with constipation and total GI symptoms, and the decreased <i>Clostridium sp.",
+    "sentence": "More importantly, three increased microbiota including <i>Turicibacter</i>, <i>Coprococcus 1</i>, and Eggerthellaceae positively modulated the associations of unbalanced dietary intake with constipation and total GI symptoms, and the decreased <i>Clostridium sp. BR31</i>",
     "entities": [
       {
         "text_span": "constipation",
@@ -11770,6 +11775,10 @@
       },
       {
         "text_span": "Eggerthellaceae",
+        "label": "bacteria"
+      },
+      {
+        "text_span": "Clostridium sp. BR31",
         "label": "bacteria"
       }
     ]
@@ -11811,7 +11820,7 @@
   {
     "pmid": "38010793",
     "sent_id": 11,
-    "sentence": "Among the altered metabolites, ten metabolites derived from microbiota (<i>Turicibacter</i>, <i>Coprococcus 1</i>, Eggerthellaceae, and <i>Clostridium sp.",
+    "sentence": "Among the altered metabolites, ten metabolites derived from microbiota (<i>Turicibacter</i>, <i>Coprococcus 1</i>, Eggerthellaceae, and <i>Clostridium sp. BR31</i>) were screened out",
     "entities": [
       {
         "text_span": "Turicibacter",
@@ -11824,13 +11833,17 @@
       {
         "text_span": "Eggerthellaceae",
         "label": "bacteria"
+      },
+      {
+        "text_span": "Clostridium sp. BR31",
+        "label": "bacteria"
       }
     ]
   },
   {
     "pmid": "38010793",
     "sent_id": 12,
-    "sentence": "BR31</i>) were screened out, enriched in eight metabolic pathways, and were identified to correlate with constipation and total GI symptoms in ASD children (FDR-corrected P-value <0.25).",
+    "sentence": "enriched in eight metabolic pathways, and were identified to correlate with constipation and total GI symptoms in ASD children (FDR-corrected P-value <0.25).",
     "entities": [
       {
         "text_span": "children",
@@ -24608,7 +24621,7 @@
   {
     "pmid": "38318337",
     "sent_id": 9,
-    "sentence": "Moreover, the symbiotic association between <i>Romboutsia</i> and <i>A.",
+    "sentence": "Moreover, the symbiotic association between <i>Romboutsia</i> and <i>",
     "entities": [
       {
         "text_span": "Romboutsia",
@@ -24619,8 +24632,16 @@
   {
     "pmid": "38318337",
     "sent_id": 10,
-    "sentence": "muciniphila</i> indicated their potential contribution to modifying the gut microenvironment and influencing tryptophan transport to the hippocampus and brainstem.",
+    "sentence": "A. muciniphila</i> indicated their potential contribution to modifying the gut microenvironment and influencing tryptophan transport to the hippocampus and brainstem.",
     "entities": [
+      {
+        "text_span": "A. muciniphila",
+        "label": "bacteria"
+      },
+      {
+        "text_span": "gut",
+        "label": "anatomical location"
+      },
       {
         "text_span": "gut",
         "label": "anatomical location"
