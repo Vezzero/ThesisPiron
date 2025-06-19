@@ -154,20 +154,21 @@ export default function TermMentions() {
                     <strong>Class:</strong>{" "}
                     <Link
                       to={`/class/${encodeURIComponent(local)}`}
-                      state={{ classIri: mentions[0].classIri }}
-                      className="tm-link-button"
+                      state={{ classIri: mentions[0].classIri,
+                            classLabel: mentions[0].classLabel}}
+                      className="tm-link-button-class"
                     >
-                      {local}
+                      {mentions[0].classLabel || local}
                     </Link>
                   </p>
                 );
               })()
             )}
             <p>
-              <strong>Definition:</strong> {mentions[0].definition}
+              <strong>Definition:</strong> {mentions[0].definition ? mentions[0].definition : "-"}
             </p>
             <p>
-              <strong>Ontology Match:</strong> {mentions[0].ontologyMatch}
+              <strong>Ontology Match:</strong> {mentions[0].ontologyMatch?.trim() || "-"}
             </p>
           </div>
           </div>
@@ -175,7 +176,7 @@ export default function TermMentions() {
     <div className="tm-results-card">
       <p>
         <strong>{mentions[0].indname}</strong> has{" "} in total{" "}
-        <strong>{relationCount}</strong> relations. </p>
+        <strong>{relationCount}</strong> {relationCount === 1 ? "relation": "relations"}. </p>
       <ul className="tm-relations-list">
         {relationsList.map(r => (
           <li key={r.prop}>

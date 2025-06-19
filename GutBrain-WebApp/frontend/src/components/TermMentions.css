@@ -221,16 +221,6 @@ p {
   text-overflow: ellipsis;
 }
 
-.tm-link-button {
-  background: none;
-  border: none;
-  color: #007bff;
-  text-decoration: underline;
-  cursor: pointer;
-  padding: 0;
-  font: inherit;
-}
-
 .tm-table thead tr:first-child th {
   position: sticky;
   top: 0;
@@ -279,6 +269,17 @@ p {
   font-size: 0.9rem;
   margin: 0.5rem 0;
   line-height: 1.5;
+}
+
+.tm-link-button-class {
+  background: none;
+  border: none;
+  color: black;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+  font: inherit;
+  text-align: left;
 }
 
 

@@ -8,6 +8,7 @@ export default function ClassDetails() {
   const { state }     = useLocation();
   const navigate      = useNavigate();
   const classIri      = state?.classIri || decodeURIComponent(className);
+  const classLabel    = state?.classLabel || className;
 
   const [individuals, setIndividuals] = useState([]);
   const [loading, setLoading]         = useState(true);
@@ -52,7 +53,7 @@ export default function ClassDetails() {
         Back
       </button>
       <div className="cd-card">
-        <h2>{className}</h2>
+        <h2>{classLabel}</h2>
         <p>
           <strong>IRI:</strong>{" "}
           <a href={classIri} target="_blank" rel="noopener noreferrer">
@@ -65,7 +66,7 @@ export default function ClassDetails() {
         <table className="tm-table">
           <thead>
             <tr>
-              <th>Label</th>
+              <th>Individual Name</th>
               <th>URI</th>
             </tr>
             <tr className="cd-filters">
