@@ -9,7 +9,7 @@ def list_term_mentions(request):
     term = request.GET.get("term", "").strip()
     safe_term = term.replace('"', '\\"')
 
-    filter_clause = f'FILTER(REGEX(?indname, "{safe_term}", "i")) .' if safe_term else ""
+    filter_clause = f'FILTER(REGEX(?indname, ".*{safe_term}.*", "i")) .' if safe_term else ""
     sparql = f"""
 
 PREFIX xsd:      <http://www.w3.org/2001/XMLSchema#>
