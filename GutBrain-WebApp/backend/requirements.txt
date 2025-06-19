@@ -8,3 +8,4 @@ pytz
 sqlparse
 psycopg2-binary
 python-dotenv
+SPARQLWrapper>=2.0

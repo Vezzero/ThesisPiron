@@ -1,28 +1,18 @@
-import react from "react"
-import { BrowserRouter, Routes, Route, Navigation } from "react-router-dom"
-import Home from "./pages/Home"
-import ProtectedRoute from "./components/ProtectedRoute"
-import NotFound from "./pages/NotFound"
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import ClassDetails   from "./pages/ClassDetails";
+import TermMentions from "./components/TermMentions";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-
-
-function App() {
-
+export default function App() {
   return (
     <BrowserRouter>
-    <Routes>
-      <Route
-        path="/"
-        element = {
-          <ProtectedRoute>
-            <Home />
-          </ProtectedRoute>
-        }
-        />
-      <Route path="*" element={<NotFound />}></Route>
-    </Routes>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/search" element={<TermMentions />} />
+        <Route path="/class/:className" element={<ClassDetails />} />
+      </Routes>
     </BrowserRouter>
-  )
+  );
 }
-
-export default App

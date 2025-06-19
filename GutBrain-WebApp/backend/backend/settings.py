@@ -1,3 +1,22 @@
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+      'console': {
+        'class': 'logging.StreamHandler',
+      },
+    },
+    'loggers': {
+      # Log all HTTP requests
+      'django.server': {
+        'handlers': ['console'],
+        'level': 'INFO',
+        'propagate': False,
+      },
+    },
+}
+
+
 """
 Django settings for backend project.
 
@@ -58,7 +77,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "api",
     "rest_framework",
-    "corsheaders"
+    "corsheaders",
+    "rdfapp"
 ]
 
 MIDDLEWARE = [
@@ -100,6 +120,12 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
+}
+
+GRAPHDB = {
+     # From inside the Django container, "graphdb" resolves to your GraphDB service
+     "ENDPOINT_URL": "http://graphdb:7200/repositories/gutbrainqueries",
+     "STATEMENTS_URL": "http://graphdb:7200/repositories/gutbrainqueries/statements",
 }
 
 

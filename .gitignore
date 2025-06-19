@@ -1,0 +1,17 @@
+.env
+catalog-v001.xml
+desc2025.xml
+chebi_terms.txt
+foodon_full_taxonomy.txt
+ncbitaxon_full_taxonomy.txt
+parsedOntologies/
+GutBrain-WebApp/env/Lib/site-packages/rdflib/__pycache__/
+GutBrain-WebApp/env/
+GutBrain-WebApp/graphdb-data/
+GutBrain-WebApp/graphdb-data/graphdb/
+GutBrain-WebApp/node_modules/
+ncit_full_taxonomy.txt
+omit_full_taxonomy.txt
+*.owl
+.ipynb_checkpoints/bacteria_tree-checkpoint.txt
+__pycache__/
