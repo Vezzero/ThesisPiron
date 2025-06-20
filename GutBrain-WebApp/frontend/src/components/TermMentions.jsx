@@ -20,6 +20,8 @@ export default function TermMentions() {
   const [sentenceFilter, setSentenceFilter] = useState("");
   const [paperFilter,    setPaperFilter]    = useState("");
   const [mentionFilter,  setMentionFilter]  = useState("");
+  const [filterField, setFilterField] = useState(null);
+  const [filterValue, setFilterValue] = useState("");
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
@@ -85,26 +87,45 @@ export default function TermMentions() {
     const sent = m.senttext.toLowerCase();
     const pap  = m.titletext.toLowerCase();
     const men  = m.mentiontext.toLowerCase();
-    return (
-      sent.includes(sentenceFilter.toLowerCase()) &&
-      pap.includes(paperFilter.toLowerCase()) &&
-      men.includes(mentionFilter.toLowerCase())
-    );
+    if (
+      !sent.includes(sentenceFilter.toLowerCase()) ||
+      !pap.includes(paperFilter   .toLowerCase()) ||
+      !men.includes(mentionFilter .toLowerCase())
+    ) return false;
+    if (filterField && filterValue.trim()) {
+      const fv = filterValue.toLowerCase();
+      switch (filterField) {
+        case "annotator":
+          return m.annotator.toLowerCase().includes(fv);
+        case "author":
+          return m.author   .toLowerCase().includes(fv);
+        case "paper":
+          return m.paper    .toLowerCase().includes(fv);
+        case "journal":
+          return m.journal  .toLowerCase().includes(fv);
+        case "collection":
+          return m.collection?.toLowerCase().includes(fv);
+        default:
+          return true;
+      }
+    }
+
+    return true;
   });
 
 
   return (
     <div className="tm-container">
       <div className="tm-header-bar">
-  <h2 className="tm-title">Discover the Gut–Brain Axis Database</h2>
-  <button
-    onClick={() => navigate(-1)}
-    className="tm-button tm-back-button"
-  >
-    Back
-  </button>
-  <hr />
-</div>
+       <h2 className="tm-title">Discover the Gut–Brain Axis Database</h2>
+        <button
+         onClick={() => navigate(-1)}
+         className="tm-button tm-back-button"
+        >
+        Back
+       </button>
+       <hr />
+      </div>
 
       <div className="tm-search">
         <input
@@ -122,6 +143,45 @@ export default function TermMentions() {
         >
           {loading ? "Searching…" : "Search"}
         </button>
+        </div>
+            <div className="tm-extra-filters">
+        <span>Filter by:</span>
+        {[
+          { key: "annotator", label: "Annotator" },
+          { key: "author",    label: "Author"    },
+          { key: "paper",     label: "Paper"     },
+          { key: "journal",   label: "Journal"   },
+          { key: "collection",label: "Collection"}
+        ].map(f => (
+          <button
+            key={f.key}
+            className={
+              "tm-filter-btn" +
+              (filterField === f.key ? " active" : "")
+            }
+            onClick={() => {
+              if (filterField === f.key) {
+                setFilterField(null);
+                setFilterValue("");
+              } else {
+                setFilterField(f.key);
+                setFilterValue("");
+              }
+            }}
+          >
+            {f.label}
+          </button>
+        ))}
+
+        {filterField && (
+          <input
+            className="tm-filter-value"
+            type="text"
+            placeholder={`Filter ${filterField}…`}
+            value={filterValue}
+            onChange={e => setFilterValue(e.target.value)}
+          />
+        )}
       </div>
 
       {error && <div className="tm-error">{error}</div>}
@@ -343,7 +403,7 @@ export default function TermMentions() {
             >
               ×
             </button>
-            <h3 class="h3-title">Sentence Information</h3>
+            <h3 className="h3-title">Sentence Information</h3>
             <p>
               <strong>Sentence:</strong> {selected.senttext}
             </p>

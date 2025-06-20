@@ -60,6 +60,9 @@ export default function ClassDetails() {
             <code className="code-underline">{classIri}</code>
           </a>
         </p>
+        <p>
+          <strong>Individuals Count:</strong> {individuals.length}
+        </p>
       </div>
 
       <div className="cd-table-wrapper">
