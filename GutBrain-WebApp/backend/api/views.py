@@ -277,7 +277,6 @@ WHERE {{
 ORDER BY ?lbl ?seed
 """
 
-    # 4) Execute and package results
     try:
         results = run_sparql_query(sparql)
     except Exception as e:
@@ -295,4 +294,36 @@ ORDER BY ?lbl ?seed
 
     return JsonResponse({"individuals": individuals})
 
+
+@require_http_methods(["GET"])
+def list_all_individuals(request):
+    sparql = """
+
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT
+  ?ind
+  ?indname
+WHERE {{
+  ?ind a owl:NamedIndividual ;
+       rdfs:label    ?indname .
+
+  FILTER(
+    !REGEX(?indname, "mention",  "i") &&
+    !REGEX(?indname, "abstract", "i") &&
+    !REGEX(?indname, "paper",    "i") &&
+    !REGEX(?indname, "title",    "i") &&
+    !REGEX(?indname, "sentence", "i")
+  )
+}}
+ORDER BY LCASE(?indname)
+"""
+    results = run_sparql_query(sparql)
+    bindings = results["results"]["bindings"]
+    individuals = [
+        { "uri": b["ind"]["value"], "label": b["indname"]["value"] }
+        for b in bindings
+    ]
+    return JsonResponse({ "individuals": individuals })
 

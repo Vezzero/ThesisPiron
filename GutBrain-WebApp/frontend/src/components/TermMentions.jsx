@@ -22,6 +22,11 @@ export default function TermMentions() {
   const [mentionFilter,  setMentionFilter]  = useState("");
   const [filterField, setFilterField] = useState(null);
   const [filterValue, setFilterValue] = useState("");
+  const [allIndividuals, setAllIndividuals] = useState([]);
+
+  const uniqueInds = Array.from(
+  new Map(allIndividuals.map(ind => [ind.uri, ind])).values()
+);
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
@@ -65,6 +70,18 @@ export default function TermMentions() {
     }
   };
 
+  useEffect(() => {
+    (async () => {
+      try {
+        const resp = await fetch("/api/list_all_individuals/");
+        const { individuals } = await resp.json();
+        setAllIndividuals(individuals);
+      } catch (err) {
+        console.error("Failed to load all individuals", err);
+      }
+    })();
+  }, []);
+
     const handlePropClick = async (propIri, propLabel) => {
       console.log("🔘 handlePropClick fired!", { propIri, propLabel });
       try {
@@ -74,7 +91,6 @@ export default function TermMentions() {
           + `?term=${encodeURIComponent(seedLabel)}`
           + `&prop=${encodeURIComponent(propIri)}`
         );
-        console.log("🔘 here");
         if (!resp.ok) throw new Error(await resp.text());
         const { objects } = await resp.json();
         setObjectsList(objects);
@@ -143,8 +159,24 @@ export default function TermMentions() {
         >
           {loading ? "Searching…" : "Search"}
         </button>
-        </div>
-            <div className="tm-extra-filters">
+        <div className="tm-all-dropdown">
+        <select
+          className="tm-all-select"
+          onChange={(e) => handleSearch(e.target.value)}
+          defaultValue=""
+        >
+          <option value="" disabled>
+            Select an individual…
+          </option>
+                {uniqueInds.map(ind => (
+        <option key={ind.uri} value={ind.label}>
+          {ind.label}
+        </option>
+            ))}
+        </select>
+      </div>
+      </div>
+      <div className="tm-extra-filters">
         <span>Filter by:</span>
         {[
           { key: "annotator", label: "Annotator" },

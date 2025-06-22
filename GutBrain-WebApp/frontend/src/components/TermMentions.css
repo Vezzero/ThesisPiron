@@ -318,3 +318,23 @@ p {
   flex: 1;
   max-width: 200px;
 }
+
+.tm-all-dropdown {
+  width: 300px;
+  margin: 1rem 0;
+  position: relative;
+}
+
+.tm-all-select {
+  width: 100%;
+  padding: 0.5rem 1rem 0.5rem 0.5rem;
+  border: 1px solid #0074ff;
+  border-radius: 6px;
+  appearance: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.tm-all-select option {
+  padding: 0.5rem;
+}
