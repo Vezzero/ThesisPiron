@@ -70,7 +70,7 @@ export default function ClassDetails() {
           <thead>
             <tr>
               <th>Individual Name</th>
-              <th>URI</th>
+              <th>IRI</th>
             </tr>
             <tr className="cd-filters">
               <th>

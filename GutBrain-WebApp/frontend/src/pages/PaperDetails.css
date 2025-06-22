@@ -1,0 +1,63 @@
+.paper-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.paper-container .tm-button {
+  margin-bottom: 1rem;
+}
+
+.paper-card {
+  background: #fff;
+  border: 2px solid black;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.paper-card h2 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+.paper-card p {
+  margin: 0.5rem 0;
+}
+
+.paper-container .cd-table-wrapper {
+  overflow-x: auto;
+  max-height: 400px;
+  margin-top: 1rem;
+}
+
+.paper-container .cd-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.paper-container .cd-table th,
+.paper-container .cd-table td {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.paper-container .cd-table th {
+  background: #f5f5f5;
+  font-weight: 600;
+}
+
+.paper-container .cd-table thead tr:first-child th {
+  position: sticky;
+  top: 0;
+  background: #f5f5f5;
+  z-index: 2;
+}
+.paper-container .cd-table thead tr.cd-filters th {
+  position: sticky;
+  top: 2.5rem;
+  background: #fafafa;
+  z-index: 1;
+}

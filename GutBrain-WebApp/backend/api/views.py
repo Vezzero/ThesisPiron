@@ -9,13 +9,15 @@ def list_term_mentions(request):
     term = request.GET.get("term", "").strip()
     safe_term = term.replace('"', '\\"')
 
-    filter_clause = f'FILTER(REGEX(?indname, ".*{safe_term}.*", "i")) .' if safe_term else ""
+    filter_clause = f'FILTER(REGEX(?indname, ".*{safe_term}.*", "i"))' if safe_term else ""
     sparql = f"""
 
 PREFIX xsd:      <http://www.w3.org/2001/XMLSchema#>
 PREFIX gutbrain: <https://w3id.org/hereditary/ontology/gutbrain/resource/>
 PREFIX gutprop:  <https://w3id.org/hereditary/ontology/gutbrain/schema/>
 PREFIX rdfs:     <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
 SELECT DISTINCT
   ?paperid
   ?title
@@ -327,3 +329,81 @@ ORDER BY LCASE(?indname)
     ]
     return JsonResponse({ "individuals": individuals })
 
+@require_http_methods(["GET"])
+def paper_details(request):
+    paper_id = request.GET.get("paperId", "").strip()
+    if not paper_id:
+        return JsonResponse({"error": "Missing paperId"}, status=400)
+
+    # we're going to match the paperId exactly
+    filter_clause = f'FILTER(STR(?paperid) = "{paper_id}") .'
+
+    sparql = f"""
+PREFIX xsd:      <http://www.w3.org/2001/XMLSchema#>
+PREFIX gutbrain: <https://w3id.org/hereditary/ontology/gutbrain/resource/>
+PREFIX gutprop:  <https://w3id.org/hereditary/ontology/gutbrain/schema/>
+PREFIX rdfs:     <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT DISTINCT
+  ?paperid
+  (?p as ?uri)
+  ?titletext
+  ?author
+  ?journal
+  ?annotator
+  ?pubYear
+  ?collection
+  ?abstracttext
+WHERE {{
+  # get the collection and paper IRI
+  ?col a gutprop:PaperCollection ;
+       rdfs:label       ?collection ;
+       gutprop:contains ?p       .
+
+  # restrict to our paper IRI
+  ?p   a gutprop:Paper ;
+       gutprop:paperId        ?paperid ;
+       gutprop:hasTitle       ?title ;
+       gutprop:paperAuthor    ?author ;
+       gutprop:paperJournal   ?journal ;
+       gutprop:paperAnnotator ?annotator ;
+       gutprop:paperYear      ?pubYear ;
+       gutprop:hasAbstract    ?abstract .
+
+  # title text node
+  ?title a gutprop:PaperTitle ;
+         gutprop:hasTitleText ?titletext .
+
+  # abstract text node
+  ?abstract a gutprop:PaperAbstract ;
+            gutprop:hasAbstractText ?abstracttext .
+
+  {filter_clause}
+}}
+LIMIT 1
+"""
+
+    try:
+        results = run_sparql_query(sparql)
+    except Exception as e:
+        return JsonResponse({"error": str(e)}, status=500)
+
+    bindings = results.get("results", {}).get("bindings", [])
+    if not bindings:
+        return JsonResponse({"error": "Paper not found"}, status=404)
+
+    b = bindings[0]
+    paper = {
+        "paperid":      b["paperid"]["value"],
+        "uri":          b["uri"]["value"],
+        "titletext":    b.get("titletext", {}).get("value", ""),
+        "author":       b.get("author", {}).get("value", ""),
+        "journal":      b.get("journal", {}).get("value", ""),
+        "annotator":    b.get("annotator", {}).get("value", ""),
+        "pubYear":      b.get("pubYear", {}).get("value", ""),
+        "collection":   b.get("collection", {}).get("value", ""),
+        "abstracttext": b.get("abstracttext", {}).get("value", ""),
+    }
+
+    return JsonResponse({"paper": paper})

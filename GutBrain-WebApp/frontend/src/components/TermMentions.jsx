@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import { fetchTermMentions } from "../services/graphServices";
 import "./TermMentions.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import TablePagination from "@mui/material/TablePagination";
 
 export default function TermMentions() {
   const [term, setTerm] = useState("");
   const [mentions, setMentions] = useState([]);
   const [selected, setSelected] = useState(null);
-  const [selectedPaper, setSelectedPaper] = useState(null);
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [relationsList, setRelationsList] = useState([]); 
@@ -81,6 +82,14 @@ export default function TermMentions() {
       }
     })();
   }, []);
+
+  useEffect(() => {
+    const anyModalOpen = showRelModal || showObjectsModal || selected;
+    document.body.style.overflow = anyModalOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [showRelModal, showObjectsModal, selected]);
 
     const handlePropClick = async (propIri) => {
       try {
@@ -333,9 +342,12 @@ export default function TermMentions() {
                   </span>
                 </td>
                     <td className="tm-truncate">
-                      <span className="tm-clickable"
-                    onClick={() => setSelectedPaper(mention)}
-                  >{mention.paper}</span></td>
+                      <Link
+                    to={`/paper/${mention.paperid}`}
+                    className="tm-clickable"
+                     >
+                   {mention.paper}
+                    </Link></td>
                     <td className="tm-truncate">
                       {mention.mentiontext}
                     </td>
@@ -443,50 +455,6 @@ export default function TermMentions() {
             </p>
             <p>
               <strong>Annotator: </strong> {selected.annotator}
-            </p>
-          </div>
-        </div>
-      )}
-
-      {selectedPaper && (
-        <div
-          className="tm-modal-overlay"
-          onClick={() => setSelectedPaper(null)}
-        >
-          <div
-            className="tm-modal"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              className="tm-modal-close"
-              onClick={() => setSelectedPaper(null)}
-            >
-              ×
-            </button>
-            <h3 className="h3-title">Paper Information</h3>
-            <p>
-              <strong>URI: </strong><code className="code-underline"> {selectedPaper.paper}</code>
-            </p>
-            <p>
-              <strong>ID:</strong> {selectedPaper.paperid}
-            </p>
-            <p>
-              <strong>Journal: </strong> {selectedPaper.journal}
-            </p>
-            <p>
-              <strong>Authors: </strong> {selectedPaper.author}
-            </p>
-            <p>
-              <strong>Title:</strong> {selectedPaper.titletext}
-            </p>
-            <p className="tm-truncate-biss">
-              <strong>Abstract: </strong> {selectedPaper.abstracttext}
-            </p>
-            <p>
-              <strong>Publication Year: </strong> {selectedPaper.pubYear}
-            </p>
-            <p>
-              <strong>Collection: </strong> {selectedPaper.collection}
             </p>
           </div>
         </div>
