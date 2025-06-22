@@ -82,8 +82,7 @@ export default function TermMentions() {
     })();
   }, []);
 
-    const handlePropClick = async (propIri, propLabel) => {
-      console.log("🔘 handlePropClick fired!", { propIri, propLabel });
+    const handlePropClick = async (propIri) => {
       try {
         const seedLabel = mentions[0].indname;
         const resp = await fetch(
@@ -274,7 +273,7 @@ export default function TermMentions() {
           <li key={r.prop}>
             <button
               className="tm-link-button"
-              onClick={() => handlePropClick(r.prop,r.label)}
+              onClick={() => handlePropClick(r.prop)}
             >
               {r.label}
             </button>
