@@ -128,6 +128,8 @@ export default function TermMentions() {
           return m.journal  .toLowerCase().includes(fv);
         case "collection":
           return m.collection?.toLowerCase().includes(fv);
+        case "year":
+          return m.year?.toString().includes(fv);
         default:
           return true;
       }
@@ -190,7 +192,8 @@ export default function TermMentions() {
           { key: "author",    label: "Author"    },
           { key: "paper",     label: "Paper"     },
           { key: "journal",   label: "Journal"   },
-          { key: "collection",label: "Collection"}
+          { key: "collection",label: "Collection"},
+          { key: "year",      label: "Year"      }
         ].map(f => (
           <button
             key={f.key}
