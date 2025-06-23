@@ -8,7 +8,6 @@ export default function TermMentions() {
   const [term, setTerm] = useState("");
   const [mentions, setMentions] = useState([]);
   const [selected, setSelected] = useState(null);
-
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [relationsList, setRelationsList] = useState([]); 

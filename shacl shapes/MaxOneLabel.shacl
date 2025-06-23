@@ -1,12 +1,12 @@
-@prefix sh:    <http://www.w3.org/ns/shacl#> .
-@prefix gutprop: <https://w3id.org/hereditary/ontology/gutbrain/schema/> .
-@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh:     <http://www.w3.org/ns/shacl#> .
+@prefix gutprop:<https://w3id.org/hereditary/ontology/gutbrain/schema/> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
 
-# Shape to ensure each node has at most one rdfs:label
 gutprop:SingleLabelPerEntityShape
     a sh:NodeShape ;
+    sh:targetSubjectsOf  rdfs:label ;
     sh:property [
-        sh:path    rdfs:label ;
-        sh:maxCount 1 ;
-        sh:message "Each entity must have at most one rdfs:label." ;
+        sh:path       rdfs:label ;
+        sh:maxCount   1 ;
+        sh:message    "Each entity must have at most one rdfs:label." ;
     ] .

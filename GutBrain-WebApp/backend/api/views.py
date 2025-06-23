@@ -316,7 +316,9 @@ WHERE {{
     !REGEX(?indname, "abstract", "i") &&
     !REGEX(?indname, "paper",    "i") &&
     !REGEX(?indname, "title",    "i") &&
-    !REGEX(?indname, "sentence", "i")
+    !REGEX(?indname, "sentence", "i") &&
+    !REGEX(?indname, "collection", "i") &&
+    !REGEX(?indname, "Concept Scheme", "i")
   )
 }}
 ORDER BY LCASE(?indname)
