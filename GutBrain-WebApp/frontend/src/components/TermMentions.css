@@ -338,3 +338,12 @@ p {
 .tm-all-select option {
   padding: 0.5rem;
 }
+
+.option-class {
+  max-width: 200px;
+}
+
+.option-class-b {
+  max-width: 20px;
+}
+

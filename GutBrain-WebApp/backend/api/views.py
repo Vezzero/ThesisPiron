@@ -416,12 +416,25 @@ def list_all_annotators(request):
 PREFIX gutprop: <https://w3id.org/hereditary/ontology/gutbrain/schema/>
 PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT DISTINCT ?annotator
+SELECT DISTINCT
+  ?annotator
+  ?paper
+  ?collection
+  ?year
+  ?journal
+  ?author
 WHERE {
-  ?paper a gutprop:Paper ;
-         gutprop:paperAnnotator ?annotator .
+  ?col a gutprop:PaperCollection ;
+       rdfs:label            ?collection ;
+       gutprop:contains     ?pap .
+
+  ?pap a            gutprop:Paper ;
+       gutprop:paperAnnotator ?annotator ;
+       gutprop:paperId        ?paper ;
+       gutprop:paperYear      ?year ;
+       gutprop:paperJournal   ?journal ;
+       gutprop:paperAuthor    ?author .
 }
-ORDER BY ?annotator
 """
     try:
         results = run_sparql_query(sparql)
@@ -429,6 +442,27 @@ ORDER BY ?annotator
         return JsonResponse({"error": str(e)}, status=500)
 
     bindings = results.get("results", {}).get("bindings", [])
-    annotators = [b["annotator"]["value"] for b in bindings]
-    
-    return JsonResponse({"annotators": annotators})
+
+    annos      = set()
+    papers     = set()
+    colls      = set()
+    years      = set()
+    journals   = set()
+    authors    = set()
+
+    for b in bindings:
+        annos.add(b["annotator"]["value"])
+        papers.add(b["paper"]["value"])
+        colls.add(b["collection"]["value"])
+        years.add(b["year"]["value"])
+        journals.add(b["journal"]["value"])
+        authors.add(b["author"]["value"])
+
+    return JsonResponse({
+        "annotators": sorted(annos),
+        "papers":     sorted(papers),
+        "collections":sorted(colls),
+        "years":      sorted(years),
+        "journals":   sorted(journals),
+        "authors":    sorted(authors),
+    })

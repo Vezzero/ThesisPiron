@@ -15,3 +15,4 @@ omit_full_taxonomy.txt
 *.owl
 .ipynb_checkpoints/bacteria_tree-checkpoint.txt
 __pycache__/
+GutBrain-WebApp/.vscode/settings.json

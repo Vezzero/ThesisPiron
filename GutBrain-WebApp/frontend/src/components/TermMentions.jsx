@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect } from "react";
 import { fetchTermMentions } from "../services/graphServices";
 import "./TermMentions.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import TablePagination from "@mui/material/TablePagination";
 
 export default function TermMentions() {
   const [term, setTerm] = useState("");
@@ -24,16 +23,17 @@ export default function TermMentions() {
   const [filterValue, setFilterValue] = useState("");
   const [allIndividuals, setAllIndividuals] = useState([]);
   const [allAnnotators, setAllAnnotators] = useState([]);
-  const [annotatorFilter, setAnnotatorFilter] = useState([]);
+  const [allPapers, setAllPapers] = useState([]);
+  const [allCollections, setAllCollections] = useState([]);
+  const [allYears, setAllYears] = useState([]);
+  const [allJournals, setAllJournals] = useState([]);
+  const [allAuthors, setAllAuthors] = useState([]);
+
+
 
   const uniqueInds = Array.from(
   new Map(allIndividuals.map(ind => [ind.uri, ind])).values()
 );
-
-const annotators = useMemo(() => {
-  return Array.from(new Set(mentions.map(m => m.annotator)))
-    .sort();
-}, [mentions]);
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
@@ -49,10 +49,24 @@ const annotators = useMemo(() => {
       try {
         const resp = await fetch("/api/list_all_annotators/");
         if (!resp.ok) throw new Error(await resp.text());
-        const { annotators } = await resp.json();
+        const {
+          annotators,
+          papers,
+          collections,
+          years,
+          journals,
+          authors
+        } = await resp.json();
+
         setAllAnnotators(annotators);
+        setAllPapers(papers);
+        setAllCollections(collections);
+        setAllYears(years);
+        setAllJournals(journals);
+        setAllAuthors(authors);
+
       } catch (err) {
-        console.error("Could not load annotators:", err);
+        console.error("Could not load facet lists:", err);
       }
     })();
   }, []);
@@ -252,14 +266,81 @@ const annotators = useMemo(() => {
               </option>
             ))}
           </select>
-        ) : filterField ? (
-          <input
+        ) : filterField === "year" ? (
+          <select
             className="tm-filter-input"
-            type="text"
-            placeholder={`Filter ${filterField}…`}
             value={filterValue}
             onChange={e => setFilterValue(e.target.value)}
-          />
+          >
+            <option value="" disabled>
+              Select year…
+            </option>
+            {allYears.map(a => (
+              <option key={a} value={a}>
+                {a}
+              </option>
+            ))}
+          </select>
+        ) : filterField === "author" ? (
+          <select
+            className="tm-filter-input option-class"
+            value={filterValue}
+            onChange={e => setFilterValue(e.target.value)}
+          >
+            <option value="" disabled className="option-class-b">
+              Select author…
+            </option>
+            {allAuthors.map(a => (
+              <option key={a} value={a} className="option-class-b">
+                {a}
+              </option>
+            ))}
+          </select>
+        ) : filterField === "paper" ? (
+          <select
+            className="tm-filter-input"
+            value={filterValue}
+            onChange={e => setFilterValue(e.target.value)}
+          >
+            <option value="" disabled>
+              Select paper…
+            </option>
+            {allPapers.map(p => (
+              <option key={p} value={p}>
+                {p}
+              </option>
+            ))}
+          </select>
+        ) : filterField === "journal" ? (
+          <select
+            className="tm-filter-input"
+            value={filterValue}
+            onChange={e => setFilterValue(e.target.value)}
+          >
+            <option value="" disabled>
+              Select journal…
+            </option>
+            {allJournals.map(j => (
+              <option key={j} value={j}>
+                {j}
+              </option>
+            ))}
+          </select>
+        ) : filterField === "collection" ? (
+          <select
+            className="tm-filter-input"
+            value={filterValue}
+            onChange={e => setFilterValue(e.target.value)}
+          >
+            <option value="" disabled>
+              Select collection…
+            </option>
+            {allCollections.map(c => (
+              <option key={c} value={c}>
+                {c}
+              </option>
+            ))}
+          </select>
         ) : null}
       </div>
       </div>
@@ -369,20 +450,6 @@ const annotators = useMemo(() => {
                       onChange={e => setMentionFilter(e.target.value)}
                     />
                   </th>
-                  <th>
-      <select
-        value={annotatorFilter}
-        onChange={e => setAnnotatorFilter(e.target.value)}
-        className="tm-filter-input"
-      >
-        <option value="">All annotators…</option>
-        {annotators.map(a => (
-          <option key={a} value={a}>
-            {a}
-          </option>
-        ))}
-      </select>
-    </th>
                 </tr>
               </thead>
               <tbody>
