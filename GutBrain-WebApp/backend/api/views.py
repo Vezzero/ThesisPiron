@@ -409,3 +409,26 @@ LIMIT 1
     }
 
     return JsonResponse({"paper": paper})
+
+@require_http_methods(["GET"])
+def list_all_annotators(request):
+    sparql = """
+PREFIX gutprop: <https://w3id.org/hereditary/ontology/gutbrain/schema/>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?annotator
+WHERE {
+  ?paper a gutprop:Paper ;
+         gutprop:paperAnnotator ?annotator .
+}
+ORDER BY ?annotator
+"""
+    try:
+        results = run_sparql_query(sparql)
+    except Exception as e:
+        return JsonResponse({"error": str(e)}, status=500)
+
+    bindings = results.get("results", {}).get("bindings", [])
+    annotators = [b["annotator"]["value"] for b in bindings]
+    
+    return JsonResponse({"annotators": annotators})

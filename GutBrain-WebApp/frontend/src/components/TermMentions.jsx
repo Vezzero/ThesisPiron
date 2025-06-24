@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { fetchTermMentions } from "../services/graphServices";
 import "./TermMentions.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -23,10 +23,17 @@ export default function TermMentions() {
   const [filterField, setFilterField] = useState(null);
   const [filterValue, setFilterValue] = useState("");
   const [allIndividuals, setAllIndividuals] = useState([]);
+  const [allAnnotators, setAllAnnotators] = useState([]);
+  const [annotatorFilter, setAnnotatorFilter] = useState([]);
 
   const uniqueInds = Array.from(
   new Map(allIndividuals.map(ind => [ind.uri, ind])).values()
 );
+
+const annotators = useMemo(() => {
+  return Array.from(new Set(mentions.map(m => m.annotator)))
+    .sort();
+}, [mentions]);
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
@@ -36,6 +43,19 @@ export default function TermMentions() {
       handleSearch(q);
     }
   }, [location.search]);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const resp = await fetch("/api/list_all_annotators/");
+        if (!resp.ok) throw new Error(await resp.text());
+        const { annotators } = await resp.json();
+        setAllAnnotators(annotators);
+      } catch (err) {
+        console.error("Could not load annotators:", err);
+      }
+    })();
+  }, []);
 
   const handleSearch = async (overrideTerm) => {
     const q = (overrideTerm ?? term).trim();
@@ -110,26 +130,28 @@ export default function TermMentions() {
     const sent = m.senttext.toLowerCase();
     const pap  = m.titletext.toLowerCase();
     const men  = m.mentiontext.toLowerCase();
+
     if (
       !sent.includes(sentenceFilter.toLowerCase()) ||
-      !pap.includes(paperFilter   .toLowerCase()) ||
-      !men.includes(mentionFilter .toLowerCase())
+      !pap .includes(paperFilter   .toLowerCase()) ||
+      !men .includes(mentionFilter .toLowerCase())
     ) return false;
-    if (filterField && filterValue.trim()) {
+
+    if (filterField && filterValue) {
       const fv = filterValue.toLowerCase();
       switch (filterField) {
         case "annotator":
-          return m.annotator.toLowerCase().includes(fv);
+          return m.annotator.toLowerCase() === fv;
         case "author":
-          return m.author   .toLowerCase().includes(fv);
+          return m.author.toLowerCase().includes(fv);
         case "paper":
-          return m.paper    .toLowerCase().includes(fv);
+          return m.paper.toLowerCase().includes(fv);
         case "journal":
-          return m.journal  .toLowerCase().includes(fv);
+          return m.journal.toLowerCase().includes(fv);
         case "collection":
-          return m.collection?.toLowerCase().includes(fv);
+          return (m.collection || "").toLowerCase().includes(fv);
         case "year":
-          return m.year?.toString().includes(fv);
+          return m.pubYear.toString().includes(fv);
         default:
           return true;
       }
@@ -169,7 +191,7 @@ export default function TermMentions() {
           {loading ? "Searching…" : "Search"}
         </button>
         <div className="tm-all-dropdown">
-        <select
+      <select
           className="tm-all-select"
           onChange={(e) => handleSearch(e.target.value)}
           defaultValue=""
@@ -214,16 +236,32 @@ export default function TermMentions() {
             {f.label}
           </button>
         ))}
-
-        {filterField && (
+        <div className="tm-filter-control">
+        {filterField === "annotator" ? (
+          <select
+            className="tm-filter-input"
+            value={filterValue}
+            onChange={e => setFilterValue(e.target.value)}
+          >
+            <option value="" disabled>
+              Select an annotator…
+            </option>
+            {allAnnotators.map(a => (
+              <option key={a} value={a}>
+                {a}
+              </option>
+            ))}
+          </select>
+        ) : filterField ? (
           <input
-            className="tm-filter-value"
+            className="tm-filter-input"
             type="text"
             placeholder={`Filter ${filterField}…`}
             value={filterValue}
             onChange={e => setFilterValue(e.target.value)}
           />
-        )}
+        ) : null}
+      </div>
       </div>
 
       {error && <div className="tm-error">{error}</div>}
@@ -331,6 +369,20 @@ export default function TermMentions() {
                       onChange={e => setMentionFilter(e.target.value)}
                     />
                   </th>
+                  <th>
+      <select
+        value={annotatorFilter}
+        onChange={e => setAnnotatorFilter(e.target.value)}
+        className="tm-filter-input"
+      >
+        <option value="">All annotators…</option>
+        {annotators.map(a => (
+          <option key={a} value={a}>
+            {a}
+          </option>
+        ))}
+      </select>
+    </th>
                 </tr>
               </thead>
               <tbody>
