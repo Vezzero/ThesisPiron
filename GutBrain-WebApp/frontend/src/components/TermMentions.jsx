@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { fetchTermMentions } from "../services/graphServices";
 import "./TermMentions.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import Select from 'react-select'
 
 export default function TermMentions() {
   const [term, setTerm] = useState("");
@@ -28,7 +29,6 @@ export default function TermMentions() {
   const [allYears, setAllYears] = useState([]);
   const [allJournals, setAllJournals] = useState([]);
   const [allAuthors, setAllAuthors] = useState([]);
-
 
 
   const uniqueInds = Array.from(
@@ -175,6 +175,25 @@ export default function TermMentions() {
   });
 
 
+  const optionsMap = {
+    annotator:  allAnnotators.map(a => ({ value: a, label: a })),
+    year:       allYears.map(y => ({ value: y, label: y })),
+    author:     allAuthors.map(a => ({ value: a, label: a })),
+   paper:      allPapers.map(p => ({ value: p, label: p })),
+    journal:    allJournals.map(j => ({ value: j, label: j })),
+   collection: allCollections.map(c => ({ value: c, label: c }))
+  }
+
+  const placeholderMap = {
+    annotator:  'Select an annotator…',
+    year:       'Select year…',
+    author:     'Select author…',
+    paper:      'Select paper…',
+    journal:    'Select journal…',
+    collection: 'Select collection…'
+  }
+
+
   return (
     <div className="tm-container">
       <div className="tm-header-bar">
@@ -224,8 +243,8 @@ export default function TermMentions() {
       <div className="tm-extra-filters">
         <span>Filter by:</span>
         {[
-          { key: "annotator", label: "Annotator" },
           { key: "author",    label: "Author"    },
+          { key: "annotator", label: "Annotator" },
           { key: "paper",     label: "Paper"     },
           { key: "journal",   label: "Journal"   },
           { key: "collection",label: "Collection"},
@@ -250,99 +269,27 @@ export default function TermMentions() {
             {f.label}
           </button>
         ))}
-        <div className="tm-filter-control">
-        {filterField === "annotator" ? (
-          <select
-            className="tm-filter-input"
-            value={filterValue}
-            onChange={e => setFilterValue(e.target.value)}
-          >
-            <option value="" disabled>
-              Select an annotator…
-            </option>
-            {allAnnotators.map(a => (
-              <option key={a} value={a}>
-                {a}
-              </option>
-            ))}
-          </select>
-        ) : filterField === "year" ? (
-          <select
-            className="tm-filter-input"
-            value={filterValue}
-            onChange={e => setFilterValue(e.target.value)}
-          >
-            <option value="" disabled>
-              Select year…
-            </option>
-            {allYears.map(a => (
-              <option key={a} value={a}>
-                {a}
-              </option>
-            ))}
-          </select>
-        ) : filterField === "author" ? (
-          <select
-            className="tm-filter-input option-class"
-            value={filterValue}
-            onChange={e => setFilterValue(e.target.value)}
-          >
-            <option value="" disabled className="option-class-b">
-              Select author…
-            </option>
-            {allAuthors.map(a => (
-              <option key={a} value={a} className="option-class-b">
-                {a}
-              </option>
-            ))}
-          </select>
-        ) : filterField === "paper" ? (
-          <select
-            className="tm-filter-input"
-            value={filterValue}
-            onChange={e => setFilterValue(e.target.value)}
-          >
-            <option value="" disabled>
-              Select paper…
-            </option>
-            {allPapers.map(p => (
-              <option key={p} value={p}>
-                {p}
-              </option>
-            ))}
-          </select>
-        ) : filterField === "journal" ? (
-          <select
-            className="tm-filter-input"
-            value={filterValue}
-            onChange={e => setFilterValue(e.target.value)}
-          >
-            <option value="" disabled>
-              Select journal…
-            </option>
-            {allJournals.map(j => (
-              <option key={j} value={j}>
-                {j}
-              </option>
-            ))}
-          </select>
-        ) : filterField === "collection" ? (
-          <select
-            className="tm-filter-input"
-            value={filterValue}
-            onChange={e => setFilterValue(e.target.value)}
-          >
-            <option value="" disabled>
-              Select collection…
-            </option>
-            {allCollections.map(c => (
-              <option key={c} value={c}>
-                {c}
-              </option>
-            ))}
-          </select>
-        ) : null}
-      </div>
+        {filterField && (
+  <div className="tm-filter-control">
+    <Select
+      className="tm-filter-btn-select"
+      classNamePrefix="tm-select"
+      options={optionsMap[filterField]}
+      maxMenuHeight={200}
+      value={ optionsMap[filterField].find(o => o.value === filterValue) || null }
+      onChange={opt => setFilterValue(opt?.value || "")}
+      placeholder={placeholderMap[filterField]}
+      isClearable
+      styles={{
+        menu: provided => ({
+          ...provided,
+          maxHeight: '200px'
+        })
+      }}
+    />
+  </div>
+)}
+
       </div>
 
       {error && <div className="tm-error">{error}</div>}
