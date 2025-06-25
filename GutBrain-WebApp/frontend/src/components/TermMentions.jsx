@@ -4,6 +4,7 @@ import "./TermMentions.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Select from 'react-select'
 import Fuse from 'fuse.js'
+import AsyncSelect from 'react-select/async'
 
 export default function TermMentions() {
   const [term, setTerm] = useState("");
@@ -30,6 +31,8 @@ export default function TermMentions() {
   const [allYears, setAllYears] = useState([]);
   const [allJournals, setAllJournals] = useState([]);
   const [allAuthors, setAllAuthors] = useState([]);
+  const [menuIsOpen, setMenuIsOpen] = useState(false);
+  const [selectedOption, setSelectedOption] = useState(null)
 
 
   const uniqueInds = Array.from(
@@ -39,18 +42,31 @@ export default function TermMentions() {
   const fuse = useMemo(() => {
   return new Fuse(
     allIndividuals.map(i => i.label), 
-    { threshold: 0.4,
+    { threshold: 0.3,
       ignoreLocation: true,
     }
   )
 }, [allIndividuals])
 
+const loadOptions = (inputValue) => {
+  if (inputValue.length < 3) {
+    return Promise.resolve([])
+  }
+  const results = fuse.search(inputValue).slice(0, 10)
+  return Promise.resolve(
+    results.map(r => ({
+      label: r.item,
+      value: r.item
+    }))
+  )
+}
+
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const q      = params.get("term")?.trim();
     if (q) {
-      setTerm(q);
       fetchResults(q);
+      setTerm(q);
     }
   }, [location.search]);
 
@@ -129,8 +145,7 @@ export default function TermMentions() {
    }
 
    navigate(`/search?term=${encodeURIComponent(q)}`, { replace: true })
-   setTerm("")
-
+    setTerm(q)
    fetchResults(q)
  }
 
@@ -238,22 +253,66 @@ export default function TermMentions() {
        <hr />
       </div>
       
-      <div className="tm-search">
-        <input
-          className="tm-input"
-          type="text"
-          value={term}
-          onChange={(e) => setTerm(e.target.value)}
-          placeholder="Type a term (e.g. brain, mouse)…"
-          onKeyDown={(e) => e.key === "Enter" && handleSearch()}
-        />
-        <button
-          className="tm-button"
-          onClick={() => handleSearch()}
-          disabled={loading}
-        >
-          {loading ? "Searching…" : "Search"}
-        </button>
+        <div className="tm-search">
+        <AsyncSelect
+        className="tm-input"
+        classNamePrefix="tm-input"
+        cacheOptions
+        loadOptions={loadOptions}
+        defaultOptions={false}
+        isClearable
+        placeholder="Type a term (e.g. brain, mouse)…"
+
+        menuIsOpen={menuIsOpen}
+
+        onMenuOpen={() => setMenuIsOpen(true)}
+        onMenuClose={() => setMenuIsOpen(false)}
+
+        inputValue={term}
+        value={
+          selectedOption
+            ? selectedOption
+            : term
+              ? { label: term, value: term }
+              : null
+        }
+        onInputChange={val => setTerm(val)}
+
+        onChange={(opt, meta) => {
+          if (opt?.value) {
+            setSelectedOption(opt);
+            setTerm(opt.value);
+            handleSearch(opt.value);
+          } else if (meta.action === 'clear') {
+            setTerm("");
+            setSelectedOption(null);
+            handleSearch("");
+            setMenuIsOpen(false);
+          }
+          
+        }}
+
+        onKeyDown={e => {
+          if (e.key === "Enter") {
+            e.preventDefault();
+            handleSearch();
+            setMenuIsOpen(false);
+          }
+        }}
+      />
+
+      <button
+        className="tm-button"
+        onClick={() => {
+          handleSearch();
+          setMenuIsOpen(false);
+        }}
+        disabled={loading}
+        
+      >
+        {loading ? "Searching…" : "Search"}
+      </button>
+
         <div className="tm-all-dropdown">
       <select
           className="tm-all-select"

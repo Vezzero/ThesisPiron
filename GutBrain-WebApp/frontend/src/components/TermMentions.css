@@ -3,7 +3,7 @@
 .tm-search { margin: 1rem 0; display: flex; align-items: center; gap: 0.5rem; }
 .tm-input { padding: 0.5rem; font-size: 0.9rem; width: 100%; margin-right: 0.5rem; flex: 0 0 60%;  max-width: 300px; }
 .tm-button { padding: 0.5rem 1rem; font-size: 0.9rem; }
-.tm-error { color: red; margin-bottom: 1rem; }
+.tm-error { color: rgb(0, 0, 0); margin-bottom: 1rem; }
 .tm-header { margin: 1.5rem 0; }
 .tm-header p { margin: 0.5rem 0; }
 .tm-table-wrapper { overflow-x: auto; }
@@ -67,7 +67,6 @@
   
 }
 
-/* Your existing single-card styles */
 .tm-results-card {
   background-color: #fff;
   border: 1px solid #e0e0e0;
@@ -376,6 +375,20 @@ p {
   overflow-y: auto;
 }
 
+.tm-autosuggest__control {
+  border: 1px solid #000;
+  border-radius: 4px;
+  padding: .5rem;
+  font-size: 1rem;
+  max-width: 400px;
+}
+.tm-autosuggest__menu {
+  z-index: 100;
+}
+.tm-autosuggest__menu-list {
+  max-height: 200px;
+  overflow-y: auto;
+}
 
 
 
