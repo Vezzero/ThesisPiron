@@ -186,40 +186,52 @@ const loadOptions = (inputValue) => {
         setError("Failed loading objects: " + e.message);
       }
 };
+
   const filteredMentions = mentions.filter(m => {
-    const sent = m.senttext.toLowerCase();
-    const pap  = m.titletext.toLowerCase();
-    const men  = m.mentiontext.toLowerCase();
+  const sent = m.senttext.toLowerCase();
+  const pap  = m.titletext.toLowerCase();
+  const men  = m.mentiontext.toLowerCase();
 
-    if (
-      !sent.includes(sentenceFilter.toLowerCase()) ||
-      !pap .includes(paperFilter   .toLowerCase()) ||
-      !men .includes(mentionFilter .toLowerCase())
-    ) return false;
+  if (
+    !sent.includes(sentenceFilter.toLowerCase()) ||
+    !pap .includes(paperFilter   .toLowerCase()) ||
+    !men .includes(mentionFilter .toLowerCase())
+  ) return false;
 
-    if (filterField && filterValue) {
-      const fv = filterValue.toLowerCase();
-      switch (filterField) {
-        case "annotator":
-          return m.annotator.toLowerCase() === fv;
-        case "author":
-          return m.author.toLowerCase().includes(fv);
-        case "paper":
-          return m.paper.toLowerCase().includes(fv);
-        case "journal":
-          return m.journal.toLowerCase().includes(fv);
-        case "collection":
-          return (m.collection || "").toLowerCase().includes(fv);
-        case "year":
-          return m.pubYear.toString().includes(fv);
-        default:
-          return true;
-      }
+  if (filterField && filterValue) {
+    const values = Array.isArray(filterValue)
+      ? filterValue.map(v => v.toLowerCase())
+      : [filterValue.toLowerCase()];
+
+    switch (filterField) {
+      case "annotator":
+        return values.some(v => m.annotator.toLowerCase() === v);
+
+      case "author":
+        return values.some(v => m.author.toLowerCase().includes(v));
+
+      case "paper":
+        return values.some(v => m.paper.toLowerCase().includes(v));
+
+      case "journal":
+        return values.some(v => m.journal.toLowerCase().includes(v));
+
+      case "collection":
+        return values.some(v =>
+          (m.collection || "").toLowerCase().includes(v)
+        );
+
+      case "year":
+        return values.some(v =>
+          m.pubYear.toString().includes(v)
+        );
+
+      default:
+        return true;
     }
-
-    return true;
-  });
-
+  }
+  return true;
+});
 
   const optionsMap = {
     annotator:  allAnnotators.map(a => ({ value: a, label: a })),

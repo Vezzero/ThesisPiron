@@ -57,8 +57,16 @@ export default function PaperDetails() {
           </a>
         </p>
 
-        <p><h3>Title:</h3> {paper.titletext}</p>
-        <p><h3>Abstract:</h3>{paper.abstracttext}</p>
+        <div className="paper-field">
+          <h3>Title:</h3>
+          <p>{paper.titletext}</p>
+        </div>
+
+        <div className="paper-field">
+          <h3>Abstract:</h3>
+          <p>{paper.abstracttext}</p>
+        </div>
+
         <p><strong>Authors:</strong> {paper.author}</p>
         <p><strong>Journal:</strong> {paper.journal}</p>
         <p><strong>Publication Year:</strong> {paper.pubYear}</p>
