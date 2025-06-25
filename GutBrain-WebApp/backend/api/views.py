@@ -411,7 +411,7 @@ LIMIT 1
     return JsonResponse({"paper": paper})
 
 @require_http_methods(["GET"])
-def list_all_annotators(request):
+def list_details(request):
     sparql = """
 PREFIX gutprop: <https://w3id.org/hereditary/ontology/gutbrain/schema/>
 PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>

@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { fetchTermMentions } from "../services/graphServices";
 import "./TermMentions.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Select from 'react-select'
+import Fuse from 'fuse.js'
 
 export default function TermMentions() {
   const [term, setTerm] = useState("");
@@ -35,19 +36,28 @@ export default function TermMentions() {
   new Map(allIndividuals.map(ind => [ind.uri, ind])).values()
 );
 
+  const fuse = useMemo(() => {
+  return new Fuse(
+    allIndividuals.map(i => i.label), 
+    { threshold: 0.4,
+      ignoreLocation: true,
+    }
+  )
+}, [allIndividuals])
+
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const q      = params.get("term")?.trim();
     if (q) {
       setTerm(q);
-      handleSearch(q);
+      fetchResults(q);
     }
   }, [location.search]);
 
   useEffect(() => {
     (async () => {
       try {
-        const resp = await fetch("/api/list_all_annotators/");
+        const resp = await fetch("/api/list_details/");
         if (!resp.ok) throw new Error(await resp.text());
         const {
           annotators,
@@ -71,38 +81,59 @@ export default function TermMentions() {
     })();
   }, []);
 
-  const handleSearch = async (overrideTerm) => {
-    const q = (overrideTerm ?? term).trim();
-    if (!q) {
-      setError("Please type something to search.");
-      return;
-    }
+  async function fetchResults(q) {
+  setError(null)
+  setLoading(true)
+  try {
+    const results = await fetchTermMentions(q)
+    setMentions(results)
 
-    navigate(`/search?term=${encodeURIComponent(q)}`, { replace: true });
-    setError(null);
-    setLoading(true);
-    try {
-      setTerm(q);
-      const results = await fetchTermMentions(q);
-      setMentions(results);
-      setTerm("");
-      const uri = results[0].indname;
+    if (results.length > 0) {
+      const uri   = results[0].indname
       const resp2 = await fetch(
-       `/api/list_property_term/?term=${encodeURIComponent(uri)}`
-      );
-      if (!resp2.ok) throw new Error(await resp2.text());
-      const { relations } = await resp2.json();
-      setRelationsList(relations);
-      setRelationCount(relations.length);
-    } catch (e) {
-      setError(e.message);
-      setMentions([]);
-      setRelationsList([]);
-      setRelationCount(0);
-    } finally {
-      setLoading(false);
+        `/api/list_property_term/?term=${encodeURIComponent(uri)}`
+      )
+      if (!resp2.ok) throw new Error(await resp2.text())
+      const { relations } = await resp2.json()
+      setRelationsList(relations)
+      setRelationCount(relations.length)
+    } else {
+      setRelationsList([])
+      setRelationCount(0)
     }
-  };
+  } catch (e) {
+    setError(e.message)
+    setMentions([])
+    setRelationsList([])
+    setRelationCount(0)
+  } finally {
+    setLoading(false)
+  }
+}
+
+ const handleSearch = (overrideTerm) => {
+   let q = (overrideTerm ?? term).trim()
+
+   const labelsLC = allIndividuals.map(i => i.label.toLowerCase())
+   if (q && !labelsLC.includes(q.toLowerCase())) {
+     const [best] = fuse.search(q)
+     if (best?.item) {
+       console.log(`typo? correcting "${q}" → "${best.item}"`)
+       q = best.item
+     }
+   }
+
+   if (!q) {
+     setError("Please type something to search.")
+     return
+   }
+
+   navigate(`/search?term=${encodeURIComponent(q)}`, { replace: true })
+   setTerm("")
+
+   fetchResults(q)
+ }
+
 
   useEffect(() => {
     (async () => {
@@ -179,9 +210,9 @@ export default function TermMentions() {
     annotator:  allAnnotators.map(a => ({ value: a, label: a })),
     year:       allYears.map(y => ({ value: y, label: y })),
     author:     allAuthors.map(a => ({ value: a, label: a })),
-   paper:      allPapers.map(p => ({ value: p, label: p })),
+    paper:      allPapers.map(p => ({ value: p, label: p })),
     journal:    allJournals.map(j => ({ value: j, label: j })),
-   collection: allCollections.map(c => ({ value: c, label: c }))
+    collection: allCollections.map(c => ({ value: c, label: c }))
   }
 
   const placeholderMap = {
@@ -206,7 +237,7 @@ export default function TermMentions() {
        </button>
        <hr />
       </div>
-
+      
       <div className="tm-search">
         <input
           className="tm-input"
@@ -270,8 +301,8 @@ export default function TermMentions() {
           </button>
         ))}
         {filterField && (
-  <div className="tm-filter-control">
-    <Select
+     <div className="tm-filter-control">
+     <Select
       className="tm-filter-btn-select"
       classNamePrefix="tm-select"
       options={optionsMap[filterField]}
