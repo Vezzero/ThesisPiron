@@ -390,5 +390,30 @@ p {
   overflow-y: auto;
 }
 
+.tm-paper-cell {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding: 0.5rem 0;
+  gap: 0.5rem;   
+}
+
+.tm-pubmed-button {
+  display: inline-block;
+  font-size: 0.8rem;
+  padding: 0.2rem 0.5rem;
+  background: #007acc;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+}
+.tm-pubmed-button:hover {
+  background: #005fa3;
+}
+.tm-paper-link {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
 

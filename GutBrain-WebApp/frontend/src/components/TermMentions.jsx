@@ -518,13 +518,26 @@ const loadOptions = (inputValue) => {
                     {mention.senttext}
                   </span>
                 </td>
-                    <td className="tm-truncate">
-                      <Link
-                    to={`/paper/${mention.paperid}`}
-                    className="tm-clickable"
-                     >
-                   {mention.paper}
-                    </Link></td>
+                <td>
+                    <div className="tm-paper-cell">
+                      <div className="tm-paper-link">
+                    <Link
+                      to={`/paper/${mention.paperid}`}
+                      className="tm-clickable"
+                    >
+                      {mention.paper}
+                    </Link>
+                    </div>
+                    <a
+                      href={`https://pubmed.ncbi.nlm.nih.gov/${mention.paperid}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="tm-pubmed-button"
+                    >
+                      View in PubMed
+                    </a>
+                  </div>
+                </td>
                     <td className="tm-truncate">
                       {mention.mentiontext}
                     </td>
