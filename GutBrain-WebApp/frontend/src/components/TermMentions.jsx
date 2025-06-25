@@ -23,7 +23,7 @@ export default function TermMentions() {
   const [paperFilter,    setPaperFilter]    = useState("");
   const [mentionFilter,  setMentionFilter]  = useState("");
   const [filterField, setFilterField] = useState(null);
-  const [filterValue, setFilterValue] = useState("");
+  const [filterValue, setFilterValue] = useState([]);
   const [allIndividuals, setAllIndividuals] = useState([]);
   const [allAnnotators, setAllAnnotators] = useState([]);
   const [allPapers, setAllPapers] = useState([]);
@@ -362,23 +362,42 @@ const loadOptions = (inputValue) => {
         {filterField && (
      <div className="tm-filter-control">
      <Select
-      className="tm-filter-btn-select"
-      classNamePrefix="tm-select"
-      options={optionsMap[filterField]}
-      maxMenuHeight={200}
-      value={ optionsMap[filterField].find(o => o.value === filterValue) || null }
-      onChange={opt => setFilterValue(opt?.value || "")}
-      placeholder={placeholderMap[filterField]}
-      isClearable
-      styles={{
-        menu: provided => ({
-          ...provided,
-          maxHeight: '200px'
-        })
-      }}
-    />
-  </div>
-)}
+        className="tm-filter-btn-select"
+        classNamePrefix="tm-select"
+
+        options={optionsMap[filterField]}
+        isMulti
+        maxMenuHeight={200}
+        value={ optionsMap[filterField]
+                  .filter(o => filterValue.includes(o.value)) 
+              || [] 
+        }
+
+        onChange={opts => {
+          if (opts) {
+            setFilterValue(opts.map(o => o.value))
+          } else {
+            setFilterValue([])
+          }
+        }}
+
+        placeholder={placeholderMap[filterField]}
+        isClearable
+
+        styles={{
+          control: provided => ({
+            ...provided,
+            maxWidth: '300px',
+          }),
+          menu: provided => ({
+            ...provided,
+            maxHeight: '200px'
+          })
+          }}
+          />
+
+          </div>
+          )}
 
       </div>
 
