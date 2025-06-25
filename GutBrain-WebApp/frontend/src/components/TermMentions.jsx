@@ -33,6 +33,8 @@ export default function TermMentions() {
   const [allAuthors, setAllAuthors] = useState([]);
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null)
+  const [currentPage, setCurrentPage] = useState(1);
+  const [rowsPerPage, setRowsPerPage] = useState(25);
 
 
   const uniqueInds = Array.from(
@@ -105,9 +107,8 @@ const loadOptions = (inputValue) => {
     setMentions(results)
 
     if (results.length > 0) {
-      const uri   = results[0].indname
       const resp2 = await fetch(
-        `/api/list_property_term/?term=${encodeURIComponent(uri)}`
+        `/api/list_property_term/?term=${encodeURIComponent(q)}`
       )
       if (!resp2.ok) throw new Error(await resp2.text())
       const { relations } = await resp2.json()
@@ -250,6 +251,14 @@ const loadOptions = (inputValue) => {
     journal:    'Select journal…',
     collection: 'Select collection…'
   }
+
+  const totalRows = filteredMentions.length;
+  const totalPages = Math.ceil(totalRows / rowsPerPage) || 1;
+  const startIdx = (currentPage - 1) * rowsPerPage;
+  const paginated = filteredMentions.slice(startIdx, startIdx + rowsPerPage);
+
+  // reset page when filters or page size change
+  useEffect(() => setCurrentPage(1), [sentenceFilter, paperFilter, mentionFilter, filterField, filterValue, rowsPerPage]);
 
 
   return (
@@ -521,8 +530,8 @@ const loadOptions = (inputValue) => {
                 </tr>
               </thead>
               <tbody>
-                {filteredMentions.map((mention, idx) => (
-                  <tr key={`${mention.indname}-${idx}`}>
+                {paginated.map((mention, idx) => (
+                  <tr key={`${mention.indname}-${startIdx+idx}`}>
                     <td className="tm-truncate">
                   <span
                     className="tm-clickable color-sentence"
@@ -557,9 +566,19 @@ const loadOptions = (inputValue) => {
                 ))}
               </tbody>
             </table>
-          </div>
-        </>
-      )}
+            <div className="tm-pagination">
+              <label>Rows per page:
+                <select value={rowsPerPage} onChange={e=>setRowsPerPage(+e.target.value)}>
+                  {[10,25,50,100].map(n=><option key={n} value={n}>{n}</option>)}
+                </select>
+              </label>
+              <button onClick={()=>setCurrentPage(p=>Math.max(p-1,1))} disabled={currentPage===1}>‹</button>
+              <span className="label-class">{startIdx+1}–{Math.min(startIdx+rowsPerPage,totalRows)} of {totalRows}</span>
+              <button onClick={()=>setCurrentPage(p=>Math.min(p+1,totalPages))} disabled={currentPage===totalPages}>›</button>
+            </div>
+              </div>
+            </>
+          )}
 
       {!loading && !error && mentions.length === 0 && (
         <div className="tm-empty">
@@ -621,7 +640,14 @@ const loadOptions = (inputValue) => {
                   {o.label}</button>
                 </td>
                 <td>
-                <code className="code-underline">{o.uri}</code>
+                  <a
+                    href={o.uri}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                  <code className="code-underline">
+                  {o.uri}</code>
+                  </a>
                 </td>
               </tr>
             ))}

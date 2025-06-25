@@ -6,9 +6,9 @@
 .tm-error { color: rgb(0, 0, 0); margin-bottom: 1rem; }
 .tm-header { margin: 1.5rem 0; }
 .tm-header p { margin: 0.5rem 0; }
-.tm-table-wrapper { overflow-x: auto; }
+.tm-table-wrapper { overflow-x: auto; max-height: calc(100vh - 300px); flex: 1; margin-top: 1rem; }
 .tm-table { width: 100%; border-collapse: collapse; }
-.tm-table th, .tm-table td { border: 1px solid #ccc; padding: 0.5rem; text-align: left; }
+.tm-table th, .tm-table td { border: 1px solid #ccc; text-align: left; }
 .tm-table th { background: #f0f0f0; }
 .tm-empty { margin-top: 1rem; color: #666; }
 
@@ -74,12 +74,6 @@
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   padding: 1.5rem;
 }
-.tm-table th,
-.tm-table td {
-  padding: 0.75rem;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-}
 
 @media (max-width: 768px) {
   .tm-results-wrapper {
@@ -120,11 +114,6 @@
   margin-bottom: .5rem;
 }
 
-.tm-table-wrapper {
-  overflow-x: auto;
-  margin-top: 1rem;
-}
-
 .tm-modal {
   background: #ffffff;
   border-radius: 8px;
@@ -159,11 +148,6 @@
   font-size: 0.9rem;
 } 
 
-.tm-table-wrapper {
-  overflow: auto;
-  flex: 1;
-  margin-top: 1rem;
-}
 .tm-objects-table {
   width: 100%;
   border-collapse: collapse;
@@ -414,6 +398,69 @@ p {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.button-table {
+  display: inline-block;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  border-color: #000;
+  cursor: pointer;
+  text-decoration: none;
+  margin-left: 5px;
+  margin-right: 5px;
+  border-radius:4px;
+  padding: 0 0.5rem;
+}
+
+.label-class {
+  font-size: small;
+  margin-right: 0.5rem;
+}
+
+.tm-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+  padding: .5rem 0;
+  font-size: .9rem;
+}
+
+.tm-pagination select {
+  margin-left: .25rem;
+}
+
+.tm-pagination button {
+  background: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: .2rem .6rem;
+  cursor: pointer;
+}
+
+.tm-pagination button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.tm-table thead tr:first-child th,
+.tm-table thead tr.tm-filters th {
+  position: sticky;
+  background: white;
+  z-index: 2;      
+}
+
+.tm-table thead tr:first-child th {
+  top: 0;
+}
+
+.tm-table thead tr.tm-filters th {
+  top: 2.5rem;
+}
+
+.tm-filter-input {
+  width: 100%;
+  box-sizing: border-box;
 }
 
 
