@@ -492,7 +492,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                               gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/1c12a878c1e5323a> ;
                                               gutprop:influence <http://purl.obolibrary.org/obo/NCIT_C26696> ;
                                               rdfs:comment "CHEBI Match" ,
-                                                           "Choline_metabolites refers to the chemical compounds produced through the metabolism of choline, a nutrient found in various foods, which play important roles in various physiological processes, including neurotransmission and membrane structure. [Definition Source: llama3-8b-8192]" ;
+                                                           "Choline metabolites refers to the chemical compounds produced through the metabolism of choline, a nutrient found in various foods, which play important roles in various physiological processes, including neurotransmission and membrane structure. [Definition Source: llama3-8b-8192]" ;
                                               rdfs:label "2,4-D Choline" .
 
 
@@ -584,7 +584,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                       gutprop:Chemical ;
                                              skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/Chemical> ;
                                              gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/84ac0154bfc16143> ;
-                                             rdfs:comment "\"L-leucine\" is a naturally occurring, essential amino acid that is a building block of proteins and plays a crucial role in various physiological processes, including protein synthesis, muscle growth, and regulation of blood sugar levels. [Definition Source: llama3-8b-8192]" ,
+                                             rdfs:comment "L-leucine is a naturally occurring, essential amino acid that is a building block of proteins and plays a crucial role in various physiological processes, including protein synthesis, muscle growth, and regulation of blood sugar levels. [Definition Source: llama3-8b-8192]" ,
                                                           "CHEBI Match" ;
                                              rdfs:label "L-Leucine" .
 
@@ -919,7 +919,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                        gutprop:Chemical ;
                                               skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/Chemical> ;
                                               gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/a87276a1e6cb01ad> ;
-                                              rdfs:comment "\"Serum BA precursor 7-hydroxy-4-cholesten-3-one\" is a bile acid precursor that is a metabolite of cholesterol, specifically a hydroxysterol that is involved in the regulation of bile acid synthesis and cholesterol metabolism. [Definition Source: llama3-8b-8192]" ,
+                                              rdfs:comment "Serum BA precursor 7-hydroxy-4-cholesten-3-one is a bile acid precursor that is a metabolite of cholesterol, specifically a hydroxysterol that is involved in the regulation of bile acid synthesis and cholesterol metabolism. [Definition Source: llama3-8b-8192]" ,
                                                            "CHEBI Match" ;
                                               rdfs:label "7 Alpha,24-Dihydroxy-4-Cholesten-3-One" .
 
@@ -932,7 +932,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                               gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/cb58e4600bf0142c> ;
                                               gutprop:impact <https://w3id.org/hereditary/ontology/gutbrain/resource/diseasedisorderorfinding/AlteredGutMicrobiota> ;
                                               rdfs:comment "CHEBI Match" ,
-                                                           "The entity \"ne\" refers to the nucleus of an erythrocyte, also known as the nucleated cell of the red blood cell. [Definition Source: llama3-8b-8192]" ;
+                                                           "It refers to the nucleus of an erythrocyte, also known as the nucleated cell of the red blood cell. [Definition Source: llama3-8b-8192]" ;
                                               rdfs:label "Ne,Ne Dimethyllysine" .
 
 
@@ -1110,7 +1110,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                               gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/fe3c502e622ba0bf> ;
                                               gutprop:interact <http://purl.obolibrary.org/obo/CHEBI_194220> ,
                                                                <http://purl.obolibrary.org/obo/NCIT_C26532> ;
-                                              rdfs:comment "Ar_420626 is a gene that encodes a protein involved in the regulation of cell growth and differentiation, specifically in the development of the nervous system. [Definition Source: llama3-8b-8192]" ,
+                                              rdfs:comment "It is a gene that encodes a protein involved in the regulation of cell growth and differentiation, specifically in the development of the nervous system. [Definition Source: llama3-8b-8192]" ,
                                                            "CHEBI Match" ;
                                               rdfs:label "AR-42 Gene" .
 
@@ -1134,7 +1134,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                               skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/Chemical> ;
                                               gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/19ed69df174dfc31> ;
                                               gutprop:producedBy <https://w3id.org/hereditary/ontology/gutbrain/resource/diseasedisorderorfinding/AlteredGutMicrobiota> ;
-                                              rdfs:comment "3-_3_4-dihydroxyphenyl_propionic_acid is a metabolite of the amino acid tyrosine, specifically a hydroxylated derivative of phenylalanine. [Definition Source: llama3-8b-8192]" ,
+                                              rdfs:comment "It is a metabolite of the amino acid tyrosine, specifically a hydroxylated derivative of phenylalanine. [Definition Source: llama3-8b-8192]" ,
                                                            "CHEBI Match" ;
                                               rdfs:label "3-3,5-Dihydroxyphenyl-Propionic Acid" .
 
@@ -1162,7 +1162,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                              <https://uts.nlm.nih.gov/uts/umls/concept/C1080664> ;
                                               gutprop:influence <http://purl.obolibrary.org/obo/NCIT_C3137> ;
                                               rdfs:comment "CHEBI Match" ,
-                                                           "Dextran_sodium_sulphate is a synthetic polymer used as an osmotic agent in medical treatments, particularly in the diagnosis and treatment of certain neurological disorders. [Definition Source: llama3-8b-8192]" ;
+                                                           "Dextran sodium sulphate is a synthetic polymer used as an osmotic agent in medical treatments, particularly in the diagnosis and treatment of certain neurological disorders. [Definition Source: llama3-8b-8192]" ;
                                               rdfs:label "Dextran Sulfate Sodium" .
 
 
@@ -1219,7 +1219,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                               skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/Chemical> ;
                                               gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/eee61ae681d364ec> ;
                                               rdfs:comment "CHEBI Match" ,
-                                                           "The entity \"d-la\" refers to D-lactic acid, a type of organic compound that is a stereoisomer of lactic acid. [Definition Source: llama3-8b-8192]" ;
+                                                           "It refers to D-lactic acid, a type of organic compound that is a stereoisomer of lactic acid. [Definition Source: llama3-8b-8192]" ;
                                               rdfs:label "La-1" .
 
 
@@ -1241,7 +1241,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                               skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/Chemical> ;
                                               gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/3097e26b7f3cbdb9> ;
                                               rdfs:comment "CHEBI Match" ,
-                                                           "The entity \"fa\" refers to the term \"Fibroblast Activation\", which is a biological process that describes the activation of fibroblasts, a type of connective tissue cell, in response to various stimuli. [Definition Source: llama3-8b-8192]" ;
+                                                           "It refers to the term \"Fibroblast Activation\", which is a biological process that describes the activation of fibroblasts, a type of connective tissue cell, in response to various stimuli. [Definition Source: llama3-8b-8192]" ;
                                               rdfs:label "Microcystin-Fa" .
 
 
@@ -1262,7 +1262,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                       gutprop:Chemical ;
                                              skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/Chemical> ;
                                              gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/c859aeb620f00536> ;
-                                             rdfs:comment "\"N-acetyl-L-glutamine is a naturally occurring amino acid derivative that serves as a key component of various biological processes, including protein synthesis and cellular signaling.\" [Definition Source: llama3-8b-8192]" ,
+                                             rdfs:comment "N-acetyl-L-glutamine is a naturally occurring amino acid derivative that serves as a key component of various biological processes, including protein synthesis and cellular signaling. [Definition Source: llama3-8b-8192]" ,
                                                           "CHEBI Match" ;
                                              rdfs:label "N-Acetyl-L-Glutamine" .
 
@@ -1349,7 +1349,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                       gutprop:Chemical ;
                                              skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/Chemical> ;
                                              gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/97d7d7833d5a5800> ;
-                                             rdfs:comment "Branched-chain_scfas refers to a type of short-chain fatty acid (SCFA) that is derived from the fermentation of dietary fibers and has a branched molecular structure. [Definition Source: llama3-8b-8192]" ,
+                                             rdfs:comment "It refers to a type of short-chain fatty acid (SCFA) that is derived from the fermentation of dietary fibers and has a branched molecular structure. [Definition Source: llama3-8b-8192]" ,
                                                           "CHEBI Match" ;
                                              rdfs:label "Branched-Chain Amino Acid" .
 
@@ -1363,7 +1363,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                                   <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/8018a69f386ee154> ;
                                               gutprop:impact <https://w3id.org/hereditary/ontology/gutbrain/resource/diseasedisorderorfinding/AlteredGutMicrobiota> ;
                                               gutprop:locatedIn <http://purl.obolibrary.org/obo/NCIT_C12439> ;
-                                              rdfs:comment "\"-Aminobutyric acid\" is a type of neurotransmitter that is the major inhibitory neurotransmitter in the central nervous system, playing a crucial role in regulating the activity of neurons. [Definition Source: llama3-8b-8192]" ,
+                                              rdfs:comment "It is a type of neurotransmitter that is the major inhibitory neurotransmitter in the central nervous system, playing a crucial role in regulating the activity of neurons. [Definition Source: llama3-8b-8192]" ,
                                                            "CHEBI Match" ;
                                               rdfs:label "L-3-Aminobutyric Acid" .
 
@@ -1408,7 +1408,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                               gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/659eee59f002e69b> ;
                                               gutprop:influence <http://purl.obolibrary.org/obo/NCIT_C124639> ;
                                               rdfs:comment "CHEBI Match" ,
-                                                           "The entity \"CPT\" refers to the Current Procedural Terminology, a standardized coding system used in the United States for reporting medical, surgical, and diagnostic procedures. [Definition Source: llama3-8b-8192]" ;
+                                                           "It refers to the Current Procedural Terminology, a standardized coding system used in the United States for reporting medical, surgical, and diagnostic procedures. [Definition Source: llama3-8b-8192]" ;
                                               rdfs:label "D-Cpt Tartrate" .
 
 
@@ -1450,7 +1450,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                              gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/32b1c492754385b1> ,
                                                                  <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/937db02caab739d4> ;
                                              gutprop:locatedIn <https://uts.nlm.nih.gov/uts/umls/concept/C0085196> ;
-                                             rdfs:comment "\"N-acylphosphatidyl ethanolamines are a class of phospholipids that contain an ethanolamine headgroup and an N-acyl chain, playing a role in various cellular processes including signal transduction and membrane structure.\" [Definition Source: llama3-8b-8192]" ,
+                                             rdfs:comment "N-acylphosphatidyl ethanolamines are a class of phospholipids that contain an ethanolamine headgroup and an N-acyl chain, playing a role in various cellular processes including signal transduction and membrane structure. [Definition Source: llama3-8b-8192]" ,
                                                           "CHEBI Match" ;
                                              rdfs:label "Ethanolamines" .
 
@@ -1706,7 +1706,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                              skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/Chemical> ;
                                              gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/a0566e5c4d077424> ;
                                              rdfs:comment "CHEBI Match" ,
-                                                          "The entity \"sfa\" refers to a Short Fragment of DNA, which is a type of DNA sequence that is typically less than 200 base pairs in length. [Definition Source: llama3-8b-8192]" ;
+                                                          "It refers to a Short Fragment of DNA, which is a type of DNA sequence that is typically less than 200 base pairs in length. [Definition Source: llama3-8b-8192]" ;
                                              rdfs:label "Saturated Fatty Acid" .
 
 
@@ -2355,7 +2355,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                              skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/Chemical> ;
                                              gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/caab16d1919b705a> ;
                                              rdfs:comment "CHEBI Match" ,
-                                                          "The term \"serotonergic\" refers to a neurotransmitter system or pathway that involves the neurotransmitter serotonin (5-hydroxytryptamine, 5-HT) and its receptors, which play a crucial role in various physiological processes, including mood regulation, appetite, and sleep. [Definition Source: llama3-8b-8192]" ;
+                                                          "It refers to a neurotransmitter system or pathway that involves the neurotransmitter serotonin (5-hydroxytryptamine, 5-HT) and its receptors, which play a crucial role in various physiological processes, including mood regulation, appetite, and sleep. [Definition Source: llama3-8b-8192]" ;
                                              rdfs:label "Serotonergic Agonist" .
 
 
@@ -2426,7 +2426,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                       gutprop:Chemical ;
                                              skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/Chemical> ;
                                              gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/2f16905ef822ad78> ;
-                                             rdfs:comment "3_4-dihydroxybenzoic_acid is a type of phenolic compound, specifically a dihydroxybenzoic acid, which is a derivative of benzoic acid with two hydroxyl groups attached to the 3 and 4 positions. [Definition Source: llama3-8b-8192]" ,
+                                             rdfs:comment "3,4-dihydroxybenzoic acid is a type of phenolic compound, specifically a dihydroxybenzoic acid, which is a derivative of benzoic acid with two hydroxyl groups attached to the 3 and 4 positions. [Definition Source: llama3-8b-8192]" ,
                                                           "CHEBI Match" ;
                                              rdfs:label "3,5-Dihydroxybenzoic Acid" .
 
@@ -2596,7 +2596,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                              skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/Chemical> ;
                                              gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/92995c0f9c44b72d> ;
                                              rdfs:comment "CHEBI Match" ,
-                                                          "The entity \"dopaminergic\" refers to a term describing a neuron or a system that uses dopamine as its primary neurotransmitter. [Definition Source: llama3-8b-8192]" ;
+                                                          "It refers to a term describing a neuron or a system that uses dopamine as its primary neurotransmitter. [Definition Source: llama3-8b-8192]" ;
                                              rdfs:label "Dopaminergic Agent" .
 
 
@@ -2864,7 +2864,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                              gutprop:influence <http://purl.obolibrary.org/obo/OGMS_0000045> ;
                                              gutprop:locatedIn <https://www.ncbi.nlm.nih.gov/mesh/D002648> ;
                                              rdfs:comment "CHEBI Match" ,
-                                                          "Gut_microbiota-associated_epitopes refer to epitopes that are derived from the proteins of the gut microbiota and are recognized by the host immune system, playing a crucial role in shaping the immune response and influencing various physiological processes. [Definition Source: llama3-8b-8192]" ;
+                                                          "They refer to epitopes that are derived from the proteins of the gut microbiota and are recognized by the host immune system, playing a crucial role in shaping the immune response and influencing various physiological processes. [Definition Source: llama3-8b-8192]" ;
                                              rdfs:label "Epitope" .
 
 
@@ -2913,7 +2913,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                              gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/acca14a92627c3b2> ,
                                                                  <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/15da104bef63cafb> ;
                                              gutprop:producedBy <https://w3id.org/hereditary/ontology/gutbrain/resource/diseasedisorderorfinding/AlteredGutMicrobiota> ;
-                                             rdfs:comment "Beneficial_lipids refer to a class of lipids, such as omega-3 fatty acids and polyunsaturated fatty acids, that have been shown to have positive effects on human health, including reducing inflammation and improving cardiovascular risk profiles. [Definition Source: llama3-8b-8192]" ,
+                                             rdfs:comment "Beneficial lipids refer to a class of lipids, such as omega-3 fatty acids and polyunsaturated fatty acids, that have been shown to have positive effects on human health, including reducing inflammation and improving cardiovascular risk profiles. [Definition Source: llama3-8b-8192]" ,
                                                           "CHEBI Match" ;
                                              rdfs:label "Lipid X-2" .
 
@@ -2997,7 +2997,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                              skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/Chemical> ;
                                              gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/a9f6815747c1b2f9> ;
                                              gutprop:impact <https://w3id.org/hereditary/ontology/gutbrain/resource/diseasedisorderorfinding/AlteredGutMicrobiota> ;
-                                             rdfs:comment "\"C21\" refers to the gene encoding the protein C21orf59, which is a human protein of unknown function. [Definition Source: llama3-8b-8192]" ,
+                                             rdfs:comment "It refers to the gene encoding the protein C21orf59, which is a human protein of unknown function. [Definition Source: llama3-8b-8192]" ,
                                                           "CHEBI Match" ;
                                              rdfs:label "C21-Steroid" .
 
@@ -3407,7 +3407,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                              gutprop:influence <http://purl.obolibrary.org/obo/OMIT_0005141> ;
                                              gutprop:locatedIn <http://purl.obolibrary.org/obo/NCIT_C78730> ;
                                              rdfs:comment "CHEBI Match" ,
-                                                          "The entity \"trp\" refers to the gene encoding the human transient receptor potential cation channel subfamily V member 1 protein. [Definition Source: llama3-8b-8192]" ;
+                                                          "It refers to the gene encoding the human transient receptor potential cation channel subfamily V member 1 protein. [Definition Source: llama3-8b-8192]" ;
                                              rdfs:label "Trp-P-1" .
 
 
@@ -3442,7 +3442,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                              skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/Chemical> ;
                                              gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/ff03ff47cd4b38e5> ;
                                              gutprop:locatedIn <http://purl.obolibrary.org/obo/NCIT_C12453> ;
-                                             rdfs:comment "\"Hucb-derived plasma\" refers to plasma derived from human umbilical cord blood (HUCB), which is a rich source of stem cells and growth factors. [Definition Source: llama3-8b-8192]" ,
+                                             rdfs:comment "It refers to plasma derived from human umbilical cord blood (HUCB), which is a rich source of stem cells and growth factors. [Definition Source: llama3-8b-8192]" ,
                                                           "CHEBI Match" ;
                                              rdfs:label "Amino-Acid Derivative" .
 
@@ -3478,7 +3478,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                              skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/Chemical> ;
                                              gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/1fd0c725f2b2b49f> ;
                                              rdfs:comment "CHEBI Match" ,
-                                                          "The entity \"n-methyl-d-aspartic acid receptor\" is a type of ionotropic glutamate receptor that is activated by the excitatory neurotransmitter N-methyl-D-aspartate (NMDA) and plays a crucial role in synaptic plasticity and learning. [Definition Source: llama3-8b-8192]" ;
+                                                          "It is a type of ionotropic glutamate receptor that is activated by the excitatory neurotransmitter N-methyl-D-aspartate (NMDA) and plays a crucial role in synaptic plasticity and learning. [Definition Source: llama3-8b-8192]" ;
                                              rdfs:label "N-Methyl L-Aspartic Acid" .
 
 
@@ -3529,7 +3529,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                              gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/a40d4e73cd6a4ddc> ;
                                              gutprop:impact <http://purl.obolibrary.org/obo/NCBITaxon_2> ;
                                              gutprop:influence <http://purl.obolibrary.org/obo/NCIT_C35041> ;
-                                             rdfs:comment "\"Lac\" refers to Lactose, a disaccharide sugar composed of glucose and galactose. [Definition Source: llama3-8b-8192]" ,
+                                             rdfs:comment "It refers to Lactose, a disaccharide sugar composed of glucose and galactose. [Definition Source: llama3-8b-8192]" ,
                                                           "CHEBI Match" ;
                                              rdfs:label "Lac Dye" .
 
@@ -3781,7 +3781,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                              <http://purl.obolibrary.org/obo/CHEBI_233275> ;
                                             rdfs:comment "Group III metabotropic glutamate receptor activity refers to the ability of a protein to bind glutamate and initiate a signaling cascade in response to group III metabotropic glutamate receptors. [Definition Source: llama3-8b-8192]" ,
                                                          "GO Match" ;
-                                            rdfs:label "Group Iii Metabotropic Glutamate Receptor Activity" .
+                                            rdfs:label "Group III Metabotropic Glutamate Receptor Activity" .
 
 
 ###  http://purl.obolibrary.org/obo/GO_0042470
@@ -4264,7 +4264,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                 gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/9b35ed3618347238> ;
                                                 gutprop:influence <http://purl.obolibrary.org/obo/NCIT_C28286> ;
                                                 rdfs:comment "NCBITaxon Match" ,
-                                                             "The \"Clostridium innocuum group\" refers to a group of anaerobic, gram-positive bacteria that are part of the genus Clostridium and are characterized by their ability to produce endotoxins and cause gastrointestinal infections. [Definition Source: llama3-8b-8192]" ;
+                                                             "It refers to a group of anaerobic, gram-positive bacteria that are part of the genus Clostridium and are characterized by their ability to produce endotoxins and cause gastrointestinal infections. [Definition Source: llama3-8b-8192]" ;
                                                 rdfs:label "Clostridium Innocuum" .
 
 
@@ -4392,7 +4392,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                 gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/e1b9e15461da7f72> ;
                                                 gutprop:influence <http://purl.obolibrary.org/obo/NCIT_C35041> ,
                                                                   <https://w3id.org/hereditary/ontology/gutbrain/resource/diseasedisorderorfinding/NeurometabolicAlterations> ;
-                                                rdfs:comment "\"Lactobacillus reuteri ATCC PTA 6471 (ATG-F4) is a strain of Lactobacillus reuteri, a species of lactic acid bacteria, known for its probiotic properties and ability to colonize the human gut.\" [Definition Source: llama3-8b-8192]" ,
+                                                rdfs:comment "Lactobacillus reuteri ATCC PTA 6471 (ATG-F4) is a strain of Lactobacillus reuteri, a species of lactic acid bacteria, known for its probiotic properties and ability to colonize the human gut. [Definition Source: llama3-8b-8192]" ,
                                                              "NCBITaxon Match" ;
                                                 rdfs:label "Limosilactobacillus Reuteri" .
 
@@ -4752,7 +4752,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                              gutprop:partOf <http://purl.obolibrary.org/obo/OHMI_0000002> ,
                                                             <http://purl.obolibrary.org/obo/OHMI_0000463> ,
                                                             <https://w3id.org/hereditary/ontology/gutbrain/resource/diseasedisorderorfinding/AlteredGutMicrobiota> ;
-                                             rdfs:comment "\"Bacteria\" refers to bacteria that exhibit abnormal or aberrant behavior, growth, or metabolism, often indicative of a pathological condition or disease. [Definition Source: llama3-8b-8192]" ,
+                                             rdfs:comment "It refers to bacteria that exhibit abnormal or aberrant behavior, growth, or metabolism, often indicative of a pathological condition or disease. [Definition Source: llama3-8b-8192]" ,
                                                           "NCBITaxon Match" ;
                                              rdfs:label "Bacteria" .
 
@@ -4979,7 +4979,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                   gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/4c778a317f8c0a8a> ;
                                                   gutprop:partOf <http://purl.obolibrary.org/obo/OHMI_0000020> ;
                                                   rdfs:comment "NCBITaxon Match" ,
-                                                               "The entity \"anaerotruncus\" refers to the first part of the aorta, which is the main artery that arises from the left ventricle of the heart and carries oxygenated blood to the rest of the body. [Definition Source: llama3-8b-8192]" ;
+                                                               "It refers to the first part of the aorta, which is the main artery that arises from the left ventricle of the heart and carries oxygenated blood to the rest of the body. [Definition Source: llama3-8b-8192]" ;
                                                   rdfs:label "Anaerotruncus" .
 
 
@@ -5132,7 +5132,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                    skos:broaderTransitive <http://purl.obolibrary.org/obo/NCBITaxon_2> ;
                                                    skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/Bacteria> ;
                                                    gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/0f295d9b0b94339a> ;
-                                                   rdfs:comment "\"ucg-005\" is a gene ontology term that refers to the gene encoding the protein ubiquitin-conjugating enzyme E2G 2. [Definition Source: llama3-8b-8192]" ,
+                                                   rdfs:comment "Ruminococcaceae bacterium UCG-005 is a species of anaerobic, gram-positive bacteria from the Ruminococcaceae family, commonly found in the human gut microbiota and associated with fiber digestion and short-chain fatty acid production. [Definition Source: OpenAi 4o]" ,
                                                                 "NCBITaxon Match" ;
                                                    rdfs:label "Ruminococcaceae Bacterium Ucg-005" .
 
@@ -5207,7 +5207,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                  skos:broaderTransitive <http://purl.obolibrary.org/obo/NCBITaxon_2> ;
                                                  skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/Bacteria> ;
                                                  gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/e2fe7663279d5bae> ;
-                                                 rdfs:comment "\"Bilophila\" refers to a genus of bacteria that includes species that are capable of growing in the presence of oxygen and anaerobic conditions, characterized by the ability to form a bilayered cell wall. [Definition Source: llama3-8b-8192]" ,
+                                                 rdfs:comment "It refers to a genus of bacteria that includes species that are capable of growing in the presence of oxygen and anaerobic conditions, characterized by the ability to form a bilayered cell wall. [Definition Source: llama3-8b-8192]" ,
                                                               "NCBITaxon Match" ;
                                                  rdfs:label "Bilophila" .
 
@@ -5257,7 +5257,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                   gutprop:locatedIn <http://purl.obolibrary.org/obo/NCIT_C45247> ;
                                                   rdfs:comment "Clostridium XVIII is a species of anaerobic, gram-positive, rod-shaped bacteria that is part of the genus Clostridium and is known to produce a variety of enzymes and toxins. [Definition Source: llama3-8b-8192]" ,
                                                                "NCBITaxon Match" ;
-                                                  rdfs:label "Pseudomonas Sp. Xviii" .
+                                                  rdfs:label "Pseudomonas Sp. XVIII" .
 
 
 ###  http://purl.obolibrary.org/obo/NCBITaxon_39497
@@ -5419,7 +5419,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                                     <http://purl.obolibrary.org/obo/NCIT_C35041> ,
                                                                     <http://purl.obolibrary.org/obo/OMIT_0005141> ,
                                                                     <https://w3id.org/hereditary/ontology/gutbrain/resource/diseasedisorderorfinding/NeurometabolicAlterations> ;
-                                                  rdfs:comment "\"F4\" refers to the fourth factor of the Fc receptor, a protein involved in the immune response. [Definition Source: llama3-8b-8192]" ,
+                                                  rdfs:comment "Bacillus sp. F4-1 is a strain of the Bacillus genus, typically identified for its potential antimicrobial activity and environmental resilience, often studied for use in biotechnology or agriculture. [Definition Source: OpenAi 4o]" ,
                                                                "NCBITaxon Match" ;
                                                   rdfs:label "Bacillus Sp. F4-1" .
 
@@ -5622,7 +5622,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                          gutprop:Animal ;
                                                 skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/Animal> ;
                                                 gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/4ca7402f3f64944b> ;
-                                                rdfs:comment "\"Drosophila melanogaster\" is a species of fruit fly, commonly used as a model organism in biological research, particularly in the fields of genetics, developmental biology, and disease modeling. [Definition Source: llama3-8b-8192]" ,
+                                                rdfs:comment "It is a species of fruit fly, commonly used as a model organism in biological research, particularly in the fields of genetics, developmental biology, and disease modeling. [Definition Source: llama3-8b-8192]" ,
                                                              "NCBITaxon Match" ;
                                                 rdfs:label "Drosophila Melanogaster" .
 
@@ -5650,7 +5650,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                  skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/Bacteria> ;
                                                  gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/9571d0a63d74e402> ;
                                                  rdfs:comment "NCBITaxon Match" ,
-                                                              "The entity \"verrucomicrobiota\" refers to a phylum of Gram-negative, non-motile, rod-shaped bacteria that are commonly found in the human gut and are associated with various diseases, including inflammatory bowel disease and irritable bowel syndrome. [Definition Source: llama3-8b-8192]" ;
+                                                              "It refers to a phylum of Gram-negative, non-motile, rod-shaped bacteria that are commonly found in the human gut and are associated with various diseases, including inflammatory bowel disease and irritable bowel syndrome. [Definition Source: llama3-8b-8192]" ;
                                                  rdfs:label "Verrucomicrobiota" .
 
 
@@ -5943,7 +5943,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                                     <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/e8420b30843f0b1e> ,
                                                                     <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/8b029441e11df18a> ,
                                                                     <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/86aac267ebd58c7d> ;
-                                                rdfs:comment "\"Male_and_female_rodents\" refers to a group of rodents that includes both male and female individuals of the rodent species. [Definition Source: llama3-8b-8192]" ,
+                                                rdfs:comment "It refers to a group of rodents that includes both male and female individuals of the rodent species. [Definition Source: llama3-8b-8192]" ,
                                                              "NCBITaxon Match" ;
                                                 rdfs:label "Rodentia" .
 
@@ -13188,7 +13188,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                              <https://uts.nlm.nih.gov/uts/umls/concept/C0679646> ,
                                                              <https://www.ncbi.nlm.nih.gov/mesh/D011153> ,
                                                              <https://www.ncbi.nlm.nih.gov/mesh/68010361> ;
-                                              rdfs:comment "\"Depressive symptoms\" refers to a set of emotional, cognitive, and behavioral changes that occur in an individual experiencing depression, characterized by feelings of sadness, hopelessness, and loss of interest in activities. [Definition Source: llama3-8b-8192]" ,
+                                              rdfs:comment "It refers to a set of emotional, cognitive, and behavioral changes that occur in an individual experiencing depression, characterized by feelings of sadness, hopelessness, and loss of interest in activities. [Definition Source: llama3-8b-8192]" ,
                                                            "OMIT Match" ;
                                               rdfs:label "Depressive Disorder, Major" .
 
@@ -13249,7 +13249,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                                   <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/9181d855ef94ec92> ;
                                               gutprop:target <https://uts.nlm.nih.gov/uts/umls/concept/C0237401> ,
                                                              <https://uts.nlm.nih.gov/uts/umls/concept/C0679646> ;
-                                              rdfs:comment "Gastrointestinal_diseases refers to a group of disorders affecting the digestive system, including the esophagus, stomach, small intestine, large intestine, and other associated organs. [Definition Source: llama3-8b-8192]" ,
+                                              rdfs:comment "Gastrointestinal diseases refers to a group of disorders affecting the digestive system, including the esophagus, stomach, small intestine, large intestine, and other associated organs. [Definition Source: llama3-8b-8192]" ,
                                                            "OMIT Match" ;
                                               rdfs:label "Disease" .
 
@@ -13558,7 +13558,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                               gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/ad330499aa4d7e02> ,
                                                                   <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/b0d29512338add35> ;
                                               gutprop:target <https://www.ncbi.nlm.nih.gov/mesh/D002648> ;
-                                              rdfs:comment "\"Gut Microbiota Alterations\" refers to changes in the composition and diversity of the gut microbiome, specifically in the large intestine, which can occur in response to various factors such as diet, disease, or environmental influences. [Definition Source: llama3-8b-8192]" ,
+                                              rdfs:comment "Gut Microbiota Alterations refers to changes in the composition and diversity of the gut microbiome, specifically in the large intestine, which can occur in response to various factors such as diet, disease, or environmental influences. [Definition Source: llama3-8b-8192]" ,
                                                            "OMIT Match" ;
                                               rdfs:label "Gut Microbiota Alterations" .
 
@@ -13881,7 +13881,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/StatisticalTechnique> ;
                                                gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/a53cd9cfeaa74311> ;
                                                rdfs:comment "STATO Match" ,
-                                                            "Standard_deviations refers to a statistical measure of the amount of variation or dispersion of a set of values from their mean value. [Definition Source: llama3-8b-8192]" ;
+                                                            "Standard deviations refers to a statistical measure of the amount of variation or dispersion of a set of values from their mean value. [Definition Source: llama3-8b-8192]" ;
                                                rdfs:label "Standard Deviation" .
 
 
@@ -13904,7 +13904,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                         gutprop:StatisticalTechnique ;
                                                skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/StatisticalTechnique> ;
                                                gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/523cc14fbdd42e53> ;
-                                               rdfs:comment "Covariance_analyses refers to a statistical method used to analyze the relationship between two or more variables, quantifying the degree to which their values vary together. [Definition Source: llama3-8b-8192]" ,
+                                               rdfs:comment "Covariance analyses refers to a statistical method used to analyze the relationship between two or more variables, quantifying the degree to which their values vary together. [Definition Source: llama3-8b-8192]" ,
                                                             "STATO Match" ;
                                                rdfs:label "Covariance" .
 
@@ -13918,7 +13918,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                                    <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/02ea23e8b1c08ba3> ,
                                                                    <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/59510720f6389b7f> ,
                                                                    <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/8a28ddf11b4a127e> ;
-                                               rdfs:comment "\"Multivariable_MR\" refers to a type of magnetic resonance imaging (MRI) technique that uses multiple variables or parameters to reconstruct images of the body, providing more detailed and accurate information about tissue structure and function. [Definition Source: llama3-8b-8192]" ,
+                                               rdfs:comment "It refers to a type of magnetic resonance imaging (MRI) technique that uses multiple variables or parameters to reconstruct images of the body, providing more detailed and accurate information about tissue structure and function. [Definition Source: llama3-8b-8192]" ,
                                                             "STATO Match" ;
                                                rdfs:label "Multivariate Analysis Of Variance" .
 
@@ -13971,7 +13971,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/StatisticalTechnique> ;
                                                gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/bf8434bd74b72878> ;
                                                rdfs:comment "STATO Match" ,
-                                                            "The \"Wald test\" is a statistical test used to determine whether the null hypothesis of a Poisson distribution can be rejected in favor of an alternative hypothesis. [Definition Source: llama3-8b-8192]" ;
+                                                            "The Wald test is a statistical test used to determine whether the null hypothesis of a Poisson distribution can be rejected in favor of an alternative hypothesis. [Definition Source: llama3-8b-8192]" ;
                                                rdfs:label "Wald Test" .
 
 
@@ -14171,7 +14171,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                               skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/Gene> ;
                                                               gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/e530eadb8559b31d> ;
                                                               rdfs:comment "PR Match" ,
-                                                                           "Tight_junction_protein_1 refers to a protein that is a component of tight junctions, which are specialized regions of the plasma membrane that play a crucial role in maintaining the integrity of epithelial and endothelial cell layers. [Definition Source: llama3-8b-8192]" ;
+                                                                           "Tight junction protein 1 refers to a protein that is a component of tight junctions, which are specialized regions of the plasma membrane that play a crucial role in maintaining the integrity of epithelial and endothelial cell layers. [Definition Source: llama3-8b-8192]" ;
                                                               rdfs:label "Tight Junction Protein 1" .
 
 
@@ -14181,7 +14181,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                                                   <https://w3id.org/brainteaser/ontology/schema/Gene> ;
                                                                          skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/Gene> ;
                                                                          gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/7ab4cafcd4b6474f> ;
-                                                                         rdfs:comment "\"Glucose1pmetab-pwy\" refers to the pathway of glycolysis, specifically the conversion of glucose-1-phosphate to glucose-6-phosphate. [Definition Source: llama3-8b-8192]" ,
+                                                                         rdfs:comment "Glucose1pmetab-pwy refers to the pathway of glycolysis, specifically the conversion of glucose-1-phosphate to glucose-6-phosphate. [Definition Source: llama3-8b-8192]" ,
                                                                                       "BioCyc Match" ;
                                                                          rdfs:label "Glucose1Pmetab-Pwy" .
 
@@ -15819,7 +15819,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                     skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/DiseaseDisorderOrFinding> ;
                                                     gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/2a73cdd3141d8e2b> ;
                                                     gutprop:target <https://www.ncbi.nlm.nih.gov/mesh/68010361> ;
-                                                    rdfs:comment "A \"Nervous System Problem\" refers to a medical condition or disorder affecting the structure or function of the central, peripheral, or autonomic nervous systems, which can result in various symptoms such as pain, numbness, weakness, or cognitive impairment. [Definition Source: llama3-8b-8192]" ,
+                                                    rdfs:comment "A Nervous System Problem refers to a medical condition or disorder affecting the structure or function of the central, peripheral, or autonomic nervous systems, which can result in various symptoms such as pain, numbness, weakness, or cognitive impairment. [Definition Source: llama3-8b-8192]" ,
                                                                  "UMLS Match" ;
                                                     rdfs:label "Nervous System Problem" .
 
@@ -15842,7 +15842,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                              <https://w3id.org/brainteaser/ontology/schema/DiseaseDisorderOrFinding> ;
                                                     skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/DiseaseDisorderOrFinding> ;
                                                     gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/e8e8b540d5be7d53> ;
-                                                    rdfs:comment "The entity \"Immobile\" refers to a living organism or structure that is unable to move or change its position. [Definition Source: llama3-8b-8192]" ,
+                                                    rdfs:comment "It refers to a living organism or structure that is unable to move or change its position. [Definition Source: llama3-8b-8192]" ,
                                                                  "UMLS Match" ;
                                                     rdfs:label "Immobile" .
 
@@ -15854,7 +15854,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                     skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/DiseaseDisorderOrFinding> ;
                                                     gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/3d31b1338e19ae99> ;
                                                     gutprop:target <https://uts.nlm.nih.gov/uts/umls/concept/C0001792> ;
-                                                    rdfs:comment "The \"Cough Reflex\" is a physiological response characterized by a sudden, involuntary contraction of the diaphragm and other respiratory muscles, triggered by irritation or inflammation of the respiratory tract. [Definition Source: llama3-8b-8192]" ,
+                                                    rdfs:comment "The Cough Reflex is a physiological response characterized by a sudden, involuntary contraction of the diaphragm and other respiratory muscles, triggered by irritation or inflammation of the respiratory tract. [Definition Source: llama3-8b-8192]" ,
                                                                  "UMLS Match" ;
                                                     rdfs:label "Cough Reflex" .
 
@@ -16415,7 +16415,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                     skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/BiomedicalTechnique> ;
                                                     gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/5b4c2712f8fc1e37> ,
                                                                         <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/62bbe836ae2c3dc4> ;
-                                                    rdfs:comment "The \"c14-d-xylose breath test\" is a medical test that measures the exhalation of 1,4-14C-D-xylose, a sugar derivative, in the breath of individuals to assess small intestine function and diagnose malabsorption disorders. [Definition Source: llama3-8b-8192]" ,
+                                                    rdfs:comment "The c14-d-xylose breath test is a medical test that measures the exhalation of 1,4-14C-D-xylose, a sugar derivative, in the breath of individuals to assess small intestine function and diagnose malabsorption disorders. [Definition Source: llama3-8b-8192]" ,
                                                                  "UMLS Match" ;
                                                     rdfs:label "C14 D-Xylose Breath Test" .
 
@@ -16674,7 +16674,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                     skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/DiseaseDisorderOrFinding> ;
                                                     gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/c053b9e17213d0fc> ,
                                                                         <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/c092787a9b3df4c7> ;
-                                                    rdfs:comment "The \"Level Of Anxiety\" refers to a subjective measure of the intensity or severity of an individual's feelings of anxiety, apprehension, or worry. [Definition Source: llama3-8b-8192]" ,
+                                                    rdfs:comment "The Level Of Anxiety refers to a subjective measure of the intensity or severity of an individual's feelings of anxiety, apprehension, or worry. [Definition Source: llama3-8b-8192]" ,
                                                                  "UMLS Match" ;
                                                     rdfs:label "Level Of Anxiety" .
 
@@ -16793,7 +16793,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                              gutprop:Chemical ;
                                                     skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/Chemical> ;
                                                     gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/e83519c832339887> ;
-                                                    rdfs:comment "The entity \"Noradrenergic\" refers to a type of neurotransmitter system that utilizes the neurotransmitter norepinephrine (noradrenaline) as its primary signaling molecule. [Definition Source: llama3-8b-8192]" ,
+                                                    rdfs:comment "The entity Noradrenergic refers to a type of neurotransmitter system that utilizes the neurotransmitter norepinephrine (noradrenaline) as its primary signaling molecule. [Definition Source: llama3-8b-8192]" ,
                                                                  "UMLS Match" ;
                                                     rdfs:label "Noradrenergic" .
 
@@ -17024,7 +17024,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                              <https://w3id.org/brainteaser/ontology/schema/DiseaseDisorderOrFinding> ;
                                                     skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/DiseaseDisorderOrFinding> ;
                                                     gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/e0a1656524f19199> ;
-                                                    rdfs:comment "\"Debilitation chronic\" refers to a prolonged and persistent state of physical or mental weakness, often resulting from a chronic disease or condition. [Definition Source: llama3-8b-8192]" ,
+                                                    rdfs:comment "Debilitation chronic refers to a prolonged and persistent state of physical or mental weakness, often resulting from a chronic disease or condition. [Definition Source: llama3-8b-8192]" ,
                                                                  "UMLS Match" ;
                                                     rdfs:label "Debilitation Chronic" .
 
@@ -17116,7 +17116,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                              gutprop:BiomedicalTechnique ;
                                                     skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/BiomedicalTechnique> ;
                                                     gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/07ae8e370be3fd21> ;
-                                                    rdfs:comment "Biological_laboratory_methods refers to the techniques, procedures, and protocols used to conduct experiments, collect and analyze biological samples, and manipulate biological materials in a laboratory setting. [Definition Source: llama3-8b-8192]" ,
+                                                    rdfs:comment "Biological laboratory methods refers to the techniques, procedures, and protocols used to conduct experiments, collect and analyze biological samples, and manipulate biological materials in a laboratory setting. [Definition Source: llama3-8b-8192]" ,
                                                                  "UMLS Match" ;
                                                     rdfs:label "Biological Laboratory Methods" .
 
@@ -17168,7 +17168,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                     gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/558da07d89703d0c> ,
                                                                         <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/7e88d2c7dacb59a1> ;
                                                     gutprop:target <https://www.ncbi.nlm.nih.gov/mesh/D011153> ;
-                                                    rdfs:comment "\"Infection Caused By Helicobacter Pylori\" refers to a type of bacterial infection caused by the bacterium Helicobacter pylori, typically affecting the stomach and duodenum, leading to gastritis, peptic ulcers, and gastric cancer. [Definition Source: llama3-8b-8192]" ,
+                                                    rdfs:comment "Infection Caused By Helicobacter Pylori refers to a type of bacterial infection caused by the bacterium Helicobacter pylori, typically affecting the stomach and duodenum, leading to gastritis, peptic ulcers, and gastric cancer. [Definition Source: llama3-8b-8192]" ,
                                                                  "UMLS Match" ;
                                                     rdfs:label "Infection Caused By Helicobacter Pylori" .
 
@@ -17228,7 +17228,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                              gutprop:Human ;
                                                     skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/Human> ;
                                                     gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/6e0b5b262cf4b523> ;
-                                                    rdfs:comment "\"Boys\" refers to male human children or young males in general. [Definition Source: llama3-8b-8192]" ,
+                                                    rdfs:comment "Boys refers to male human children or young males in general. [Definition Source: llama3-8b-8192]" ,
                                                                  "UMLS Match" ;
                                                     rdfs:label "Boys" .
 
@@ -17250,7 +17250,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                              <https://w3id.org/brainteaser/ontology/schema/DiseaseDisorderOrFinding> ;
                                                     skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/DiseaseDisorderOrFinding> ;
                                                     gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/8f9cc82575388d44> ;
-                                                    rdfs:comment "\"Escape - Mental Process\" refers to a mental process by which an individual temporarily diverts their attention or consciousness away from a stressful, unpleasant, or overwhelming situation or stimulus. [Definition Source: llama3-8b-8192]" ,
+                                                    rdfs:comment "Escape - Mental Process refers to a mental process by which an individual temporarily diverts their attention or consciousness away from a stressful, unpleasant, or overwhelming situation or stimulus. [Definition Source: llama3-8b-8192]" ,
                                                                  "UMLS Match" ;
                                                     rdfs:label "Escape - Mental Process" .
 
@@ -17643,7 +17643,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                              <https://w3id.org/brainteaser/ontology/schema/DiseaseDisorderOrFinding> ;
                                                     skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/DiseaseDisorderOrFinding> ;
                                                     gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/8596cb56d92b5d5c> ;
-                                                    rdfs:comment "The entity \"Effects Of Chemotherapy\" refers to the unintended consequences or outcomes resulting from the administration of chemotherapy, including physical, emotional, and cognitive changes. [Definition Source: llama3-8b-8192]" ,
+                                                    rdfs:comment "The entity Effects Of Chemotherapy refers to the unintended consequences or outcomes resulting from the administration of chemotherapy, including physical, emotional, and cognitive changes. [Definition Source: llama3-8b-8192]" ,
                                                                  "UMLS Match" ;
                                                     rdfs:label "Effects Of Chemotherapy" .
 
@@ -17875,7 +17875,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                              <https://w3id.org/brainteaser/ontology/schema/Gene> ;
                                                     skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/Gene> ;
                                                     gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/2a0afee2c36bb2e5> ;
-                                                    rdfs:comment "The \"aif1 gene\" refers to the gene encoding the Autoimmune Inflammatory Fatty Liver Protein 1, a protein involved in the regulation of inflammation and immune responses. [Definition Source: llama3-8b-8192]" ,
+                                                    rdfs:comment "The aif1 gene refers to the gene encoding the Autoimmune Inflammatory Fatty Liver Protein 1, a protein involved in the regulation of inflammation and immune responses. [Definition Source: llama3-8b-8192]" ,
                                                                  "UMLS Match" ;
                                                     rdfs:label "Aif1 Gene" .
 
@@ -17886,7 +17886,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                              <https://w3id.org/brainteaser/ontology/schema/Gene> ;
                                                     skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/Gene> ;
                                                     gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/ae500cb65e1594d9> ;
-                                                    rdfs:comment "The entity \"chrna7 gene\" refers to the human gene that encodes the alpha-7 subunit of the nicotinic acetylcholine receptor. [Definition Source: llama3-8b-8192]" ,
+                                                    rdfs:comment "The entity chrna7 gene refers to the human gene that encodes the alpha-7 subunit of the nicotinic acetylcholine receptor. [Definition Source: llama3-8b-8192]" ,
                                                                  "UMLS Match" ;
                                                     rdfs:label "Chrna7 Gene" .
 
@@ -17919,7 +17919,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                              <https://w3id.org/brainteaser/ontology/schema/Gene> ;
                                                     skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/Gene> ;
                                                     gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/edb203eb965a6b58> ;
-                                                    rdfs:comment "The \"htr4a gene\" refers to the human gene that encodes the 5-hydroxytryptamine receptor 4A (5-HT4A), a G-protein coupled receptor involved in various physiological processes, including gut motility and neurotransmission. [Definition Source: llama3-8b-8192]" ,
+                                                    rdfs:comment "The htr4a gene refers to the human gene that encodes the 5-hydroxytryptamine receptor 4A (5-HT4A), a G-protein coupled receptor involved in various physiological processes, including gut motility and neurotransmission. [Definition Source: llama3-8b-8192]" ,
                                                                  "UMLS Match" ;
                                                     rdfs:label "Htr4A Gene" .
 
@@ -17941,7 +17941,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                              <https://w3id.org/brainteaser/ontology/schema/Gene> ;
                                                     skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/Gene> ;
                                                     gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/de05f182fc8bc187> ;
-                                                    rdfs:comment "The entity \"lipe gene\" refers to the gene encoding the lipase enzyme, which is involved in the breakdown of triglycerides into fatty acids and glycerol. [Definition Source: llama3-8b-8192]" ,
+                                                    rdfs:comment "The entity lipe gene refers to the gene encoding the lipase enzyme, which is involved in the breakdown of triglycerides into fatty acids and glycerol. [Definition Source: llama3-8b-8192]" ,
                                                                  "UMLS Match" ;
                                                     rdfs:label "Lipe Gene" .
 
@@ -17997,7 +17997,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                              <https://w3id.org/brainteaser/ontology/schema/Gene> ;
                                                     skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/Gene> ;
                                                     gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/988759813d923fe0> ;
-                                                    rdfs:comment "The \"abhd5 gene\" refers to the gene that encodes the ATP-binding cassette subfamily D member 5 protein, which is involved in lipid metabolism and transport. [Definition Source: llama3-8b-8192]" ,
+                                                    rdfs:comment "The abhd5 gene refers to the gene that encodes the ATP-binding cassette subfamily D member 5 protein, which is involved in lipid metabolism and transport. [Definition Source: llama3-8b-8192]" ,
                                                                  "UMLS Match" ;
                                                     rdfs:label "Abhd5 Gene" .
 
@@ -18808,7 +18808,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                              gutprop:Chemical ;
                                                     skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/Chemical> ;
                                                     gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/d68d3ff6f7eb51d4> ;
-                                                    rdfs:comment "The \"Pycard Wt Allele\" refers to the wild-type allele of the PyCard gene, which encodes the pyrin domain-containing protein 3, a key regulator of inflammation and apoptosis. [Definition Source: llama3-8b-8192]" ,
+                                                    rdfs:comment "The Pycard Wt Allele refers to the wild-type allele of the PyCard gene, which encodes the pyrin domain-containing protein 3, a key regulator of inflammation and apoptosis. [Definition Source: llama3-8b-8192]" ,
                                                                  "UMLS Match" ;
                                                     rdfs:label "Pycard Wt Allele" .
 
@@ -18844,7 +18844,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                     skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/DiseaseDisorderOrFinding> ;
                                                     gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/f06e993e3e6dc83e> ,
                                                                         <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/28f17f92aa6317eb> ;
-                                                    rdfs:comment "The \"Hypnotic Effect\" refers to a state of consciousness characterized by heightened suggestibility, deep relaxation, and a focused attention, often induced by hypnosis or other forms of trance induction. [Definition Source: llama3-8b-8192]" ,
+                                                    rdfs:comment "The Hypnotic Effect refers to a state of consciousness characterized by heightened suggestibility, deep relaxation, and a focused attention, often induced by hypnosis or other forms of trance induction. [Definition Source: llama3-8b-8192]" ,
                                                                  "UMLS Match" ;
                                                     rdfs:label "Hypnotic Effect" .
 
@@ -19135,7 +19135,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                              <https://w3id.org/brainteaser/ontology/schema/DiseaseDisorderOrFinding> ;
                                                     skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/DiseaseDisorderOrFinding> ;
                                                     gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/c325609bd7a6f489> ;
-                                                    rdfs:comment "\"Trauma and Stressor-Related Disorders are a category of mental health conditions characterized by symptoms of anxiety, depression, and dissociation in response to a traumatic or stressful event.\" [Definition Source: llama3-8b-8192]" ,
+                                                    rdfs:comment "Trauma and Stressor-Related Disorders are a category of mental health conditions characterized by symptoms of anxiety, depression, and dissociation in response to a traumatic or stressful event. [Definition Source: llama3-8b-8192]" ,
                                                                  "UMLS Match" ;
                                                     rdfs:label "Trauma And Stressor Related Disorders" .
 
@@ -19159,7 +19159,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                     skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/Food> ;
                                                     gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/39a695606d192db5> ;
                                                     rdfs:comment "UMLS Match" ,
-                                                                 "Whole_grain_cereals refer to food products made from grains that include the bran, germ, and endosperm, providing a higher nutritional value and fiber content compared to refined cereals. [Definition Source: llama3-8b-8192]" ;
+                                                                 "Whole grain cereals refer to food products made from grains that include the bran, germ, and endosperm, providing a higher nutritional value and fiber content compared to refined cereals. [Definition Source: llama3-8b-8192]" ;
                                                     rdfs:label "Whole Grain Cereal" .
 
 
@@ -19435,7 +19435,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                     skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/Chemical> ;
                                                     gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/a6f909e87fe682a4> ,
                                                                         <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/896f34b1ff232589> ;
-                                                    rdfs:comment "\"Ndelta-(5-Hydro-5-Methyl-4-Imidazolon-2-Yl)Ornithine\" is a metabolite of the amino acid ornithine, specifically a derivative of Ndelta-hydroxyornithine. [Definition Source: llama3-8b-8192]" ,
+                                                    rdfs:comment "Ndelta-(5-Hydro-5-Methyl-4-Imidazolon-2-Yl)Ornithine is a metabolite of the amino acid ornithine, specifically a derivative of Ndelta-hydroxyornithine. [Definition Source: llama3-8b-8192]" ,
                                                                  "UMLS Match" ;
                                                     rdfs:label "Ndelta-5-Hydro-5-Methyl-4-Imidazolon-2-Yl-Ornithine" .
 
@@ -19686,7 +19686,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                     gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/11526689363227bf> ,
                                                                         <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/52ab66a4aa641271> ;
                                                     gutprop:target <http://purl.obolibrary.org/obo/NCIT_C45247> ;
-                                                    rdfs:comment "\"Dysregulated Immune Function\" refers to an abnormal or impaired immune response, characterized by an imbalance or malfunction of the immune system's ability to recognize and respond to pathogens, resulting in compromised host defense or excessive inflammation. [Definition Source: llama3-8b-8192]" ,
+                                                    rdfs:comment "Dysregulated Immune Function refers to an abnormal or impaired immune response, characterized by an imbalance or malfunction of the immune system's ability to recognize and respond to pathogens, resulting in compromised host defense or excessive inflammation. [Definition Source: llama3-8b-8192]" ,
                                                                  "UMLS Match" ;
                                                     rdfs:label "Dysregulated Immune Function" .
 
