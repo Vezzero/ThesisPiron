@@ -8,7 +8,10 @@ def list_term_mentions(request):
     term = request.GET.get("term", "").strip()
     safe_term = term.replace('"', '\\"')
 
-    filter_clause = f'FILTER(REGEX(?indname, "{safe_term}", "i"))' if safe_term else ""
+    filter_clause = (
+    f'FILTER(LCASE(STR(?indname)) = LCASE("{safe_term}"))'
+    if safe_term else ""
+    )
     sparql = f"""
 
 PREFIX xsd:      <http://www.w3.org/2001/XMLSchema#>
@@ -156,7 +159,7 @@ WHERE {{
 
   ?seed
      rdfs:label        ?lbl .
-  FILTER( LCASE(STR(?lbl)) = LCASE("{term}") )
+  FILTER( REGEX(STR(?lbl), "^{term}$", "i") )
 
   ?seed ?prop ?obj .
   FILTER(isIRI(?obj))

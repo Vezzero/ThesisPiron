@@ -100,55 +100,70 @@ const loadOptions = (inputValue) => {
   }, []);
 
   async function fetchResults(q) {
-  setError(null)
-  setLoading(true)
+  setError(null);
+  setLoading(true);
+
+  let results = [];
   try {
-    const results = await fetchTermMentions(q)
-    setMentions(results)
+    results = await fetchTermMentions(q);
+    setMentions(results);
 
     if (results.length > 0) {
       const resp2 = await fetch(
         `/api/list_property_term/?term=${encodeURIComponent(q)}`
-      )
-      if (!resp2.ok) throw new Error(await resp2.text())
-      const { relations } = await resp2.json()
-      setRelationsList(relations)
-      setRelationCount(relations.length)
+      );
+      if (!resp2.ok) {
+        throw new Error(await resp2.text());
+      }
+      const { relations } = await resp2.json();
+      setRelationsList(relations);
+      setRelationCount(relations.length);
     } else {
-      setRelationsList([])
-      setRelationCount(0)
+      setRelationsList([]);
+      setRelationCount(0);
     }
+
+    return results;
   } catch (e) {
-    setError(e.message)
-    setMentions([])
-    setRelationsList([])
-    setRelationCount(0)
+    setError(e.message);
+    setMentions([]);
+    setRelationsList([]);
+    setRelationCount(0);
+    return [];
   } finally {
-    setLoading(false)
+    setLoading(false);
   }
 }
 
- const handleSearch = (overrideTerm) => {
-   let q = (overrideTerm ?? term).trim()
+ const handleSearch = overrideTerm => {
+  let q = (overrideTerm ?? term).trim();
+  if (!q) {
+    setError("Please type something to search.");
+    return;
+  }
 
-   const labelsLC = allIndividuals.map(i => i.label.toLowerCase())
-   if (q && !labelsLC.includes(q.toLowerCase())) {
-     const [best] = fuse.search(q)
-     if (best?.item) {
-       console.log(`typo? correcting "${q}" → "${best.item}"`)
-       q = best.item
-     }
-   }
+  navigate(`/search?term=${encodeURIComponent(q)}`, { replace: true });
+  setTerm(q);
+  setCurrentPage(1);
 
-   if (!q) {
-     setError("Please type something to search.")
-     return
-   }
+  fetchResults(q).then(firstResults => {
+    if (firstResults.length > 0) return;
 
-   navigate(`/search?term=${encodeURIComponent(q)}`, { replace: true })
-    setTerm(q)
-   fetchResults(q)
- }
+    const [best] = fuse.search(q);
+    if (best?.item && best.item.toLowerCase() !== q.toLowerCase()) {
+      const corrected = best.item;
+      console.log(`no hits for "${q}", retrying as "${corrected}"`);
+
+      setTerm(corrected);
+      navigate(
+        `/search?term=${encodeURIComponent(corrected)}`,
+        { replace: true }
+      );
+
+      fetchResults(corrected);
+    }
+  });
+};
 
 
   useEffect(() => {
