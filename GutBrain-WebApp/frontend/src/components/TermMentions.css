@@ -463,4 +463,13 @@ p {
   box-sizing: border-box;
 }
 
+.tm-ontology-link {
+  color: #0066cc;
+  text-decoration: underline;
+}
+.tm-ontology-link:hover {
+  color: #004499;
+}
+
+
 

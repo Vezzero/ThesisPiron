@@ -36,6 +36,20 @@ export default function TermMentions() {
   const [currentPage, setCurrentPage] = useState(1);
   const [rowsPerPage, setRowsPerPage] = useState(25);
 
+  
+  const ONTOLOGY_URLS = {
+  UMLS:      "https://www.nlm.nih.gov/research/umls/index.html",
+  NCIT:      "https://ontobee.org/ontology/NCIT",
+  NCBITaxon: "https://ontobee.org/ontology/NCBITaxon",
+  CHEBI:     "https://ontobee.org/ontology/CHEBI",
+  FOODON:    "https://ontobee.org/ontology/FOODON",
+  GO:        "https://ontobee.org/ontology/GO",
+  BTO:       "https://ontobee.org/ontology/BTO",
+  MeSH:      "https://meshb.nlm.nih.gov/",
+  OMIT:      "https://ontobee.org/ontology/OMIT",
+  OHMI:      "https://ontobee.org/ontology/OHMI",
+};
+
 
   const uniqueInds = Array.from(
   new Map(allIndividuals.map(ind => [ind.uri, ind])).values()
@@ -480,9 +494,32 @@ const loadOptions = (inputValue) => {
             <p>
               <strong>Definition:</strong> {mentions[0].definition ? mentions[0].definition : "-"}
             </p>
-            <p>
-              <strong>Ontology Match:</strong> {mentions[0].ontologyMatch?.trim() || "-"}
-            </p>
+            {(() => {
+  const match = mentions[0].ontologyMatch?.trim();
+  const url   = ONTOLOGY_URLS[match];
+  return (
+    <p>
+      <strong>Ontology Match:</strong>{" "}
+      {match ? (
+        url ? (
+          <a
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="tm-ontology-link"
+          >
+            {match}
+          </a>
+        ) : (
+          /* unknown prefix, just show text */
+          <span>{match}</span>
+        )
+      ) : (
+        <span>-</span>
+      )}
+    </p>
+  );
+})()}
           </div>
           </div>
 
