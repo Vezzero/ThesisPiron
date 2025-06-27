@@ -495,31 +495,30 @@ const loadOptions = (inputValue) => {
               <strong>Definition:</strong> {mentions[0].definition ? mentions[0].definition : "-"}
             </p>
             {(() => {
-  const match = mentions[0].ontologyMatch?.trim();
-  const url   = ONTOLOGY_URLS[match];
-  return (
-    <p>
-      <strong>Ontology Match:</strong>{" "}
-      {match ? (
-        url ? (
-          <a
-            href={url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="tm-ontology-link"
-          >
-            {match}
-          </a>
-        ) : (
-          /* unknown prefix, just show text */
-          <span>{match}</span>
-        )
-      ) : (
-        <span>-</span>
-      )}
-    </p>
-  );
-})()}
+              const match = mentions[0].ontologyMatch?.trim();
+              const url   = ONTOLOGY_URLS[match];
+              return (
+                <p>
+                  <strong>Ontology Match:</strong>{" "}
+                  {match ? (
+                    url ? (
+                      <a
+                        href={url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="tm-ontology-link"
+                      >
+                        {match}
+                      </a>
+                    ) : (
+                      <span>{match}</span>
+                    )
+                  ) : (
+                    <span>-</span>
+                  )}
+                </p>
+              );
+            })()}
           </div>
           </div>
 
