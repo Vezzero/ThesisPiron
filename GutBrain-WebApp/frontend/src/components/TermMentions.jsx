@@ -45,7 +45,7 @@ export default function TermMentions() {
   FOODON:    "https://ontobee.org/ontology/FOODON",
   GO:        "https://ontobee.org/ontology/GO",
   BTO:       "https://ontobee.org/ontology/BTO",
-  MeSH:      "https://meshb.nlm.nih.gov/",
+  MESH:      "https://meshb.nlm.nih.gov/",
   OMIT:      "https://ontobee.org/ontology/OMIT",
   OHMI:      "https://ontobee.org/ontology/OHMI",
 };
