@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { fetchTermMentions } from "../services/graphServices";
 import "./TermMentions.css";
+import "../pages/PaperDetails.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Select from 'react-select'
 import Fuse from 'fuse.js'
@@ -39,6 +40,11 @@ export default function TermMentions() {
   const [selectedOption, setSelectedOption] = useState(null)
   const [currentPage, setCurrentPage] = useState(1);
   const [rowsPerPage, setRowsPerPage] = useState(25);
+  const [selectedPaperId,    setSelectedPaperId]    = useState(null);
+  const [selectedPaper,      setSelectedPaper]      = useState(null);
+  const [paperLoading,       setPaperLoading]       = useState(false);
+  const [paperError,         setPaperError]         = useState(null);
+
 
   
   const ONTOLOGY_URLS = {
@@ -213,6 +219,25 @@ const loadOptions = (inputValue) => {
         setError("Failed loading objects: " + e.message);
       }
 };
+
+async function loadPaperDetails(paperId) {
+  setPaperLoading(true);
+  setPaperError(null);
+  try {
+    const resp = await fetch(
+      `/api/paper_details/?paperId=${encodeURIComponent(paperId)}`
+    );
+    if (!resp.ok) throw new Error(await resp.text());
+    const { paper } = await resp.json();
+    setSelectedPaper(paper);
+  } catch (e) {
+    setPaperError(e.message);
+    setSelectedPaper(null);
+  } finally {
+    setPaperLoading(false);
+  }
+}
+
 
   const filteredMentions = mentions.filter(m => {
   const sent = m.senttext.toLowerCase();
@@ -425,8 +450,62 @@ const loadOptions = (inputValue) => {
         <main className="tm-content">
           {error && <div className="tm-error">{error}</div>}
 
-          {mentions.length > 0 && (
+          {selectedPaper ? (
+          <div className="paper-inline">
+
+
+      {paperLoading && <p>Loading paper…</p>}
+      {paperError   && <p className="tm-error">Error: {paperError}</p>}
+
+      {selectedPaper && (
+  <div className="paper-card">
+    {/* ——— Card Header: back + pubmed ——— */}
+    <div className="paper-card-header">
+      <a
+        href={`https://pubmed.ncbi.nlm.nih.gov/${selectedPaper.paperid}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="tm-pubmed-button"
+      >
+        View in PubMed
+      </a>
+    </div>
+          <h3>Uri:</h3>
+          <p>
+            <a
+              href={selectedPaper.uri}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <code className="code-underline">
+                {selectedPaper.uri}
+              </code>
+            </a>
+          </p>
+
+          <div className="paper-field">
+            <h3>Title:</h3>
+            <p>{selectedPaper.titletext}</p>
+          </div>
+          <div className="paper-field">
+            <h3>Abstract:</h3>
+            <p className="tm-abstract">
+              {selectedPaper.abstracttext}
+            </p>
+          </div>
+
+          <p><strong>Authors:</strong> {selectedPaper.author}</p>
+          <p><strong>Journal:</strong> {selectedPaper.journal}</p>
+          <p><strong>Year:</strong> {selectedPaper.pubYear}</p>
+          <p><strong>Collection:</strong> {selectedPaper.collection}</p>
+          <p><strong>Paper Id:</strong> {selectedPaper.paperid}</p>
+        </div>
+      )}
+      </div>
+          ) : (
             <>
+            {mentions.length > 0 && (
+              <>
               {/* • Results Cards Grid */}
               <div className="tm-results-wrapper">
                 {/* Card #1 */}
@@ -645,33 +724,33 @@ const loadOptions = (inputValue) => {
           )}
 
           {/* 1) Relations Modal */}
-{showRelModal && (
-  <div
-    className="tm-modal-overlay"
-    onClick={() => setShowRelModal(false)}
-  >
-    <div
-      className="tm-modal"
-      onClick={e => e.stopPropagation()}
-    >
-      <button
-        className="tm-modal-close"
-        onClick={() => setShowRelModal(false)}
-      >
-        ×
-      </button>
-      <h3>All Relations for {mentions[0].indname}</h3>
-      <ul className="tm-relations-list">
-        {relationsList.map(({ prop, label, count }) => (
-          <li key={prop}>
-            <strong>{label}</strong> → {count}{" "}
-            {count === 1 ? "object" : "objects"}
-          </li>
-        ))}
-      </ul>
-    </div>
-  </div>
-)}
+          {showRelModal && (
+            <div
+              className="tm-modal-overlay"
+              onClick={() => setShowRelModal(false)}
+            >
+              <div
+                className="tm-modal"
+                onClick={e => e.stopPropagation()}
+              >
+                <button
+                  className="tm-modal-close"
+                  onClick={() => setShowRelModal(false)}
+                >
+                  ×
+                </button>
+                <h3>All Relations for {mentions[0].indname}</h3>
+                <ul className="tm-relations-list">
+                  {relationsList.map(({ prop, label, count }) => (
+                    <li key={prop}>
+                      <strong>{label}</strong> → {count}{" "}
+                      {count === 1 ? "object" : "objects"}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          )}
 
 {/* 2) Objects Modal */}
 {showObjectsModal && (
@@ -780,23 +859,20 @@ const loadOptions = (inputValue) => {
       <p>
         <strong>Title:</strong> {selectedTitle.titletext}
       </p>
+      <p><strong>Paper Information:</strong></p>
       <div className="tm-paper-link">
-                            <Link
-                              to={`/paper/${selectedTitle.paperid}`}
-                              className="tm-clickable"
-                            >
+          <button
+          className="tm-link-button"
+          onClick={() => {
+          setSelectedPaperId(selectedTitle.paperid);
+          loadPaperDetails(selectedTitle.paperid);
+          setSelectedTitle(null)
+          }}
+          >
                               {selectedTitle.paper}
-                            </Link>
-                          </div>
+                            </button>
 
-                          <a
-                            href={`https://pubmed.ncbi.nlm.nih.gov/${selectedTitle.paperid}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="tm-pubmed-button"
-                          >
-                            View in PubMed
-                          </a>
+                          </div>
     </div>
   </div>
 )}
@@ -853,12 +929,11 @@ const loadOptions = (inputValue) => {
       </p>
     </div>
   </div>
-)}
-
-
-
-
-        </main>
+  
+       )}
+        </>
+          )}
+          </main>
       </div>
     </div>
   );

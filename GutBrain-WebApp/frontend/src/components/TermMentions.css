@@ -6,6 +6,7 @@
 .tm-search { margin: 1rem 0; display: flex; align-items: center; gap: 0.5rem; }
 .tm-input { padding: 0.5rem; font-size: 0.9rem; width: 100%; margin-right: 0.5rem;  max-width: 300px; }
 .tm-button { padding: 0.5rem 1rem; font-size: 0.9rem; }
+.tm-button-back { padding: 0.5rem 1rem; font-size: 0.9rem; margin-bottom: 15px;}
 .tm-error { color: rgb(0, 0, 0); margin-bottom: 1rem; }
 .tm-header p { margin: 0.5rem 0; }
 .tm-table-wrapper { overflow-x: auto; max-height: 250px; flex: 1; margin-top: 1rem; }
@@ -58,15 +59,6 @@
   padding-top: 0px;
   padding-right: 1rem;
   width: 50%;
-}
-
-.tm-results-wrapper {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-  margin-top: 1.5rem;
-  border: #333;
-  
 }
 
 .tm-results-card {
@@ -275,11 +267,13 @@ p {
 .tm-filter-btn {
   background: #f5f5f5;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 2px;
   padding: .4rem .8rem;
-  margin-right: .5rem;
   cursor: pointer;
   font-size: .9rem;
+  display: block;
+  width: 50%;
+  margin-bottom: 0.5rem;
 }
 
 .tm-filter-btn.active {
@@ -368,6 +362,7 @@ p {
   max-height: 200px;
   overflow-y: auto;
 }
+
 
 .tm-paper-cell {
   display: grid;
@@ -469,19 +464,18 @@ p {
 
 .tm-filter-item {
   position: relative;
-  margin-bottom: 0.5rem;  /* space between buttons */
+  margin-bottom: 0.5rem;
 }
 
 .tm-filter-dropdown {
   position: absolute;
-  top: 0;                 /* align with top of button */
-  left: 100%;             /* immediately to the right */
-  margin-left: 0.5rem;    /* small gap */
-  width: 200px;           /* or whatever width you like */
-  z-index: 100;           /* above the sidebar */
+  top: 0;
+  left: 100%;
+  margin-left: 0.5rem;
+  width: 200px;
+  z-index: 100;
 }
 
-/* ensure the react-select portal menu sits over everything */
 .tm-filter-dropdown .tm-select__control {
   width: 100%;
 }
@@ -505,27 +499,8 @@ p {
   font-weight: bold;
 }
 
-.tm-filter-btn {
-  display: block;
-  width: 100%;
-  margin-bottom: 0.5rem;
-}
-
-.tm-filter-btn.active {
-  background-color: #007bff;
-  color: white;
-}
-
 .tm-filter-control {
   margin-top: 1rem;
-}
-
-.tm-content {
-  flex: 1;
-  overflow: hidden;
-  grid-column: 2;
-  padding: 1rem 1.5rem;
-  box-sizing: border-box;
 }
 
 .tm-header {
@@ -548,31 +523,25 @@ p {
   align-items: center;
 }
 
-.tm-header-separator {
-  width: 100%;
-  border: 0;
-  border-bottom: 2px solid #000000;
-  margin: 0;
-}
-
 .tm-page-wrapper {
   display: grid;
   grid-template-columns: 240px 1fr;
   margin-top: var(--header-height);
 }
 
-
-/* 3) Content column */
 .tm-content {
   grid-column: 2;
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
+  padding: 1rem 1.5rem;
+  box-sizing: border-box;
+  flex: 1;
+  overflow: hidden;
+  grid-column: 2;
   padding: 1rem 1.5rem;
   box-sizing: border-box;
 }
 
-/* 4) Cards grid */
 .tm-results-wrapper {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -582,20 +551,6 @@ p {
   box-sizing: border-box;
 }
 
-/* 6) Draw bottom border on header */
-.tm-header {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  height: var(--header-height);
-  background: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 1rem;
-  z-index: 100;
-}
-
-/* wrap your text in an element with data-tooltip */
 [data-tooltip] {
   position: relative;
   cursor: help;
@@ -616,3 +571,23 @@ p {
   z-index: 10;
 }
 
+.paper-field h3 {
+  margin-bottom: 0.25rem;
+}
+.paper-field p {
+  margin-top: 0;
+}
+
+.paper-inline-header {
+  position: fixed;
+  top: var(--header-height);
+  left: 240px;
+  right: 0;
+  background: #fff;
+  z-index: 200;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  border-bottom: 1px solid #e0e0e0;
+}

@@ -12,8 +12,10 @@
   background: #fff;
   border: 2px solid black;
   border-radius: 8px;
+  padding-top: 30px;
   padding: 1rem;
   margin-bottom: 1.5rem;
+  position: relative;
 }
 
 .paper-card h2 {
@@ -59,5 +61,16 @@
   position: sticky;
   top: 2.5rem;
   background: #fafafa;
+  z-index: 1;
+}
+
+.paper-card-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  right: 1rem;
   z-index: 1;
 }
