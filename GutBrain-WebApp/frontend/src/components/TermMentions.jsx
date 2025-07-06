@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo } from "react";
 import { fetchTermMentions } from "../services/graphServices";
 import "./TermMentions.css";
 import "../pages/PaperDetails.css";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import Select from 'react-select'
 import Fuse from 'fuse.js'
 import AsyncSelect from 'react-select/async'
@@ -59,6 +59,15 @@ export default function TermMentions() {
   OMIT:      "https://ontobee.org/ontology/OMIT",
   OHMI:      "https://ontobee.org/ontology/OHMI",
 };
+
+  const { paperId } = useParams();
+
+  useEffect(() => {
+    if (paperId) {
+      setSelectedPaperId(paperId);
+      loadPaperDetails(paperId);
+    }
+  }, [paperId]);
 
   const fuse = useMemo(() => {
   return new Fuse(
@@ -385,7 +394,7 @@ async function loadPaperDetails(paperId) {
      <button
        className="tm-button-back"
        onClick={() => {
-         // clear the paper view and go back to mentions
+         navigate(-1);
          setSelectedPaperId(null);
          setSelectedPaper(null);
        }}
@@ -881,6 +890,7 @@ async function loadPaperDetails(paperId) {
           <button
           className="tm-link-button"
           onClick={() => {
+          navigate(`/paper/${selectedTitle.paperid}`, { replace: false });
           setSelectedPaperId(selectedTitle.paperid);
           loadPaperDetails(selectedTitle.paperid);
           setSelectedTitle(null)
