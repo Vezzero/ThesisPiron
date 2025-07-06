@@ -10,6 +10,9 @@ export default function TermMentions() {
   const [term, setTerm] = useState("");
   const [mentions, setMentions] = useState([]);
   const [selected, setSelected] = useState(null);
+  const [selectedTitle, setSelectedTitle] = useState(null);
+  const [selectedJournal, setSelectedJournal] = useState(null);
+  const [selectedMention, setSelectedMention] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [relationsList, setRelationsList] = useState([]); 
@@ -20,12 +23,13 @@ export default function TermMentions() {
   const location = useLocation();
   const navigate = useNavigate();
   const [sentenceFilter, setSentenceFilter] = useState("");
-  const [paperFilter,    setPaperFilter]    = useState("");
+  const [paperTitleFilter,    setPaperTitleFilter]    = useState("");
+  const [paperJournalFilter,    setPaperJournalFilter]    = useState("");
+  const [paperYearFilter, setPaperYearFilter] = useState("");
   const [mentionFilter,  setMentionFilter]  = useState("");
   const [filterField, setFilterField] = useState(null);
   const [filterValue, setFilterValue] = useState([]);
   const [allIndividuals, setAllIndividuals] = useState([]);
-  const [allAnnotators, setAllAnnotators] = useState([]);
   const [allPapers, setAllPapers] = useState([]);
   const [allCollections, setAllCollections] = useState([]);
   const [allYears, setAllYears] = useState([]);
@@ -49,11 +53,6 @@ export default function TermMentions() {
   OMIT:      "https://ontobee.org/ontology/OMIT",
   OHMI:      "https://ontobee.org/ontology/OHMI",
 };
-
-
-  const uniqueInds = Array.from(
-  new Map(allIndividuals.map(ind => [ind.uri, ind])).values()
-);
 
   const fuse = useMemo(() => {
   return new Fuse(
@@ -92,7 +91,6 @@ const loadOptions = (inputValue) => {
         const resp = await fetch("/api/list_details/");
         if (!resp.ok) throw new Error(await resp.text());
         const {
-          annotators,
           papers,
           collections,
           years,
@@ -100,7 +98,6 @@ const loadOptions = (inputValue) => {
           authors
         } = await resp.json();
 
-        setAllAnnotators(annotators);
         setAllPapers(papers);
         setAllCollections(collections);
         setAllYears(years);
@@ -220,11 +217,15 @@ const loadOptions = (inputValue) => {
   const filteredMentions = mentions.filter(m => {
   const sent = m.senttext.toLowerCase();
   const pap  = m.titletext.toLowerCase();
+  const jou  = m.journal.toLowerCase();
+  const yea  = m.pubYear.toLowerCase();
   const men  = m.mentiontext.toLowerCase();
 
   if (
     !sent.includes(sentenceFilter.toLowerCase()) ||
-    !pap .includes(paperFilter   .toLowerCase()) ||
+    !pap .includes(paperTitleFilter   .toLowerCase()) ||
+    !jou .includes(paperJournalFilter   .toLowerCase()) ||
+    !yea .includes(paperYearFilter   .toLowerCase()) ||
     !men .includes(mentionFilter .toLowerCase())
   ) return false;
 
@@ -234,11 +235,14 @@ const loadOptions = (inputValue) => {
       : [filterValue.toLowerCase()];
 
     switch (filterField) {
-      case "annotator":
-        return values.some(v => m.annotator.toLowerCase() === v);
 
       case "author":
-        return values.some(v => m.author.toLowerCase().includes(v));
+        return m.author
+          .split(";")
+          .map(x => x.trim().toLowerCase())
+          .some(name => 
+            values.some(v => name.includes(v))
+          );
 
       case "paper":
         return values.some(v => m.paper.toLowerCase().includes(v));
@@ -264,7 +268,6 @@ const loadOptions = (inputValue) => {
 });
 
   const optionsMap = {
-    annotator:  allAnnotators.map(a => ({ value: a, label: a })),
     year:       allYears.map(y => ({ value: y, label: y })),
     author:     allAuthors.map(a => ({ value: a, label: a })),
     paper:      allPapers.map(p => ({ value: p, label: p })),
@@ -273,7 +276,6 @@ const loadOptions = (inputValue) => {
   }
 
   const placeholderMap = {
-    annotator:  'Select an annotator…',
     year:       'Select year…',
     author:     'Select author…',
     paper:      'Select paper…',
@@ -286,247 +288,227 @@ const loadOptions = (inputValue) => {
   const startIdx = (currentPage - 1) * rowsPerPage;
   const paginated = filteredMentions.slice(startIdx, startIdx + rowsPerPage);
 
-  // reset page when filters or page size change
-  useEffect(() => setCurrentPage(1), [sentenceFilter, paperFilter, mentionFilter, filterField, filterValue, rowsPerPage]);
+  const same = mentions.filter(
+  m => m.mentiontext === selectedMention?.mentiontext
+  );
+  const sentenceCount = same.length;
+  const paperCount = new Set(same.map(m => m.paperid)).size;
+
+  useEffect(() => setCurrentPage(1), [sentenceFilter, paperTitleFilter, paperJournalFilter, paperYearFilter, mentionFilter, filterField, filterValue, rowsPerPage]);
 
 
   return (
     <div className="tm-container">
-      <div className="tm-header-bar">
-       <h2 className="tm-title">Discover the Gut–Brain Axis Database</h2>
-        <button
-         onClick={() => navigate(-1)}
-         className="tm-button tm-back-button"
-        >
-        Back
-       </button>
-       <hr />
-      </div>
-      
-        <div className="tm-search">
-        <AsyncSelect
-        className="tm-input"
-        classNamePrefix="tm-input"
-        cacheOptions
-        loadOptions={loadOptions}
-        defaultOptions={false}
-        isClearable
-        placeholder="Type a term (e.g. brain, mouse)…"
-
-        menuIsOpen={menuIsOpen}
-
-        onMenuOpen={() => setMenuIsOpen(true)}
-        onMenuClose={() => setMenuIsOpen(false)}
-
-        inputValue={term}
-        value={
-          selectedOption
-            ? selectedOption
-            : term
-              ? { label: term, value: term }
-              : null
+      <header className="tm-header">
+  <h2>Gut-Brain KB</h2>
+  <div className="tm-search-bar">
+    <AsyncSelect
+      className="tm-input"
+      classNamePrefix="tm-input"
+      cacheOptions
+      loadOptions={loadOptions}
+      defaultOptions={false}
+      isClearable
+      placeholder="Type a term (e.g. brain, mouse)…"
+      menuIsOpen={menuIsOpen}
+      onMenuOpen={() => setMenuIsOpen(true)}
+      onMenuClose={() => setMenuIsOpen(false)}
+      inputValue={term}
+      value={
+        selectedOption
+          ? selectedOption
+          : term
+          ? { label: term, value: term }
+          : null
+      }
+      onInputChange={val => setTerm(val)}
+      onChange={(opt, meta) => {
+        if (opt?.value) {
+          setSelectedOption(opt);
+          setTerm(opt.value);
+          handleSearch(opt.value);
+        } else if (meta.action === "clear") {
+          setTerm("");
+          setSelectedOption(null);
+          handleSearch("");
+          setMenuIsOpen(false);
         }
-        onInputChange={val => setTerm(val)}
-
-        onChange={(opt, meta) => {
-          if (opt?.value) {
-            setSelectedOption(opt);
-            setTerm(opt.value);
-            handleSearch(opt.value);
-          } else if (meta.action === 'clear') {
-            setTerm("");
-            setSelectedOption(null);
-            handleSearch("");
-            setMenuIsOpen(false);
-          }
-          
-        }}
-
-        onKeyDown={e => {
-          if (e.key === "Enter") {
-            e.preventDefault();
-            handleSearch();
-            setMenuIsOpen(false);
-          }
-        }}
-      />
-
-      <button
-        className="tm-button"
-        onClick={() => {
+      }}
+      onKeyDown={e => {
+        if (e.key === "Enter") {
+          e.preventDefault();
           handleSearch();
           setMenuIsOpen(false);
+        }
+      }}
+    />
+
+    <button
+      className="tm-button"
+      onClick={() => {
+        handleSearch();
+        setMenuIsOpen(false);
+      }}
+      disabled={loading}
+    >
+      {loading ? "Searching…" : "Search"}
+    </button>
+  </div>
+</header>
+
+
+      {/* ===== PAGE WRAPPER: SIDEBAR + CONTENT ===== */}
+      <div className="tm-page-wrapper">
+        {/* -- 1) Sticky Sidebar -- */}
+        <aside className="tm-sidebar">
+  <span className="tm-filter-title">Filter by:</span>
+  {[
+    { key: "author",     label: "Author"     },
+    { key: "paper",      label: "Paper"      },
+  ].map(f => (
+    <div className="tm-filter-item" key={f.key}>
+      <button
+        className={`tm-filter-btn${filterField === f.key ? " active" : ""}`}
+        onClick={() => {
+          setFilterField(filterField === f.key ? null : f.key);
+          setFilterValue([]);
         }}
-        disabled={loading}
-        
       >
-        {loading ? "Searching…" : "Search"}
+        {f.label}
       </button>
 
-        <div className="tm-all-dropdown">
-      <select
-          className="tm-all-select"
-          onChange={(e) => handleSearch(e.target.value)}
-          defaultValue=""
-        >
-          <option value="" disabled>
-            Select an individual…
-          </option>
-                {uniqueInds.map(ind => (
-        <option key={ind.uri} value={ind.label}>
-          {ind.label}
-        </option>
-            ))}
-        </select>
-      </div>
-      </div>
-      <div className="tm-extra-filters">
-        <span>Filter by:</span>
-        {[
-          { key: "author",    label: "Author"    },
-          { key: "annotator", label: "Annotator" },
-          { key: "paper",     label: "Paper"     },
-          { key: "journal",   label: "Journal"   },
-          { key: "collection",label: "Collection"},
-          { key: "year",      label: "Year"      }
-        ].map(f => (
-          <button
-            key={f.key}
-            className={
-              "tm-filter-btn" +
-              (filterField === f.key ? " active" : "")
-            }
-            onClick={() => {
-              if (filterField === f.key) {
-                setFilterField(null);
-                setFilterValue("");
-              } else {
-                setFilterField(f.key);
-                setFilterValue("");
-              }
-            }}
-          >
-            {f.label}
-          </button>
-        ))}
-        {filterField && (
-     <div className="tm-filter-control">
-     <Select
-        className="tm-filter-btn-select"
-        classNamePrefix="tm-select"
+      {f.key === "paper" && (
+        <div className="tm-subfilters">
+          {[
+            { key: "paperTitle",   label: "Title"   },
+            { key: "journal", label: "Journal" },
+            { key: "year",    label: "Year"    }
+          ].map(sf => (
+            <button
+              key={sf.key}
+              className={`tm-filter-btn sub${
+                filterField === sf.key ? " active" : ""
+              }`}
+              onClick={() => {
+                setFilterField(sf.key);
+                setFilterValue([]);
+              }}
+            >
+              {sf.label}
+            </button>
+          ))}
+        </div>
+      )}
 
-        options={optionsMap[filterField]}
-        isMulti
-        maxMenuHeight={200}
-        value={ optionsMap[filterField]
-                  .filter(o => filterValue.includes(o.value)) 
-              || [] 
-        }
+      {filterField === f.key && (
+  <div className="tm-filter-dropdown">
+    <Select
+      options={optionsMap[f.key]}
+      isMulti
+      placeholder={placeholderMap[f.key]}
+      value={optionsMap[f.key].filter(o => filterValue.includes(o.value))}
+      onChange={opts => setFilterValue(opts ? opts.map(o => o.value) : [])}
+      styles={{
+        container: base => ({ ...base, width: "200px" }),
+        menu:      base => ({ ...base, zIndex: 999 })
+      }}
+    />
+  </div>
+)}
 
-        onChange={opts => {
-          if (opts) {
-            setFilterValue(opts.map(o => o.value))
-          } else {
-            setFilterValue([])
-          }
+    </div>
+  ))}
+</aside>
+
+
+        {/* -- 2) Main Content Column -- */}
+        <main className="tm-content">
+          {error && <div className="tm-error">{error}</div>}
+
+          {mentions.length > 0 && (
+            <>
+              {/* • Results Cards Grid */}
+              <div className="tm-results-wrapper">
+                {/* Card #1 */}
+                <div className="tm-results-card">
+                  <div className="tm-header-grid1">
+  <h3 className="h3-title">{mentions[0].indname}</h3>
+
+  <p>
+    <a
+      href={mentions[0].ind}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <code className="code-underline">
+        {mentions[0].ind}
+      </code>
+    </a>
+  </p>
+
+  <p>
+    <strong>Full Name:</strong> {mentions[0].indname}
+  </p>
+
+  {mentions[0].classIri && (
+    <p>
+      <strong>Class:</strong>{" "}
+      <Link
+        to={`/class/${encodeURIComponent(
+          mentions[0].classIri.split("/").pop()
+        )}`}
+        state={{
+          classIri: mentions[0].classIri,
+          classLabel: mentions[0].classLabel
         }}
+        className="tm-link-button-class"
+      >
+        {mentions[0].classLabel ||
+          mentions[0].classIri.split("/").pop()}
+      </Link>
+    </p>
+  )}
 
-        placeholder={placeholderMap[filterField]}
-        isClearable
+  <p>
+    <strong>Definition:</strong>{" "}
+    {mentions[0].definition || "-"}
+  </p>
 
-        styles={{
-          control: provided => ({
-            ...provided,
-            maxWidth: '300px',
-          }),
-          menu: provided => ({
-            ...provided,
-            maxHeight: '200px'
-          })
-          }}
-          />
-
-          </div>
-          )}
-
-      </div>
-
-      {error && <div className="tm-error">{error}</div>}
-
-      {mentions.length > 0 && (
-        <>
-         <div className="tm-results-wrapper">
-          <div className="tm-results-card">
-          <div className="tm-header-grid1">
-            <h3 className="h3-title">{mentions[0].indname}</h3>
-            <p>
-              <a
-                href={mentions[0].ind}
-                target="_blank"
-                rel="noopener noreferrer">
-                <code className="code-underline">
-                  {mentions[0].ind}
-                </code>
-              </a>
-            </p>
-            <p>
-              <strong>Full Name:</strong> {mentions[0].indname}
-            </p>
-
-            {mentions[0].classIri && (
-              (() => {
-                const local = mentions[0].classIri.split("/").pop();
-                return (
-                  <p>
-                    <strong>Class:</strong>{" "}
-                    <Link
-                      to={`/class/${encodeURIComponent(local)}`}
-                      state={{ classIri: mentions[0].classIri,
-                            classLabel: mentions[0].classLabel}}
-                      className="tm-link-button-class"
-                    >
-                      {mentions[0].classLabel || local}
-                    </Link>
-                  </p>
-                );
-              })()
-            )}
-            <p>
-              <strong>Definition:</strong> {mentions[0].definition ? mentions[0].definition : "-"}
-            </p>
-            {(() => {
-              const match = mentions[0].ontologyMatch?.trim();
-              const url   = ONTOLOGY_URLS[match];
-              return (
-                <p>
-                  <strong>Ontology Match:</strong>{" "}
-                  {match ? (
-                    url ? (
-                      <a
-                        href={url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="tm-ontology-link"
-                      >
-                        {match}
-                      </a>
-                    ) : (
-                      <span>{match}</span>
-                    )
-                  ) : (
-                    <span>-</span>
-                  )}
-                </p>
-              );
+  {(() => {
+    const match = mentions[0].ontologyMatch?.trim();
+    const url = ONTOLOGY_URLS[match];
+    return (
+      <p>
+        <strong>Ontology Match:</strong>{" "}
+        {match ? (
+          url ? (
+            <a
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="tm-ontology-link"
+            >
+              {match}
+            </a>
+          ) : (
+            <span>{match}</span>
+          )
+        ) : (
+          <span>-</span>
+        )}
+      </p>
+    );
             })()}
           </div>
           </div>
-
-    <div className="tm-results-card">
-      <p>
-        <strong>{mentions[0].indname}</strong> has{" "} in total{" "}
-        <strong>{relationCount}</strong> {relationCount === 1 ? "relation": "relations"}. </p>
-      <ul className="tm-relations-list">
+                {/* Card #2 */}
+                <div className="tm-results-card">
+                  <p>
+                    <strong>{mentions[0].indname}</strong> has in total{" "}
+                    <strong>{relationCount}</strong>{" "}
+                    {relationCount === 1 ? "relation" : "relations"}.
+                  </p>
+                  <ul className="tm-relations-list">
         {relationsList.map(r => (
           <li key={r.prop}>
             <button
@@ -539,85 +521,116 @@ const loadOptions = (inputValue) => {
           </li>
         ))}
       </ul>
-    </div>
-    </div>
+                </div>
+              </div>
 
-          <div className="tm-table-wrapper">
-            <table className="tm-table">
-              <thead>
-                <tr>
-                  <th>Sentence</th>
-                  <th>Paper</th>
-                  <th>Mention</th>
-                </tr>
-                <tr className="tm-filters">
-                  <th>
-                    <input
-                      type="text"
-                      className="tm-filter-input"
-                      placeholder="Filter sentence…"
-                      value={sentenceFilter}
-                      onChange={e => setSentenceFilter(e.target.value)}
-                    />
-                  </th>
-                  <th>
-                    <input
-                      type="text"
-                      className="tm-filter-input"
-                      placeholder="Filter paper…"
-                      value={paperFilter}
-                      onChange={e => setPaperFilter(e.target.value)}
-                    />
-                  </th>
-                  <th>
-                    <input
-                      type="text"
-                      className="tm-filter-input"
-                      placeholder="Filter mention…"
-                      value={mentionFilter}
-                      onChange={e => setMentionFilter(e.target.value)}
-                    />
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {paginated.map((mention, idx) => (
-                  <tr key={`${mention.indname}-${startIdx+idx}`}>
-                    <td className="tm-truncate">
-                  <span
-                    className="tm-clickable color-sentence"
-                    onClick={() => setSelected(mention)}>
-                    {mention.senttext}
-                  </span>
-                </td>
-                <td>
-                    <div className="tm-paper-cell">
-                      <div className="tm-paper-link">
-                    <Link
-                      to={`/paper/${mention.paperid}`}
-                      className="tm-clickable"
-                    >
-                      {mention.paper}
-                    </Link>
-                    </div>
-                    <a
-                      href={`https://pubmed.ncbi.nlm.nih.gov/${mention.paperid}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="tm-pubmed-button"
-                    >
-                      View in PubMed
-                    </a>
-                  </div>
-                </td>
-                    <td className="tm-truncate">
-                      {mention.mentiontext}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-            <div className="tm-pagination">
+              {/* • Mentions Table */}
+              <div className="tm-table-wrapper">
+                <table className="tm-table">
+                  <thead>
+                    <tr>
+                      <th>Sentence</th>
+                      <th>Paper Title</th>
+                      <th>Journal</th>
+                      <th>Publication Year</th>
+                      <th>Mention</th>
+                    </tr>
+                    <tr className="tm-filters">
+                      <th>
+                        <input
+                          type="text"
+                          className="tm-filter-input"
+                          placeholder="Filter…"
+                          value={sentenceFilter}
+                          onChange={e => setSentenceFilter(e.target.value)}
+                        />
+                      </th>
+                      <th>
+                        <input
+                          type="text"
+                          className="tm-filter-input"
+                          placeholder="Filter…"
+                          value={paperTitleFilter}
+                          onChange={e => setPaperTitleFilter(e.target.value)}
+                        />
+                      </th>
+                      <th>
+                        <input
+                          type="text"
+                          className="tm-filter-input"
+                          placeholder="Filter…"
+                          value={paperJournalFilter}
+                          onChange={e => setPaperJournalFilter(e.target.value)}
+                        />
+                      </th>
+                      <th>
+                        <input
+                          type="text"
+                          className="tm-filter-input"
+                          placeholder="Filter…"
+                          value={paperYearFilter}
+                          onChange={e => setPaperYearFilter(e.target.value)}
+                        />
+                      </th>
+                      <th>
+                        <input
+                          type="text"
+                          className="tm-filter-input"
+                          placeholder="Filter…"
+                          value={mentionFilter}
+                          onChange={e => setMentionFilter(e.target.value)}
+                        />
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {paginated.map((m, idx) => (
+                      <tr key={`${m.indname}-${startIdx + idx}`}>
+                        <td className="tm-truncate">
+                          <span
+                            className="tm-clickable color-sentence"
+                            onClick={() => setSelected(m)}
+                            title={m.senttext}
+                          >
+                            {m.senttext}
+                          </span>
+                        </td>
+                        <td className="tm-truncate" data-tooltip={m.titletext}>
+                          <span
+                            className="tm-clickable color-sentence"
+                            onClick={() => setSelectedTitle(m)}
+                            title={m.titletext}
+                          >
+                            {m.titletext}
+                          </span>
+                        </td>
+                        <td className="tm-truncate">
+                          <span
+                            className="tm-clickable color-sentence"
+                            onClick={() => setSelectedJournal(m)}
+                            title={m.journal}
+                          >
+                            {m.journal}
+                          </span>
+                        </td>
+                        <td className="tm-truncate">
+                            {m.pubYear}
+                        </td>
+                        <td className="tm-truncate">
+                          <span
+                            className="tm-clickable color-sentence"
+                            onClick={() => setSelectedMention(m)}
+                            title={m.mentiontext}
+                          >
+                            {m.mentiontext}
+                          </span>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+
+                <div className="tm-pagination">
               <label>Rows per page:
                 <select value={rowsPerPage} onChange={e=>setRowsPerPage(+e.target.value)}>
                   {[10,25,50,100].map(n=><option key={n} value={n}>{n}</option>)}
@@ -631,22 +644,28 @@ const loadOptions = (inputValue) => {
             </>
           )}
 
-      {!loading && !error && mentions.length === 0 && (
-        <div className="tm-empty">
-          No results yet. Please enter a term and click Search.
-        </div>
-      )}
-      {showRelModal && (
-  <div className="tm-modal-overlay" onClick={() => setShowRelModal(false)}>
-    <div className="tm-modal" onClick={e => e.stopPropagation()}>
-      <button className="tm-modal-close" onClick={() => setShowRelModal(false)}>
+          {/* 1) Relations Modal */}
+{showRelModal && (
+  <div
+    className="tm-modal-overlay"
+    onClick={() => setShowRelModal(false)}
+  >
+    <div
+      className="tm-modal"
+      onClick={e => e.stopPropagation()}
+    >
+      <button
+        className="tm-modal-close"
+        onClick={() => setShowRelModal(false)}
+      >
         ×
       </button>
       <h3>All Relations for {mentions[0].indname}</h3>
       <ul className="tm-relations-list">
         {relationsList.map(({ prop, label, count }) => (
           <li key={prop}>
-            <strong>{label}</strong> → {count} {count === 1 ? "object" : "objects"}
+            <strong>{label}</strong> → {count}{" "}
+            {count === 1 ? "object" : "objects"}
           </li>
         ))}
       </ul>
@@ -654,7 +673,8 @@ const loadOptions = (inputValue) => {
   </div>
 )}
 
-    {showObjectsModal && (
+{/* 2) Objects Modal */}
+{showObjectsModal && (
   <div
     className="tm-modal-overlay"
     onClick={() => setShowObjectsModal(false)}
@@ -682,13 +702,14 @@ const loadOptions = (inputValue) => {
               <tr key={`${o.uri}-${idx}`}>
                 <td>
                   <button
-                  className="tm-link-button"
-                  onClick={() => {
-                    setShowObjectsModal(false);
-                    handleSearch(o.label);
-                  }}
-                >
-                  {o.label}</button>
+                    className="tm-link-button"
+                    onClick={() => {
+                      setShowObjectsModal(false);
+                      handleSearch(o.label);
+                    }}
+                  >
+                    {o.label}
+                  </button>
                 </td>
                 <td>
                   <a
@@ -696,8 +717,9 @@ const loadOptions = (inputValue) => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                  <code className="code-underline">
-                  {o.uri}</code>
+                    <code className="code-underline">
+                      {o.uri}
+                    </code>
                   </a>
                 </td>
               </tr>
@@ -709,35 +731,135 @@ const loadOptions = (inputValue) => {
   </div>
 )}
 
+{/* 3) Sentence Info Modal */}
+{selected && (
+  <div
+    className="tm-modal-overlay"
+    onClick={() => setSelected(null)}
+  >
+    <div
+      className="tm-modal"
+      onClick={e => e.stopPropagation()}
+    >
+      <button
+        className="tm-modal-close"
+        onClick={() => setSelected(null)}
+      >
+        ×
+      </button>
+      <h3 className="h3-title">Sentence Information</h3>
+      <p>
+        <strong>Sentence:</strong> {selected.senttext}
+      </p>
+      <p>
+        <strong>URI: </strong>
+        <code className="code-underline">
+          {selected.sent}
+        </code>
+      </p>
+    </div>
+  </div>
+)}
 
-      {selected && (
-        <div
-          className="tm-modal-overlay"
-          onClick={() => setSelected(null)}
-        >
-          <div
-            className="tm-modal"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              className="tm-modal-close"
-              onClick={() => setSelected(null)}
-            >
-              ×
-            </button>
-            <h3 className="h3-title">Sentence Information</h3>
-            <p>
-              <strong>Sentence:</strong> {selected.senttext}
-            </p>
-            <p>
-              <strong>URI: </strong><code className="code-underline"> {selected.sent}</code>
-            </p>
-            <p>
-              <strong>Annotator: </strong> {selected.annotator}
-            </p>
-          </div>
-        </div>
-      )}
+{selectedTitle && (
+  <div
+    className="tm-modal-overlay"
+    onClick={() => setSelectedTitle(null)}
+  >
+    <div
+      className="tm-modal"
+      onClick={e => e.stopPropagation()}
+    >
+      <button
+        className="tm-modal-close"
+        onClick={() => setSelectedTitle(null)}
+      >
+        ×
+      </button>
+      <h3 className="h3-title">Title Information</h3>
+      <p>
+        <strong>Title:</strong> {selectedTitle.titletext}
+      </p>
+      <div className="tm-paper-link">
+                            <Link
+                              to={`/paper/${selectedTitle.paperid}`}
+                              className="tm-clickable"
+                            >
+                              {selectedTitle.paper}
+                            </Link>
+                          </div>
+
+                          <a
+                            href={`https://pubmed.ncbi.nlm.nih.gov/${selectedTitle.paperid}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="tm-pubmed-button"
+                          >
+                            View in PubMed
+                          </a>
+    </div>
+  </div>
+)}
+
+{selectedJournal && (
+  <div
+    className="tm-modal-overlay"
+    onClick={() => setSelectedJournal(null)}
+  >
+    <div
+      className="tm-modal"
+      onClick={e => e.stopPropagation()}
+    >
+      <button
+        className="tm-modal-close"
+        onClick={() => setSelectedJournal(null)}
+      >
+        ×
+      </button>
+      <h3 className="h3-title">Journal Information</h3>
+      <p>
+        <strong>Journal:</strong> {selectedJournal.journal}
+      </p>
+    </div>
+  </div>
+)}
+
+{selectedMention && (
+  <div
+    className="tm-modal-overlay"
+    onClick={() => setSelectedMention(null)}
+  >
+    <div
+      className="tm-modal"
+      onClick={e => e.stopPropagation()}
+    >
+      <button
+        className="tm-modal-close"
+        onClick={() => setSelectedMention(null)}
+      >
+        ×
+      </button>
+      <h3 className="h3-title">Mention Information</h3>
+
+      <p>
+        The mention{" "}
+        <strong>{selectedMention.mentiontext}</strong>
+        {" has been found in "}
+        {sentenceCount}{" "}
+        {sentenceCount === 1 ? "sentence" : "sentences"}
+        {" from "}
+        {paperCount}{" "}
+        {paperCount === 1 ? "paper." : "papers."}
+      </p>
+    </div>
+  </div>
+)}
+
+
+
+
+        </main>
+      </div>
     </div>
   );
 }

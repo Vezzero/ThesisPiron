@@ -1,16 +1,18 @@
+:root {
+  --header-height: 120px;
+}
+
 .tm-container { padding: 2rem; font-family: sans-serif; }
-.tm-title { border-bottom: 2px solid #333; padding-bottom: 0.5rem; margin-bottom: 1rem; }
 .tm-search { margin: 1rem 0; display: flex; align-items: center; gap: 0.5rem; }
-.tm-input { padding: 0.5rem; font-size: 0.9rem; width: 100%; margin-right: 0.5rem; flex: 0 0 60%;  max-width: 300px; }
+.tm-input { padding: 0.5rem; font-size: 0.9rem; width: 100%; margin-right: 0.5rem;  max-width: 300px; }
 .tm-button { padding: 0.5rem 1rem; font-size: 0.9rem; }
 .tm-error { color: rgb(0, 0, 0); margin-bottom: 1rem; }
-.tm-header { margin: 1.5rem 0; }
 .tm-header p { margin: 0.5rem 0; }
-.tm-table-wrapper { overflow-x: auto; max-height: calc(100vh - 300px); flex: 1; margin-top: 1rem; }
+.tm-table-wrapper { overflow-x: auto; max-height: 250px; flex: 1; margin-top: 1rem; }
 .tm-table { width: 100%; border-collapse: collapse; }
 .tm-table th, .tm-table td { border: 1px solid #ccc; text-align: left; }
 .tm-table th { background: #f0f0f0; }
-.tm-empty { margin-top: 1rem; color: #666; }
+.tm-empty { margin-top: 5rem; color: #666; }
 
 .p-class {
   margin: 0.5rem 0;
@@ -241,13 +243,6 @@ p {
   margin-bottom: 5px;
 }
 
-.tm-title {
-  margin: 0;
-  font-size: 1.75rem;
-  font-weight: 400;
-  flex: 1;
-}
-
 .color-sentence {
   color: #333;
   font-size: 0.9rem;
@@ -390,6 +385,7 @@ p {
   color: white;
   text-decoration: none;
   border-radius: 4px;
+  max-width: 11%;
 }
 .tm-pubmed-button:hover {
   background: #005fa3;
@@ -471,5 +467,152 @@ p {
   color: #004499;
 }
 
+.tm-filter-item {
+  position: relative;
+  margin-bottom: 0.5rem;  /* space between buttons */
+}
 
+.tm-filter-dropdown {
+  position: absolute;
+  top: 0;                 /* align with top of button */
+  left: 100%;             /* immediately to the right */
+  margin-left: 0.5rem;    /* small gap */
+  width: 200px;           /* or whatever width you like */
+  z-index: 100;           /* above the sidebar */
+}
+
+/* ensure the react-select portal menu sits over everything */
+.tm-filter-dropdown .tm-select__control {
+  width: 100%;
+}
+
+.tm-sidebar {
+  position: fixed;
+  top: 116px;
+  bottom: 0;
+  left: 0;
+  width: 240px;
+  padding: 1rem;
+  background: #fafafa;
+  border-right: 1px solid #000000;
+  z-index: 50;
+  grid-column: 1;
+}
+
+.tm-filter-title {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.tm-filter-btn {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.tm-filter-btn.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.tm-filter-control {
+  margin-top: 1rem;
+}
+
+.tm-content {
+  flex: 1;
+  overflow: hidden;
+  grid-column: 2;
+  padding: 1rem 1.5rem;
+  box-sizing: border-box;
+}
+
+.tm-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background: #fff;
+  height: var(--header-height);
+  z-index: 100;
+  padding: 1rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid #000000;
+}
+
+.tm-search-bar {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.tm-header-separator {
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid #000000;
+  margin: 0;
+}
+
+.tm-page-wrapper {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  margin-top: var(--header-height);
+}
+
+
+/* 3) Content column */
+.tm-content {
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding: 1rem 1.5rem;
+  box-sizing: border-box;
+}
+
+/* 4) Cards grid */
+.tm-results-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 6) Draw bottom border on header */
+.tm-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--header-height);
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  z-index: 100;
+}
+
+/* wrap your text in an element with data-tooltip */
+[data-tooltip] {
+  position: relative;
+  cursor: help;
+}
+[data-tooltip]:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 50%;
+  bottom: 100%;
+  transform: translateX(-50%) translateY(-0.5rem);
+  white-space: pre-wrap;
+  background: rgba(0,0,0,0.75);
+  color: #fff;
+  padding: 0.5rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  max-width: 300px;
+  z-index: 10;
+}
 

@@ -23,7 +23,7 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 SELECT DISTINCT
   ?paperid
   ?title
-  ?author
+  (GROUP_CONCAT(DISTINCT ?author; separator=", ") AS ?authors)
   ?journal
   ?pubYear
   ?indname
@@ -424,7 +424,7 @@ SELECT DISTINCT
   ?collection
   ?year
   ?journal
-  ?author
+  (GROUP_CONCAT(DISTINCT ?author; separator=", ") AS ?authors)
 WHERE {
   ?col a gutprop:PaperCollection ;
        rdfs:label            ?collection ;
@@ -437,6 +437,15 @@ WHERE {
        gutprop:paperJournal   ?journal ;
        gutprop:paperAuthor    ?author .
 }
+GROUP BY
+  ?annotator
+  ?paper
+  ?collection
+  ?year
+  ?journal
+ORDER BY
+  ?collection
+  ?paper
 """
     try:
         results = run_sparql_query(sparql)
@@ -458,7 +467,7 @@ WHERE {
         colls.add(b["collection"]["value"])
         years.add(b["year"]["value"])
         journals.add(b["journal"]["value"])
-        authors.add(b["author"]["value"])
+        authors.add(b["authors"]["value"])
 
     return JsonResponse({
         "annotators": sorted(annos),

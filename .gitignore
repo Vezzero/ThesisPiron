@@ -16,3 +16,7 @@ omit_full_taxonomy.txt
 .ipynb_checkpoints/bacteria_tree-checkpoint.txt
 __pycache__/
 GutBrain-WebApp/.vscode/settings.json
+IngestionMartin.ipynb
+marco/devwurl.json
+marco/teamID_T61_runID_systemDesc_test.json
+marco/test.json

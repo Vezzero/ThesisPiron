@@ -55,7 +55,7 @@ export default function ClassDetails() {
       <div className="cd-card">
         <h2>{classLabel}</h2>
         <p>
-          <strong>IRI:</strong>{" "}
+          <strong>URI:</strong>{" "}
           <a href={classIri} target="_blank" rel="noopener noreferrer">
             <code className="code-underline">{classIri}</code>
           </a>
