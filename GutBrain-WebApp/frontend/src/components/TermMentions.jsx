@@ -155,7 +155,6 @@ const loadOptions = (inputValue) => {
  const handleSearch = overrideTerm => {
   let q = (overrideTerm ?? term).trim();
   if (!q) {
-    setError("Please type something to search.");
     return;
   }
 
@@ -327,6 +326,8 @@ async function loadPaperDetails(paperId) {
       <header className="tm-header">
   <h2>Gut-Brain KB</h2>
   <div className="tm-search-bar">
+    <div className="tm-search-left" />
+    <div className="tm-search-center">
     <AsyncSelect
       className="tm-input"
       classNamePrefix="tm-input"
@@ -378,6 +379,22 @@ async function loadPaperDetails(paperId) {
     >
       {loading ? "Searching…" : "Search"}
     </button>
+    </div>
+    <div className="tm-search-right">
+    {selectedPaperId && (
+     <button
+       className="tm-button-back"
+       onClick={() => {
+         // clear the paper view and go back to mentions
+         setSelectedPaperId(null);
+         setSelectedPaper(null);
+       }}
+       style={{ marginRight: "1rem" }}
+     >
+    Back     
+    </button>
+   )}
+  </div>
   </div>
 </header>
 
