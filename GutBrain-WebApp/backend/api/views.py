@@ -454,7 +454,6 @@ ORDER BY
 
     bindings = results.get("results", {}).get("bindings", [])
 
-    # simple counters
     journal_counts = {}
     year_counts    = {}
     collection_counts = {}
@@ -465,19 +464,15 @@ ORDER BY
     for b in bindings:
         annot_set .add(b["annotator"]["value"])
         paper_set .add(b["paper"]["value"])
-        # count journals
         j = b["journal"]["value"]
         journal_counts[j] = journal_counts.get(j, 0) + 1
-        # count years
         y = b["year"]["value"]
         year_counts[y] = year_counts.get(y, 0) + 1
         c = b["collection"]["value"]
         collection_counts[c] = collection_counts.get(c, 0) + 1
 
-        # authors is a concatenated string of all authors for that paper
         author_set.add(b["authors"]["value"])
 
-    # now turn dicts into sorted lists of { value, count }
     journals = [
         {"value": j, "count": c}
         for j, c in sorted(journal_counts.items(), key=lambda x: x[0].lower())
@@ -504,7 +499,6 @@ from collections import Counter
 
 @require_http_methods(["GET"])
 def list_authors(request):
-    # 1) Fetch each paper with its semicolon-joined author string
     sparql = """
 PREFIX gutprop: <https://w3id.org/hereditary/ontology/gutbrain/schema/>
 
@@ -523,19 +517,119 @@ WHERE {
 
     bindings = results.get("results", {}).get("bindings", [])
     
-    # 2) Split every authors string on ";" and tally counts
     counter = Counter()
     for b in bindings:
-        raw = b["authors"]["value"]            # e.g. "A; B; C"
+        raw = b["authors"]["value"]
         for name in raw.split(";"):
             name = name.strip()
             if name:
                 counter[name] += 1
 
-    # 3) Build the JSON response
     authors_list = [
         {"name": name, "count": count}
-        for name, count in counter.most_common()  # sorted by count desc
+        for name, count in counter.most_common()
     ]
 
     return JsonResponse({"authors": authors_list})
+
+@require_http_methods(["GET"])
+def list_classes_with_individuals(request):
+    sparql = """
+PREFIX gutprop: <https://w3id.org/hereditary/ontology/gutbrain/schema/>
+PREFIX bt:      <https://w3id.org/brainteaser/ontology/schema/>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT
+  ?cls
+  ?clsLabel
+  ?ind
+  ?indLabel
+  (COUNT(DISTINCT ?paper) AS ?numpapers)
+WHERE {
+  ?paper
+    a                 gutprop:Paper ;
+    gutprop:hasAbstract  ?abstract .
+  ?abstract
+    a                 gutprop:PaperAbstract ;
+    gutprop:composedOf ?sentence .
+  ?sentence
+    a                   gutprop:Sentence ;
+    gutprop:partOf      ?abstract .
+  ?mention
+    a                   gutprop:Mention ;
+    gutprop:locatedIn   ?sentence .
+
+  # Restrict to only those 13 classes
+  VALUES ?cls {
+    gutprop:AnatomicalSite
+    gutprop:Animal
+    gutprop:BiomedicalTechnique
+    gutprop:Chemical
+    gutprop:DietarySupplement
+    bt:DiseaseDisorderOrFinding
+    gutprop:Drug
+    gutprop:Family
+    gutprop:Food
+    bt:Gene
+    gutprop:Human
+    gutprop:Mention
+    gutprop:Microbiome
+    gutprop:Paper
+    gutprop:PaperAbstract
+    gutprop:PaperCollection
+    gutprop:PaperTitle
+    gutprop:Sentence
+    gutprop:StatisticalTechnique
+  }
+
+  ?cls rdfs:label ?clsLabel .
+
+  ?ind
+    a         ?cls ;
+    rdfs:label ?indLabel ;
+    gutprop:containedIn ?mention .
+}
+GROUP BY
+  ?cls
+  ?clsLabel
+  ?ind
+  ?indLabel
+ORDER BY
+  ASC(?clsLabel)
+  ASC(?indLabel)
+
+"""
+    try:
+        results = run_sparql_query(sparql)
+    except Exception as e:
+        return JsonResponse({"error": str(e)}, status=500)
+
+    bindings = results.get("results", {}).get("bindings", [])
+
+    classes = {}
+    for b in bindings:
+        cls_iri   = b["cls"]["value"]
+        cls_lbl   = b["clsLabel"]["value"]
+        ind_iri   = b["ind"]["value"]
+        ind_lbl   = b["indLabel"]["value"]
+
+        num_papers = int(b["numpapers"]["value"])
+
+        if cls_iri not in classes:
+            classes[cls_iri] = {
+                "classIri":   cls_iri,
+                "classLabel": cls_lbl,
+                "individuals": []
+            }
+        classes[cls_iri]["individuals"].append({
+            "uri":   ind_iri,
+            "label": ind_lbl,
+            "count":  num_papers,
+        })
+
+    payload = sorted(
+      classes.values(),
+      key=lambda c: c["classLabel"].lower()
+    )
+
+    return JsonResponse({ "classes": payload }, json_dumps_params={"indent":2})

@@ -45,11 +45,18 @@ export default function TermMentions() {
   const [selectedPaper,      setSelectedPaper]      = useState(null);
   const [paperLoading,       setPaperLoading]       = useState(false);
   const [paperError,         setPaperError]         = useState(null);
- const [selectedClassIri,     setSelectedClassIri]     = useState(null);
- const [selectedClassLabel,   setSelectedClassLabel]   = useState(null);
- const [classLoading,         setClassLoading]         = useState(false);
- const [classError,           setClassError]           = useState(null);
- const [classIndividuals,     setClassIndividuals]     = useState([]);
+  const [selectedClassIri,     setSelectedClassIri]     = useState(null);
+  const [selectedClassLabel,   setSelectedClassLabel]   = useState(null);
+  const [classLoading,         setClassLoading]         = useState(false);
+  const [classError,           setClassError]           = useState(null);
+  const [classIndividuals,     setClassIndividuals]     = useState([]);
+  const [allClasses, setAllClasses]         = useState([]);
+  const [selectedClass, setSelectedClass]   = useState(null);
+  const [classInds, setClassInds]           = useState([]);
+  const [authorMenuOpen, setAuthorMenuOpen] = useState(false);
+  const [journalMenuOpen, setJournalMenuOpen] = useState(false);
+  const [yearMenuOpen, setYearMenuOpen] = useState(false);
+  const [collectionMenuOpen, setCollectionMenuOpen] = useState(false);
 
  async function loadClassDetails(classIri, classLabel) {
    setClassLoading(true);
@@ -76,12 +83,21 @@ useEffect(() => {
     try {
       const resp = await fetch("/api/list_authors/");
       if (!resp.ok) throw new Error(await resp.text());
-      const { authors } = await resp.json();    // [{name,count},...]
+      const { authors } = await resp.json();
       setAllAuthors(authors);
     } catch (err) {
       console.error("Could not load authors:", err);
     }
   })();
+}, []);
+
+useEffect(() => {
+  fetch("/api/list_classes_with_inds/")
+    .then(r => r.json())
+    .then(data => {
+      setAllClasses(data.classes);
+    })
+    .catch(err => console.error("Failed loading classes:", err));
 }, []);
 
   const ONTOLOGY_URLS = {
@@ -445,8 +461,48 @@ async function loadPaperDetails(paperId) {
       <div className="tm-page-wrapper">
         {/* -- 1) Sticky Sidebar -- */}
         <aside className="tm-sidebar">
-  <span className="tm-filter-title">Filter by:</span>
+  <span className="tm-filter-title">Search by:</span>
+  {/* INDIVIDUALS and CLASS */}
+  <div className="tm-all-dropdown">
+  {/* 1) Class selector */}
+  <select
+    className="tm-filter-btn"
+    value={selectedClass?.classIri || ""}
+    onChange={e => {
+      const iri = e.target.value;
+      const cls = allClasses.find(c => c.classIri === iri);
+      setSelectedClass(cls);
+      setClassInds(cls ? cls.individuals : []);
+    }}
+  >
+    <option value="" disabled>
+      Select a Class...
+    </option>
+    {allClasses.map(c => (
+      <option key={c.classIri} value={c.classIri}>
+        {c.classLabel}
+      </option>
+    ))}
+  </select>
 
+  {selectedClass && (
+    <select
+      className="tm-filter-btn-option"
+      defaultValue=""
+      onChange={e => handleSearch(e.target.value)}
+    >
+      <option value="" disabled>
+        Select an individual...
+      </option>
+      {classInds.map(ind => (
+        <option key={ind.uri} value={ind.label}>
+          {ind.label} ({ind.count})
+        </option>
+      ))}
+    </select>
+  )}
+</div>
+  <span className="tm-filter-title">Filter by:</span>
   {/* AUTHOR */}
   <div className="tm-filter-item">
     <button
@@ -471,6 +527,10 @@ async function loadPaperDetails(paperId) {
             .filter(a => filterValue.includes(a.name))
             .map(a => ({ value: a.name, label: `${a.name} (${a.count})` }))}
           onChange={opts => setFilterValue(opts ? opts.map(o => o.value) : [])}
+          menuIsOpen={filterField==="author" && authorMenuOpen}
+            onMenuOpen={() => setAuthorMenuOpen(true)}
+            onMenuClose={() => setAuthorMenuOpen(false)}
+            closeMenuOnSelect={false}
           styles={{
             container: base => ({ ...base, width: 200 }),
             menu:      base => ({ ...base, zIndex: 999 })
@@ -479,8 +539,6 @@ async function loadPaperDetails(paperId) {
       </div>
     )}
   </div>
-
-  {/* COLLECTION */}
   
 
   {/* PAPER */}
@@ -530,6 +588,8 @@ async function loadPaperDetails(paperId) {
             filterValue.includes(o.value)
           )}
           onChange={opts => setFilterValue(opts ? opts.map(o => o.value) : [])}
+          closeMenuOnSelect={false}
+          closeMenuOnBlur={false}
           styles={{
             container: base => ({ ...base, width: 200 }),
             menu:      base => ({ ...base, zIndex: 999 })
