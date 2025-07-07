@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { fetchTermMentions } from "../services/graphServices";
 import "./TermMentions.css";
+import ClassDetails from "../pages/ClassDetails";
 import "../pages/PaperDetails.css";
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import Select from 'react-select'
@@ -44,6 +45,31 @@ export default function TermMentions() {
   const [selectedPaper,      setSelectedPaper]      = useState(null);
   const [paperLoading,       setPaperLoading]       = useState(false);
   const [paperError,         setPaperError]         = useState(null);
+ const [selectedClassIri,     setSelectedClassIri]     = useState(null);
+ const [selectedClassLabel,   setSelectedClassLabel]   = useState(null);
+ const [classLoading,         setClassLoading]         = useState(false);
+ const [classError,           setClassError]           = useState(null);
+ const [classIndividuals,     setClassIndividuals]     = useState([]);
+
+ async function loadClassDetails(classIri, classLabel) {
+   setClassLoading(true);
+   setClassError(null);
+   setSelectedClassIri(classIri);
+   setSelectedClassLabel(classLabel);
+   try {
+     const resp = await fetch(
+       `/api/list_class_individuals/?class=${encodeURIComponent(classIri)}`
+     );
+     if (!resp.ok) throw new Error(await resp.text());
+     const { individuals } = await resp.json();
+     setClassIndividuals(individuals);
+   } catch (e) {
+     setClassError(e.message);
+     setClassIndividuals([]);
+   } finally {
+     setClassLoading(false);
+   }
+ }
 
 
   
@@ -167,7 +193,7 @@ const loadOptions = (inputValue) => {
     return;
   }
 
-  navigate(`/search?term=${encodeURIComponent(q)}`, { replace: true });
+  navigate(`/search?term=${encodeURIComponent(q)}`);
   setTerm(q);
   setCurrentPage(1);
 
@@ -390,19 +416,24 @@ async function loadPaperDetails(paperId) {
     </button>
     </div>
     <div className="tm-search-right">
-    {selectedPaperId && (
-     <button
-       className="tm-button-back"
-       onClick={() => {
-         navigate(-1);
-         setSelectedPaperId(null);
-         setSelectedPaper(null);
-       }}
-       style={{ marginRight: "1rem" }}
-     >
-    Back     
-    </button>
-   )}
+   {(selectedPaperId || selectedClassIri) && (
+  <button
+    className="tm-button-back"
+    onClick={() => {
+      navigate(-1);
+      // clear paper‐detail state
+      setSelectedPaperId(null);
+      setSelectedPaper(null);
+      // clear class‐detail state
+      setSelectedClassIri(null);
+      setSelectedClassLabel(null);
+    }}
+    style={{ marginRight: "1rem" }}
+  >
+  Back
+  </button>
+)}
+
   </div>
   </div>
 </header>
@@ -482,7 +513,7 @@ async function loadPaperDetails(paperId) {
 
       {paperLoading && <p>Loading paper…</p>}
       {paperError   && <p className="tm-error">Error: {paperError}</p>}
-
+            
       {selectedPaper && (
   <div className="paper-card">
     {/* ——— Card Header: back + pubmed ——— */}
@@ -525,10 +556,15 @@ async function loadPaperDetails(paperId) {
           <p><strong>Year:</strong> {selectedPaper.pubYear}</p>
           <p><strong>Collection:</strong> {selectedPaper.collection}</p>
           <p><strong>Paper Id:</strong> {selectedPaper.paperid}</p>
-        </div>
-      )}
-      </div>
-          ) : (
+          </div>
+           )}
+          </div>
+           ) : selectedClassIri ? (
+            <ClassDetails
+            classIri={selectedClassIri}
+            classLabel={selectedClassLabel}
+           />
+            ) : (
             <>
             {mentions.length > 0 && (
               <>
@@ -558,19 +594,14 @@ async function loadPaperDetails(paperId) {
   {mentions[0].classIri && (
     <p>
       <strong>Class:</strong>{" "}
-      <Link
-        to={`/class/${encodeURIComponent(
-          mentions[0].classIri.split("/").pop()
-        )}`}
-        state={{
-          classIri: mentions[0].classIri,
-          classLabel: mentions[0].classLabel
-        }}
-        className="tm-link-button-class"
-      >
-        {mentions[0].classLabel ||
-          mentions[0].classIri.split("/").pop()}
-      </Link>
+      <button
+  className="tm-link-button-class"
+  onClick={() =>
+    loadClassDetails(mentions[0].classIri, mentions[0].classLabel)
+  }
+>
+  {mentions[0].classLabel || mentions[0].classIri.split("/").pop()}
+</button>
     </p>
   )}
 

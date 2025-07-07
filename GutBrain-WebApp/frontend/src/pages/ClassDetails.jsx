@@ -3,12 +3,18 @@ import { useParams, useLocation, useNavigate, Link } from "react-router-dom";
 
 import "./ClassDetails.css";
 
-export default function ClassDetails() {
-  const { className } = useParams();
-  const { state }     = useLocation();
-  const navigate      = useNavigate();
-  const classIri      = state?.classIri || decodeURIComponent(className);
-  const classLabel    = state?.classLabel || className;
+
+export default function ClassDetails({
+   classIri: propIri,
+   classLabel: propLabel
+ }) {
+   const { className } = useParams();
+   const { state }     = useLocation();
+   const navigate      = useNavigate();
+
+ // prefer props, then location.state, then URL param
+  const classIri   = propIri ?? state?.classIri ?? decodeURIComponent(className);
+  const classLabel = propLabel ?? state?.classLabel ?? className;
 
   const [individuals, setIndividuals] = useState([]);
   const [loading, setLoading]         = useState(true);
@@ -49,9 +55,6 @@ export default function ClassDetails() {
 
   return (
     <div className="cd-container">
-      <button onClick={() => navigate(-1)} className="tm-button margin-bottom">
-        Back
-      </button>
       <div className="cd-card">
         <h2>{classLabel}</h2>
         <p>
