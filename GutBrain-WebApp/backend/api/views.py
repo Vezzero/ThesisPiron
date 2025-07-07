@@ -454,26 +454,88 @@ ORDER BY
 
     bindings = results.get("results", {}).get("bindings", [])
 
-    annos      = set()
-    papers     = set()
-    colls      = set()
-    years      = set()
-    journals   = set()
-    authors    = set()
+    # simple counters
+    journal_counts = {}
+    year_counts    = {}
+    collection_counts = {}
+    annot_set      = set()
+    paper_set      = set()
+    author_set     = set()
 
     for b in bindings:
-        annos.add(b["annotator"]["value"])
-        papers.add(b["paper"]["value"])
-        colls.add(b["collection"]["value"])
-        years.add(b["year"]["value"])
-        journals.add(b["journal"]["value"])
-        authors.add(b["authors"]["value"])
+        annot_set .add(b["annotator"]["value"])
+        paper_set .add(b["paper"]["value"])
+        # count journals
+        j = b["journal"]["value"]
+        journal_counts[j] = journal_counts.get(j, 0) + 1
+        # count years
+        y = b["year"]["value"]
+        year_counts[y] = year_counts.get(y, 0) + 1
+        c = b["collection"]["value"]
+        collection_counts[c] = collection_counts.get(c, 0) + 1
+
+        # authors is a concatenated string of all authors for that paper
+        author_set.add(b["authors"]["value"])
+
+    # now turn dicts into sorted lists of { value, count }
+    journals = [
+        {"value": j, "count": c}
+        for j, c in sorted(journal_counts.items(), key=lambda x: x[0].lower())
+    ]
+    years = [
+        {"value": y, "count": c}
+        for y, c in sorted(year_counts.items(), key=lambda x: x[0])
+    ]
+    collections = [
+        {"value": c, "count": d}
+        for c, d in sorted(collection_counts.items(), key=lambda x: x[0])
+    ]
 
     return JsonResponse({
-        "annotators": sorted(annos),
-        "papers":     sorted(papers),
-        "collections":sorted(colls),
-        "years":      sorted(years),
-        "journals":   sorted(journals),
-        "authors":    sorted(authors),
+        "annotators": sorted(annot_set),
+        "papers":     sorted(paper_set),
+        "collections":collections,
+        "years":      years,
+        "journals":   journals,
+        "authors":    sorted(author_set),
     })
+
+from collections import Counter
+
+@require_http_methods(["GET"])
+def list_authors(request):
+    # 1) Fetch each paper with its semicolon-joined author string
+    sparql = """
+PREFIX gutprop: <https://w3id.org/hereditary/ontology/gutbrain/schema/>
+
+SELECT DISTINCT
+  ?p
+  ?authors
+WHERE {
+  ?p a gutprop:Paper ;
+     gutprop:paperAuthor ?authors .
+}
+"""
+    try:
+        results = run_sparql_query(sparql)
+    except Exception as e:
+        return JsonResponse({"error": str(e)}, status=500)
+
+    bindings = results.get("results", {}).get("bindings", [])
+    
+    # 2) Split every authors string on ";" and tally counts
+    counter = Counter()
+    for b in bindings:
+        raw = b["authors"]["value"]            # e.g. "A; B; C"
+        for name in raw.split(";"):
+            name = name.strip()
+            if name:
+                counter[name] += 1
+
+    # 3) Build the JSON response
+    authors_list = [
+        {"name": name, "count": count}
+        for name, count in counter.most_common()  # sorted by count desc
+    ]
+
+    return JsonResponse({"authors": authors_list})

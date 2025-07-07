@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
-from api.views import list_term_mentions, list_property_term, list_property_objects, list_class_individuals, list_all_individuals, paper_details, list_details
+from api.views import list_term_mentions, list_property_term, list_property_objects, list_class_individuals, list_all_individuals, paper_details, list_details, list_authors
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 urlpatterns = [
@@ -15,6 +15,7 @@ urlpatterns = [
     path("api/list_all_individuals/",   list_all_individuals),
     path("api/paper_details/", paper_details),
     path("api/list_details/", list_details),
+    path("api/list_authors/",  list_authors),
     path("api/", include("api.urls")),
 ]
 

@@ -12,7 +12,6 @@ export default function ClassDetails({
    const { state }     = useLocation();
    const navigate      = useNavigate();
 
- // prefer props, then location.state, then URL param
   const classIri   = propIri ?? state?.classIri ?? decodeURIComponent(className);
   const classLabel = propLabel ?? state?.classLabel ?? className;
 

@@ -71,8 +71,19 @@ export default function TermMentions() {
    }
  }
 
+useEffect(() => {
+  (async () => {
+    try {
+      const resp = await fetch("/api/list_authors/");
+      if (!resp.ok) throw new Error(await resp.text());
+      const { authors } = await resp.json();    // [{name,count},...]
+      setAllAuthors(authors);
+    } catch (err) {
+      console.error("Could not load authors:", err);
+    }
+  })();
+}, []);
 
-  
   const ONTOLOGY_URLS = {
   UMLS:      "https://www.nlm.nih.gov/research/umls/index.html",
   NCIT:      "https://ontobee.org/ontology/NCIT",
@@ -127,29 +138,15 @@ const loadOptions = (inputValue) => {
   }, [location.search]);
 
   useEffect(() => {
-    (async () => {
-      try {
-        const resp = await fetch("/api/list_details/");
-        if (!resp.ok) throw new Error(await resp.text());
-        const {
-          papers,
-          collections,
-          years,
-          journals,
-          authors
-        } = await resp.json();
-
-        setAllPapers(papers);
-        setAllCollections(collections);
-        setAllYears(years);
-        setAllJournals(journals);
-        setAllAuthors(authors);
-
-      } catch (err) {
-        console.error("Could not load facet lists:", err);
-      }
-    })();
-  }, []);
+  fetch("/api/list_details/")
+    .then(r => r.json())
+    .then(json => {
+      setAllPapers(json.papers);
+      setAllCollections(json.collections);
+      setAllYears(json.years);
+      setAllJournals(json.journals);
+    });
+}, []);
 
   async function fetchResults(q) {
   setError(null);
@@ -303,9 +300,6 @@ async function loadPaperDetails(paperId) {
             values.some(v => name.includes(v))
           );
 
-      case "paper":
-        return values.some(v => m.paper.toLowerCase().includes(v));
-
       case "journal":
         return values.some(v => m.journal.toLowerCase().includes(v));
 
@@ -327,17 +321,27 @@ async function loadPaperDetails(paperId) {
 });
 
   const optionsMap = {
-    year:       allYears.map(y => ({ value: y, label: y })),
-    author:     allAuthors.map(a => ({ value: a, label: a })),
-    paper:      allPapers.map(p => ({ value: p, label: p })),
-    journal:    allJournals.map(j => ({ value: j, label: j })),
-    collection: allCollections.map(c => ({ value: c, label: c }))
-  }
+  year: allYears.map(y => ({
+    value: y.value,
+    label: `${y.value} (${y.count})`
+  })),
+  journal: allJournals.map(j => ({
+    value: j.value,
+    label: `${j.value} (${j.count})`
+  })),
+
+  collection: allCollections.map(c => ({
+    value: c.value,
+    label: `${c.value} (${c.count})`
+  })),
+
+  paper: allPapers.map(p => ({ value: p, label: p })),
+  author: allAuthors.map(a => ({ value: a, label: a })),
+};
 
   const placeholderMap = {
     year:       'Select year…',
     author:     'Select author…',
-    paper:      'Select paper…',
     journal:    'Select journal…',
     collection: 'Select collection…'
   }
@@ -421,10 +425,8 @@ async function loadPaperDetails(paperId) {
     className="tm-button-back"
     onClick={() => {
       navigate(-1);
-      // clear paper‐detail state
       setSelectedPaperId(null);
       setSelectedPaper(null);
-      // clear class‐detail state
       setSelectedClassIri(null);
       setSelectedClassLabel(null);
     }}
@@ -444,63 +446,100 @@ async function loadPaperDetails(paperId) {
         {/* -- 1) Sticky Sidebar -- */}
         <aside className="tm-sidebar">
   <span className="tm-filter-title">Filter by:</span>
-  {[
-    { key: "author",     label: "Author"     },
-    { key: "paper",      label: "Paper"      },
-  ].map(f => (
-    <div className="tm-filter-item" key={f.key}>
-      <button
-        className={`tm-filter-btn${filterField === f.key ? " active" : ""}`}
-        onClick={() => {
-          setFilterField(filterField === f.key ? null : f.key);
-          setFilterValue([]);
-        }}
-      >
-        {f.label}
-      </button>
 
-      {f.key === "paper" && (
-        <div className="tm-subfilters">
-          {[
-            { key: "paperTitle",   label: "Title"   },
-            { key: "journal", label: "Journal" },
-            { key: "year",    label: "Year"    }
-          ].map(sf => (
-            <button
-              key={sf.key}
-              className={`tm-filter-btn sub${
-                filterField === sf.key ? " active" : ""
-              }`}
-              onClick={() => {
-                setFilterField(sf.key);
-                setFilterValue([]);
-              }}
-            >
-              {sf.label}
-            </button>
-          ))}
-        </div>
-      )}
-
-      {filterField === f.key && (
-  <div className="tm-filter-dropdown">
-    <Select
-      options={optionsMap[f.key]}
-      isMulti
-      placeholder={placeholderMap[f.key]}
-      value={optionsMap[f.key].filter(o => filterValue.includes(o.value))}
-      onChange={opts => setFilterValue(opts ? opts.map(o => o.value) : [])}
-      styles={{
-        container: base => ({ ...base, width: "200px" }),
-        menu:      base => ({ ...base, zIndex: 999 })
+  {/* AUTHOR */}
+  <div className="tm-filter-item">
+    <button
+      className={`tm-filter-btn${filterField === "author" ? " active" : ""}`}
+      onClick={() => {
+        setFilterField(filterField === "author" ? null : "author");
+        setFilterValue([]);
       }}
-    />
+    >
+      Author
+    </button>
+    {filterField === "author" && (
+      <div className="tm-filter-dropdown">
+        <Select
+          options={allAuthors.map(a => ({
+            value: a.name,
+            label: `${a.name} (${a.count})`
+          }))}
+          isMulti
+          placeholder="Select author…"
+          value={allAuthors
+            .filter(a => filterValue.includes(a.name))
+            .map(a => ({ value: a.name, label: `${a.name} (${a.count})` }))}
+          onChange={opts => setFilterValue(opts ? opts.map(o => o.value) : [])}
+          styles={{
+            container: base => ({ ...base, width: 200 }),
+            menu:      base => ({ ...base, zIndex: 999 })
+          }}
+        />
+      </div>
+    )}
   </div>
-)}
 
-    </div>
-  ))}
+  {/* COLLECTION */}
+  
+
+  {/* PAPER */}
+  <div className="tm-filter-item">
+    <button
+      className={`tm-filter-btn${filterField === "paper" ? " active" : ""}`}
+      onClick={() => {
+        setFilterField(filterField === "paper" ? null : "paper");
+        setFilterValue([]);
+      }}
+    >
+      Paper
+    </button>
+
+    {filterField === "paper" && (
+      <div className="tm-subfilters">
+        {[
+          { key: "journal",    label: "Journal" },
+          { key: "year",       label: "Year" },
+          { key: "collection", label: "Collection" }
+        ].map(sf => (
+          <button
+            key={sf.key}
+            className={`tm-filter-btn sub${filterField === sf.key ? " active" : ""}`}
+            onClick={() => {
+              setFilterField(sf.key);
+              setFilterValue([]);
+            }}
+          >
+            {sf.label}
+          </button>
+        ))}
+      </div>
+    )}
+
+    {/* one dropdown for whichever paper sub‐filter is active */}
+    {[ "journal", "year", "collection"].includes(filterField) && (
+      <div className="tm-filter-dropdown">
+        <Select
+          options={optionsMap[filterField].map(v => ({
+            value: v.value,
+            label: v.label
+          }))}
+          isMulti
+          placeholder={placeholderMap[filterField]}
+          value={optionsMap[filterField].filter(o =>
+            filterValue.includes(o.value)
+          )}
+          onChange={opts => setFilterValue(opts ? opts.map(o => o.value) : [])}
+          styles={{
+            container: base => ({ ...base, width: 200 }),
+            menu:      base => ({ ...base, zIndex: 999 })
+          }}
+        />
+      </div>
+    )}
+  </div>
 </aside>
+
 
 
         {/* -- 2) Main Content Column -- */}
