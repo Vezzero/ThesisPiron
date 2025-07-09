@@ -622,3 +622,129 @@ p {
   padding: 0.75rem 1.5rem;
   border-bottom: 1px solid #e0e0e0;
 }
+
+.tm-button--reset {
+  background: #f0f0f0;
+  border-color: #ccc;
+  color: #333;
+  font-size: 0.9rem;
+}
+.tm-button--reset:hover {
+  background: #e0e0e0;
+}
+
+.tm-filter-toggle {
+  user-select: none;
+}
+
+.tm-filter-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  margin-bottom: .5rem;
+  padding: 9px;
+  background: #f7f7f7;
+  cursor: pointer;
+  border-bottom: 1px solid #000000;
+  font-size: smaller;
+}
+.tm-filter-body {
+  padding: 0.5rem;
+  max-height: 250px;
+  overflow-y: auto;
+}
+.tm-filter-checkbox {
+  display: block;
+  margin-bottom: .25rem;
+  font-size: smaller;
+  margin-left: 5px;
+}
+.tm-filter-show-more {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  margin: 2px;
+  padding: 0;
+  font-size: smaller;
+}
+
+aside {
+  overflow-y: auto;
+}
+.tm-filter-search {
+  width: 100%;
+  padding: .25rem;
+  box-sizing: border-box;
+  font-size: smaller;
+}
+
+/* container */
+.author-box {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fafafa;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  width: 175px;
+  max-width: 100%;
+}
+
+/* header (grey bar) */
+.author-box-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f0f0f0;
+  padding: 0.5rem 0.75rem;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* arrow */
+.author-box-arrow {
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+/* body (white area) */
+.author-box-body {
+  padding: 0.5rem 0.75rem;
+  max-height: 180pxpx;
+  overflow-y: auto;
+  overflow-y: auto;
+  background: white;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* each checkbox row */
+.author-checkbox {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+}
+
+/* “Show more…” link */
+.author-show-more {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+  padding: 0;
+}
+
+/* search input at bottom */
+.author-search {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 0.5rem;
+}
+

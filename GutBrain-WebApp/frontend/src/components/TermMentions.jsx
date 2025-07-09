@@ -229,6 +229,82 @@ const loadOptions = (inputValue) => {
   });
 };
 
+function resetFilters() {
+  setSentenceFilter("");
+  setPaperTitleFilter("");
+  setPaperJournalFilter("");
+  setPaperYearFilter("");
+  setMentionFilter("");
+
+  setFilterField(null);
+  setFilterValue([]);
+}
+function AuthorFilter({
+  allAuthors,
+  selectedAuthors,
+  onChange,
+}) {
+  const [showAll, setShowAll] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [search,   setSearch]  = useState("");
+
+  const filtered = allAuthors
+    .filter(a => a.name.toLowerCase().includes(search.toLowerCase()))
+    .sort((a,b) => b.count - a.count);
+
+  const toShow = showAll ? filtered : filtered.slice(0,5);
+
+  const toggleOne = name => {
+    if (selectedAuthors.includes(name)) {
+      onChange(selectedAuthors.filter(n => n !== name));
+    } else {
+      onChange([...selectedAuthors, name]);
+    }
+  };
+
+  return (
+    <div className="tm-filter-item author-box">
+      <div className="tm-filter-header">
+        <span>Authors</span>
+        <span
+          className="tm-filter-toggle"
+          onClick={()=>setOpen(o=>!o)}
+        >
+          {open ? "▼" : "►"}
+        </span>
+      </div>
+      <div className="tm-author-body">
+        {toShow.map(a=>(
+          <label key={a.name} className="tm-filter-checkbox">
+            <input
+              type="checkbox"
+              checked={selectedAuthors.includes(a.name)}
+              onChange={()=>toggleOne(a.name)}
+            />
+            {a.name} ({a.count})
+          </label>
+        ))}
+        {/* if we’re hiding some, show the “Show more…” link */}
+        {!showAll && filtered.length>5 && (
+          <button
+            className="tm-filter-show-more"
+            onClick={()=>setShowAll(true)}
+          >Show more…</button>
+        )}
+        <input
+          type="text"
+          className="tm-filter-search"
+          placeholder="Search author…"
+          value={search}
+          onChange={e=>setSearch(e.target.value)}
+        />
+      </div>
+    </div>
+  );
+}
+
+
+
 
   useEffect(() => {
     (async () => {
@@ -504,43 +580,12 @@ async function loadPaperDetails(paperId) {
 </div>
   <span className="tm-filter-title">Filter by:</span>
   {/* AUTHOR */}
-  <div className="tm-filter-item">
-    <button
-      className={`tm-filter-btn${filterField === "author" ? " active" : ""}`}
-      onClick={() => {
-        setFilterField(filterField === "author" ? null : "author");
-        setFilterValue([]);
-      }}
-    >
-      Author
-    </button>
-    {filterField === "author" && (
-      <div className="tm-filter-dropdown">
-        <Select
-          options={allAuthors.map(a => ({
-            value: a.name,
-            label: `${a.name} (${a.count})`
-          }))}
-          isMulti
-          placeholder="Select author…"
-          value={allAuthors
-            .filter(a => filterValue.includes(a.name))
-            .map(a => ({ value: a.name, label: `${a.name} (${a.count})` }))}
-          onChange={opts => setFilterValue(opts ? opts.map(o => o.value) : [])}
-          menuIsOpen={filterField==="author" && authorMenuOpen}
-            onMenuOpen={() => setAuthorMenuOpen(true)}
-            onMenuClose={() => setAuthorMenuOpen(false)}
-            closeMenuOnSelect={false}
-          styles={{
-            container: base => ({ ...base, width: 200 }),
-            menu:      base => ({ ...base, zIndex: 999 })
-          }}
-        />
-      </div>
-    )}
-  </div>
+  <AuthorFilter
+  allAuthors={allAuthors}
+  selectedAuthors={filterValue}
+  onChange={setFilterValue}
+/>
   
-
   {/* PAPER */}
   <div className="tm-filter-item">
     <button
@@ -597,6 +642,13 @@ async function loadPaperDetails(paperId) {
         />
       </div>
     )}
+    <button
+    className="tm-button tm-button--reset"
+    onClick={resetFilters}
+    style={{ marginTop: "1rem", width: "100%" }}
+  >
+    Reset filters
+  </button>
   </div>
 </aside>
 
