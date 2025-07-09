@@ -494,7 +494,7 @@ p {
   top: 116px;
   bottom: 0;
   left: 0;
-  width: 240px;
+  width: 220px;
   padding: 1rem;
   background: #fafafa;
   border-right: 1px solid #000000;
@@ -504,8 +504,12 @@ p {
 
 .tm-filter-title {
   display: block;
-  margin-bottom: 0.5rem;
   font-weight: bold;
+  margin-bottom: .5rem;
+  padding: 9px;
+  background: #eaeaea;
+  border-bottom: 1px solid #000000;
+  font-size: medium;
 }
 
 .tm-filter-control {
@@ -537,21 +541,21 @@ p {
 .tm-search-center {
   display: flex;
   gap: 0.5rem;
-  justify-content: center; /* center inside its auto‐width column */
+  justify-content: center;
 }
 
 .tm-search-left {
   display: flex;
-  flex: 1;                    /* take up remaining space */
-  gap: 0.5rem;                /* spacing between inputs */
+  flex: 1;
+  gap: 0.5rem;
   justify-content: flex-start;
 }
 
 .tm-search-right {
   display: flex;
-  flex: 1;                    /* take up remaining space */
+  flex: 1;        
   gap: 0.5rem;
-  justify-content: flex-end;  /* push its children to the right */
+  justify-content: flex-end; 
 }
 
 .tm-page-wrapper {
@@ -641,13 +645,17 @@ p {
   display: flex;
   justify-content: space-between;
   font-weight: bold;
-  margin-bottom: .5rem;
+  align-items: center;
   padding: 9px;
   background: #f7f7f7;
   cursor: pointer;
-  border-bottom: 1px solid #000000;
   font-size: smaller;
 }
+
+.tm-filter-header--active {
+  border-bottom: 1px solid #000;
+}
+
 .tm-filter-body {
   padding: 0.5rem;
   max-height: 250px;
@@ -671,6 +679,7 @@ p {
 
 aside {
   overflow-y: auto;
+  overflow-x: hidden;
 }
 .tm-filter-search {
   width: 100%;
@@ -679,7 +688,6 @@ aside {
   font-size: smaller;
 }
 
-/* container */
 .author-box {
   border: 1px solid #ccc;
   border-radius: 6px;
@@ -690,7 +698,6 @@ aside {
   max-width: 100%;
 }
 
-/* header (grey bar) */
 .author-box-header {
   display: flex;
   justify-content: space-between;
@@ -702,13 +709,11 @@ aside {
   user-select: none;
 }
 
-/* arrow */
 .author-box-arrow {
   font-size: 0.9rem;
   line-height: 1;
 }
 
-/* body (white area) */
 .author-box-body {
   padding: 0.5rem 0.75rem;
   max-height: 180pxpx;
@@ -719,14 +724,12 @@ aside {
   width: 100%;
 }
 
-/* each checkbox row */
 .author-checkbox {
   display: block;
   margin-bottom: 0.4rem;
   font-size: 0.9rem;
 }
 
-/* “Show more…” link */
 .author-show-more {
   background: none;
   border: none;
@@ -737,7 +740,6 @@ aside {
   padding: 0;
 }
 
-/* search input at bottom */
 .author-search {
   width: 100%;
   box-sizing: border-box;
@@ -748,3 +750,6 @@ aside {
   margin-top: 0.5rem;
 }
 
+input {
+  margin-right: 5px;
+}

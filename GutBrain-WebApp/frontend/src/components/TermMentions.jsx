@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo } from "react";
 import { fetchTermMentions } from "../services/graphServices";
 import "./TermMentions.css";
 import ClassDetails from "../pages/ClassDetails";
+import FacetFilter from "../components/FacetFilters";
 import "../pages/PaperDetails.css";
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import Select from 'react-select'
@@ -29,10 +30,11 @@ export default function TermMentions() {
   const [paperJournalFilter,    setPaperJournalFilter]    = useState("");
   const [paperYearFilter, setPaperYearFilter] = useState("");
   const [mentionFilter,  setMentionFilter]  = useState("");
-  const [filterField, setFilterField] = useState(null);
-  const [filterValue, setFilterValue] = useState([]);
+  const [filterAuthors,      setFilterAuthors]      = useState([]);
+  const [filterJournals,     setFilterJournals]     = useState([]);
+  const [filterYears,        setFilterYears]        = useState([]);
+  const [filterCollections,  setFilterCollections]  = useState([]);
   const [allIndividuals, setAllIndividuals] = useState([]);
-  const [allPapers, setAllPapers] = useState([]);
   const [allCollections, setAllCollections] = useState([]);
   const [allYears, setAllYears] = useState([]);
   const [allJournals, setAllJournals] = useState([]);
@@ -53,10 +55,6 @@ export default function TermMentions() {
   const [allClasses, setAllClasses]         = useState([]);
   const [selectedClass, setSelectedClass]   = useState(null);
   const [classInds, setClassInds]           = useState([]);
-  const [authorMenuOpen, setAuthorMenuOpen] = useState(false);
-  const [journalMenuOpen, setJournalMenuOpen] = useState(false);
-  const [yearMenuOpen, setYearMenuOpen] = useState(false);
-  const [collectionMenuOpen, setCollectionMenuOpen] = useState(false);
 
  async function loadClassDetails(classIri, classLabel) {
    setClassLoading(true);
@@ -157,7 +155,6 @@ const loadOptions = (inputValue) => {
   fetch("/api/list_details/")
     .then(r => r.json())
     .then(json => {
-      setAllPapers(json.papers);
       setAllCollections(json.collections);
       setAllYears(json.years);
       setAllJournals(json.journals);
@@ -229,23 +226,14 @@ const loadOptions = (inputValue) => {
   });
 };
 
-function resetFilters() {
-  setSentenceFilter("");
-  setPaperTitleFilter("");
-  setPaperJournalFilter("");
-  setPaperYearFilter("");
-  setMentionFilter("");
 
-  setFilterField(null);
-  setFilterValue([]);
-}
 function AuthorFilter({
   allAuthors,
   selectedAuthors,
   onChange,
 }) {
   const [showAll, setShowAll] = useState(false);
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
   const [search,   setSearch]  = useState("");
 
   const filtered = allAuthors
@@ -264,27 +252,30 @@ function AuthorFilter({
 
   return (
     <div className="tm-filter-item author-box">
-      <div className="tm-filter-header">
-        <span>Authors</span>
-        <span
+      <div
+       className={`tm-filter-header ${open ? "tm-filter-header--active" : ""}`}
+       onClick={() => setOpen(o => !o)}
+       >
+        <span>Author</span>
+        <button
           className="tm-filter-toggle"
-          onClick={()=>setOpen(o=>!o)}
         >
           {open ? "▼" : "►"}
-        </span>
+        </button>
       </div>
-      <div className="tm-author-body">
-        {toShow.map(a=>(
-          <label key={a.name} className="tm-filter-checkbox">
-            <input
-              type="checkbox"
-              checked={selectedAuthors.includes(a.name)}
-              onChange={()=>toggleOne(a.name)}
-            />
-            {a.name} ({a.count})
+      {open && (
+      <div className="tm-filter-body">
+        {toShow.map(({ name, count }) => (
+            <label key={name} className="tm-filter-checkbox">
+              <input
+                type="checkbox"
+                checked={selectedAuthors.includes(name)}
+                onChange={() => toggleOne(name)}
+              />
+              {name} ({count})
           </label>
         ))}
-        {/* if we’re hiding some, show the “Show more…” link */}
+
         {!showAll && filtered.length>5 && (
           <button
             className="tm-filter-show-more"
@@ -299,6 +290,7 @@ function AuthorFilter({
           onChange={e=>setSearch(e.target.value)}
         />
       </div>
+      )}
     </div>
   );
 }
@@ -377,66 +369,46 @@ async function loadPaperDetails(paperId) {
     !men .includes(mentionFilter .toLowerCase())
   ) return false;
 
-  if (filterField && filterValue) {
-    const values = Array.isArray(filterValue)
-      ? filterValue.map(v => v.toLowerCase())
-      : [filterValue.toLowerCase()];
-
-    switch (filterField) {
-
-      case "author":
-        return m.author
-          .split(";")
-          .map(x => x.trim().toLowerCase())
-          .some(name => 
-            values.some(v => name.includes(v))
-          );
-
-      case "journal":
-        return values.some(v => m.journal.toLowerCase().includes(v));
-
-      case "collection":
-        return values.some(v =>
-          (m.collection || "").toLowerCase().includes(v)
-        );
-
-      case "year":
-        return values.some(v =>
-          m.pubYear.toString().includes(v)
-        );
-
-      default:
-        return true;
+  if (filterAuthors.length > 0) {
+    const paperAuthors = m.author
+      .split(";")
+      .map(a => a.trim().toLowerCase());
+    if (
+      !filterAuthors
+        .map(f => f.toLowerCase())
+        .some(f => paperAuthors.some(a => a.includes(f)))
+    ) {
+      return false;
     }
   }
+
+  if (
+    filterJournals.length > 0 &&
+    !filterJournals.some(fj =>
+      m.journal.toLowerCase().includes(fj.toLowerCase())
+    )
+  ) {
+    return false;
+  }
+
+  if (
+    filterYears.length > 0 &&
+    !filterYears.some(fy => m.pubYear.toString().includes(fy))
+  ) {
+    return false;
+  }
+
+  if (
+    filterCollections.length > 0 &&
+    !filterCollections.some(fc =>
+      (m.collection || "").toLowerCase().includes(fc.toLowerCase())
+    )
+  ) {
+    return false;
+  }
+
   return true;
 });
-
-  const optionsMap = {
-  year: allYears.map(y => ({
-    value: y.value,
-    label: `${y.value} (${y.count})`
-  })),
-  journal: allJournals.map(j => ({
-    value: j.value,
-    label: `${j.value} (${j.count})`
-  })),
-
-  collection: allCollections.map(c => ({
-    value: c.value,
-    label: `${c.value} (${c.count})`
-  })),
-
-  paper: allPapers.map(p => ({ value: p, label: p })),
-  author: allAuthors.map(a => ({ value: a, label: a })),
-};
-
-  const placeholderMap = {
-    year:       'Select year…',
-    author:     'Select author…',
-    journal:    'Select journal…',
-    collection: 'Select collection…'
-  }
 
   const totalRows = filteredMentions.length;
   const totalPages = Math.ceil(totalRows / rowsPerPage) || 1;
@@ -449,7 +421,22 @@ async function loadPaperDetails(paperId) {
   const sentenceCount = same.length;
   const paperCount = new Set(same.map(m => m.paperid)).size;
 
-  useEffect(() => setCurrentPage(1), [sentenceFilter, paperTitleFilter, paperJournalFilter, paperYearFilter, mentionFilter, filterField, filterValue, rowsPerPage]);
+useEffect(() => {
+  setCurrentPage(1);
+}, [
+  sentenceFilter,
+  paperTitleFilter,
+  paperJournalFilter,
+  paperYearFilter,
+  mentionFilter,
+
+  filterAuthors,
+  filterJournals,
+  filterYears,
+  filterCollections,
+
+  rowsPerPage,
+]);
 
 
   return (
@@ -581,75 +568,49 @@ async function loadPaperDetails(paperId) {
   <span className="tm-filter-title">Filter by:</span>
   {/* AUTHOR */}
   <AuthorFilter
-  allAuthors={allAuthors}
-  selectedAuthors={filterValue}
-  onChange={setFilterValue}
-/>
+        allAuthors={allAuthors}
+        selectedAuthors={filterAuthors}
+        onChange={setFilterAuthors}
+      />
   
-  {/* PAPER */}
-  <div className="tm-filter-item">
-    <button
-      className={`tm-filter-btn${filterField === "paper" ? " active" : ""}`}
-      onClick={() => {
-        setFilterField(filterField === "paper" ? null : "paper");
-        setFilterValue([]);
-      }}
-    >
-      Paper
-    </button>
+  {/* - Journal - */}
+    <FacetFilter
+    title="Journal"
+    items={allJournals.map(j => ({ name: j.value, count: j.count }))}
+    selectedItems={filterJournals}
+    onChange={setFilterJournals}
+  />
 
-    {filterField === "paper" && (
-      <div className="tm-subfilters">
-        {[
-          { key: "journal",    label: "Journal" },
-          { key: "year",       label: "Year" },
-          { key: "collection", label: "Collection" }
-        ].map(sf => (
-          <button
-            key={sf.key}
-            className={`tm-filter-btn sub${filterField === sf.key ? " active" : ""}`}
-            onClick={() => {
-              setFilterField(sf.key);
-              setFilterValue([]);
-            }}
-          >
-            {sf.label}
-          </button>
-        ))}
-      </div>
-    )}
+  {/* — Year — */}
+  <FacetFilter
+    title="Year"
+    items={allYears.map(y => ({ name: y.value.toString(), count: y.count }))}
+    selectedItems={filterYears}
+    onChange={setFilterYears}
+  />
 
-    {/* one dropdown for whichever paper sub‐filter is active */}
-    {[ "journal", "year", "collection"].includes(filterField) && (
-      <div className="tm-filter-dropdown">
-        <Select
-          options={optionsMap[filterField].map(v => ({
-            value: v.value,
-            label: v.label
-          }))}
-          isMulti
-          placeholder={placeholderMap[filterField]}
-          value={optionsMap[filterField].filter(o =>
-            filterValue.includes(o.value)
-          )}
-          onChange={opts => setFilterValue(opts ? opts.map(o => o.value) : [])}
-          closeMenuOnSelect={false}
-          closeMenuOnBlur={false}
-          styles={{
-            container: base => ({ ...base, width: 200 }),
-            menu:      base => ({ ...base, zIndex: 999 })
-          }}
-        />
-      </div>
-    )}
-    <button
+  {/* — Collection — */}
+  <FacetFilter
+    title="Collection"
+    items={allCollections.map(c => ({ name: c.value, count: c.count }))}
+    selectedItems={filterCollections}
+    onChange={setFilterCollections}
+  />
+
+  <button
     className="tm-button tm-button--reset"
-    onClick={resetFilters}
+    onClick={() => {
+      setFilterAuthors([]);
+      setFilterJournals([]);
+      setFilterYears([]);
+      setFilterCollections([]);
+      setSentenceFilter("");
+      setPaperTitleFilter("");
+    }}
     style={{ marginTop: "1rem", width: "100%" }}
   >
-    Reset filters
+    Reset all filters
   </button>
-  </div>
 </aside>
 
 
