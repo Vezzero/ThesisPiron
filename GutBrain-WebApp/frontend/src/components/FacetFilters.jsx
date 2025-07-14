@@ -12,8 +12,8 @@ export default function FacetFilter({
 
   const filtered = items
     .filter(i => i.name.toLowerCase().includes(search.toLowerCase()))
-    .sort((a, b) => b.count - a.count);
-
+    .sort((a, b) =>
+    a.name.localeCompare(b.name))
   const toShow = showAll ? filtered : filtered.slice(0, 5);
 
   const toggleOne = name =>

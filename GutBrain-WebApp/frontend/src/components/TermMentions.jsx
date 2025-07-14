@@ -49,12 +49,16 @@ export default function TermMentions() {
   const [paperError,         setPaperError]         = useState(null);
   const [selectedClassIri,     setSelectedClassIri]     = useState(null);
   const [selectedClassLabel,   setSelectedClassLabel]   = useState(null);
-  const [classLoading,         setClassLoading]         = useState(false);
+  const [_classLoading,         setClassLoading]         = useState(false);
   const [classError,           setClassError]           = useState(null);
-  const [classIndividuals,     setClassIndividuals]     = useState([]);
+  const [_classIndividuals,     setClassIndividuals]     = useState([]);
   const [allClasses, setAllClasses]         = useState([]);
   const [selectedClass, setSelectedClass]   = useState(null);
   const [classInds, setClassInds]           = useState([]);
+  const [_selectedPropIri,   setSelectedPropIri]   = useState(null);
+  const [selectedPropLabel, setSelectedPropLabel] = useState(null);
+  const [selectedTermLabel, setSelectedTermLabel] = useState(null);
+ 
 
  async function loadClassDetails(classIri, classLabel) {
    setClassLoading(true);
@@ -75,6 +79,8 @@ export default function TermMentions() {
      setClassLoading(false);
    }
  }
+
+ 
 
 useEffect(() => {
   (async () => {
@@ -238,7 +244,8 @@ function AuthorFilter({
 
   const filtered = allAuthors
     .filter(a => a.name.toLowerCase().includes(search.toLowerCase()))
-    .sort((a,b) => b.count - a.count);
+    .sort((a, b) =>
+    a.name.localeCompare(b.name))
 
   const toShow = showAll ? filtered : filtered.slice(0,5);
 
@@ -318,7 +325,7 @@ function AuthorFilter({
     };
   }, [showRelModal, showObjectsModal, selected]);
 
-    const handlePropClick = async (propIri) => {
+    const handlePropClick = async (propIri, propLabel) => {
       try {
         const seedLabel = mentions[0].indname;
         const resp = await fetch(
@@ -330,6 +337,10 @@ function AuthorFilter({
         const { objects } = await resp.json();
         setObjectsList(objects);
         setShowObjectsModal(true);
+        setSelectedPropIri(propIri);
+        setSelectedPropLabel(propLabel);
+        setSelectedTermLabel(term);
+        
       } catch (e) {
         setError("Failed loading objects: " + e.message);
       }
@@ -597,6 +608,12 @@ useEffect(() => {
     onChange={setFilterCollections}
   />
 
+  {classError && (
+        <div className="tm-error">
+          Error loading individuals: {classError}
+        </div>
+      )}
+
   <button
     className="tm-button tm-button--reset"
     onClick={() => {
@@ -708,9 +725,17 @@ useEffect(() => {
       <strong>Class:</strong>{" "}
       <button
   className="tm-link-button-class"
-  onClick={() =>
-    loadClassDetails(mentions[0].classIri, mentions[0].classLabel)
-  }
+   onClick={() => {
+   navigate(
+     `/class/${encodeURIComponent(mentions[0].classLabel)}`,
+     { replace: false }
+   )
+
+   loadClassDetails(
+     mentions[0].classIri,
+     mentions[0].classLabel
+   )
+ }}
 >
   {mentions[0].classLabel || mentions[0].classIri.split("/").pop()}
 </button>
@@ -761,7 +786,7 @@ useEffect(() => {
           <li key={r.prop}>
             <button
               className="tm-link-button"
-              onClick={() => handlePropClick(r.prop)}
+              onClick={() => handlePropClick(r.prop, r.label)}
             >
               {r.label}
             </button>
@@ -778,7 +803,7 @@ useEffect(() => {
                   <thead>
                     <tr>
                       <th>Sentence</th>
-                      <th>Paper Title</th>
+                      <th>Paper</th>
                       <th>Journal</th>
                       <th>Publication Year</th>
                       <th>Mention</th>
@@ -937,17 +962,26 @@ useEffect(() => {
       >
         ×
       </button>
+
+      <h3>
+        Objects for “{selectedTermLabel}” via <em>{selectedPropLabel}</em>
+      </h3>
+
       <div className="tm-table-wrapper">
         <table className="tm-objects-table">
           <thead>
             <tr>
-              <th>Object Label</th>
+              <th>Entity Name</th>
+              <th>Property</th>
+              <th>Object Individual</th>
               <th>Object URI</th>
             </tr>
           </thead>
           <tbody>
             {objectsList.map((o, idx) => (
               <tr key={`${o.uri}-${idx}`}>
+                <td>{o.entity}</td>
+                <td>{o.property}</td>
                 <td>
                   <button
                     className="tm-link-button"
@@ -959,7 +993,7 @@ useEffect(() => {
                     {o.label}
                   </button>
                 </td>
-                <td>
+                <td className="tm-truncate">
                   <a
                     href={o.uri}
                     target="_blank"
@@ -979,6 +1013,7 @@ useEffect(() => {
   </div>
 )}
 
+
 {/* 3) Sentence Info Modal */}
 {selected && (
   <div
@@ -996,14 +1031,13 @@ useEffect(() => {
         ×
       </button>
       <h3 className="h3-title">Sentence Information</h3>
-      <p>
-        <strong>Sentence:</strong> {selected.senttext}
-      </p>
-      <p>
-        <strong>URI: </strong>
-        <code className="code-underline">
+      <p className="uri">
+        <code className="code-underline-uri">
           {selected.sent}
         </code>
+      </p>
+      <p>
+        <strong>Sentence:</strong> {selected.senttext}
       </p>
     </div>
   </div>
@@ -1024,11 +1058,13 @@ useEffect(() => {
       >
         ×
       </button>
-      <h3 className="h3-title">Title Information</h3>
+      <h3 className="h3-title">Paper Information</h3>
+      <p className="uri">
+        <code className="code-underline-uri"> {selectedTitle.paper}</code>
+      </p>
       <p>
         <strong>Title:</strong> {selectedTitle.titletext}
       </p>
-      <p><strong>Paper Information:</strong></p>
       <div className="tm-paper-link">
           <button
           className="tm-link-button"
@@ -1039,10 +1075,9 @@ useEffect(() => {
           setSelectedTitle(null)
           }}
           >
-                              {selectedTitle.paper}
-                            </button>
-
-                          </div>
+          Check Paper Information
+          </button>
+       </div>
     </div>
   </div>
 )}
@@ -1063,8 +1098,8 @@ useEffect(() => {
         ×
       </button>
       <h3 className="h3-title">Journal Information</h3>
-      <p>
-        <strong>Journal:</strong> {selectedJournal.journal}
+      <p className="p-style">
+        <strong>Journal Title:</strong> {selectedJournal.journal}
       </p>
     </div>
   </div>

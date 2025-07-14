@@ -10,7 +10,7 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/search" element={<TermMentions />} />
-        <Route path="/class/:className" element={<ClassDetails />} />
+        <Route path="/class/:className" element={<TermMentions />} />
         <Route path="/paper/:paperId" element={<TermMentions />} />
       </Routes>
     </BrowserRouter>

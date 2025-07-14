@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useLocation, useNavigate, Link } from "react-router-dom";
+import { useParams, useLocation, Link } from "react-router-dom";
 
 import "./ClassDetails.css";
 
@@ -10,7 +10,6 @@ export default function ClassDetails({
  }) {
    const { className } = useParams();
    const { state }     = useLocation();
-   const navigate      = useNavigate();
 
   const classIri   = propIri ?? state?.classIri ?? decodeURIComponent(className);
   const classLabel = propLabel ?? state?.classLabel ?? className;
@@ -57,7 +56,6 @@ export default function ClassDetails({
       <div className="cd-card">
         <h2>{classLabel}</h2>
         <p>
-          <strong>URI:</strong>{" "}
           <a href={classIri} target="_blank" rel="noopener noreferrer">
             <code className="code-underline">{classIri}</code>
           </a>
