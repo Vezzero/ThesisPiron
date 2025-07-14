@@ -49,6 +49,22 @@
   text-decoration: underline;
 }
 
+.paper-h3-title {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #000000;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.paper-h3-subdef {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: #000000;
+  font-weight: 600;
+  text-align: left;
+}
+
 .tm-modal-overlay {
   position: fixed;
   background: rgba(0,0,0,0.4);
@@ -297,11 +313,11 @@ p {
   background: #f5f5f5;
   border: 1px solid #ccc;
   border-radius: 2px;
-  padding: .4rem .8rem;
+  padding: .4rem .2rem;
   cursor: pointer;
   font-size: .9rem;
   display: block;
-  width: 50%;
+  width: 58%;
   margin-bottom: 0.5rem;
 }
 
@@ -348,25 +364,55 @@ p {
   max-width: 20px;
 }
 
-.tm-filter-btn-select {
-  border-radius: 4px;
-  padding: 0.4rem 0.8rem;
-  margin-right: 0.5rem;
-  cursor: pointer;
-  font-size: 0.9rem;
-}
-
 .tm-filter-btn-option {
-  width: 20ch;
-  max-width: 100%;
   border: 1px solid #ccc;
   border-radius: 4px;
   padding: 0.25rem;
   font-size: 0.9rem;
   background: white;
   overflow-y: auto;   
-  justify-content: start;
 }
+
+.tm-loading-bar-container {
+  width: 100%;
+  text-align: center;
+  margin: 1.5rem 0;
+  top:0;
+  padding-bottom: 40px;
+}
+
+.tm-loading-label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.tm-loading-bar {
+  position: relative;
+  margin: 0 auto;
+  width: 50%;
+  max-width: 400px;
+  height: 6px;
+  background: #eee;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.tm-loading-progress {
+  position: absolute;
+  top: 0; left: 0;
+  height: 100%;
+  background: #2196f3;
+  animation: tm-loading-progress 1.5s ease-in-out infinite;
+}
+
+@keyframes tm-loading-progress {
+  0%   { width: 0%;   }
+  50%  { width: 75%;  }
+  100% { width: 0%;   }
+}
+
 
 .tm-select__menu {
   overflow-y: auto;
@@ -431,32 +477,6 @@ p {
 .label-class {
   font-size: small;
   margin-right: 0.5rem;
-}
-
-.tm-pagination {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 1rem;
-  padding: .5rem 0;
-  font-size: .9rem;
-}
-
-.tm-pagination select {
-  margin-left: .25rem;
-}
-
-.tm-pagination button {
-  background: none;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: .2rem .6rem;
-  cursor: pointer;
-}
-
-.tm-pagination button:disabled {
-  opacity: 0.5;
-  cursor: default;
 }
 
 .tm-table thead tr:first-child th,
@@ -588,7 +608,7 @@ p {
   flex: 1;
   overflow: hidden;
   grid-column: 2;
-  padding: 1rem 1.5rem;
+  padding: 0rem 1rem;
   box-sizing: border-box;
 }
 

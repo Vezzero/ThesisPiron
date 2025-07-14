@@ -41,8 +41,6 @@ export default function TermMentions() {
   const [allAuthors, setAllAuthors] = useState([]);
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null)
-  const [currentPage, setCurrentPage] = useState(1);
-  const [rowsPerPage, setRowsPerPage] = useState(25);
   const [selectedPaperId,    setSelectedPaperId]    = useState(null);
   const [selectedPaper,      setSelectedPaper]      = useState(null);
   const [paperLoading,       setPaperLoading]       = useState(false);
@@ -58,7 +56,23 @@ export default function TermMentions() {
   const [_selectedPropIri,   setSelectedPropIri]   = useState(null);
   const [selectedPropLabel, setSelectedPropLabel] = useState(null);
   const [selectedTermLabel, setSelectedTermLabel] = useState(null);
+  const [visibleCount, setVisibleCount] = useState(5);
  
+  useEffect(() => {
+  setVisibleCount(5);
+}, [
+  sentenceFilter,
+  paperTitleFilter,
+  paperJournalFilter,
+  paperYearFilter,
+  mentionFilter,
+  filterAuthors,
+  filterJournals,
+  filterYears,
+  filterCollections,
+  term
+]);
+
 
  async function loadClassDetails(classIri, classLabel) {
    setClassLoading(true);
@@ -211,7 +225,6 @@ const loadOptions = (inputValue) => {
 
   navigate(`/search?term=${encodeURIComponent(q)}`);
   setTerm(q);
-  setCurrentPage(1);
 
   fetchResults(q).then(firstResults => {
     if (firstResults.length > 0) return;
@@ -421,11 +434,7 @@ async function loadPaperDetails(paperId) {
   return true;
 });
 
-  const totalRows = filteredMentions.length;
-  const totalPages = Math.ceil(totalRows / rowsPerPage) || 1;
-  const startIdx = (currentPage - 1) * rowsPerPage;
-  const paginated = filteredMentions.slice(startIdx, startIdx + rowsPerPage);
-
+  const visible = filteredMentions.slice(0, visibleCount);
   const same = mentions.filter(
   m => m.mentiontext === selectedMention?.mentiontext
   );
@@ -433,7 +442,6 @@ async function loadPaperDetails(paperId) {
   const paperCount = new Set(same.map(m => m.paperid)).size;
 
 useEffect(() => {
-  setCurrentPage(1);
 }, [
   sentenceFilter,
   paperTitleFilter,
@@ -446,7 +454,6 @@ useEffect(() => {
   filterYears,
   filterCollections,
 
-  rowsPerPage,
 ]);
 
 
@@ -531,6 +538,7 @@ useEffect(() => {
 </header>
 
 
+
       {/* ===== PAGE WRAPPER: SIDEBAR + CONTENT ===== */}
       <div className="tm-page-wrapper">
         {/* -- 1) Sticky Sidebar -- */}
@@ -549,7 +557,8 @@ useEffect(() => {
       setClassInds(cls ? cls.individuals : []);
     }}
   >
-    <option value="" disabled>
+    <option
+     value="" disabled>
       Select a Class...
     </option>
     {allClasses.map(c => (
@@ -561,7 +570,7 @@ useEffect(() => {
 
   {selectedClass && (
     <select
-      className="tm-filter-btn-option"
+    className="tm-filter-btn"
       defaultValue=""
       onChange={e => handleSearch(e.target.value)}
     >
@@ -623,6 +632,7 @@ useEffect(() => {
       setFilterCollections([]);
       setSentenceFilter("");
       setPaperTitleFilter("");
+       setSelectedClass(null);
     }}
     style={{ marginTop: "1rem", width: "100%" }}
   >
@@ -634,11 +644,18 @@ useEffect(() => {
 
         {/* -- 2) Main Content Column -- */}
         <main className="tm-content">
+          {loading && (
+          <div className="tm-loading-bar-container">
+            <span className="tm-loading-label">Loading results…</span>
+            <div className="tm-loading-bar">
+              <div className="tm-loading-progress" />
+            </div>
+          </div>
+        )}
           {error && <div className="tm-error">{error}</div>}
 
           {selectedPaper ? (
           <div className="paper-inline">
-
 
       {paperLoading && <p>Loading paper…</p>}
       {paperError   && <p className="tm-error">Error: {paperError}</p>}
@@ -656,7 +673,7 @@ useEffect(() => {
         View in PubMed
       </a>
     </div>
-          <h3>Uri:</h3>
+          <h3 className="h3-title"> Paper {selectedPaper.paperid}</h3>
           <p>
             <a
               href={selectedPaper.uri}
@@ -670,21 +687,20 @@ useEffect(() => {
           </p>
 
           <div className="paper-field">
-            <h3>Title:</h3>
+            <h3 className="paper-h3-subdef">Title:</h3>
             <p>{selectedPaper.titletext}</p>
           </div>
           <div className="paper-field">
-            <h3>Abstract:</h3>
+            <h3 className="paper-h3-subdef">Abstract:</h3>
             <p className="tm-abstract">
               {selectedPaper.abstracttext}
             </p>
           </div>
 
-          <p><strong>Authors:</strong> {selectedPaper.author}</p>
-          <p><strong>Journal:</strong> {selectedPaper.journal}</p>
-          <p><strong>Year:</strong> {selectedPaper.pubYear}</p>
-          <p><strong>Collection:</strong> {selectedPaper.collection}</p>
-          <p><strong>Paper Id:</strong> {selectedPaper.paperid}</p>
+          <p><h3 className="paper-h3-subdef">Authors:</h3> {selectedPaper.author}</p>
+          <p><h3 className="paper-h3-subdef">Journal:</h3> {selectedPaper.journal}</p>
+          <p><h3 className="paper-h3-subdef">Year:</h3> {selectedPaper.pubYear}</p>
+          <p><h3 className="paper-h3-subdef">Collection:</h3> {selectedPaper.collection}</p>
           </div>
            )}
           </div>
@@ -857,8 +873,8 @@ useEffect(() => {
                     </tr>
                   </thead>
                   <tbody>
-                    {paginated.map((m, idx) => (
-                      <tr key={`${m.indname}-${startIdx + idx}`}>
+                    {visible.map((m, idx) => (
+                      <tr key={`row-${idx}`}>
                         <td className="tm-truncate">
                           <span
                             className="tm-clickable color-sentence"
@@ -902,17 +918,17 @@ useEffect(() => {
                     ))}
                   </tbody>
                 </table>
+                {visibleCount < filteredMentions.length && (
+                <div style={{ textAlign: 'center', margin: '1rem 0' }}>
+                  <button
+                    className="tm-button"
+                    onClick={() => setVisibleCount(c => c + 5)}
+                  >
+                    Load more…
+                  </button>
+                </div>
+)}
 
-                <div className="tm-pagination">
-              <label>Rows per page:
-                <select value={rowsPerPage} onChange={e=>setRowsPerPage(+e.target.value)}>
-                  {[10,25,50,100].map(n=><option key={n} value={n}>{n}</option>)}
-                </select>
-              </label>
-              <button onClick={()=>setCurrentPage(p=>Math.max(p-1,1))} disabled={currentPage===1}>‹</button>
-              <span className="label-class">{startIdx+1}–{Math.min(startIdx+rowsPerPage,totalRows)} of {totalRows}</span>
-              <button onClick={()=>setCurrentPage(p=>Math.min(p+1,totalPages))} disabled={currentPage===totalPages}>›</button>
-            </div>
               </div>
             </>
           )}

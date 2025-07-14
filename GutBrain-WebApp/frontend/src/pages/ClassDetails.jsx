@@ -54,14 +54,14 @@ export default function ClassDetails({
   return (
     <div className="cd-container">
       <div className="cd-card">
-        <h2>{classLabel}</h2>
+        <h3 className="h3-title">{classLabel}</h3>
         <p>
           <a href={classIri} target="_blank" rel="noopener noreferrer">
             <code className="code-underline">{classIri}</code>
           </a>
         </p>
         <p>
-          <strong>Individuals Count:</strong> {individuals.length}
+          <strong>Number of instances of this class:</strong> {individuals.length}
         </p>
       </div>
 
@@ -70,7 +70,7 @@ export default function ClassDetails({
           <thead>
             <tr>
               <th>Individual Name</th>
-              <th>IRI</th>
+              <th>URI</th>
             </tr>
             <tr className="cd-filters">
               <th>
