@@ -633,3 +633,60 @@ ORDER BY
     )
 
     return JsonResponse({ "classes": payload }, json_dumps_params={"indent":2})
+
+@require_http_methods(["GET"])
+def list_publications_per_year(request):
+    term = request.GET.get("term", "").strip()
+    if not term:
+        return JsonResponse(
+            {"error": "Missing required query parameter: term"},
+            status=400
+        )
+
+    # SPARQL: count distinct papers per year where the mention text matches `term`
+    sparql = f"""
+PREFIX gutprop: <https://w3id.org/hereditary/ontology/gutbrain/schema/>
+PREFIX rdfs:     <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT
+  ?year
+  (COUNT(DISTINCT ?p) AS ?count)
+WHERE {{
+  ?p a gutprop:Paper ;
+     gutprop:paperYear  ?year ;
+     gutprop:hasAbstract ?abstract.
+  ?abstract a gutprop:PaperAbstract .
+  ?sentence a gutprop:Sentence ;
+            gutprop:partOf   ?abstract .
+  ?mention a gutprop:Mention ;
+           gutprop:hasMentionText  ?mtext ;
+           gutprop:locatedIn      ?sentence .
+        
+   
+   ?seed rdfs:label ?indname;
+         gutprop:containedIn ?mention.
+  FILTER(LCASE(STR(?indname)) = LCASE("{term}"))
+}}
+GROUP BY ?year
+ORDER BY ?year
+"""
+
+    try:
+        results = run_sparql_query(sparql)
+    except Exception as e:
+        return JsonResponse({"error": str(e)}, status=500)
+
+    bindings = results.get("results", {}).get("bindings", [])
+
+    # Build the chartData array-of-arrays:
+    # First row = headers, then [year, count] for each binding.
+    chart_data = [["Year", "Count"]]
+    for b in bindings:
+        year  = b["year"]["value"]
+        count = int(b["count"]["value"])
+        chart_data.append([year, count])
+
+    return JsonResponse(
+        {"chartData": chart_data},
+        json_dumps_params={"indent": 2}
+    )

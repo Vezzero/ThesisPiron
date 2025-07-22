@@ -8,6 +8,7 @@ import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import Select from 'react-select'
 import Fuse from 'fuse.js'
 import AsyncSelect from 'react-select/async'
+import { Chart } from "react-google-charts";
 
 export default function TermMentions() {
   const [term, setTerm] = useState("");
@@ -57,6 +58,7 @@ export default function TermMentions() {
   const [selectedPropLabel, setSelectedPropLabel] = useState(null);
   const [selectedTermLabel, setSelectedTermLabel] = useState(null);
   const [visibleCount, setVisibleCount] = useState(5);
+  const [publicationChart, setPublicationChart] = useState(null);
  
   useEffect(() => {
   setVisibleCount(5);
@@ -93,6 +95,15 @@ export default function TermMentions() {
      setClassLoading(false);
    }
  }
+
+async function fetchPublicationChart(term) {
+  const resp = await fetch(
+    `/api/list_publications_per_year/?term=${encodeURIComponent(term)}`
+  );
+  const { chartData } = await resp.json();
+  setPublicationChart(chartData);
+}
+
 
  
 
@@ -243,6 +254,7 @@ const loadOptions = (inputValue) => {
       fetchResults(corrected);
     }
   });
+  fetchPublicationChart(q)
 };
 
 
@@ -352,7 +364,7 @@ function AuthorFilter({
         setShowObjectsModal(true);
         setSelectedPropIri(propIri);
         setSelectedPropLabel(propLabel);
-        setSelectedTermLabel(term);
+        setSelectedTermLabel(seedLabel);
         
       } catch (e) {
         setError("Failed loading objects: " + e.message);
@@ -502,6 +514,20 @@ useEffect(() => {
           handleSearch();
           setMenuIsOpen(false);
         }
+      }}
+      styles={{
+        container: (base) => ({
+          ...base,
+          width: '300px'
+        }),
+        control: (base) => ({
+          ...base,
+          width: '300px'
+        }),
+        menu: (base) => ({
+          ...base,
+          width: '300px'
+        })
       }}
     />
 
@@ -798,18 +824,35 @@ useEffect(() => {
                     {relationCount === 1 ? "relation" : "relations"}.
                   </p>
                   <ul className="tm-relations-list">
-        {relationsList.map(r => (
-          <li key={r.prop}>
-            <button
-              className="tm-link-button"
-              onClick={() => handlePropClick(r.prop, r.label)}
-            >
-              {r.label}
-            </button>
-            &nbsp;({r.count})
-          </li>
-        ))}
-      </ul>
+                  {relationsList.map(r => (
+                    <li key={r.prop}>
+                      <button
+                        className="tm-link-button"
+                        onClick={() => handlePropClick(r.prop, r.label)}
+                      >
+                        {r.label}
+                      </button>
+                      &nbsp;({r.count})
+                    </li>
+                  ))}
+                </ul>
+                      {publicationChart && (
+                      <Chart
+                        chartType="ColumnChart"
+                        data={publicationChart}
+                        options={{
+                          title: "Number of supporting publications per year",
+                          legend: { position: "none" },
+                          bar: { groupWidth: "70%" },
+                          vAxis: { minValue: 0 },
+                          chartArea: { left: 40, top: 40, width: "80%", height: "60%" },
+                          annotations: { alwaysOutside: true },
+                        }}
+                        width="100%"
+                        height="200px"
+                      />
+                    )}
+
                 </div>
               </div>
 
@@ -996,8 +1039,8 @@ useEffect(() => {
           <tbody>
             {objectsList.map((o, idx) => (
               <tr key={`${o.uri}-${idx}`}>
-                <td>{o.entity}</td>
-                <td>{o.property}</td>
+                <td>{selectedTermLabel}</td>
+                <td>{selectedPropLabel}</td>
                 <td>
                   <button
                     className="tm-link-button"
