@@ -290,6 +290,7 @@ const loadOptions = (inputValue) => {
     }
   });
   fetchPublicationChart(q)
+  //setSelectedClass(null);
 };
 
 
@@ -713,7 +714,7 @@ useEffect(() => {
       setFilterCollections([]);
       setSentenceFilter("");
       setPaperTitleFilter("");
-       setSelectedClass(null);
+      setSelectedClass(null);
     }}
     style={{ marginTop: "1rem", width: "100%" }}
   >
@@ -881,7 +882,6 @@ useEffect(() => {
                       chartType="BarChart"
                       data={chartData}
                       options={{
-                        title: "Relation counts",
                         bars: "horizontal",
                         legend: { position: "none" },
                         chartArea: { left: 120, top: 40, width: "75%", height: "75%" },
@@ -927,19 +927,6 @@ useEffect(() => {
                         }}
                         width="100%"
                         height="150px"
-                        chartEvents={[
-                          {
-                            eventName: "select",
-                            callback({ chartWrapper }) {
-                              const chart = chartWrapper.getChart();
-                              const sel   = chart.getSelection();
-                              if (!sel.length) return;
-                              //const row = sel[0].row;
-                              //const year = publicationChart[row+1][0];  
-                              setSelectedTitle(mentions);
-                            }
-                          }
-                        ]}
                       />
                     )}
 
@@ -1111,10 +1098,6 @@ useEffect(() => {
       >
         ×
       </button>
-
-      <h3>
-        Objects for “{selectedTermLabel}” via <em>{selectedPropLabel}</em>
-      </h3>
 
       <div className="tm-table-wrapper">
         <table className="tm-objects-table">

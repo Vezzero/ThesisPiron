@@ -268,17 +268,35 @@ def list_class_individuals(request):
     class_iri = class_param.strip().strip("<>")
 
     sparql = f"""
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX gutprop: <https://w3id.org/hereditary/ontology/gutbrain/schema/>
+PREFIX rdfs:     <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT DISTINCT ?seed ?lbl
+SELECT
+  ?seed
+  ?lbl
+  ?classComment
+  (COUNT(DISTINCT ?p) AS ?count)
 WHERE {{
+  ?p a gutprop:Paper ;
+     gutprop:paperYear  ?year ;
+     gutprop:hasAbstract ?abstract.
+  ?abstract a gutprop:PaperAbstract .
+  ?sentence a gutprop:Sentence ;
+            gutprop:partOf   ?abstract .
+  ?mention a gutprop:Mention ;
+           gutprop:hasMentionText  ?mtext ;
+           gutprop:locatedIn      ?sentence .
+        
+        ?seed rdf:type <{class_iri}> ;
+               rdfs:label ?lbl;
+        	   gutprop:containedIn ?mention.
 
-  ?seed rdf:type <{class_iri}> ;
-               rdfs:label ?lbl .
-    
+        <{class_iri}> rdfs:label ?classLabel ;
+                    rdfs:comment ?classComment .
 }}
-ORDER BY ?lbl ?seed
+GROUP BY ?seed ?lbl ?classComment
+ORDER BY ?lbl
 """
 
     try:
@@ -291,9 +309,14 @@ ORDER BY ?lbl ?seed
     for b in bindings:
         uri   = b["seed"]["value"]
         label = b.get("lbl", {}).get("value") or uri.rsplit("/", 1)[-1]
+        label_count = b.get("count", {}).get("value", "1")
+        comment = b.get("classComment", {}).get("value", "")
+
         individuals.append({
             "uri":   uri,
-            "label": label
+            "label": label,
+            "count": int(label_count),
+            "comment": comment,
         })
 
     return JsonResponse({"individuals": individuals})

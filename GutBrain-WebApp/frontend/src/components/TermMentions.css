@@ -324,7 +324,7 @@ p {
   cursor: pointer;
   font-size: .9rem;
   display: block;
-  width: 58%;
+  width: 64%;
   margin-bottom: 0.5rem;
 }
 
@@ -537,7 +537,7 @@ p {
   top: 116px;
   bottom: 0;
   left: 0;
-  width: 220px;
+  width: 240px;
   padding: 1rem;
   background: #fafafa;
   border-right: 1px solid #000000;
@@ -763,7 +763,6 @@ aside {
   background: #fafafa;
   margin-bottom: 1rem;
   overflow: hidden;
-  width: 175px;
   max-width: 100%;
 }
 
