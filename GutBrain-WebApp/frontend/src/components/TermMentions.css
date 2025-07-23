@@ -49,6 +49,13 @@
   text-decoration: underline;
 }
 
+.h4-title {
+  font-size: 1rem;
+  color: #333;
+  text-align: center;
+  text-decoration: underline;
+}
+
 .paper-h3-title {
   font-size: 2rem;
   margin-bottom: 0.5rem;
@@ -566,12 +573,38 @@ p {
   border-bottom: 1px solid #000000;
 }
 
+.tm-home-icon {
+  font-size: 2rem;
+  color: #3f3f3f;
+  cursor: pointer;
+}
+
+.tm-home-icon:hover {
+  color: #000;
+}
+
+.tm-home-icon-download {
+  font-size: 2rem;
+  color: #3f3f3f !important;
+  cursor: pointer;
+}
+
+h2 {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .tm-search-bar {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   width: 100%;
   box-sizing: border-box;
+}
+
+.a-style {
+  color: #3f3f3f;
+  text-decoration: none;
+  font-size: 2rem;
 }
 
 .tm-search-center {

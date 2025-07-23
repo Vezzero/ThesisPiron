@@ -9,6 +9,10 @@ import Select from 'react-select'
 import Fuse from 'fuse.js'
 import AsyncSelect from 'react-select/async'
 import { Chart } from "react-google-charts";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Alert from '@mui/material/Alert';
+import { FaNewspaper } from "react-icons/fa";
+import { FaFileDownload } from "react-icons/fa";
 
 export default function TermMentions() {
   const [term, setTerm] = useState("");
@@ -59,6 +63,7 @@ export default function TermMentions() {
   const [selectedTermLabel, setSelectedTermLabel] = useState(null);
   const [visibleCount, setVisibleCount] = useState(5);
   const [publicationChart, setPublicationChart] = useState(null);
+
  
   useEffect(() => {
   setVisibleCount(5);
@@ -141,6 +146,36 @@ useEffect(() => {
   OMIT:      "https://ontobee.org/ontology/OMIT",
   OHMI:      "https://ontobee.org/ontology/OHMI",
 };
+
+const colorMap = {
+  "locatedIn":          "#4caf4f91",
+  "interact":           "#B0CA87",
+  "influence":          "#FFC107",
+  "changeExpression":   "#9FD8CB",
+  "partOf":             "#3F51B5",
+  "producedBy":         "#CFE8EF",
+  "impact":             "#8BC34A",
+  "administered":       "#009688",
+  "strike":             "#795548",
+  "changeAbundance":    "#A8D1D1",
+  "affect":             "#00BCD4",
+  "isA":                "#B2C8DF",
+  "target":             "#FFCCB3",
+  "changeEffect":       "#8D8E8E",
+  "usedBy":             "#2196F3",
+  "isLinkedTo":         "#D4B2D8",
+  "comparedTo":         "#FFEB3B",
+};
+
+const chartData = [
+  ["Relation Name", "Count", { role: "style" }, { role: "annotation" }],
+  ...relationsList.map(r => [
+    r.label,
+    r.count,
+    colorMap[r.label] || "#888888",
+    r.count.toString()
+  ])
+];
 
   const { paperId } = useParams();
 
@@ -474,7 +509,8 @@ useEffect(() => {
       <header className="tm-header">
   <h2>Gut-Brain KB</h2>
   <div className="tm-search-bar">
-    <div className="tm-search-left" />
+    <div className="tm-search-left">
+    </div>
     <div className="tm-search-center">
     <AsyncSelect
       className="tm-input"
@@ -543,6 +579,25 @@ useEffect(() => {
     </button>
     </div>
     <div className="tm-search-right">
+      <div
+        className="tm-home-icon"
+        onClick={() => {
+          window.location.href = "https://hereditary.dei.unipd.it/ontology/gutbrain/";
+        }}
+        title="Go to Ontology Documentation"
+      >
+        <FaNewspaper />
+      </div>
+      <div className="tm-home-icon-download">
+      <a
+        href="./assets/hero_gutbrain_entities.ttl"
+        download="hero_gutbrain_entities.ttl"
+        className="a-style"
+        title="Download Gut-Brain entities TTL"
+      >
+        <FaFileDownload size={20} />
+      </a>
+      </div>
    {(selectedPaperId || selectedClassIri) && (
   <button
     className="tm-button-back"
@@ -818,38 +873,73 @@ useEffect(() => {
           </div>
                 {/* Card #2 */}
                 <div className="tm-results-card">
-                  <p>
-                    <strong>{mentions[0].indname}</strong> has in total{" "}
-                    <strong>{relationCount}</strong>{" "}
-                    {relationCount === 1 ? "relation" : "relations"}.
-                  </p>
-                  <ul className="tm-relations-list">
-                  {relationsList.map(r => (
-                    <li key={r.prop}>
-                      <button
-                        className="tm-link-button"
-                        onClick={() => handlePropClick(r.prop, r.label)}
-                      >
-                        {r.label}
-                      </button>
-                      &nbsp;({r.count})
-                    </li>
-                  ))}
-                </ul>
+                  <h4 className="h4-title">
+                    Number of relations for <strong>{mentions[0].indname}</strong>
+                  </h4>
+                    {relationsList.length > 0 ? (
+                    <Chart
+                      chartType="BarChart"
+                      data={chartData}
+                      options={{
+                        title: "Relation counts",
+                        bars: "horizontal",
+                        legend: { position: "none" },
+                        chartArea: { left: 120, top: 40, width: "75%", height: "75%" },
+                        hAxis: { minValue: 0 },
+                        annotations: { alwaysOutside: true },
+                        vAxis: { textStyle: { fontSize: 12 } },
+                      }}
+                      width="100%"
+                      height="150px"
+                      chartEvents={[
+                    {
+                        eventName: "select",
+                      callback({ chartWrapper }) {
+                        const chart = chartWrapper.getChart();
+                        const sel   = chart.getSelection();
+                        if (sel.length === 0) return;
+                        const row = sel[0].row;
+                        const rel = relationsList[row];
+                        handlePropClick(rel.prop, rel.label);
+                      }
+                    }
+                  ]}
+                    />
+                  ) : (
+                    <p style={{
+                    'font-size': '0.8rem',
+                    'text-align': 'left'
+                     }}><Alert severity="success">No Relations to display.</Alert></p>
+                  )}
+                <hr />
+                <h4 className="h4-title">Number of supporting publications per year</h4>
                       {publicationChart && (
                       <Chart
                         chartType="ColumnChart"
                         data={publicationChart}
                         options={{
-                          title: "Number of supporting publications per year",
                           legend: { position: "none" },
-                          bar: { groupWidth: "70%" },
+                          bar: { groupWidth: "45%" },
                           vAxis: { minValue: 0 },
-                          chartArea: { left: 40, top: 40, width: "80%", height: "60%" },
+                          chartArea: { left: 40, top: 40, width: "100%", height: "50%" },
                           annotations: { alwaysOutside: true },
+                          colors: ["#82D4BB"],
                         }}
                         width="100%"
-                        height="200px"
+                        height="150px"
+                        chartEvents={[
+                          {
+                            eventName: "select",
+                            callback({ chartWrapper }) {
+                              const chart = chartWrapper.getChart();
+                              const sel   = chart.getSelection();
+                              if (!sel.length) return;
+                              //const row = sel[0].row;
+                              //const year = publicationChart[row+1][0];  
+                              setSelectedTitle(mentions);
+                            }
+                          }
+                        ]}
                       />
                     )}
 
