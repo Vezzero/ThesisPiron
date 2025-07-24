@@ -3,6 +3,7 @@ import { useParams, useLocation, Link } from "react-router-dom";
 import { Chart } from "react-google-charts";
 import Alert from '@mui/material/Alert';
 import "./ClassDetails.css";
+import "../components/TermMentions.css";
 
 
 export default function ClassDetails({
@@ -20,11 +21,16 @@ export default function ClassDetails({
   const [error, setError]             = useState(null);
   const [labelFilter, setLabelFilter] = useState("");
   const [uriFilter,   setUriFilter]   = useState("");
+  const [visibleCount, setVisibleCount] = useState(5);
 
   const top10Individuals = useMemo(() => {
     return [...individuals]
       .sort((a, b) => b.count - a.count)
       .slice(0, 10);
+  }, [individuals]);
+
+  useEffect(() => {
+    setVisibleCount(5);
   }, [individuals]);
 
   const chartDataPie = useMemo(() => {
@@ -83,7 +89,7 @@ export default function ClassDetails({
       </a>
     </p>
     <p>
-      <strong>Number of instances of this class:</strong>{" "}
+      <strong>Number of individuals of this class:</strong>{" "}
       {individuals.length}
     </p>
     <p>
@@ -93,7 +99,7 @@ export default function ClassDetails({
                             <p style={{
                             'font-size': '0.8rem',
                             'text-align': 'left'
-                             }}><Alert severity="error">No Description to Display.</Alert></p>
+                             }}><Alert severity="info">No Description to Display.</Alert></p>
                           )}
       </span>
     </p>
@@ -121,14 +127,15 @@ export default function ClassDetails({
 </div>
 
 
-      <div className="cd-table-wrapper">
+      <div className="tm-table-wrapper">
         <table className="tm-table">
           <thead>
             <tr>
               <th>Individual Name</th>
+              <th>Definition</th>
               <th>URI</th>
             </tr>
-            <tr className="cd-filters">
+            <tr className="tm-filters">
               <th>
                 <input
                   className="cd-filter-input"

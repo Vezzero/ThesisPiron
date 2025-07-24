@@ -13,6 +13,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Alert from '@mui/material/Alert';
 import { FaNewspaper } from "react-icons/fa";
 import { FaFileDownload } from "react-icons/fa";
+import { Row } from "react-bootstrap";
+import { BASE_URL } from "../App";
+import Button from 'react-bootstrap/Button';
 
 export default function TermMentions() {
   const [term, setTerm] = useState("");
@@ -24,7 +27,7 @@ export default function TermMentions() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [relationsList, setRelationsList] = useState([]); 
-  const [relationCount, setRelationCount] = useState(0);
+  const [_relationCount, setRelationCount] = useState(0);
   const [showRelModal, setShowRelModal] = useState(false);
   const [objectsList, setObjectsList]     = useState([]);
   const [showObjectsModal, setShowObjectsModal] = useState(false);
@@ -63,6 +66,7 @@ export default function TermMentions() {
   const [selectedTermLabel, setSelectedTermLabel] = useState(null);
   const [visibleCount, setVisibleCount] = useState(5);
   const [publicationChart, setPublicationChart] = useState(null);
+  const [showAuthorFilter, setShowAuthorFilter] = useState(false);
 
  
   useEffect(() => {
@@ -290,18 +294,24 @@ const loadOptions = (inputValue) => {
     }
   });
   fetchPublicationChart(q)
-  //setSelectedClass(null);
 };
 
 
-function AuthorFilter({
-  allAuthors,
-  selectedAuthors,
-  onChange,
-}) {
+ function AuthorFilter({
+   allAuthors,
+   selectedAuthors,
+   onChange,
+   isOpen,
+   onToggle,
+ }) {
   const [showAll, setShowAll] = useState(false);
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(isOpen);
   const [search,   setSearch]  = useState("");
+
+    // whenever parent changes isOpen, update local open
+  useEffect(() => {
+   setOpen(isOpen);
+ }, [isOpen]);
 
   const filtered = allAuthors
     .filter(a => a.name.toLowerCase().includes(search.toLowerCase()))
@@ -322,7 +332,7 @@ function AuthorFilter({
     <div className="tm-filter-item author-box">
       <div
        className={`tm-filter-header ${open ? "tm-filter-header--active" : ""}`}
-       onClick={() => setOpen(o => !o)}
+       onClick={onToggle}
        >
         <span>Author</span>
         <button
@@ -496,7 +506,6 @@ useEffect(() => {
   paperJournalFilter,
   paperYearFilter,
   mentionFilter,
-
   filterAuthors,
   filterJournals,
   filterYears,
@@ -506,7 +515,7 @@ useEffect(() => {
 
 
   return (
-    <div className="tm-container">
+    <>
       <header className="tm-header">
   <h2>Gut-Brain KB</h2>
   <div className="tm-search-bar">
@@ -622,6 +631,7 @@ useEffect(() => {
 
 
       {/* ===== PAGE WRAPPER: SIDEBAR + CONTENT ===== */}
+      <div>
       <div className="tm-page-wrapper">
         {/* -- 1) Sticky Sidebar -- */}
         <aside className="tm-sidebar">
@@ -670,6 +680,8 @@ useEffect(() => {
   <span className="tm-filter-title">Filter by:</span>
   {/* AUTHOR */}
   <AuthorFilter
+        isOpen={showAuthorFilter}
+        onToggle={() => setShowAuthorFilter(o => !o)}
         allAuthors={allAuthors}
         selectedAuthors={filterAuthors}
         onChange={setFilterAuthors}
@@ -705,10 +717,11 @@ useEffect(() => {
         </div>
       )}
 
-  <button
+  <Button variant="outline-dark"
     className="tm-button tm-button--reset"
-    onClick={() => {
-      setFilterAuthors([]);
+    onClick={e => {
+      e.stopPropagation();
+      setFilterAuthors([])
       setFilterJournals([]);
       setFilterYears([]);
       setFilterCollections([]);
@@ -716,16 +729,15 @@ useEffect(() => {
       setPaperTitleFilter("");
       setSelectedClass(null);
     }}
-    style={{ marginTop: "1rem", width: "100%" }}
   >
     Reset all filters
-  </button>
+  </Button>
 </aside>
 
 
 
-        {/* -- 2) Main Content Column -- */}
-        <main className="tm-content">
+        {/* -- 2) div Content Column -- */}
+        <div className="tm-content">
           {loading && (
           <div className="tm-loading-bar-container">
             <span className="tm-loading-label">Loading results…</span>
@@ -906,10 +918,9 @@ useEffect(() => {
                   ]}
                     />
                   ) : (
-                    <p style={{
-                    'font-size': '0.8rem',
-                    'text-align': 'left'
-                     }}><Alert severity="success">No Relations to display.</Alert></p>
+                    <div style={{ fontSize: '0.8rem', textAlign: 'left' }}>
+                       <Alert severity="info">No Relations to display.</Alert>
+                   </div>
                   )}
                 <hr />
                 <h4 className="h4-title">Number of supporting publications per year</h4>
@@ -928,7 +939,12 @@ useEffect(() => {
                         width="100%"
                         height="150px"
                       />
-                    )}
+                      )}
+                      {!publicationChart && (
+                            <div style={{ fontSize: '0.8rem', textAlign: 'left' }}>
+                              <Alert severity="info">No publications found for this term.</Alert>
+                            </div>
+                      )}
 
                 </div>
               </div>
@@ -1265,13 +1281,45 @@ useEffect(() => {
         {paperCount === 1 ? "paper." : "papers."}
       </p>
     </div>
-  </div>
+    </div>
   
        )}
         </>
           )}
-          </main>
+          </div>
+
+
       </div>
-    </div>
+      </div>
+         <Row>
+     <footer className="app-footer">
+       <div style={{ textAlign: "center", padding: "1rem 0" }}>
+         <a href="https://www.unipd.it/" target="_blank" rel="noopener noreferrer">
+           <img
+             className="logo-footer"
+             src={BASE_URL + "/static/images/unipd-logo.png"}
+             alt="UniPD"
+           />
+         </a>
+         <a href="https://www.dei.unipd.it/" target="_blank" rel="noopener noreferrer">
+           <img
+             className="logo-footer"
+             src={BASE_URL + "/static/images/dei-logo_white.png"}
+             alt="DEI"
+           />
+         </a>
+         <a href="https://iiia.dei.unipd.it/" target="_blank" rel="noopener noreferrer">
+           <img
+             className="logo-footer"
+             src={BASE_URL + "/static/images/iiia-logo.png"}
+            alt="IIIA"
+           />
+         </a>
+       </div>
+     </footer>
+   </Row>
+   </>
   );
+
+  
 }

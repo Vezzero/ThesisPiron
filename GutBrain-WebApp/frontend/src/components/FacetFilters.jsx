@@ -6,7 +6,7 @@ export default function FacetFilter({
   selectedItems,
   onChange,
 }) {
-  const [open,      setOpen]      = useState(true);
+  const [open,      setOpen]      = useState(false);
   const [showAll,   setShowAll]   = useState(false);
   const [search,    setSearch]    = useState("");
 
