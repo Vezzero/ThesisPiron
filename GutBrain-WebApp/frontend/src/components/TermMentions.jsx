@@ -16,6 +16,15 @@ import { FaFileDownload } from "react-icons/fa";
 import { Row } from "react-bootstrap";
 import { BASE_URL } from "../App";
 import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import "bootstrap/dist/css/bootstrap.min.css";
+
+import {
+  Dropdown,
+  DropdownButton,
+  FormControl,
+  ButtonGroup,
+} from "react-bootstrap";
 
 export default function TermMentions() {
   const [term, setTerm] = useState("");
@@ -638,45 +647,60 @@ useEffect(() => {
   <span className="tm-filter-title">Search by:</span>
   {/* INDIVIDUALS and CLASS */}
   <div className="tm-all-dropdown">
-  {/* 1) Class selector */}
-  <select
-    className="tm-filter-btn"
-    value={selectedClass?.classIri || ""}
-    onChange={e => {
-      const iri = e.target.value;
-      const cls = allClasses.find(c => c.classIri === iri);
-      setSelectedClass(cls);
-      setClassInds(cls ? cls.individuals : []);
-    }}
-  >
-    <option
-     value="" disabled>
-      Select a Class...
+  {/** 1) Class selector **/}
+  <Form.Group className="mb-2">
+    {/* optional label for a11y; visuallyHidden hides it */}
+    <Form.Label visuallyHidden>
+      Select a Class
+    </Form.Label>
+    <Form.Select
+  className="tm-filter-btn"
+  aria-label="Select a Class"
+  value={selectedClass?.classIri || ""}
+  onChange={e => { 
+        const iri = e.target.value;
+        const cls = allClasses.find(c => c.classIri === iri);
+        setSelectedClass(cls);
+        setClassInds(cls ? cls.individuals : []);
+      }} 
+>
+  <option value="" disabled hidden>
+    Select a Class…
+  </option>
+  {allClasses.map(c => (
+    <option key={c.classIri} value={c.classIri}>
+      {c.classLabel}
     </option>
-    {allClasses.map(c => (
-      <option key={c.classIri} value={c.classIri}>
-        {c.classLabel}
-      </option>
-    ))}
-  </select>
+  ))}
+</Form.Select>
 
+  </Form.Group>
+
+  {/** 2) Individual selector **/}
   {selectedClass && (
-    <select
-    className="tm-filter-btn"
-      defaultValue=""
-      onChange={e => handleSearch(e.target.value)}
-    >
-      <option value="" disabled>
-        Select an individual...
-      </option>
-      {classInds.map(ind => (
-        <option key={ind.uri} value={ind.label}>
-          {ind.label} ({ind.count})
+    <Form.Group className="mb-2">
+      <Form.Label visuallyHidden>
+        Select an Individual
+      </Form.Label>
+      <Form.Select
+        className="tm-filter-btn"
+        aria-label="Select an Individual"
+        defaultValue=""
+        onChange={e => handleSearch(e.target.value)}
+      >
+        <option value="" disabled>
+          Select an individual…
         </option>
-      ))}
-    </select>
+        {classInds.map(ind => (
+          <option key={ind.uri} value={ind.label}>
+            {ind.label} ({ind.count})
+          </option>
+        ))}
+      </Form.Select>
+    </Form.Group>
   )}
 </div>
+
   <span className="tm-filter-title">Filter by:</span>
   {/* AUTHOR */}
   <AuthorFilter
@@ -728,6 +752,7 @@ useEffect(() => {
       setSentenceFilter("");
       setPaperTitleFilter("");
       setSelectedClass(null);
+      handleSearch("");
     }}
   >
     Reset all filters
