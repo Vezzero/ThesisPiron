@@ -5,7 +5,7 @@ export async function fetchTermMentions(term = "") {
   if (term) {
     params.set("term", term);
   }
-  const url = `${API_BASE}/sparql/search/?${params.toString()}`;
+   const url = `${API_BASE}/list_everything/?${params.toString()}`;
 
   let response;
   try {

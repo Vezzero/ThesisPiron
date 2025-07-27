@@ -4,7 +4,7 @@ from django.views.decorators.http import require_http_methods
 from rdfapp.rdf_client import run_sparql_query
 
 @require_http_methods(["GET"])
-def list_term_mentions(request):
+def list_everything(request):
     term = request.GET.get("term", "").strip()
     safe_term = term.replace('"', '\\"')
 

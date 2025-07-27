@@ -831,10 +831,34 @@ useEffect(() => {
             </p>
           </div>
 
-          <p><h3 className="paper-h3-subdef">Authors:</h3> {selectedPaper.author}</p>
-          <p><h3 className="paper-h3-subdef">Journal:</h3> {selectedPaper.journal}</p>
-          <p><h3 className="paper-h3-subdef">Year:</h3> {selectedPaper.pubYear}</p>
-          <p><h3 className="paper-h3-subdef">Collection:</h3> {selectedPaper.collection}</p>
+          <div className="paper-info-line">
+            <h3 className="paper-h3-subdef">Authors:</h3>
+            <p>{selectedPaper.author}</p>
+          </div>
+          <div className="paper-info-line">
+            <h3 className="paper-h3-subdef">Journal:</h3>
+            <p>{selectedPaper.journal}</p>
+          </div>
+          <div className="paper-info-line">
+            <h3 className="paper-h3-subdef">Authors:</h3>
+            <p>{selectedPaper.author}</p>
+          </div>
+          <div className="paper-info-line">
+            <h3 className="paper-h3-subdef">Journal:</h3>
+            <p>{selectedPaper.journal}</p>
+          </div>
+          <div className="paper-info-line">
+            <h3 className="paper-h3-subdef">Publication Year:</h3>
+            <p>{selectedPaper.pubYear}</p>
+          </div>
+          <div className="paper-info-line">
+            <h3 className="paper-h3-subdef">ID:</h3>
+            <p>{selectedPaper.paperid}</p>
+          </div>
+          <div className="paper-info-line">
+            <h3 className="paper-h3-subdef">Collections:</h3>
+            <p>{selectedPaper.collection || "-"}</p>
+          </div>
           </div>
            )}
           </div>
