@@ -1,5 +1,5 @@
 :root {
-  --header-height: 120px;
+  --header-height: 150px;
   --footer-height: 80px;
   --sidebar-width: 240px;
   --sidebar-padding: 1rem;
@@ -873,4 +873,14 @@ input {
   max-height: 50px;
   width: auto;
   margin: 0 1rem;
+}
+
+.tm-hamburger {
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  color: #333;
+  top: 1rem;
+  left: 1rem;
 }

@@ -1,0 +1,771 @@
+.container-app{
+    padding-top: 1vh;
+}
+
+/*.App{
+    height:100vh;
+    color: white;
+    padding: 15px;
+    background: linear-gradient(45deg,#82378b 0,#1e71b8 100%);
+    overflow-y: auto;
+
+
+}*/
+
+.App{
+    height:100vh;
+    color: rgba(0, 0, 0, 0.87);
+    padding: 15px;
+    overflow-y: auto;
+    font-family: 'Roboto', sans-serif !important;
+    /*font-family: 'Roboto Condensed', sans-serif !important;*/
+}
+
+.menu-sidebar-icon{
+    cursor: pointer;
+}
+
+.container-data{
+    margin-top: 20px;
+    height: auto;
+    max-height: 55vh;
+    overflow-y: auto;
+    margin-top: 0px;
+    min-height: 30vh;
+}
+.slider-chevron:hover{
+    color: #222;
+}
+
+.text-justify{
+    text-align: justify;
+}
+
+button.search-icon-btn{
+    /*color: white !important;*/
+}
+
+.search-icon-btn{
+    /*color: white !important;*/
+}
+
+.search-icon-btn:hover{
+    /*color: #222 !important;*/
+}
+button.search-icon-btn:hover{
+    color: rgba(0, 0, 0, 0.7) !important;
+
+}
+.spinnerDiv{
+    margin-top:120px;
+    text-align:center;
+}
+.container{
+    padding: 10px;
+}
+.reportListStyle{
+    padding:10px;
+    font-size:1.2rem;
+    font-weight: bold;
+}
+.act{
+    margin: 7px;
+}
+@media (min-width: 1000px ) {
+    .col-md-6 {
+        flex: 0 0 41.666667%;
+        max-width: 41.666667%;
+    }
+}
+
+@media (min-width: 1000px ) {
+    .col-md-5 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+.modal-backdrop{
+    margin:0px !important;
+}
+.row_container{
+    margin-top:5px;
+}
+
+
+body{
+    font-size: 16px !important;
+}
+.container{
+    padding-top: 0px;
+}
+
+/* Reliable Unrealiable circles */
+.reliable-fact {
+    color: darkgreen;
+    height: 20px;
+    width: 20px;
+    background-color: darkgreen;
+    border-radius: 50%;
+    display: inline-block;
+    margin-top: 5px;
+    cursor: pointer;
+    border: 2px solid #dadce0;
+    box-sizing: content-box;
+}
+
+.unreliable-fact {
+    color: darkred;
+    height: 20px;
+    width: 20px;
+    background-color: darkred;
+    border-radius: 50%;
+    display: inline-block;
+    margin-top: 5px;
+    cursor: pointer;
+    border: 2px solid #dadce0;
+    box-sizing: content-box;
+}
+
+.notinformative-fact{
+    color: lightslategrey;
+    height: 20px;
+    width: 20px;
+    background-color: lightslategrey;
+    border-radius: 50%;
+    display: inline-block;
+    margin-top: 5px;
+    cursor: pointer;
+    border: 2px solid #dadce0;
+    box-sizing: content-box;
+}
+
+
+
+
+/* D3 */
+
+.links line {
+    stroke: #999;
+    stroke-opacity: 0.6;
+}
+
+.nodes circle {
+    stroke: #fff;
+    stroke-width: 1.5px;
+}
+
+text {
+    font-family: sans-serif;
+    font-size: 10px;
+}
+
+.d3-svg{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/*.react-resizable{*/
+
+/*    overflow: hidden;*/
+/*}*/
+
+.MuiDialogTitle-root{
+    /*background-color: #EEEEEE;*/
+}
+
+.highlighted{
+    background: linear-gradient( to bottom, #13B9AD 0%, #13B9AD 100% );
+    color: #2f3138;
+    background-position: 0 100%;
+    background-repeat: repeat-x;
+    background-size: 4px 3px;
+}
+
+
+
+/*Media query*/
+
+
+
+/* Table reports css */
+
+.MuiInputBase-input.Mui-disabled, .MuiInputBase-root.Mui-disabled{
+    display: none;
+}
+
+/* Configuration */
+
+.configuration-row{
+    /*width: 100vw;*/
+}
+
+
+/* Dialog */
+
+.json-viewer-dialog-content{
+    max-height: 80vh;
+    overflow: auto;
+}
+
+.d3-expand-button{
+    position: absolute;
+    right: 0px;
+    margin-right: 20px;
+    z-index: 1000000;
+}
+
+/*@media (max-width: 800px ) {*/
+/*    .json-viewer-dialog-content {*/
+/*        max-height: 650px;*/
+
+/*    }*/
+/*}*/
+
+
+.info-circle:hover{
+    color: #4A68D9;
+    cursor: pointer;
+}
+
+.badge-success{
+    background-color: #19692c;
+    color: white;
+}
+.badge-secondary{
+    background-color: rgb(108,117,125);
+    color: white;
+}
+
+
+/************
+
+SKETX
+
+ */
+
+
+.d3-tooltip{
+    display: none;
+    position: absolute;
+    background: #1C2223;
+    opacity:0.9;
+    border-radius: 5px;
+    height: auto;
+    width: 300px;
+    color: white;
+    padding: 5px;
+}
+
+.d3-svg{
+    width: 100%;
+    height: 75vh;
+    overflow: hidden;
+}
+
+
+.MuiStepLabel-root.MuiStepLabel-alternativeLabel{
+    cursor: pointer;
+    
+}
+
+::-webkit-scrollbar {
+    width: 6px !important;
+    /*added 18/10*/
+    height: 6px !important;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 3px darkgrey !important;
+    border-radius: 10px !important;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    /*background: #8cbeee !important;*/
+    background: #3f51b5 !important;
+
+    border-radius: 10px !important;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    /*background: #8cbeee !important;*/
+    background: #3f51b5 !important;
+}
+
+/* DevExpress Table reports make scrollbar work correctly*/
+.table-reports-container > div > div {
+    overflow: visible;
+}
+
+
+/* Display Flex Mention and Concepts*/
+
+.display-flex-start{
+    display: flex !important;
+    justify-content: flex-start !important;
+    flex-wrap: wrap;
+}
+
+/* Display Flex and center items*/
+
+.display-flex-justify-content-center{
+    display: flex !important;
+    justify-content: center !important;
+}
+
+/* Concept chip Analytics */
+
+.concept-chip{
+    height: 2em !important;
+    font-size: 1em !important;
+}
+
+.chip-mention-active{
+    border: 2px solid #3f51b5 !important;
+    /*font-weight: bolder;*/
+}
+
+.chip-label-active{
+    border: 2px solid #3f51b5 !important;
+    /*font-weight: bolder;*/
+}
+
+.chip-label:hover{
+    border: 2px solid #3f51b5 !important;
+    /*font-weight: bolder;*/
+}
+
+.chip-mention:hover{
+    border: 2px solid #3f51b5 !important;
+    /*font-weight: bolder;*/
+}
+
+.concept-chip:hover{
+    cursor: pointer;
+}
+
+/* Magic Hand Wand */
+.icon-highlighted-on-hover:hover{
+    color: #3f51b5;
+}
+
+.icon-highlighted{
+    color: #3f51b5;
+}
+
+.MuiIconButton-label:hover{
+    color: rgba(0, 0, 0, 0.7) !important;
+}
+
+.MuiIconButton-root:hover{
+    color: #3f51b5;
+}
+
+.MuiCheckbox-colorSecondary{
+    color: #3f51b5 !important;
+}
+
+
+/* Info headline align */
+.display-flex-start-align-items-center {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+
+/* Table Header (DevExpress) emphasized in bold face */
+.table-header-text-bold{
+    font-weight: bolder;
+}
+
+.MuiTableCell-head{
+    font-weight: bolder !important;
+}
+
+
+/* Font */
+.font-size-1_2{
+    font-size: 1.2em;
+}
+
+.font-size-1_5{
+    font-size: 1.5em;
+}
+
+.font-size-1_8{
+    font-size: 1.8em;
+}
+
+
+/* Max width 100vw */
+.max-width-100vw{
+    max-width: 100vw;
+}
+
+.max-width-90vw{
+    max-width: 90vw;
+}
+
+.max-width-80vw{
+    max-width: 80vw;
+}
+
+.min-width-10vw-max-width-80vw{
+    min-width: 10vw;
+    max-width: 80vw;
+}
+
+.line-height-1_8{
+    line-height: 1.8rem;
+}
+
+
+/* Modal React Bootstrap */
+.modal-80w{
+    width:80vw;
+    max-width: 100vw !important;
+}
+
+.modal-80w-body{
+    height: 70vh !important;
+    overflow-y: auto;
+    margin: 1%;
+}
+
+/* Grid Layout */
+.layout{
+    /*max-height: 50vh;*/
+}
+
+.react-grid-item{
+    /*max-height: 48vh;*/
+}
+
+/* Params pipeline table and columns*/
+.pipeline-params-table-fullscreen {
+    width: 98vw;
+    display: flex;
+    justify-content: center;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    padding-top: 1vh;
+}
+
+.pipeline-params-table-card {
+    width: 98vw;
+    display: flex;
+    justify-content: center;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    padding-top: 1vh;
+}
+
+.params-text-column-fullscreen{
+    width: 98vw;
+    padding-left: 2vw;
+}
+.params-text-column-card{
+    width: 98vw;
+    padding-left: 1vw;
+}
+
+/* About.js */
+.text-align-center{
+    text-align: center;
+}
+
+.text-align-justify{
+    text-align: justify;
+}
+
+/* Credits */
+.cardLink{
+    color: inherit;
+    text-decoration: none;
+}
+
+/* For mobile: */
+.carousel-about{
+    /*max-height: 70vh;*/
+    max-width: 100vw;
+}
+
+.carousel-control-prev-icon{
+    filter: invert(1) grayscale(100);
+}
+.carousel-control-next-icon{
+    filter: invert(1) grayscale(100);
+}
+
+.carousel-indicators li{
+    filter: invert(1) grayscale(100);
+}
+
+
+.carousel-item{
+    /*max-height: 70vh;*/
+    width: auto;
+    max-width: 100vw;
+}
+/* For mobile: */
+.responsive-image{
+    max-width: 90vw;
+}
+
+.search-label{
+    /*color: white !important;*/
+    opacity: 1;
+}
+
+.MuiAutocomplete-clearIndicator{
+    /*color: white !important;*/
+}
+
+.MuiFilledInput-root{
+    background-color: transparent !important;
+}
+
+.MuiInputLabel-outlined.MuiInputLabel-shrink{
+    margin-top: 8px;
+}
+
+
+.search-text-field{
+    /*border: 1px solid rgba(0, 0, 0, 0.87) !important;*/
+    color: rgba(0, 0, 0, 0.87) !important;
+    border: 1px solid transparent;
+    box-shadow: 0 2px 5px 1px rgba(64,60,67,.16);
+}
+
+.Mui-focused > .search-text-field {
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+
+}
+
+.search-text-field:focus{
+    /*border: 3px solid white !important;*/
+    /*border: 1px solid rgba(0, 0, 0, 0.87) !important;*/
+    color: rgba(0, 0, 0, 0.87) !important;
+
+}
+
+.MuiAutocomplete-popupIndicator{
+    /*color: white !important;*/
+}
+
+.MuiAutocomplete-input{
+    /*color: white !important;*/
+}
+
+.MuiAutocomplete-input::placeholder{
+    /*color: white !important;*/
+}
+
+@media only screen and (min-width: 768px) {
+    /* For desktop: */
+
+/*    .App{
+        background-image: url("images/background.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }*/
+
+    .carousel-about{
+        /*max-height: 50vh;*/
+        max-width: 80vw;
+    }
+
+    .carousel-item{
+        /*max-height: 50vh;*/
+        max-width: 80vw;
+    }
+
+    .responsive-image{
+        max-width: 80vw;
+        max-height: 50vh;
+    }
+}
+
+.padding-05rem{
+    padding: 0.5rem;
+}
+
+
+.margin-1rem{
+    margin: 1rem;
+}
+
+.margin-2rem{
+    margin: 2rem;
+}
+
+.margin-bottom-1rem {
+    margin-bottom: 1rem;
+
+}
+
+.margin-top-1rem {
+    margin-top: 1rem;
+
+}
+
+.width-100-perc{
+    width: 100%;
+}
+
+/* Button to scroll up the page */
+
+.toTopButton {
+    padding: 0;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 40px;
+    height: 40px;
+    /*background: #04377b;*/
+    background: #00809d;
+    font-size: 1.2em;
+    font-weight: 700;
+    text-align: center;
+    position: fixed;
+    right: 30px;
+    bottom: 20px;
+    color: #fff !important;
+    z-index: 999;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -webkit-transition: all .3s ease-in-out 0s;
+    -moz-transition: all .3s ease-in-out 0s;
+    transition: all .3s ease-in-out 0s;
+}
+
+.toTopButton:hover {
+    background-color: #555;
+    color: #fff;
+}
+
+.toTopButton:focus{
+    background: #00809d !important;
+}
+.toTopButton:focus-visible{
+    background: #00809d !important;
+}
+
+.toTopButton:visited{
+    background: #00809d !important;
+}
+
+.MuiTypography-caption{
+    font-size: 0.6rem !important;
+}
+
+.fact-card-info-left-div-container{
+    margin-bottom: 5px;
+    width: 95vw;
+    border: 1px solid #dadce0;
+    border-box: box-sizing;
+}
+
+
+.fact-card-gene-disease-right-div-container{
+    margin-bottom: 5px;
+    width: 95vw;
+    border: 1px solid #dadce0;
+    border-box: box-sizing;
+}
+
+
+
+#combo-box-gene, #combo-box-gene-class, #combo-box-disease{
+    padding: 0px;
+    padding-bottom: 0px;
+    padding-bottom: 2px;
+    height: 15px;
+    font-size:0.6rem;
+}
+
+#combo-box-gene-label, #combo-box-gene-class-label, #combo-box-disease-label {
+    font-size: 0.6rem;
+}
+
+.MuiAutocomplete-popper li{
+    font-size: 0.6rem !important;
+}
+
+.seeMoreLess{
+    font-size:0.8rem !important;
+}
+
+.supp-sentences{
+    color: darkgreen !important;
+}
+
+.conflicting-sentences{
+    color: darkred !important;
+}
+
+.geneClass{
+    text-transform: capitalize;
+}
+
+/* Footer */
+.logo-footer{
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 6vh;
+}
+
+.publicationInfoChart{
+    display: flex;
+    justify-content: flex-start;
+    width: auto;
+    max-width: 250px;
+    max-height: 180px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin-left: 0px;
+}
+
+
+
+@media only screen and (min-width: 1100px) {
+
+    .fact-card-info-left-div-container{
+        width: 60vw;
+    }
+
+    .fact-card-gene-disease-right-div-container{
+        width: 30vw;
+    }
+
+    .container-data{
+        max-height: 75vh;
+        min-height: 50vh;
+    }
+
+    .publicationInfoChart{
+        max-width: 500px;
+    }
+
+}
+
+.person-name-link {
+  color: inherit;           /* use your normal text color */
+  text-decoration: none;    /* drop the underline */
+  transition: color 0.2s;
+}
+
+.person-name-link:hover {
+  color: #0056b3;           /* or whatever hover color you like */
+}
+
+.person-name-link:active {
+  color: #003f7f;           /* a darker “clicked” shade */
+}

@@ -1,0 +1,84 @@
+.sidenav {
+    /*height: 1200px;*/
+    width: 18%;
+    z-index: 1000;
+    top: 0;
+    position: absolute;
+    left: 0px;
+    text-align: center;
+    background:   linear-gradient(45deg,#c2c2c2 0,#d2d2d2 80%);
+    padding-top: 20px;
+    overflow-x: hidden;
+    margin-top: 0px !important;
+    /*animation: widthStretch 2s ease-out;*/
+    /*animation-fill-mode: forwards;*/
+}
+.central-logo-login{
+    position: relative;
+    height: 100px;
+}
+
+
+@keyframes widthStretch {
+    from {width:0px;}
+    to {width:270px;}
+}
+@keyframes heightStretch {
+    from {height:0;}
+    to {height:100vh;}
+}
+
+.sidenav > a {
+    padding: 8px 18px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #073B66;
+    display: block;
+    transition: color 200ms, background-color 200ms;
+}
+
+.sidenav > a:hover {
+    color: white;
+    background-color: #073B66;
+}
+
+.logout-btn-sidebar{
+    text-decoration: none;
+}
+
+.logout-btn-sidebar:hover{
+    text-decoration: none !important;
+}
+
+.closeButtonMenu{
+    float:right;
+    border:none;
+    margin-right:8%;
+    background-color: transparent;
+}
+
+.logo-sidebar{
+    width: 10vw;
+}
+
+.logo{
+    height: 5vh;
+    width: auto;
+    max-height: 50px;
+}
+
+@media (max-width: 800px ) {
+    .sidenav {
+        min-width: 130px;
+
+    }
+    .sidebar-username{
+        font-size: 0.6em;
+    }
+
+    .logo-sidebar{
+        width: 100px;
+    }
+
+}
+

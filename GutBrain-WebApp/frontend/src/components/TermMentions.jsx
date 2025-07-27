@@ -1,30 +1,31 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useContext } from "react";
 import { fetchTermMentions } from "../services/graphServices";
 import "./TermMentions.css";
 import ClassDetails from "../pages/ClassDetails";
 import FacetFilter from "../components/FacetFilters";
 import "../pages/PaperDetails.css";
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
-import Select from 'react-select'
 import Fuse from 'fuse.js'
 import AsyncSelect from 'react-select/async'
 import { Chart } from "react-google-charts";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Alert from '@mui/material/Alert';
 import { FaNewspaper } from "react-icons/fa";
 import { FaFileDownload } from "react-icons/fa";
-import { Row } from "react-bootstrap";
+import { Row, Col, Container } from "react-bootstrap";
 import { BASE_URL } from "../App";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import "bootstrap/dist/css/bootstrap.min.css";
+import { AppContext } from "../App";
+import SideBar from "../components/Sidebar";
+import MenuButton from "../menu/MenuButton";
+import SentenceInfoModal from '../modals/SentenceInfoModal';
+import PaperInfoModal from "../modals/PaperInfoModal";
+import JournalInfoModal from "../modals/JournalInfoModal";
+import RelationsModal from "../modals/RelationsModal";
+import ObjectsModal from "../modals/ObjectsModal";
+import MentionInfoModal from "../modals/MentionInfoModal";
 
-import {
-  Dropdown,
-  DropdownButton,
-  FormControl,
-  ButtonGroup,
-} from "react-bootstrap";
 
 export default function TermMentions() {
   const [term, setTerm] = useState("");
@@ -76,7 +77,8 @@ export default function TermMentions() {
   const [visibleCount, setVisibleCount] = useState(5);
   const [publicationChart, setPublicationChart] = useState(null);
   const [showAuthorFilter, setShowAuthorFilter] = useState(false);
-
+  const { _showbar } = useContext(AppContext);
+  const [, setShowBar] = _showbar;
  
   useEffect(() => {
   setVisibleCount(5);
@@ -317,7 +319,6 @@ const loadOptions = (inputValue) => {
   const [open, setOpen] = useState(isOpen);
   const [search,   setSearch]  = useState("");
 
-    // whenever parent changes isOpen, update local open
   useEffect(() => {
    setOpen(isOpen);
  }, [isOpen]);
@@ -525,117 +526,130 @@ useEffect(() => {
 
   return (
     <>
+   <SideBar />
+
       <header className="tm-header">
-  <h2>Gut-Brain KB</h2>
-  <div className="tm-search-bar">
-    <div className="tm-search-left">
-    </div>
-    <div className="tm-search-center">
-    <AsyncSelect
-      className="tm-input"
-      classNamePrefix="tm-input"
-      cacheOptions
-      loadOptions={loadOptions}
-      defaultOptions={false}
-      isClearable
-      placeholder="Type a term (e.g. brain, mouse)…"
-      menuIsOpen={menuIsOpen}
-      onMenuOpen={() => setMenuIsOpen(true)}
-      onMenuClose={() => setMenuIsOpen(false)}
-      inputValue={term}
-      value={
-        selectedOption
-          ? selectedOption
-          : term
-          ? { label: term, value: term }
-          : null
-      }
-      onInputChange={val => setTerm(val)}
-      onChange={(opt, meta) => {
-        if (opt?.value) {
-          setSelectedOption(opt);
-          setTerm(opt.value);
-          handleSearch(opt.value);
-        } else if (meta.action === "clear") {
-          setTerm("");
-          setSelectedOption(null);
-          handleSearch("");
-          setMenuIsOpen(false);
-        }
-      }}
-      onKeyDown={e => {
-        if (e.key === "Enter") {
-          e.preventDefault();
-          handleSearch();
-          setMenuIsOpen(false);
-        }
-      }}
-      styles={{
-        container: (base) => ({
-          ...base,
-          width: '300px'
-        }),
-        control: (base) => ({
-          ...base,
-          width: '300px'
-        }),
-        menu: (base) => ({
-          ...base,
-          width: '300px'
-        })
-      }}
-    />
+      {/* full-width container (no side-gutters) */}
+      <Container fluid className="px-0">
+        {/* 1) Top row: hamburger + logo */}
+        <Row className="align-items-center justify-content-between py-2">
+          <Col xs="auto">
+            <MenuButton />
+          </Col>
+          <Col className="text-center">
+            <img
+              src="/static/img/gb-logo-text.JPEG"
+              alt="Gut-Brain KB"
+              style={{ maxWidth: "200px", width: "100%" }}
+            />
+          </Col>
+          <Col xs="auto">
+            {/* empty, just to balance the justify-content-between */}
+          </Col>
+        </Row>
 
-    <button
-      className="tm-button"
-      onClick={() => {
-        handleSearch();
-        setMenuIsOpen(false);
-      }}
-      disabled={loading}
-    >
-      {loading ? "Searching…" : "Search"}
-    </button>
-    </div>
-    <div className="tm-search-right">
-      <div
-        className="tm-home-icon"
-        onClick={() => {
-          window.location.href = "https://hereditary.dei.unipd.it/ontology/gutbrain/";
-        }}
-        title="Go to Ontology Documentation"
-      >
-        <FaNewspaper />
-      </div>
-      <div className="tm-home-icon-download">
-      <a
-        href="./assets/hero_gutbrain_entities.ttl"
-        download="hero_gutbrain_entities.ttl"
-        className="a-style"
-        title="Download Gut-Brain entities TTL"
-      >
-        <FaFileDownload size={20} />
-      </a>
-      </div>
-   {(selectedPaperId || selectedClassIri) && (
-  <button
-    className="tm-button-back"
-    onClick={() => {
-      navigate(-1);
-      setSelectedPaperId(null);
-      setSelectedPaper(null);
-      setSelectedClassIri(null);
-      setSelectedClassLabel(null);
-    }}
-    style={{ marginRight: "1rem" }}
-  >
-  Back
-  </button>
-)}
+        {/* 2) Second row: centered search bar */}
+        <Row className="justify-content-center mb-4">
+          <Col xs={12} md={8} lg={6}>
+            <div className="tm-search-bar">
+              <div className="tm-search-left" />
+              <div className="tm-search-center d-flex">
+                <AsyncSelect
+                  className="tm-input flex-grow-1"
+                  classNamePrefix="tm-input"
+                  cacheOptions
+                  loadOptions={loadOptions}
+                  defaultOptions={false}
+                  isClearable
+                  placeholder="Type a term (e.g. brain, mouse)…"
+                  menuIsOpen={menuIsOpen}
+                  onMenuOpen={() => setMenuIsOpen(true)}
+                  onMenuClose={() => setMenuIsOpen(false)}
+                  inputValue={term}
+                  value={
+                    selectedOption
+                      ? selectedOption
+                      : term
+                      ? { label: term, value: term }
+                      : null
+                  }
+                  onInputChange={val => setTerm(val)}
+                  onChange={(opt, meta) => {
+                    if (opt?.value) {
+                      setSelectedOption(opt);
+                      setTerm(opt.value);
+                      handleSearch(opt.value);
+                    } else if (meta.action === "clear") {
+                      setTerm("");
+                      setSelectedOption(null);
+                      handleSearch("");
+                      setMenuIsOpen(false);
+                    }
+                  }}
+                  onKeyDown={e => {
+                    if (e.key === "Enter") {
+                      e.preventDefault();
+                      handleSearch();
+                      setMenuIsOpen(false);
+                    }
+                  }}
+                  styles={{
+                    container: base => ({ ...base, width: "300px" }),
+                    control: base => ({ ...base, width: "300px" }),
+                    menu: base => ({ ...base, width: "300px" }),
+                  }}
+                />
 
-  </div>
-  </div>
-</header>
+                <button
+                  className="tm-button ms-2"
+                  onClick={() => {
+                    handleSearch();
+                    setMenuIsOpen(false);
+                  }}
+                  disabled={loading}
+                >
+                  {loading ? "Searching…" : "Search"}
+                </button>
+              </div>
+              <div className="tm-search-right d-flex align-items-center">
+                <div
+                  className="tm-home-icon me-3"
+                  onClick={() => {
+                    window.location.href =
+                      "https://hereditary.dei.unipd.it/ontology/gutbrain/";
+                  }}
+                  title="Go to Ontology Documentation"
+                >
+                  <FaNewspaper />
+                </div>
+                <a
+                  href="./assets/hero_gutbrain_entities.ttl"
+                  download="hero_gutbrain_entities.ttl"
+                  className="tm-home-icon-download"
+                  title="Download Gut-Brain entities TTL"
+                >
+                  <FaFileDownload size={20} />
+                </a>
+                {(selectedPaperId || selectedClassIri) && (
+                  <button
+                    className="tm-button-back ms-3"
+                    onClick={() => {
+                      navigate(-1);
+                      setSelectedPaperId(null);
+                      setSelectedPaper(null);
+                      setSelectedClassIri(null);
+                      setSelectedClassLabel(null);
+                    }}
+                  >
+                    Back
+                  </button>
+                )}
+              </div>
+            </div>
+          </Col>
+        </Row>
+      </Container>
+    </header>
 
 
 
@@ -702,14 +716,15 @@ useEffect(() => {
 </div>
 
   <span className="tm-filter-title">Filter by:</span>
+  
   {/* AUTHOR */}
   <AuthorFilter
-        isOpen={showAuthorFilter}
-        onToggle={() => setShowAuthorFilter(o => !o)}
-        allAuthors={allAuthors}
-        selectedAuthors={filterAuthors}
-        onChange={setFilterAuthors}
-      />
+    isOpen={showAuthorFilter}
+    onToggle={() => setShowAuthorFilter(o => !o)}
+    allAuthors={allAuthors}
+    selectedAuthors={filterAuthors}
+    onChange={setFilterAuthors}
+  />
   
   {/* - Journal - */}
     <FacetFilter
@@ -756,8 +771,8 @@ useEffect(() => {
     }}
   >
     Reset all filters
-  </Button>
-</aside>
+    </Button>
+   </aside>
 
 
 
@@ -1094,228 +1109,47 @@ useEffect(() => {
             </>
           )}
 
-          {/* 1) Relations Modal */}
-          {showRelModal && (
-            <div
-              className="tm-modal-overlay"
-              onClick={() => setShowRelModal(false)}
-            >
-              <div
-                className="tm-modal"
-                onClick={e => e.stopPropagation()}
-              >
-                <button
-                  className="tm-modal-close"
-                  onClick={() => setShowRelModal(false)}
-                >
-                  ×
-                </button>
-                <h3>All Relations for {mentions[0].indname}</h3>
-                <ul className="tm-relations-list">
-                  {relationsList.map(({ prop, label, count }) => (
-                    <li key={prop}>
-                      <strong>{label}</strong> → {count}{" "}
-                      {count === 1 ? "object" : "objects"}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          )}
-
-{/* 2) Objects Modal */}
-{showObjectsModal && (
-  <div
-    className="tm-modal-overlay"
-    onClick={() => setShowObjectsModal(false)}
-  >
-    <div
-      className="tm-modal"
-      onClick={e => e.stopPropagation()}
-    >
-      <button
-        className="tm-modal-close"
-        onClick={() => setShowObjectsModal(false)}
-      >
-        ×
-      </button>
-
-      <div className="tm-table-wrapper">
-        <table className="tm-objects-table">
-          <thead>
-            <tr>
-              <th>Entity Name</th>
-              <th>Property</th>
-              <th>Object Individual</th>
-              <th>Object URI</th>
-            </tr>
-          </thead>
-          <tbody>
-            {objectsList.map((o, idx) => (
-              <tr key={`${o.uri}-${idx}`}>
-                <td>{selectedTermLabel}</td>
-                <td>{selectedPropLabel}</td>
-                <td>
-                  <button
-                    className="tm-link-button"
-                    onClick={() => {
-                      setShowObjectsModal(false);
-                      handleSearch(o.label);
-                    }}
-                  >
-                    {o.label}
-                  </button>
-                </td>
-                <td className="tm-truncate">
-                  <a
-                    href={o.uri}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <code className="code-underline">
-                      {o.uri}
-                    </code>
-                  </a>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-)}
-
-
-{/* 3) Sentence Info Modal */}
-{selected && (
-  <div
-    className="tm-modal-overlay"
-    onClick={() => setSelected(null)}
-  >
-    <div
-      className="tm-modal"
-      onClick={e => e.stopPropagation()}
-    >
-      <button
-        className="tm-modal-close"
-        onClick={() => setSelected(null)}
-      >
-        ×
-      </button>
-      <h3 className="h3-title">Sentence Information</h3>
-      <p className="uri">
-        <code className="code-underline-uri">
-          {selected.sent}
-        </code>
-      </p>
-      <p>
-        <strong>Sentence:</strong> {selected.senttext}
-      </p>
-    </div>
-  </div>
-)}
-
-{selectedTitle && (
-  <div
-    className="tm-modal-overlay"
-    onClick={() => setSelectedTitle(null)}
-  >
-    <div
-      className="tm-modal"
-      onClick={e => e.stopPropagation()}
-    >
-      <button
-        className="tm-modal-close"
-        onClick={() => setSelectedTitle(null)}
-      >
-        ×
-      </button>
-      <h3 className="h3-title">Paper Information</h3>
-      <p className="uri">
-        <code className="code-underline-uri"> {selectedTitle.paper}</code>
-      </p>
-      <p>
-        <strong>Title:</strong> {selectedTitle.titletext}
-      </p>
-      <div className="tm-paper-link">
-          <button
-          className="tm-link-button"
-          onClick={() => {
-          navigate(`/paper/${selectedTitle.paperid}`, { replace: false });
-          setSelectedPaperId(selectedTitle.paperid);
-          loadPaperDetails(selectedTitle.paperid);
-          setSelectedTitle(null)
-          }}
-          >
-          Check Paper Information
-          </button>
-       </div>
-    </div>
-  </div>
-)}
-
-{selectedJournal && (
-  <div
-    className="tm-modal-overlay"
-    onClick={() => setSelectedJournal(null)}
-  >
-    <div
-      className="tm-modal"
-      onClick={e => e.stopPropagation()}
-    >
-      <button
-        className="tm-modal-close"
-        onClick={() => setSelectedJournal(null)}
-      >
-        ×
-      </button>
-      <h3 className="h3-title">Journal Information</h3>
-      <p className="p-style">
-        <strong>Journal Title:</strong> {selectedJournal.journal}
-      </p>
-    </div>
-  </div>
-)}
-
-{selectedMention && (
-  <div
-    className="tm-modal-overlay"
-    onClick={() => setSelectedMention(null)}
-  >
-    <div
-      className="tm-modal"
-      onClick={e => e.stopPropagation()}
-    >
-      <button
-        className="tm-modal-close"
-        onClick={() => setSelectedMention(null)}
-      >
-        ×
-      </button>
-      <h3 className="h3-title">Mention Information</h3>
-
-      <p>
-        The mention{" "}
-        <strong>{selectedMention.mentiontext}</strong>
-        {" has been found in "}
-        {sentenceCount}{" "}
-        {sentenceCount === 1 ? "sentence" : "sentences"}
-        {" from "}
-        {paperCount}{" "}
-        {paperCount === 1 ? "paper." : "papers."}
-      </p>
-    </div>
-    </div>
-  
-       )}
+          <SentenceInfoModal
+            selected={selected}
+            onClose={() => setSelected(null)}
+          />
+          <PaperInfoModal
+            selectedTitle={selectedTitle}
+            onClose={() => setSelectedTitle(null)}
+          />
+          <JournalInfoModal
+            selectedJournal={selectedJournal}
+            onClose={() => setSelectedJournal(null)}
+          />
+          <MentionInfoModal
+            selectedMention={selectedMention}
+            sentenceCount={sentenceCount}
+            paperCount={paperCount}
+            onClose={() => setSelectedMention(null)}
+          />
+          <RelationsModal
+            open={showRelModal}
+            relationsList={relationsList}
+            onClose={() => setShowRelModal(false)}
+            onSelect={(prop, label) =>
+              handlePropClick(prop, label)
+            }
+          />
+          <ObjectsModal
+            open={showObjectsModal}
+            objectsList={objectsList}
+            termLabel={selectedTermLabel}
+            propLabel={selectedPropLabel}
+            onClose={() => setShowObjectsModal(false)}
+            onSelectObject={label => handleSearch(label)}
+          />
         </>
           )}
           </div>
 
+      </div>
+      </div>
 
-      </div>
-      </div>
          <Row>
      <footer className="app-footer">
        <div style={{ textAlign: "center", padding: "1rem 0" }}>
