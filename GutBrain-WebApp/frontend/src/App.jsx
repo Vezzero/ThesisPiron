@@ -37,8 +37,8 @@ export default function App() {
     <SideBar />
       <Routes>
         <Route path="/search" element={<TermMentions />} />
-        <Route path="/class/:className" element={<TermMentions />} />
         <Route path="/paper/:paperId" element={<TermMentions />} />
+        <Route path="/class/:className" element={<TermMentions />} />
         <Route path="/credits" element={<Credits />} />
         <Route path="/about" element={<About />} />
       </Routes>

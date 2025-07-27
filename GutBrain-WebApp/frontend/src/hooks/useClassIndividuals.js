@@ -1,34 +1,26 @@
-// src/hooks/useClassIndividuals.js
-import { useState, useEffect } from "react";
+// hooks/useClassIndividuals.ts
+import { useState, useCallback } from "react";
+import { listClassIndividuals }  from "../services/api";
 
-export default function useClassIndividuals(classIri) {
+export function useClassIndividuals() {
   const [individuals, setIndividuals] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError]     = useState(null);
+  const [loading, setLoading]         = useState(false);
+  const [error, setError]             = useState(null);
 
-  useEffect(() => {
-    if (!classIri) {
-      setIndividuals([]);
-      return;
-    }
-    let cancelled = false;
+  const load = useCallback(async (classIri) => {
     setLoading(true);
-    fetch(`/api/list_class_individuals/?class=${encodeURIComponent(classIri)}`)
-      .then(r => {
-        if (!r.ok) throw new Error(r.statusText);
-        return r.json();
-      })
-      .then(json => {
-        if (!cancelled) setIndividuals(json.individuals);
-      })
-      .catch(err => {
-        if (!cancelled) setError(err);
-      })
-      .finally(() => {
-        if (!cancelled) setLoading(false);
-      });
-    return () => { cancelled = true; };
-  }, [classIri]);
+    setError(null);
+    try {
+      const data = await listClassIndividuals(classIri);
+      setIndividuals(data);
+    } catch (e) {
+      console.error(e);
+      setError(e.message || "Unknown error");
+      setIndividuals([]);
+    } finally {
+      setLoading(false);
+    }
+  }, []);
 
-  return { individuals, loading, error };
+  return { individuals, loading, error, load };
 }

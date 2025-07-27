@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo, useContext } from "react";
 import { fetchTermMentions } from "../services/graphServices";
 import "./TermMentions.css";
 import ClassDetails from "../pages/ClassDetails";
-import FacetFilter from "../components/FacetFilters";
+import FacetFilter from "./FacetFilters";
 import "../pages/PaperDetails.css";
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import Fuse from 'fuse.js'
@@ -17,7 +17,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { AppContext } from "../App";
-import SideBar from "../components/Sidebar";
+import SideBar from "./Sidebar";
 import MenuButton from "../menu/MenuButton";
 import SentenceInfoModal from '../modals/SentenceInfoModal';
 import PaperInfoModal from "../modals/PaperInfoModal";
@@ -25,9 +25,17 @@ import JournalInfoModal from "../modals/JournalInfoModal";
 import RelationsModal from "../modals/RelationsModal";
 import ObjectsModal from "../modals/ObjectsModal";
 import MentionInfoModal from "../modals/MentionInfoModal";
+import AuthorFilter from "./AuthorFilter";
+import useAuthors from "../hooks/useAuthors";
+import usePublicationChart from "../hooks/usePublicationChart";
+import { useClassesWithIndividuals } from "../hooks/useClassesWithIndividuals";
+import { usePaperDetails } from "../hooks/usePaperDetails";
+//import { useClassIndividuals } from "../hooks/useClassIndividuals";
+import { useLockBodyScroll } from "../hooks/useLockBodyScroll";
 
 
 export default function TermMentions() {
+  const { paperId } = useParams();
   const [term, setTerm] = useState("");
   const [mentions, setMentions] = useState([]);
   const [selected, setSelected] = useState(null);
@@ -56,29 +64,24 @@ export default function TermMentions() {
   const [allCollections, setAllCollections] = useState([]);
   const [allYears, setAllYears] = useState([]);
   const [allJournals, setAllJournals] = useState([]);
-  const [allAuthors, setAllAuthors] = useState([]);
+  const [selectedPaperId, setSelectedPaperId] = useState(paperId || null);
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null)
-  const [selectedPaperId,    setSelectedPaperId]    = useState(null);
-  const [selectedPaper,      setSelectedPaper]      = useState(null);
-  const [paperLoading,       setPaperLoading]       = useState(false);
-  const [paperError,         setPaperError]         = useState(null);
   const [selectedClassIri,     setSelectedClassIri]     = useState(null);
   const [selectedClassLabel,   setSelectedClassLabel]   = useState(null);
   const [_classLoading,         setClassLoading]         = useState(false);
   const [classError,           setClassError]           = useState(null);
   const [_classIndividuals,     setClassIndividuals]     = useState([]);
-  const [allClasses, setAllClasses]         = useState([]);
   const [selectedClass, setSelectedClass]   = useState(null);
   const [classInds, setClassInds]           = useState([]);
   const [_selectedPropIri,   setSelectedPropIri]   = useState(null);
   const [selectedPropLabel, setSelectedPropLabel] = useState(null);
   const [selectedTermLabel, setSelectedTermLabel] = useState(null);
   const [visibleCount, setVisibleCount] = useState(5);
-  const [publicationChart, setPublicationChart] = useState(null);
   const [showAuthorFilter, setShowAuthorFilter] = useState(false);
   const { _showbar } = useContext(AppContext);
-  const [, setShowBar] = _showbar;
+  const [, _setShowBar] = _showbar;
+  
  
   useEffect(() => {
   setVisibleCount(5);
@@ -94,6 +97,13 @@ export default function TermMentions() {
   filterCollections,
   term
 ]);
+
+const { authors: allAuthors, error: authorsError } = useAuthors();
+const { chartData: publicationChart, error: pubChartError } = usePublicationChart(term);
+const { classes: allClasses,   loading: classesLoading, error: classesError } = useClassesWithIndividuals();
+const { paper: selectedPaper, loading: paperLoading, error: paperError } = usePaperDetails(selectedPaperId);
+const anyModalOpen = showRelModal || showObjectsModal || !!selected;
+useLockBodyScroll(anyModalOpen);
 
 
  async function loadClassDetails(classIri, classLabel) {
@@ -115,39 +125,6 @@ export default function TermMentions() {
      setClassLoading(false);
    }
  }
-
-async function fetchPublicationChart(term) {
-  const resp = await fetch(
-    `/api/list_publications_per_year/?term=${encodeURIComponent(term)}`
-  );
-  const { chartData } = await resp.json();
-  setPublicationChart(chartData);
-}
-
-
- 
-
-useEffect(() => {
-  (async () => {
-    try {
-      const resp = await fetch("/api/list_authors/");
-      if (!resp.ok) throw new Error(await resp.text());
-      const { authors } = await resp.json();
-      setAllAuthors(authors);
-    } catch (err) {
-      console.error("Could not load authors:", err);
-    }
-  })();
-}, []);
-
-useEffect(() => {
-  fetch("/api/list_classes_with_inds/")
-    .then(r => r.json())
-    .then(data => {
-      setAllClasses(data.classes);
-    })
-    .catch(err => console.error("Failed loading classes:", err));
-}, []);
 
   const ONTOLOGY_URLS = {
   UMLS:      "https://www.nlm.nih.gov/research/umls/index.html",
@@ -192,12 +169,10 @@ const chartData = [
   ])
 ];
 
-  const { paperId } = useParams();
 
   useEffect(() => {
     if (paperId) {
       setSelectedPaperId(paperId);
-      loadPaperDetails(paperId);
     }
   }, [paperId]);
 
@@ -304,146 +279,32 @@ const loadOptions = (inputValue) => {
       fetchResults(corrected);
     }
   });
-  fetchPublicationChart(q)
 };
 
-
- function AuthorFilter({
-   allAuthors,
-   selectedAuthors,
-   onChange,
-   isOpen,
-   onToggle,
- }) {
-  const [showAll, setShowAll] = useState(false);
-  const [open, setOpen] = useState(isOpen);
-  const [search,   setSearch]  = useState("");
-
-  useEffect(() => {
-   setOpen(isOpen);
- }, [isOpen]);
-
-  const filtered = allAuthors
-    .filter(a => a.name.toLowerCase().includes(search.toLowerCase()))
-    .sort((a, b) =>
-    a.name.localeCompare(b.name))
-
-  const toShow = showAll ? filtered : filtered.slice(0,5);
-
-  const toggleOne = name => {
-    if (selectedAuthors.includes(name)) {
-      onChange(selectedAuthors.filter(n => n !== name));
-    } else {
-      onChange([...selectedAuthors, name]);
-    }
-  };
-
-  return (
-    <div className="tm-filter-item author-box">
-      <div
-       className={`tm-filter-header ${open ? "tm-filter-header--active" : ""}`}
-       onClick={onToggle}
-       >
-        <span>Author</span>
-        <button
-          className="tm-filter-toggle"
-        >
-          {open ? "▼" : "►"}
-        </button>
-      </div>
-      {open && (
-      <div className="tm-filter-body">
-        {toShow.map(({ name, count }) => (
-            <label key={name} className="tm-filter-checkbox">
-              <input
-                type="checkbox"
-                checked={selectedAuthors.includes(name)}
-                onChange={() => toggleOne(name)}
-              />
-              {name} ({count})
-          </label>
-        ))}
-
-        {!showAll && filtered.length>5 && (
-          <button
-            className="tm-filter-show-more"
-            onClick={()=>setShowAll(true)}
-          >Show more…</button>
-        )}
-        <input
-          type="text"
-          className="tm-filter-search"
-          placeholder="Search author…"
-          value={search}
-          onChange={e=>setSearch(e.target.value)}
-        />
-      </div>
-      )}
-    </div>
-  );
-}
-
-
-
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const resp = await fetch("/api/list_all_individuals/");
-        const { individuals } = await resp.json();
-        setAllIndividuals(individuals);
-      } catch (err) {
-        console.error("Failed to load all individuals", err);
-      }
-    })();
-  }, []);
-
-  useEffect(() => {
-    const anyModalOpen = showRelModal || showObjectsModal || selected;
-    document.body.style.overflow = anyModalOpen ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [showRelModal, showObjectsModal, selected]);
-
-    const handlePropClick = async (propIri, propLabel) => {
-      try {
-        const seedLabel = mentions[0].indname;
-        const resp = await fetch(
-          `/api/list_property_objects/`
-          + `?term=${encodeURIComponent(seedLabel)}`
-          + `&prop=${encodeURIComponent(propIri)}`
-        );
-        if (!resp.ok) throw new Error(await resp.text());
-        const { objects } = await resp.json();
-        setObjectsList(objects);
-        setShowObjectsModal(true);
-        setSelectedPropIri(propIri);
-        setSelectedPropLabel(propLabel);
-        setSelectedTermLabel(seedLabel);
-        
-      } catch (e) {
-        setError("Failed loading objects: " + e.message);
-      }
-};
-
-async function loadPaperDetails(paperId) {
-  setPaperLoading(true);
-  setPaperError(null);
+  const handlePropClick = async (propIri, propLabel) => {
   try {
+    const seedLabel = mentions[0].indname;
+
     const resp = await fetch(
-      `/api/paper_details/?paperId=${encodeURIComponent(paperId)}`
+      `/api/list_property_objects/`
+      + `?term=${encodeURIComponent(seedLabel)}`
+      + `&prop=${encodeURIComponent(propIri)}`
     );
     if (!resp.ok) throw new Error(await resp.text());
-    const { paper } = await resp.json();
-    setSelectedPaper(paper);
+    const { objects } = await resp.json();
+
+    setObjectsList(objects);
+    setSelectedTermLabel(seedLabel);
+    setSelectedPropIri(propIri);
+    setSelectedPropLabel(propLabel);
+
+    setShowObjectsModal(true);
+
   } catch (e) {
-    setPaperError(e.message);
-    setSelectedPaper(null);
-  } finally {
-    setPaperLoading(false);
+    setError("Failed loading objects: " + e.message);
   }
-}
+};
+
 
 
   const filteredMentions = mentions.filter(m => {
@@ -636,7 +497,7 @@ useEffect(() => {
                     onClick={() => {
                       navigate(-1);
                       setSelectedPaperId(null);
-                      setSelectedPaper(null);
+                      //setSelectedPaper(null);
                       setSelectedClassIri(null);
                       setSelectedClassLabel(null);
                     }}
@@ -1004,10 +865,15 @@ useEffect(() => {
                         height="150px"
                       />
                       )}
-                      {!publicationChart && (
+                      {!publicationChart && !pubChartError && (
                             <div style={{ fontSize: '0.8rem', textAlign: 'left' }}>
                               <Alert severity="info">No publications found for this term.</Alert>
                             </div>
+                      )}
+                      {pubChartError && (
+                       <Alert severity="error">
+                           Error loading publication chart: {pubChartError.message}
+                       </Alert>
                       )}
 
                 </div>

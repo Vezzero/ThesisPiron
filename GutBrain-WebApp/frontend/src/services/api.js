@@ -42,7 +42,8 @@ export async function listPublicationsPerYear(term) {
     `/api/list_publications_per_year/?term=${encodeURIComponent(term)}`
   );
   if (!resp.ok) throw new Error(await resp.text());
-  return resp.json().then(json => json.chartData);
+  const { chartData } = await resp.json();
+  return chartData;
 }
 
 export async function listPropertyObjects(term, prop) {

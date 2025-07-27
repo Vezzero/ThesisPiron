@@ -3,12 +3,17 @@ import { listAuthors } from "../services/api";
 
 export default function useAuthors() {
   const [authors, setAuthors] = useState([]);
+  const [error, setError]   = useState(null);
+
   useEffect(() => {
-    let cancelled = false;
     listAuthors()
-      .then(a => { if (!cancelled) setAuthors(a); })
-      .catch(console.error);
-    return () => { cancelled = true; };
+      .then(a => setAuthors(a))
+      .catch(err => {
+        console.error("Could not load authors:", err);
+        setError(err);
+      });
   }, []);
-  return authors;
+
+  return { authors, error };
 }
+
