@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from "react";
 import Accordion from "react-bootstrap/Accordion";
+import '../components/LandingPage.css';
 
 export default function FacetFilter({
   title,
@@ -7,10 +8,10 @@ export default function FacetFilter({
   selectedItems,
   onChange,
 }) {
-  const [showAll, setShowAll] = useState(false);
-  const [search, setSearch] = useState("");
 
-  // filter & sort
+  const [search, setSearch] = useState("");
+  const [visibleCount, setVisibleCount] = useState(5);
+
   const filtered = useMemo(
     () =>
       items
@@ -18,7 +19,7 @@ export default function FacetFilter({
         .sort((a, b) => a.name.localeCompare(b.name)),
     [items, search]
   );
-  const toShow = showAll ? filtered : filtered.slice(0, 5);
+  const toShow = filtered.slice(0, visibleCount);
 
   const toggleOne = name =>
     selectedItems.includes(name)
@@ -42,10 +43,10 @@ export default function FacetFilter({
               </label>
             ))}
 
-            {!showAll && filtered.length > 5 && (
+            {visibleCount < filtered.length && (
               <button
                 className="tm-filter-show-more"
-                onClick={() => setShowAll(true)}
+                onClick={() => setVisibleCount(c => c + 5)}
               >
                 Show more…
               </button>

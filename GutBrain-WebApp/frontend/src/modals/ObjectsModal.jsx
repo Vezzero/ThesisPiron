@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { BASE_URL } from "../App";
 
 export default function ObjectsModal({ open, objectsList, termLabel, propLabel, onClose, onSelectObject }) {
   if (!open) return null;
@@ -22,12 +24,15 @@ export default function ObjectsModal({ open, objectsList, termLabel, propLabel, 
                   <td>{termLabel}</td>
                   <td>{propLabel}</td>
                   <td>
-                    <button
-                      className="tm-link-button"
-                      onClick={() => { onSelectObject(o.label); onClose(); }}
+                    <Link
+                    to={`${BASE_URL}/search?term=${encodeURIComponent(o.label)}`}
+                    className="tm-link-button"
+                    title={`Search for ${o.label}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     >
-                      {o.label}
-                    </button>
+                    {o.label}
+                    </Link>
                   </td>
                   <td className="tm-truncate">
                     <a href={o.uri} target="_blank" rel="noopener noreferrer">

@@ -110,11 +110,11 @@ export default function ClassDetails({
       <strong>Class description:</strong>{" "}
       <span className="cd-class-comment">
         {individuals[0]?.comment || (
-                            <p style={{
-                            'font-size': '0.8rem',
-                            'text-align': 'left'
-                             }}><Alert severity="info">No Description to Display.</Alert></p>
-                          )}
+        <p style={{
+        'font-size': '0.8rem',
+        'text-align': 'left'
+        }}><Alert severity="info">No Description to Display.</Alert></p>
+        )}
       </span>
     </p>
   </div>

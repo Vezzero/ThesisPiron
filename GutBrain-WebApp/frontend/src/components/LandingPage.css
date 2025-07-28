@@ -884,3 +884,10 @@ input {
   top: 1rem;
   left: 1rem;
 }
+
+/* Override button bootstrap */
+.accordion-button {
+  padding: 0.5rem 0.5rem !important;
+  font-size: 0.9rem !important;
+  line-height: 1.3 !important;
+}
