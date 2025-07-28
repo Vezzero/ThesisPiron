@@ -988,12 +988,11 @@ useEffect(() => {
                 </table>
                 {visibleCount < filteredMentions.length && (
                 <div style={{ textAlign: 'center', margin: '1rem 0' }}>
-                  <button
-                    className="tm-button"
-                    onClick={() => setVisibleCount(c => c + 5)}
-                  >
+                  
+                  <Button variant="outline-dark" 
+                       onClick={() => setVisibleCount(c => c + 5)}>
                     Load more…
-                  </button>
+                  </Button>
                 </div>
                 )}
 

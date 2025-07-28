@@ -323,7 +323,7 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                       skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/Gene> ;
                                                       gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/3f6917215073d6fd> ;
                                                       dcterms:creator "Samuel Piron" ;
-                                                      rdfs:comment "Nycol_K01667 is a protein-coding gene that encodes a protein involved in the regulation of cell growth and differentiation, specifically in the context of cancer development and progression. [Definition Source: llama3-8b-8192]" ;
+                                                      rdfs:comment "Nycol K01667 is a protein-coding gene that encodes a protein involved in the regulation of cell growth and differentiation, specifically in the context of cancer development and progression. [Definition Source: llama3-8b-8192]" ;
                                                       rdfs:label "Nycol K01667" .
 
 

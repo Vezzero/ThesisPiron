@@ -8,6 +8,8 @@ import { BASE_URL} from "../App";
 import "../components/LandingPage.css";
 import "../modals/DefinitionInfoModal.jsx";
 import DefinitionInfoModal from "../modals/DefinitionInfoModal.jsx";
+import Button from 'react-bootstrap/Button';
+import Table from 'react-bootstrap/Table';
 
 
 export default function ClassDetails({
@@ -237,12 +239,10 @@ export default function ClassDetails({
         </table>
         {visibleCount < filteredIndividuals.length && (
                 <div style={{ textAlign: 'center', margin: '1rem 0' }}>
-                  <button
-                    className="tm-button"
-                    onClick={() => setVisibleCount(c => c + 5)}
-                  >
+                  <Button variant="outline-dark"
+                    onClick={() => setVisibleCount(c => c + 5)}>
                     Load more…
-                  </button>
+                  </Button>
                 </div>
                 )}
 
