@@ -2,7 +2,7 @@ import React, { createContext, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ClassDetails   from "./pages/ClassDetails";
 import PaperDetails from "./pages/PaperDetails";
-import TermMentions from "./components/TermMentions";
+import LandingPage from "./components/LandingPage.jsx";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Credits } from './credits/Credit';
 import { About } from './components/About';
@@ -36,9 +36,9 @@ export default function App() {
     <BrowserRouter>
     <SideBar />
       <Routes>
-        <Route path="/search" element={<TermMentions />} />
-        <Route path="/paper/:paperId" element={<TermMentions />} />
-        <Route path="/class/:className" element={<TermMentions />} />
+        <Route path="/search" element={<LandingPage />} />
+        <Route path="/paper/:paperId" element={<LandingPage />} />
+        <Route path="/class/:className" element={<LandingPage />} />
         <Route path="/credits" element={<Credits />} />
         <Route path="/about" element={<About />} />
       </Routes>

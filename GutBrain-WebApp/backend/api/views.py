@@ -276,6 +276,7 @@ SELECT
   ?seed
   ?lbl
   ?classComment
+  ?indComment
   (COUNT(DISTINCT ?p) AS ?count)
 WHERE {{
   ?p a gutprop:Paper ;
@@ -294,8 +295,9 @@ WHERE {{
 
         <{class_iri}> rdfs:label ?classLabel ;
                     rdfs:comment ?classComment .
+      OPTIONAL {{ ?seed rdfs:comment ?indComment . }}
 }}
-GROUP BY ?seed ?lbl ?classComment
+GROUP BY ?seed ?lbl ?classComment ?indComment
 ORDER BY ?lbl
 """
 
@@ -311,15 +313,32 @@ ORDER BY ?lbl
         label = b.get("lbl", {}).get("value") or uri.rsplit("/", 1)[-1]
         label_count = b.get("count", {}).get("value", "1")
         comment = b.get("classComment", {}).get("value", "")
+        indComment = b.get("indComment", {}).get("value", "")
+        m_def = re.search(r"^(.*?\[Definition Source:[^\]]+\])", indComment)
+        if m_def:
+            definition = m_def.group(1).strip()
+        else:
+            definition = ""
 
         individuals.append({
             "uri":   uri,
             "label": label,
             "count": int(label_count),
             "comment": comment,
+            "definition": definition,
         })
 
-    return JsonResponse({"individuals": individuals})
+        merged = {}
+        for m in individuals:
+            key = (m["uri"], m["label"])
+            if key not in merged:
+                merged[key] = m.copy()
+            else:
+                entry = merged[key]
+                if m["definition"] and not entry["definition"]:
+                    entry["definition"] = m["definition"]
+
+    return JsonResponse({"individuals": list(merged.values())})
 
 
 @require_http_methods(["GET"])
@@ -584,7 +603,7 @@ WHERE {
 
   # Restrict to only those 13 classes
   VALUES ?cls {
-    gutprop:AnatomicalSite
+    bt:AnatomicalSite
     gutprop:Animal
     gutprop:BiomedicalTechnique
     gutprop:Chemical
@@ -593,6 +612,7 @@ WHERE {
     gutprop:Drug
     gutprop:Family
     gutprop:Food
+    gutprop:Species
     bt:Gene
     gutprop:Human
     gutprop:Mention
@@ -620,7 +640,6 @@ GROUP BY
 ORDER BY
   ASC(?clsLabel)
   ASC(?indLabel)
-
 """
     try:
         results = run_sparql_query(sparql)

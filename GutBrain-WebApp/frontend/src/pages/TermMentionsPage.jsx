@@ -1,11 +1,11 @@
 import React from 'react';
 import { SearchProvider } from '../contexts/SearchContext';
-import TermMentions from '../components/TermMentions';
+import LandingPage from '../components/LandingPage';
 
 export default function TermMentionsPage() {
   return (
     <SearchProvider>
-      <TermMentions />
+      <LandingPage />
     </SearchProvider>
   );
 }

@@ -18,7 +18,7 @@ html, body {
 .tm-button { padding: 0px 12px; font-size: 0.9rem; margin: 5px; }
 .tm-error { color: rgb(0, 0, 0); margin-bottom: 1rem; }
 .tm-header p { margin: 0.5rem 0; }
-.tm-table-wrapper { overflow-x: auto; max-height: 250px; flex: 1; margin-top: 1rem; }
+.tm-table-wrapper { overflow-x: auto; max-height: 250px; flex: 1; margin-top: 1rem; margin-bottom: 2rem; }
 .tm-table { width: 100%; border-collapse: collapse; }
 .tm-table th, .tm-table td { border: 1px solid #ccc; text-align: left; }
 .tm-table th { background: #f0f0f0; }

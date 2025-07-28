@@ -28113,7 +28113,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                           gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/c298609a09af2b6d> ,
                                                                                                               <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/8bd7f9410ae6c376> ;
                                                                                           dcterms:creator "Samuel Piron" ;
-                                                                                          rdfs:comment "Urease_accessory_proteins_uree refers to proteins that assist in the enzymatic breakdown of urea into carbon dioxide and ammonia, catalyzed by urease. [Definition Source: llama3-8b-8192]" ;
+                                                                                          rdfs:comment "Urease accessory proteins uree refers to proteins that assist in the enzymatic breakdown of urea into carbon dioxide and ammonia, catalyzed by urease. [Definition Source: llama3-8b-8192]" ;
                                                                                           rdfs:label "Urease Accessory Proteins Uree" .
 
 
@@ -28124,7 +28124,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                       skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/Human> ;
                                                                                       gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/f21436ce402acf91> ;
                                                                                       dcterms:creator "Samuel Piron" ;
-                                                                                      rdfs:comment "Adenocarcinoma_patients refers to individuals diagnosed with adenocarcinoma, a type of cancer that originates in glandular cells and typically affects organs such as the lungs, breast, pancreas, or colon. [Definition Source: llama3-8b-8192]" ;
+                                                                                      rdfs:comment "Adenocarcinoma patients refers to individuals diagnosed with adenocarcinoma, a type of cancer that originates in glandular cells and typically affects organs such as the lungs, breast, pancreas, or colon. [Definition Source: llama3-8b-8192]" ;
                                                                                       rdfs:label "Adenocarcinoma Patients" .
 
 
@@ -28135,7 +28135,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                            skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/Human> ;
                                                                                            gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/da794a22d48f9947> ;
                                                                                            dcterms:creator "Samuel Piron" ;
-                                                                                           rdfs:comment "Alcohol_overconsumption_group refers to a group of individuals who exhibit excessive and harmful patterns of alcohol consumption, often characterized by binge drinking, frequent intoxication, and negative consequences on their physical and mental health. [Definition Source: llama3-8b-8192]" ;
+                                                                                           rdfs:comment "Alcohol overconsumption group refers to a group of individuals who exhibit excessive and harmful patterns of alcohol consumption, often characterized by binge drinking, frequent intoxication, and negative consequences on their physical and mental health. [Definition Source: llama3-8b-8192]" ;
                                                                                            rdfs:label "Alcohol Overconsumption Group" .
 
 
@@ -28146,7 +28146,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                         skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/Human> ;
                                                                                         gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/d298f87faf216411> ;
                                                                                         dcterms:creator "Samuel Piron" ;
-                                                                                        rdfs:comment "Alzheimer_disease_patients refers to individuals who have been diagnosed with Alzheimer's disease, a progressive neurological disorder characterized by memory loss, cognitive decline, and brain degeneration. [Definition Source: llama3-8b-8192]" ;
+                                                                                        rdfs:comment "Alzheimer disease patients refers to individuals who have been diagnosed with Alzheimer's disease, a progressive neurological disorder characterized by memory loss, cognitive decline, and brain degeneration. [Definition Source: llama3-8b-8192]" ;
                                                                                         rdfs:label "Alzheimer Disease Patients" .
 
 
@@ -28158,7 +28158,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                            gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/ca0f8e541ceddbc7> ,
                                                                                                <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/8428cacba1330256> ;
                                                                            dcterms:creator "Samuel Piron" ;
-                                                                           rdfs:comment "\"asd_patients\" refers to individuals diagnosed with Autism Spectrum Disorder (ASD), a neurodevelopmental disorder characterized by difficulties in social interaction and communication, and repetitive behaviors. [Definition Source: llama3-8b-8192]" ;
+                                                                           rdfs:comment "Asd patients refers to individuals diagnosed with Autism Spectrum Disorder (ASD), a neurodevelopmental disorder characterized by difficulties in social interaction and communication, and repetitive behaviors. [Definition Source: llama3-8b-8192]" ;
                                                                            rdfs:label "Asd Patients" .
 
 
@@ -28170,7 +28170,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/a0751fed90a3be13> ,
                                                                                                    <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/16208058f59b20bd> ;
                                                                                dcterms:creator "Samuel Piron" ;
-                                                                               rdfs:comment "Bipolar_patients refers to individuals diagnosed with bipolar disorder, a mental health condition characterized by recurring episodes of mania or hypomania and depression. [Definition Source: llama3-8b-8192]" ;
+                                                                               rdfs:comment "Bipolar patients refers to individuals diagnosed with bipolar disorder, a mental health condition characterized by recurring episodes of mania or hypomania and depression. [Definition Source: llama3-8b-8192]" ;
                                                                                rdfs:label "Bipolar Patients" .
 
 
@@ -28183,7 +28183,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                                                <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/29c4ed0669f35a85> ,
                                                                                                                <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/998f22b3143496f3> ;
                                                                                            dcterms:creator "Samuel Piron" ;
-                                                                                           rdfs:comment "The \"chronic_restraint_stress_group\" refers to a group of animals subjected to chronic restraint stress, a type of experimental stress model used to study the effects of prolonged stress on physiological and behavioral responses. [Definition Source: llama3-8b-8192]" ;
+                                                                                           rdfs:comment "It refers to a group of animals subjected to chronic restraint stress, a type of experimental stress model used to study the effects of prolonged stress on physiological and behavioral responses. [Definition Source: llama3-8b-8192]" ;
                                                                                            rdfs:label "Chronic Restraint Stress Group" .
 
 
@@ -28194,7 +28194,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                            skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/Human> ;
                                                                            gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/60ed501533683fa0> ;
                                                                            dcterms:creator "Samuel Piron" ;
-                                                                           rdfs:comment "\"Crew_members\" refers to individuals who are part of a team or group responsible for operating, maintaining, or supporting a vehicle, aircraft, spacecraft, or other complex system. [Definition Source: llama3-8b-8192]" ;
+                                                                           rdfs:comment "Crew members refers to individuals who are part of a team or group responsible for operating, maintaining, or supporting a vehicle, aircraft, spacecraft, or other complex system. [Definition Source: llama3-8b-8192]" ;
                                                                            rdfs:label "Crew Members" .
 
 
@@ -28211,7 +28211,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                                      <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/50a1395a7010a57c> ,
                                                                                                      <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/57bcb01af490af85> ;
                                                                                  dcterms:creator "Samuel Piron" ;
-                                                                                 rdfs:comment "\"Depressed patients\" refers to individuals who are diagnosed with a major depressive disorder, characterized by persistent feelings of sadness, hopelessness, and a lack of interest in activities they once enjoyed. [Definition Source: llama3-8b-8192]" ;
+                                                                                 rdfs:comment "Depressed patients refers to individuals who are diagnosed with a major depressive disorder, characterized by persistent feelings of sadness, hopelessness, and a lack of interest in activities they once enjoyed. [Definition Source: llama3-8b-8192]" ;
                                                                                  rdfs:label "Depressed Patients" .
 
 
@@ -28233,7 +28233,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                  skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/Human> ;
                                                                                  gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/b6fed1b4b83eb5f3> ;
                                                                                  dcterms:creator "Samuel Piron" ;
-                                                                                 rdfs:comment "Epileptic_patients refers to individuals who have been diagnosed with epilepsy, a neurological disorder characterized by recurrent seizures. [Definition Source: llama3-8b-8192]" ;
+                                                                                 rdfs:comment "Epileptic patients refers to individuals who have been diagnosed with epilepsy, a neurological disorder characterized by recurrent seizures. [Definition Source: llama3-8b-8192]" ;
                                                                                  rdfs:label "Epileptic Patients" .
 
 
@@ -28264,7 +28264,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                             <https://uts.nlm.nih.gov/uts/umls/concept/C1519305> ,
                                                                                             <https://w3id.org/hereditary/ontology/gutbrain/resource/biomedicaltechnique/MicrobialConcentration> ;
                                                                              dcterms:creator "Samuel Piron" ;
-                                                                             rdfs:comment "Human_subjects refers to individuals of the species Homo sapiens, typically used as participants in biomedical research studies or clinical trials. [Definition Source: llama3-8b-8192]" ;
+                                                                             rdfs:comment "Human subjects refers to individuals of the species Homo sapiens, typically used as participants in biomedical research studies or clinical trials. [Definition Source: llama3-8b-8192]" ;
                                                                              rdfs:label "Human Subjects" .
 
 
@@ -28290,7 +28290,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                                 <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/4101e53e1578ac60> ,
                                                                                                 <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/8ce241a721a59ac0> ;
                                                                             dcterms:creator "Samuel Piron" ;
-                                                                            rdfs:comment "\"Ibs-d_patients\" refers to individuals diagnosed with Irritable Bowel Syndrome with Diarrhea (IBS-D), a functional gastrointestinal disorder characterized by recurring abdominal pain, bloating, and frequent bowel movements. [Definition Source: llama3-8b-8192]" ;
+                                                                            rdfs:comment "Ibs-d patients refers to individuals diagnosed with Irritable Bowel Syndrome with Diarrhea (IBS-D), a functional gastrointestinal disorder characterized by recurring abdominal pain, bloating, and frequent bowel movements. [Definition Source: llama3-8b-8192]" ;
                                                                             rdfs:label "Ibs-D Patients" .
 
 
@@ -28313,7 +28313,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                       skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/Human> ;
                                                                                       gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/689e8c60ce63d9f1> ;
                                                                                       dcterms:creator "Samuel Piron" ;
-                                                                                      rdfs:comment "\"Liver cirrhosis patients\" refers to individuals who have a chronic liver disease characterized by fibrosis and nodular regeneration, leading to impaired liver function and potential complications. [Definition Source: llama3-8b-8192]" ;
+                                                                                      rdfs:comment "Liver cirrhosis patients refers to individuals who have a chronic liver disease characterized by fibrosis and nodular regeneration, leading to impaired liver function and potential complications. [Definition Source: llama3-8b-8192]" ;
                                                                                       rdfs:label "Liver Cirrhosis Patients" .
 
 
@@ -28328,7 +28328,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                                                    <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/82aeda60068d9f9d> ;
                                                                                                gutprop:usedBy <http://edamontology.org/topic_3837> ;
                                                                                                dcterms:creator "Samuel Piron" ;
-                                                                                               rdfs:comment "\"Major depressive disorder patients\" refers to individuals who have been diagnosed with a severe and persistent form of depression, characterized by symptoms such as persistent feelings of sadness, hopelessness, and loss of interest in activities, among others. [Definition Source: llama3-8b-8192]" ;
+                                                                                               rdfs:comment "Major depressive disorder patients refers to individuals who have been diagnosed with a severe and persistent form of depression, characterized by symptoms such as persistent feelings of sadness, hopelessness, and loss of interest in activities, among others. [Definition Source: llama3-8b-8192]" ;
                                                                                                rdfs:label "Major Depressive Disorder Patients" .
 
 
@@ -28339,7 +28339,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                          skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/Human> ;
                                                                                          gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/c07367540215e722> ;
                                                                                          dcterms:creator "Samuel Piron" ;
-                                                                                         rdfs:comment "Multiple_sclerosis_patients refers to individuals diagnosed with multiple sclerosis, a chronic and often disabling autoimmune disease that affects the central nervous system. [Definition Source: llama3-8b-8192]" ;
+                                                                                         rdfs:comment "Multiple sclerosis patients refers to individuals diagnosed with multiple sclerosis, a chronic and often disabling autoimmune disease that affects the central nervous system. [Definition Source: llama3-8b-8192]" ;
                                                                                          rdfs:label "Multiple Sclerosis Patients" .
 
 
@@ -28350,7 +28350,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                   skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/Human> ;
                                                                                   gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/705aa2cb983b3010> ;
                                                                                   dcterms:creator "Samuel Piron" ;
-                                                                                  rdfs:comment "Non-smoking_patients refers to individuals who have never smoked or have quit smoking and do not currently use tobacco products. [Definition Source: llama3-8b-8192]" ;
+                                                                                  rdfs:comment "Non-smoking patients refers to individuals who have never smoked or have quit smoking and do not currently use tobacco products. [Definition Source: llama3-8b-8192]" ;
                                                                                   rdfs:label "Non-Smoking Patients" .
 
 
@@ -28361,7 +28361,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/Human> ;
                                                                                gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/a0b0c0e25d7b76d8> ;
                                                                                dcterms:creator "Samuel Piron" ;
-                                                                               rdfs:comment "\"Obese_westerners\" refers to individuals from Western societies who have a body mass index (BMI) of 30 or higher, indicating a state of obesity. [Definition Source: llama3-8b-8192]" ;
+                                                                               rdfs:comment "Obese westerners refers to individuals from Western societies who have a body mass index (BMI) of 30 or higher, indicating a state of obesity. [Definition Source: llama3-8b-8192]" ;
                                                                                rdfs:label "Obese Westerners" .
 
 
@@ -28390,7 +28390,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                                        <https://w3id.org/hereditary/ontology/gutbrain/resource/biomedicaltechnique/MicrobialConcentration> ,
                                                                                                        <https://w3id.org/hereditary/ontology/gutbrain/resource/biomedicaltechnique/16sRrnaSequencing> ;
                                                                                         dcterms:creator "Samuel Piron" ;
-                                                                                        rdfs:comment "Parkinson_disease_patients refers to individuals diagnosed with Parkinson's disease, a neurodegenerative disorder characterized by motor symptoms such as tremors, rigidity, and bradykinesia. [Definition Source: llama3-8b-8192]" ;
+                                                                                        rdfs:comment "Parkinson disease patients refers to individuals diagnosed with Parkinson's disease, a neurodegenerative disorder characterized by motor symptoms such as tremors, rigidity, and bradykinesia. [Definition Source: llama3-8b-8192]" ;
                                                                                         rdfs:label "Parkinson Disease Patients" .
 
 
@@ -28413,7 +28413,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                                         <https://uts.nlm.nih.gov/uts/umls/concept/C4763419> ,
                                                                                                         <https://w3id.org/hereditary/ontology/gutbrain/resource/biomedicaltechnique/16sRrnaSequencing> ;
                                                                                          dcterms:creator "Samuel Piron" ;
-                                                                                         rdfs:comment "Patients_with_schizophrenia refers to individuals diagnosed with schizophrenia, a chronic and severe mental disorder characterized by hallucinations, delusions, and disorganized thinking and behavior. [Definition Source: llama3-8b-8192]" ;
+                                                                                         rdfs:comment "Patients with schizophrenia refers to individuals diagnosed with schizophrenia, a chronic and severe mental disorder characterized by hallucinations, delusions, and disorganized thinking and behavior. [Definition Source: llama3-8b-8192]" ;
                                                                                          rdfs:label "Patients With Schizophrenia" .
 
 

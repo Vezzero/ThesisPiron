@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo, useContext } from "react";
 import { fetchTermMentions } from "../services/graphServices";
-import "./TermMentions.css";
+import "./LandingPage.css";
 import ClassDetails from "../pages/ClassDetails";
 import FacetFilter from "./FacetFilters";
 import "../pages/PaperDetails.css";
@@ -34,7 +34,7 @@ import { usePaperDetails } from "../hooks/usePaperDetails";
 import { useLockBodyScroll } from "../hooks/useLockBodyScroll";
 
 
-export default function TermMentions() {
+export default function LandingPage() {
   const { paperId } = useParams();
   const [term, setTerm] = useState("");
   const [mentions, setMentions] = useState([]);
@@ -125,6 +125,16 @@ useLockBodyScroll(anyModalOpen);
      setClassLoading(false);
    }
  }
+
+ useEffect(() => {
+  async function loadAllIndividuals() {
+    const resp = await fetch("/api/list_all_individuals");
+    if (!resp.ok) throw new Error(await resp.text());
+    const { individuals } = await resp.json();
+    setAllIndividuals(individuals);
+  }
+  loadAllIndividuals().catch(console.error);
+}, []);
 
   const ONTOLOGY_URLS = {
   UMLS:      "https://www.nlm.nih.gov/research/umls/index.html",
@@ -388,7 +398,6 @@ useEffect(() => {
   return (
     <>
    <SideBar />
-
       <header className="tm-header">
       {/* full-width container (no side-gutters) */}
       <Container fluid className="px-0">
@@ -405,7 +414,6 @@ useEffect(() => {
             />
           </Col>
           <Col xs="auto">
-            {/* empty, just to balance the justify-content-between */}
           </Col>
         </Row>
 
@@ -865,17 +873,11 @@ useEffect(() => {
                         height="150px"
                       />
                       )}
-                      {!publicationChart && !pubChartError && (
+                      {!publicationChart && (
                             <div style={{ fontSize: '0.8rem', textAlign: 'left' }}>
                               <Alert severity="info">No publications found for this term.</Alert>
                             </div>
                       )}
-                      {pubChartError && (
-                       <Alert severity="error">
-                           Error loading publication chart: {pubChartError.message}
-                       </Alert>
-                      )}
-
                 </div>
               </div>
 
@@ -993,7 +995,7 @@ useEffect(() => {
                     Load more…
                   </button>
                 </div>
-)}
+                )}
 
               </div>
             </>
@@ -1003,6 +1005,7 @@ useEffect(() => {
             selected={selected}
             onClose={() => setSelected(null)}
           />
+
           <PaperInfoModal
             selectedTitle={selectedTitle}
             onClose={() => setSelectedTitle(null)}

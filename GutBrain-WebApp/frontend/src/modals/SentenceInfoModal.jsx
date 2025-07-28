@@ -1,4 +1,3 @@
-// src/components/SentenceInfoModal.jsx
 import React from 'react';
 
 export default function SentenceInfoModal({ selected, onClose }) {

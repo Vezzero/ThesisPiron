@@ -6,7 +6,6 @@ export default function ObjectsModal({ open, objectsList, termLabel, propLabel, 
     <div className="tm-modal-overlay" onClick={onClose}>
       <div className="tm-modal" onClick={e => e.stopPropagation()}>
         <button className="tm-modal-close" onClick={onClose}>×</button>
-        <h3>Objects for {termLabel} → {propLabel}</h3>
         <div className="tm-table-wrapper">
           <table className="tm-objects-table">
             <thead>
