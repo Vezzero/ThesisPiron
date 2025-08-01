@@ -134,6 +134,8 @@ export default function ClassDetails({
         legend: { position: "right", textStyle: { fontSize: 12 } },
         pieSliceText: "value",
         chartArea: { width: "100%", height: "100%" },
+        pieHole: 0.4,
+        is3D: false
       }}
       width="100%"
       height="250px"

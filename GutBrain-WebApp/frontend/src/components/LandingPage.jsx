@@ -1048,21 +1048,21 @@ useEffect(() => {
          <a href="https://www.unipd.it/" target="_blank" rel="noopener noreferrer">
            <img
              className="logo-footer"
-             src={BASE_URL + "/static/images/unipd-logo.png"}
+             src="/assets/unipd-logo.png"
              alt="UniPD"
            />
          </a>
          <a href="https://www.dei.unipd.it/" target="_blank" rel="noopener noreferrer">
            <img
              className="logo-footer"
-             src={BASE_URL + "/static/images/dei-logo_white.png"}
+             src="/assets/dei-logo_white.png"
              alt="DEI"
            />
          </a>
          <a href="https://iiia.dei.unipd.it/" target="_blank" rel="noopener noreferrer">
            <img
              className="logo-footer"
-             src={BASE_URL + "/static/images/iiia-logo.png"}
+             src="/assets/iiia-logo.png"
             alt="IIIA"
            />
          </a>

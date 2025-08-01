@@ -311,8 +311,8 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                          <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/11b43464a0196087> ,
                                                          <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/11dccc04868b8707> ,
                                                          <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/52c4e1a2cee8b940> ;
-                                     dcterms:creator "Samuel Piron" ;
-                                     rdfs:comment "Shotgun metagenomic sequencing is a high-throughput DNA sequencing technique that involves randomly fragmenting and reassembling the genetic material from a microbial community to reconstruct its genomic content. [Definition Source: llama3-8b-8192]" ;
+                                     rdfs:comment "EDAM Match" ,
+                                                  "Shotgun metagenomic sequencing is a high-throughput DNA sequencing technique that involves randomly fragmenting and reassembling the genetic material from a microbial community to reconstruct its genomic content. [Definition Source: llama3-8b-8192]" ;
                                      rdfs:label "Shotgun Metagenomic Sequencing" .
 
 
@@ -322,8 +322,8 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                                <https://w3id.org/brainteaser/ontology/schema/Gene> ;
                                                       skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/Gene> ;
                                                       gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/3f6917215073d6fd> ;
-                                                      dcterms:creator "Samuel Piron" ;
-                                                      rdfs:comment "Nycol K01667 is a protein-coding gene that encodes a protein involved in the regulation of cell growth and differentiation, specifically in the context of cancer development and progression. [Definition Source: llama3-8b-8192]" ;
+                                                      rdfs:comment "Nycol K01667 is a protein-coding gene that encodes a protein involved in the regulation of cell growth and differentiation, specifically in the context of cancer development and progression. [Definition Source: llama3-8b-8192]" ,
+                                                                   "PRGdb Match" ;
                                                       rdfs:label "Nycol K01667" .
 
 
@@ -3782,8 +3782,8 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                              gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/891a559860e72c3f> ;
                                              gutprop:influence <http://purl.obolibrary.org/obo/NCIT_C26845> ,
                                                                <https://bioportal.bioontology.org/ontologies/EDAM?p=classes&conceptid=topic_3409> ;
-                                             dcterms:creator "Samuel Piron" ;
-                                             rdfs:comment "An opportunistic pathogen is a microorganism that can cause disease in individuals with compromised immune systems, but typically does not cause disease in healthy individuals. [Definition Source: llama3-8b-8192]" ;
+                                             rdfs:comment "An opportunistic pathogen is a microorganism that can cause disease in individuals with compromised immune systems, but typically does not cause disease in healthy individuals. [Definition Source: llama3-8b-8192]" ,
+                                                          "IDO Match" ;
                                              rdfs:label "Opportunistic Pathogen" .
 
 
@@ -14026,8 +14026,8 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                 gutprop:StatisticalTechnique ;
                                        skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/StatisticalTechnique> ;
                                        gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/34b9e5f995aaab91> ;
-                                       dcterms:creator "Samuel Piron" ;
-                                       rdfs:comment "The Jaccard index is a statistical measure that calculates the size of the intersection divided by the size of the union of two sets, often used to quantify the similarity between two sets or collections. [Definition Source: llama3-8b-8192]" ;
+                                       rdfs:comment "SWO Match" ,
+                                                    "The Jaccard index is a statistical measure that calculates the size of the intersection divided by the size of the union of two sets, often used to quantify the similarity between two sets or collections. [Definition Source: llama3-8b-8192]" ;
                                        rdfs:label "Jaccard Index" .
 
 
@@ -14081,8 +14081,8 @@ gutprop:StatisticalTechnique rdf:type owl:Class .
                                                                                                   <https://w3id.org/hereditary/ontology/gutbrain/resource/human/IbsDPatients> ,
                                                                                                   <https://www.ncbi.nlm.nih.gov/mesh/D002648> ,
                                                                                                   <https://www.ncbi.nlm.nih.gov/mesh/68010361> ;
-                                                                                   dcterms:creator "Samuel Piron" ;
-                                                                                   rdfs:comment "Functional gastrointestinal disorders (FGIDs) are a group of conditions characterized by chronic or recurrent gastrointestinal symptoms that are not explained by a detectable organic cause or structural abnormality. [Definition Source: llama3-8b-8192]" ;
+                                                                                   rdfs:comment "EDAM Match" ,
+                                                                                                "Functional gastrointestinal disorders (FGIDs) are a group of conditions characterized by chronic or recurrent gastrointestinal symptoms that are not explained by a detectable organic cause or structural abnormality. [Definition Source: llama3-8b-8192]" ;
                                                                                    rdfs:label "Functional Gastrointestinal Disorder" .
 
 

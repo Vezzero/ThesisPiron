@@ -105,6 +105,7 @@ html, body {
   justify-content: center;
   z-index: 1000;
   inset: 0;
+  overflow: hidden;
 }
 
 .tm-abstract {
@@ -170,6 +171,11 @@ html, body {
   margin-bottom: .5rem;
 }
 
+.react-flow__attribution {
+  display: none !important;
+}
+
+
 .tm-modal {
   background: #ffffff;
   border-radius: 8px;
@@ -179,11 +185,35 @@ html, body {
   display: flex;
   flex-direction: column;
   overflow-y: auto;
+  overflow-x: hidden;
   position: relative;
   max-width: 70%;
   border-color: #333;
   border-width: 2px;
   border-style: solid;
+}
+
+.tm-modal-graph {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 1.25rem;
+  box-shadow: 0 15px 24px rgba(0,0,0,0.12);
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  max-width: 70%;
+  border-color: #333;
+  border-width: 2px;
+  border-style: solid;
+}
+
+.tm-graph-container {
+  width: 700px;
+  height: 500px;
+  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .tm-modal-close {
@@ -192,17 +222,43 @@ html, body {
   right: 0.5rem;
   background: none;
   border: none;
+  font-size: 3rem;
+  line-height: 1;
+  cursor: pointer;
+  color: #333;
+}
+
+.tm-modal-back {
+  position: relative;
+  top: 1rem;
+  background: none;
+  border: none;
   font-size: 2rem;
   line-height: 1;
   cursor: pointer;
   color: #333;
 }
 
+
 .code-underline {
   text-decoration: underline;
   color: #4133d6;
   font-size: 0.9rem;
 } 
+
+.tm-modal-header {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  height: 32px;
+  padding: 0 4px;
+  z-index: 1000;
+}
 
 .uri {
   text-align: center;

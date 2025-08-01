@@ -1,37 +1,43 @@
-@prefix sh:    <http://www.w3.org/ns/shacl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix gutprop: <https://w3id.org/hereditary/ontology/gutbrain/schema/> .
-@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-# This shape applies to all instances of gutprop:Paper
 gutprop:PaperShape
     a sh:NodeShape ;
     sh:targetClass gutprop:Paper ;
 
     sh:property [
-        sh:path       gutprop:paperId ;
-        sh:datatype   xsd:integer ;
+        sh:path       gutprop:hasTitle ;
+        sh:datatype   xsd:string ;
         sh:minCount   1 ;
-        sh:message    "Each Paper must have at least one paperId." ;
+        sh:maxCount   1 ;
+        sh:message    "Each Paper must have a title." ;
     ] ;
-
+    sh:property [
+        sh:path       gutprop:hasAbstract ;
+        sh:datatype   xsd:string ;
+        sh:minCount   1 ;
+        sh:maxCount   1 ;
+        sh:message    "Each Paper must have an abstract." ;
+    ] ;
     sh:property [
         sh:path       gutprop:paperAuthor ;
         sh:datatype   xsd:string ;
         sh:minCount   1 ;
-        sh:message    "Each Paper must have at least one paperAuthor." ;
+        sh:maxCount   1 ;
+        sh:message    "Each Paper must have exactly one Author list." ;
     ] ;
-
     sh:property [
         sh:path       gutprop:paperJournal ;
         sh:datatype   xsd:string ;
         sh:minCount   1 ;
-        sh:message    "Each Paper must have at least one paperJournal." ;
+        sh:maxCount   1 ;
+        sh:message    "Each Paper must be published in exactly one Journal." ;
     ] ;
-
     sh:property [
-        sh:path       gutprop:paperAnnotator ;
+        sh:path       gutprop:paperYear ;
         sh:datatype   xsd:string ;
         sh:minCount   1 ;
-        sh:message    "Each Paper must have at least one paperAnnotator." ;
-    ] .
+        sh:maxCount   1 ;
+        sh:message    "Each Paper must have exactly one Publication Year." ;
+    ] ;
