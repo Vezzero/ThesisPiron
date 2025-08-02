@@ -771,20 +771,8 @@ window.addEventListener('DOMContentLoaded', function() {
             <p>{selectedPaper.journal}</p>
           </div>
           <div className="paper-info-line">
-            <h3 className="paper-h3-subdef">Authors:</h3>
-            <p>{selectedPaper.author}</p>
-          </div>
-          <div className="paper-info-line">
-            <h3 className="paper-h3-subdef">Journal:</h3>
-            <p>{selectedPaper.journal}</p>
-          </div>
-          <div className="paper-info-line">
             <h3 className="paper-h3-subdef">Publication Year:</h3>
             <p>{selectedPaper.pubYear}</p>
-          </div>
-          <div className="paper-info-line">
-            <h3 className="paper-h3-subdef">ID:</h3>
-            <p>{selectedPaper.paperid}</p>
           </div>
           <div className="paper-info-line">
             <h3 className="paper-h3-subdef">Collections:</h3>
@@ -1049,14 +1037,35 @@ window.addEventListener('DOMContentLoaded', function() {
                         <td className="tm-truncate">
                             {m.pubYear}
                         </td>
-                        <td className="tm-truncate">
-                          <span
-                            className="tm-clickable color-sentence"
-                            onClick={() => setSelectedMention(m)}
-                            title={m.mentiontext}
+                        <td
+                            className="tm-truncate tm-clickable"
+                            onClick={() => {
+                              const mention = m.mentiontext;
+                              const paper   = m.titletext;
+                              const id = m.paperid;
+
+                              const sentences = mentions
+                                .filter(x =>
+                                  x.mentiontext === mention &&
+                                  x.titletext   === paper &&
+                                  x.paperid     === id
+                                )
+                                .map(x => ({
+                                  senttext: x.senttext,
+                                  paper:   x.titletext,
+                                  mentiontext: x.mentiontext,
+                                  id : x.paperid 
+                                }));
+
+                              setSelectedMention({
+                                mentiontext: mention,
+                                paper,
+                                sentences,
+                                id
+                              });
+                            }}
                           >
-                            {m.mentiontext}
-                          </span>
+                         {m.mentiontext}
                         </td>
                       </tr>
                     ))}
