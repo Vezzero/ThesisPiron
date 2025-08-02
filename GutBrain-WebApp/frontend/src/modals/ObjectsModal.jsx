@@ -10,6 +10,7 @@ import { BASE_URL } from "../App";
 import CircleNode from "../components/CircleNode";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosClose } from "react-icons/io";
+import Button from "react-bootstrap/Button";
 
 const nodeTypes = { circleNode: CircleNode };
 
@@ -22,9 +23,7 @@ export default function ObjectsModal({
 }) {
   const [showGraph, setShowGraph] = useState(false);
 
-  // build both nodes & edges
   const [nodes, edges] = useMemo(() => {
-    // center node
     const center = {
       id: termLabel,
       type: "circleNode",
@@ -39,7 +38,6 @@ export default function ObjectsModal({
     };
 
     const baseRadius = 180;
-    // peripheral nodes, sizing them by label length
     const periphs = objectsList.map((o, i) => {
       const charWidth = 8;
       const padding = 20;
@@ -64,7 +62,6 @@ export default function ObjectsModal({
       };
     });
 
-    // pick one of top/right/bottom/left from an angle
     function compassSide(angleRad) {
       const deg = ((angleRad * 180) / Math.PI + 360) % 360;
       if (deg < 45 || deg >= 315) return "right";
@@ -73,7 +70,6 @@ export default function ObjectsModal({
       return "top";
     }
 
-    // build edges with proper handles and arrowheads
     const edgeArr = objectsList.map((o, i) => {
       const angle = (2 * Math.PI * i) / objectsList.length;
       const srcSide = compassSide(angle);
@@ -92,7 +88,6 @@ export default function ObjectsModal({
         targetHandle: tgtSide,
         type: "straight",
         label: propLabel,
-        //arrowHeadType: MarkerType.ArrowClosed,
         markerEnd: { type: MarkerType.ArrowClosed, color: "#333" },
         labelStyle: { fill: "#333", fontWeight: 500 },
         labelBgPadding: [4, 2],
@@ -121,6 +116,7 @@ export default function ObjectsModal({
             className="tm-modal-close"
             onClick={onClose}
             aria-label="Close"
+            style={ showGraph ? { top: '0.5rem' } : undefined }
            />
         </div>
 
@@ -170,18 +166,17 @@ export default function ObjectsModal({
             </div>
 
             {/* ─────── “Check Graph” Link ─────── */}
-            <p
+            <Button variant="outline-dark"
               className="tm-graph-link"
               style={{
                 cursor: "pointer",
                 margin: "16px 0",
                 textAlign: "center",
-                fontWeight: "bold",
               }}
               onClick={() => setShowGraph(true)}
             >
-              Check the relation graph →
-            </p>
+              Check the Relation Graph
+            </Button>
           </>
         ) : (
           /* ─────── Graph ─────── */

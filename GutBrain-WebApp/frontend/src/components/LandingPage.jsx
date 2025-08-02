@@ -32,6 +32,7 @@ import { useClassesWithIndividuals } from "../hooks/useClassesWithIndividuals";
 import { usePaperDetails } from "../hooks/usePaperDetails";
 //import { useClassIndividuals } from "../hooks/useClassIndividuals";
 import { useLockBodyScroll } from "../hooks/useLockBodyScroll";
+import ProgressBar from 'react-bootstrap/ProgressBar';
 
 
 export default function LandingPage() {
@@ -264,6 +265,7 @@ const loadOptions = (inputValue) => {
 }
 
  const handleSearch = overrideTerm => {
+  setMentions([]);
   let q = (overrideTerm ?? term).trim();
   if (!q) {
     return;
@@ -527,35 +529,35 @@ useEffect(() => {
       <div className="tm-page-wrapper">
         {/* -- 1) Sticky Sidebar -- */}
         <aside className="tm-sidebar">
-  <span className="tm-filter-title">Search by:</span>
-  {/* INDIVIDUALS and CLASS */}
-  <div className="tm-all-dropdown">
-  {/** 1) Class selector **/}
-  <Form.Group className="mb-2">
-    {/* optional label for a11y; visuallyHidden hides it */}
-    <Form.Label visuallyHidden>
-      Select a Class
-    </Form.Label>
-    <Form.Select
-  className="tm-filter-btn"
-  aria-label="Select a Class"
-  value={selectedClass?.classIri || ""}
-  onChange={e => { 
-        const iri = e.target.value;
-        const cls = allClasses.find(c => c.classIri === iri);
-        setSelectedClass(cls);
-        setClassInds(cls ? cls.individuals : []);
-      }} 
->
-  <option value="" disabled hidden>
-    Select a Class…
-  </option>
-  {allClasses.map(c => (
-    <option key={c.classIri} value={c.classIri}>
-      {c.classLabel}
-    </option>
-  ))}
-</Form.Select>
+        <span className="tm-filter-title">Search by:</span>
+        {/* INDIVIDUALS and CLASS */}
+        <div className="tm-all-dropdown">
+        {/** 1) Class selector **/}
+        <Form.Group className="mb-2">
+          {/* optional label for a11y; visuallyHidden hides it */}
+          <Form.Label visuallyHidden>
+            Select a Class
+          </Form.Label>
+          <Form.Select
+        className="tm-filter-btn"
+        aria-label="Select a Class"
+        value={selectedClass?.classIri || ""}
+        onChange={e => { 
+              const iri = e.target.value;
+              const cls = allClasses.find(c => c.classIri === iri);
+              setSelectedClass(cls);
+              setClassInds(cls ? cls.individuals : []);
+            }} 
+      >
+        <option value="" disabled hidden>
+          Select a Class…
+        </option>
+        {allClasses.map(c => (
+          <option key={c.classIri} value={c.classIri}>
+            {c.classLabel}
+          </option>
+        ))}
+      </Form.Select>
 
   </Form.Group>
 
@@ -648,13 +650,16 @@ useEffect(() => {
         {/* -- 2) div Content Column -- */}
         <div className="tm-content">
           {loading && (
-          <div className="tm-loading-bar-container">
-            <span className="tm-loading-label">Loading results…</span>
-            <div className="tm-loading-bar">
-              <div className="tm-loading-progress" />
+            <div className="tm-loading-bar-container">
+              <span className="tm-loading-label">Loading results…</span>
+              <ProgressBar
+                animated
+                now={100}
+                variant="info"
+                style={{ height: 8, weight: 150}}
+              />
             </div>
-          </div>
-        )}
+          )}
           {error && <div className="tm-error">{error}</div>}
 
           {selectedPaper ? (
@@ -664,18 +669,18 @@ useEffect(() => {
       {paperError   && <p className="tm-error">Error: {paperError}</p>}
             
       {selectedPaper && (
-  <div className="paper-card">
-    {/* ——— Card Header: back + pubmed ——— */}
-    <div className="paper-card-header">
-      <a
-        href={`https://pubmed.ncbi.nlm.nih.gov/${selectedPaper.paperid}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="tm-pubmed-button"
-      >
-        View in PubMed
-      </a>
-    </div>
+    <div className="paper-card">
+      {/* ——— Card Header: back + pubmed ——— */}
+      <div className="paper-card-header">
+        <a
+          href={`https://pubmed.ncbi.nlm.nih.gov/${selectedPaper.paperid}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="tm-pubmed-button"
+        >
+          View in PubMed
+        </a>
+      </div>
           <h3 className="h3-title"> Paper {selectedPaper.paperid}</h3>
           <p>
             <a
