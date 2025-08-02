@@ -36,6 +36,7 @@ import ProgressBar from 'react-bootstrap/ProgressBar';
 import { FiArrowUp } from "react-icons/fi";
 import { FiArrowDown } from "react-icons/fi";
 import { LuArrowUpDown } from "react-icons/lu";
+import HighlightMention from '../components/HighlightMention';
 
 
 export default function LandingPage() {
@@ -1021,7 +1022,10 @@ window.addEventListener('DOMContentLoaded', function() {
                             onClick={() => setSelected(m)}
                             title={m.senttext}
                           >
-                            {m.senttext}
+                            <HighlightMention
+                              sentence={m.senttext}
+                              mention={m.mentiontext}
+                            />
                           </span>
                         </td>
                         <td className="tm-truncate" data-tooltip={m.titletext}>

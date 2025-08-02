@@ -10,6 +10,9 @@ import "../modals/DefinitionInfoModal.jsx";
 import DefinitionInfoModal from "../modals/DefinitionInfoModal.jsx";
 import Button from 'react-bootstrap/Button';
 import Table from 'react-bootstrap/Table';
+import { FiArrowUp } from "react-icons/fi";
+import { FiArrowDown } from "react-icons/fi";
+import { LuArrowUpDown } from "react-icons/lu";
 
 
 export default function ClassDetails({
@@ -31,6 +34,7 @@ export default function ClassDetails({
   const [definitionFilter, setDefinitionFilter] = useState("");
   const [visibleCount, setVisibleCount] = useState(5);
   const [selectedDefinition, setSelectedDefinition] = useState(null);
+  const [sortConfig, setSortConfig] = useState({ key: null, direction: 'asc' });
 
   const top10Individuals = useMemo(() => {
     return [...individuals]
@@ -38,9 +42,67 @@ export default function ClassDetails({
       .slice(0, 10);
   }, [individuals]);
 
-  useEffect(() => {
-    setVisibleCount(5);
-  }, [labelFilter, uriFilter, countFilter, definitionFilter]);
+  function handleSort(columnKey) {
+  setSortConfig(({ key, direction }) => {
+    if (key === columnKey) {
+      // same column: toggle direction
+      return {
+        key,
+        direction: direction === 'asc' ? 'desc' : 'asc'
+      };
+    } else {
+      // new column: default to ascending
+      return { key: columnKey, direction: 'asc' };
+    }
+  });
+}
+
+const filteredIndividuals = useMemo(() => {
+  return individuals.filter(ind => {
+    const lab = ind.label.toLowerCase();
+    const uri = ind.uri.toLowerCase();
+    const def = (ind.definition || "").toLowerCase();
+    const cnt = ind.count.toString();
+    const min = parseInt(countFilter, 10) || 0;
+
+    return (
+      lab.includes(labelFilter.toLowerCase()) &&
+      def.includes(definitionFilter.toLowerCase()) &&
+      uri.includes(uriFilter.toLowerCase()) &&
+      cnt.includes(countFilter.toLowerCase()) &&
+      (countFilter === "" || Number(cnt) >= min)
+    );
+  });
+}, [individuals, labelFilter, definitionFilter, uriFilter, countFilter]);
+
+const sortedIndividuals = useMemo(() => {
+  if (!sortConfig.key) return filteredIndividuals;
+
+  // Copy array to avoid mutating original
+  const arr = [...filteredIndividuals];
+  arr.sort((a, b) => {
+    let vA = a[sortConfig.key];
+    let vB = b[sortConfig.key];
+
+    // if numeric (e.g. pubYear), convert
+    if (sortConfig.key === 'count') {
+      vA = Number(vA) || 0;
+      vB = Number(vB) || 0;
+    } else {
+      vA = vA?.toString().toLowerCase() || '';
+      vB = vB?.toString().toLowerCase() || '';
+    }
+
+    if (vA < vB) return sortConfig.direction === 'asc' ? -1 : 1;
+    if (vA > vB) return sortConfig.direction === 'asc' ?  1 : -1;
+    return 0;
+  });
+  return arr;
+}, [filteredIndividuals, sortConfig]);
+
+const visibleIndividuals = useMemo(() => {
+  return sortedIndividuals.slice(0, visibleCount);
+}, [sortedIndividuals, visibleCount]);
 
   const chartDataPie = useMemo(() => {
     if (!top10Individuals.length) return [];
@@ -70,23 +132,6 @@ export default function ClassDetails({
     }
     load();
   }, [classIri]);
-
-  const filteredIndividuals = individuals.filter(ind => {
-  const lab = ind.label.toLowerCase();
-  const uri = ind.uri.toLowerCase();
-  const def = (ind.definition || "").toLowerCase();
-  const cnt = ind.count.toString();
-
-  const min = parseInt(countFilter, 10);
-
-  return (
-    lab.includes(labelFilter.toLowerCase()) &&
-    def.includes(definitionFilter.toLowerCase()) &&
-    uri.includes(uriFilter.toLowerCase()) &&
-    cnt.includes(countFilter.toLowerCase()) &&
-    (!countFilter || cnt >= min)
-  );
-});
 
 
   if (loading) return <p>Loading…</p>;
@@ -149,10 +194,22 @@ export default function ClassDetails({
         <table className="tm-table">
           <thead>
             <tr>
-              <th>Individual Name</th>
-              <th>Definition</th>
-              <th>URI</th>
-              <th>Paper Count</th>
+              <th onClick={() => handleSort('label')} style={{ cursor: 'pointer' }}>
+                Individual Name{" "}
+               {sortConfig.key === 'label' ? sortConfig.direction === 'asc' ? <FiArrowUp /> : <FiArrowDown /> : <LuArrowUpDown />}
+               </th>
+               <th onClick={() => handleSort('definition')} style={{ cursor: 'pointer' }}>
+                Definition{" "}
+               {sortConfig.key === 'definition' ? sortConfig.direction === 'asc' ? <FiArrowUp /> : <FiArrowDown /> : <LuArrowUpDown />}
+               </th>
+               <th onClick={() => handleSort('uri')} style={{ cursor: 'pointer' }}>
+                URI{" "}
+               {sortConfig.key === 'uri' ? sortConfig.direction === 'asc' ? <FiArrowUp /> : <FiArrowDown /> : <LuArrowUpDown />}
+               </th>
+              <th onClick={() => handleSort('count')} style={{ cursor: 'pointer' }}>
+                Paper Count{" "}
+               {sortConfig.key === 'count' ? sortConfig.direction === 'asc' ? <FiArrowUp /> : <FiArrowDown /> : <LuArrowUpDown />}
+               </th>
             </tr>
             <tr className="tm-filters">
               <th>
@@ -194,7 +251,7 @@ export default function ClassDetails({
             </tr>
           </thead>
           <tbody>
-            {filteredIndividuals
+            {visibleIndividuals
             .slice(0, visibleCount)
             .map((ind, i) => (
               <tr key={`${ind.uri}-${i}`}>

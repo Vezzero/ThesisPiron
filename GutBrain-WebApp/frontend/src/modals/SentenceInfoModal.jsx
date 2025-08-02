@@ -1,5 +1,6 @@
 import React from 'react';
 import { IoIosClose } from 'react-icons/io';
+import HighlightMention from '../components/HighlightMention';
 
 export default function SentenceInfoModal({ selected, onClose }) {
   if (!selected) return null;
@@ -13,9 +14,14 @@ export default function SentenceInfoModal({ selected, onClose }) {
          />
         <h3 className="h3-title">Sentence Information</h3>
         <p className="uri">
-          <code className="code-underline-uri">{selected.sent}</code>
+          <code className="code-underline-uri"> {selected.sent}</code>
         </p>
-        <p><strong>Sentence:</strong> {selected.senttext}</p>
+        <p><strong>Sentence: {" "}</strong> 
+        <HighlightMention
+      sentence={selected.senttext}
+      mention={selected.mentiontext}
+    />
+        </p>
       </div>
     </div>
   );
