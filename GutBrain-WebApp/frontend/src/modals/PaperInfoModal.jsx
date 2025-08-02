@@ -12,6 +12,7 @@ export default function PaperInfoModal({ selectedTitle, onClose }) {
         <IoIosClose 
           className="tm-modal-close" 
           onClick={onClose}
+          style={{top:'0.25rem'}}
           />
         <h3 className="h3-title">Paper Information</h3>
         <p className="uri">

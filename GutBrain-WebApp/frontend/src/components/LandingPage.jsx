@@ -33,6 +33,9 @@ import { usePaperDetails } from "../hooks/usePaperDetails";
 //import { useClassIndividuals } from "../hooks/useClassIndividuals";
 import { useLockBodyScroll } from "../hooks/useLockBodyScroll";
 import ProgressBar from 'react-bootstrap/ProgressBar';
+import { FiArrowUp } from "react-icons/fi";
+import { FiArrowDown } from "react-icons/fi";
+import { LuArrowUpDown } from "react-icons/lu";
 
 
 export default function LandingPage() {
@@ -105,6 +108,7 @@ const { classes: allClasses,   loading: classesLoading, error: classesError } = 
 const { paper: selectedPaper, loading: paperLoading, error: paperError } = usePaperDetails(selectedPaperId);
 const anyModalOpen = showRelModal || showObjectsModal || !!selected;
 useLockBodyScroll(anyModalOpen);
+const [sortConfig, setSortConfig] = useState({ key: null, direction: 'asc' });
 
 
  async function loadClassDetails(classIri, classLabel) {
@@ -126,6 +130,22 @@ useLockBodyScroll(anyModalOpen);
      setClassLoading(false);
    }
  }
+
+function handleSort(columnKey) {
+  setSortConfig(({ key, direction }) => {
+    if (key === columnKey) {
+      // same column: toggle direction
+      return {
+        key,
+        direction: direction === 'asc' ? 'desc' : 'asc'
+      };
+    } else {
+      // new column: default to ascending
+      return { key: columnKey, direction: 'asc' };
+    }
+  });
+}
+
 
  useEffect(() => {
   async function loadAllIndividuals() {
@@ -375,7 +395,33 @@ const loadOptions = (inputValue) => {
   return true;
 });
 
-  const visible = filteredMentions.slice(0, visibleCount);
+const sortedMentions = useMemo(() => {
+  if (!sortConfig.key) return filteredMentions;
+
+  // Copy array to avoid mutating original
+  const arr = [...filteredMentions];
+  arr.sort((a, b) => {
+    let vA = a[sortConfig.key];
+    let vB = b[sortConfig.key];
+
+    // if numeric (e.g. pubYear), convert
+    if (sortConfig.key === 'pubYear') {
+      vA = Number(vA) || 0;
+      vB = Number(vB) || 0;
+    } else {
+      vA = vA?.toString().toLowerCase() || '';
+      vB = vB?.toString().toLowerCase() || '';
+    }
+
+    if (vA < vB) return sortConfig.direction === 'asc' ? -1 : 1;
+    if (vA > vB) return sortConfig.direction === 'asc' ?  1 : -1;
+    return 0;
+  });
+  return arr;
+}, [filteredMentions, sortConfig]);
+
+
+  const visible = sortedMentions.slice(0, visibleCount);
   const same = mentions.filter(
   m => m.mentiontext === selectedMention?.mentiontext
   );
@@ -647,6 +693,8 @@ window.addEventListener('DOMContentLoaded', function() {
       setPaperTitleFilter("");
       setSelectedClass(null);
       handleSearch("");
+      setSelectedOption(null);
+      setTerm("");
     }}
   >
     Reset all filters
@@ -894,16 +942,27 @@ window.addEventListener('DOMContentLoaded', function() {
                 </div>
               </div>
 
-              {/* • Mentions Table */}
+              {/* Results Table */}
               <div className="tm-table-wrapper">
                 <table className="tm-table">
                   <thead>
                     <tr>
-                      <th>Sentence</th>
-                      <th>Paper</th>
-                      <th>Journal</th>
-                      <th>Publication Year</th>
-                      <th>Mention</th>
+                      <th onClick={() => handleSort('senttext')} style={{ cursor: 'pointer' }}>
+                        Sentence{" "}
+                        {sortConfig.key === 'senttext' ? sortConfig.direction === 'asc' ? <FiArrowUp /> : <FiArrowDown /> : <LuArrowUpDown />}
+                      </th>
+                      <th onClick={() => handleSort('titletext')} style={{ cursor: 'pointer' }}>
+                        Paper {sortConfig.key==='titletext' ? (sortConfig.direction==='asc'?<FiArrowUp /> : <FiArrowDown />) : <LuArrowUpDown />}
+                      </th>
+                      <th onClick={() => handleSort('journal')} style={{ cursor: 'pointer' }}>
+                        Journal {sortConfig.key==='journal' ? (sortConfig.direction==='asc'?<FiArrowUp /> : <FiArrowDown />) : <LuArrowUpDown />}
+                      </th>
+                      <th onClick={() => handleSort('pubYear')} style={{ cursor: 'pointer' }}>
+                        Publication Year {sortConfig.key==='pubYear' ? (sortConfig.direction==='asc'?<FiArrowUp /> : <FiArrowDown />) : <LuArrowUpDown />}
+                      </th>
+                      <th onClick={() => handleSort('mentiontext')} style={{ cursor: 'pointer' }}>
+                        Mention {sortConfig.key==='mentiontext' ? (sortConfig.direction==='asc'?<FiArrowUp /> : <FiArrowDown />) : <LuArrowUpDown />}
+                      </th>
                     </tr>
                     <tr className="tm-filters">
                       <th>
@@ -1048,14 +1107,13 @@ window.addEventListener('DOMContentLoaded', function() {
             onClose={() => setShowObjectsModal(false)}
             onSelectObject={label => handleSearch(label)}
           />
-        </>
+          </>
           )}
           </div>
-
+        </div>
       </div>
-      </div>
 
-         <Row>
+    <Row>
      <footer className="app-footer">
        <div style={{ textAlign: "center", padding: "1rem 0" }}>
          <a href="https://www.unipd.it/" target="_blank" rel="noopener noreferrer">

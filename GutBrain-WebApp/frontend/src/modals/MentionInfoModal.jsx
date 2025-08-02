@@ -8,7 +8,8 @@ export default function MentionInfoModal({ selectedMention, sentenceCount, paper
       <div className="tm-modal" onClick={e => e.stopPropagation()}>
         <IoIosClose 
          className="tm-modal-close" 
-        onClick={onClose}/>
+         onClick={onClose}
+         style={{top:'0.25rem'}}/>
         <h3 className="h3-title">Mention Information</h3>
         <p>
           The mention <strong>{selectedMention.mentiontext}</strong> has been found in {sentenceCount}{" "}

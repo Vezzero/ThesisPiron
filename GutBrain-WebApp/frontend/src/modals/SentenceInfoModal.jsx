@@ -9,6 +9,7 @@ export default function SentenceInfoModal({ selected, onClose }) {
         <IoIosClose 
          className="tm-modal-close" 
          onClick={onClose}
+         style={{top:'0.25rem'}}
          />
         <h3 className="h3-title">Sentence Information</h3>
         <p className="uri">

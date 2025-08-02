@@ -26489,7 +26489,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                     skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/AnatomicSite> ;
                                                                                     gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/632155a7f7aa9705> ;
                                                                                     dcterms:creator "Samuel Piron" ;
-                                                                                    rdfs:comment "The entity \"peripheral gut\" refers to the portion of the gastrointestinal tract that is located outside the abdominal cavity, including the esophagus, stomach, small intestine, and large intestine. [Definition Source: llama3-8b-8192]" ;
+                                                                                    rdfs:comment "The entity peripheral gut refers to the portion of the gastrointestinal tract that is located outside the abdominal cavity, including the esophagus, stomach, small intestine, and large intestine. [Definition Source: llama3-8b-8192]" ;
                                                                                     rdfs:label "Peripheral Gut" .
 
 
@@ -26590,7 +26590,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                                     skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/BiomedicalTechnique> ;
                                                                                                     gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/5c2a4275eab4c106> ;
                                                                                                     dcterms:creator "Samuel Piron" ;
-                                                                                                    rdfs:comment "Bioinformatics_analysis refers to the application of computational tools and methods to analyze and interpret biological data, such as genomic sequences, protein structures, and gene expression profiles, to gain insights into biological processes and systems. [Definition Source: llama3-8b-8192]" ;
+                                                                                                    rdfs:comment "Bioinformatics analysis refers to the application of computational tools and methods to analyze and interpret biological data, such as genomic sequences, protein structures, and gene expression profiles, to gain insights into biological processes and systems. [Definition Source: llama3-8b-8192]" ;
                                                                                                     rdfs:label "Bioinformatic Analysis" .
 
 
@@ -26613,7 +26613,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                          skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/BiomedicalTechnique> ;
                                                                                          gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/b13414bc6e7c42f6> ;
                                                                                          dcterms:creator "Samuel Piron" ;
-                                                                                         rdfs:comment "Biotics_test refers to a type of test or assay used to detect and quantify biotics, which are biological substances or molecules that have antimicrobial properties. [Definition Source: llama3-8b-8192]" ;
+                                                                                         rdfs:comment "Biotics test refers to a type of test or assay used to detect and quantify biotics, which are biological substances or molecules that have antimicrobial properties. [Definition Source: llama3-8b-8192]" ;
                                                                                          rdfs:label "Biotics Test" .
 
 
@@ -26646,7 +26646,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                                          skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/BiomedicalTechnique> ;
                                                                                                          gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/88c7dfc35987b8af> ;
                                                                                                          dcterms:creator "Samuel Piron" ;
-                                                                                                         rdfs:comment "The \"childhood behaviour checklist\" refers to a standardized assessment tool used to evaluate and monitor the behavioral and emotional development of children, typically between the ages of 1.5 to 5 years. [Definition Source: llama3-8b-8192]" ;
+                                                                                                         rdfs:comment "The childhood behaviour checklist refers to a standardized assessment tool used to evaluate and monitor the behavioral and emotional development of children, typically between the ages of 1.5 to 5 years. [Definition Source: llama3-8b-8192]" ;
                                                                                                          rdfs:label "Childhood Behaviour Checklist" .
 
 
@@ -26657,7 +26657,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                             skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/BiomedicalTechnique> ;
                                                                                             gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/257caab311aca5f5> ;
                                                                                             dcterms:creator "Samuel Piron" ;
-                                                                                            rdfs:comment "Cleavage_biota refers to a group of organisms that undergo a process of cleavage, a type of cell division, during their early development. [Definition Source: llama3-8b-8192]" ;
+                                                                                            rdfs:comment "Cleavage biota refers to a group of organisms that undergo a process of cleavage, a type of cell division, during their early development. [Definition Source: llama3-8b-8192]" ;
                                                                                             rdfs:label "Cleverage Biota" .
 
 
@@ -26680,7 +26680,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                                gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/f98731506e677c4c> ,
                                                                                                                    <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/1266d62ef7f7a43a> ;
                                                                                                dcterms:creator "Samuel Piron" ;
-                                                                                               rdfs:comment "The entity \"digit span backward\" refers to a cognitive test measure that assesses the ability to recall a sequence of digits in reverse order. [Definition Source: llama3-8b-8192]" ;
+                                                                                               rdfs:comment "It refers to a cognitive test measure that assesses the ability to recall a sequence of digits in reverse order. [Definition Source: llama3-8b-8192]" ;
                                                                                                rdfs:label "Digit Span Backward" .
 
 
@@ -26691,7 +26691,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                   skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/BiomedicalTechnique> ;
                                                                                   gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/07aa2516687546af> ;
                                                                                   dcterms:creator "Samuel Piron" ;
-                                                                                  rdfs:comment "The entity \"dqi-i\" refers to the \"Dermatology Quality Index - Inflammation\", a scoring system used to assess the severity of inflammatory skin lesions. [Definition Source: llama3-8b-8192]" ;
+                                                                                  rdfs:comment "It refers to the Dermatology Quality Index - Inflammation, a scoring system used to assess the severity of inflammatory skin lesions. [Definition Source: llama3-8b-8192]" ;
                                                                                   rdfs:label "Dqi-I" .
 
 
@@ -26702,7 +26702,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                                skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/BiomedicalTechnique> ;
                                                                                                gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/1c3d59d62f7a247f> ;
                                                                                                dcterms:creator "Samuel Piron" ;
-                                                                                               rdfs:comment "The \"dual_hit_toxin_model\" refers to a type of toxin structure that features two distinct binding sites, allowing it to interact with and inhibit multiple targets simultaneously. [Definition Source: llama3-8b-8192]" ;
+                                                                                               rdfs:comment "It refers to a type of toxin structure that features two distinct binding sites, allowing it to interact with and inhibit multiple targets simultaneously. [Definition Source: llama3-8b-8192]" ;
                                                                                                rdfs:label "Dual Hit Toxin Model" .
 
 
@@ -26724,7 +26724,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                           skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/BiomedicalTechnique> ;
                                                                                           gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/0239a380295a3f37> ;
                                                                                           dcterms:creator "Samuel Piron" ;
-                                                                                          rdfs:comment "\"Fpg technique\" refers to a type of technique used in forensic genetics, specifically a method for analyzing and processing DNA samples using fluorescently labeled primers and probes. [Definition Source: llama3-8b-8192]" ;
+                                                                                          rdfs:comment "It refers to a type of technique used in forensic genetics, specifically a method for analyzing and processing DNA samples using fluorescently labeled primers and probes. [Definition Source: llama3-8b-8192]" ;
                                                                                           rdfs:label "Fpg Technique" .
 
 
@@ -26757,7 +26757,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                                 skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/BiomedicalTechnique> ;
                                                                                                 gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/427f1c949c2912e0> ;
                                                                                                 dcterms:creator "Samuel Piron" ;
-                                                                                                rdfs:comment "A ga-map_dysbiosis_test is a type of diagnostic test that assesses the imbalance of the gut microbiome, also known as dysbiosis, using genomic analysis and mapping techniques. [Definition Source: llama3-8b-8192]" ;
+                                                                                                rdfs:comment "It is a type of diagnostic test that assesses the imbalance of the gut microbiome, also known as dysbiosis, using genomic analysis and mapping techniques. [Definition Source: llama3-8b-8192]" ;
                                                                                                 rdfs:label "Ga-Map Dysbiosis Test" .
 
 
@@ -26790,7 +26790,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                                           skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/BiomedicalTechnique> ;
                                                                                                           gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/455caac355127136> ;
                                                                                                           dcterms:creator "Samuel Piron" ;
-                                                                                                          rdfs:comment "Hippocampal_proteomic_analysis refers to the application of proteomic techniques, such as mass spectrometry, to identify and quantify proteins in the hippocampus, a region of the brain involved in memory and spatial navigation. [Definition Source: llama3-8b-8192]" ;
+                                                                                                          rdfs:comment "Hippocampal proteomic analysis refers to the application of proteomic techniques, such as mass spectrometry, to identify and quantify proteins in the hippocampus, a region of the brain involved in memory and spatial navigation. [Definition Source: llama3-8b-8192]" ;
                                                                                                           rdfs:label "Hippocampal Proteomic Analysis" .
 
 
@@ -26801,7 +26801,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                                                          skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/BiomedicalTechnique> ;
                                                                                                                          gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/27d4a0a61da62681> ;
                                                                                                                          dcterms:creator "Samuel Piron" ;
-                                                                                                                         rdfs:comment "Homeostasis_model_assessment_insulin_resistance is a measure of insulin resistance, calculated using the homeostasis model assessment (HOMA) formula, which estimates the degree of insulin resistance and beta-cell function in individuals. [Definition Source: llama3-8b-8192]" ;
+                                                                                                                         rdfs:comment "It is a measure of insulin resistance, calculated using the homeostasis model assessment (HOMA) formula, which estimates the degree of insulin resistance and beta-cell function in individuals. [Definition Source: llama3-8b-8192]" ;
                                                                                                                          rdfs:label "Homeostasis Model Assessment Insulin Resistance" .
 
 
@@ -26812,7 +26812,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                                          skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/BiomedicalTechnique> ;
                                                                                                          gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/c97bff98b997a63d> ;
                                                                                                          dcterms:creator "Samuel Piron" ;
-                                                                                                         rdfs:comment "Immunohistochemical_analyses refers to a laboratory technique that uses antibodies to detect and visualize specific proteins or antigens in tissue sections, typically for diagnostic or research purposes. [Definition Source: llama3-8b-8192]" ;
+                                                                                                         rdfs:comment "Immunohistochemical analyses refers to a laboratory technique that uses antibodies to detect and visualize specific proteins or antigens in tissue sections, typically for diagnostic or research purposes. [Definition Source: llama3-8b-8192]" ;
                                                                                                          rdfs:label "Immunohistochemical Analyses" .
 
 
@@ -26871,7 +26871,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                           gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/21262a3cb5337627> ,
                                                                                                               <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/84ab23654039a63d> ;
                                                                                           dcterms:creator "Samuel Piron" ;
-                                                                                          rdfs:comment "Memory_domain refers to a specific region or area of the brain responsible for processing and storing specific types of information or memories. [Definition Source: llama3-8b-8192]" ;
+                                                                                          rdfs:comment "Memory domain refers to a specific region or area of the brain responsible for processing and storing specific types of information or memories. [Definition Source: llama3-8b-8192]" ;
                                                                                           rdfs:label "Memory Domain" .
 
 
@@ -26882,7 +26882,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                                     skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/BiomedicalTechnique> ;
                                                                                                     gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/e26947f442cd836d> ;
                                                                                                     dcterms:creator "Samuel Piron" ;
-                                                                                                    rdfs:comment "Microbial_concentration refers to the amount or quantity of microorganisms present in a given sample, medium, or environment. [Definition Source: llama3-8b-8192]" ;
+                                                                                                    rdfs:comment "Microbial concentration refers to the amount or quantity of microorganisms present in a given sample, medium, or environment. [Definition Source: llama3-8b-8192]" ;
                                                                                                     rdfs:label "Microbial Concentration" .
 
 
@@ -26895,7 +26895,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                                                     <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/de21ee8192b5cc0b> ,
                                                                                                                     <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/64c397a23e7a3554> ;
                                                                                                 dcterms:creator "Samuel Piron" ;
-                                                                                                rdfs:comment "Microbiome_analysis refers to the scientific study and analysis of the microbial communities that inhabit a particular environment or ecosystem, typically involving the use of high-throughput sequencing technologies and bioinformatic tools to characterize and understand the composition, diversity, and function of these microbial populations. [Definition Source: llama3-8b-8192]" ;
+                                                                                                rdfs:comment "Microbiome analysis refers to the scientific study and analysis of the microbial communities that inhabit a particular environment or ecosystem, typically involving the use of high-throughput sequencing technologies and bioinformatic tools to characterize and understand the composition, diversity, and function of these microbial populations. [Definition Source: llama3-8b-8192]" ;
                                                                                                 rdfs:label "Microbiome Analysis" .
 
 
@@ -26906,7 +26906,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                                  skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/BiomedicalTechnique> ;
                                                                                                  gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/1bfdc21a61627b80> ;
                                                                                                  dcterms:creator "Samuel Piron" ;
-                                                                                                 rdfs:comment "Microbiome_profiling refers to the process of analyzing and characterizing the microbial communities present in a specific environment or individual, typically using high-throughput sequencing technologies and bioinformatic tools. [Definition Source: llama3-8b-8192]" ;
+                                                                                                 rdfs:comment "Microbiome profiling refers to the process of analyzing and characterizing the microbial communities present in a specific environment or individual, typically using high-throughput sequencing technologies and bioinformatic tools. [Definition Source: llama3-8b-8192]" ;
                                                                                                  rdfs:label "Microbiome Profiling" .
 
 
@@ -26917,7 +26917,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                              skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/BiomedicalTechnique> ;
                                                                                              gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/e2a0e20043608f8a> ;
                                                                                              dcterms:creator "Samuel Piron" ;
-                                                                                             rdfs:comment "Mitbamp_analyses refers to a type of bioinformatics analysis that uses the MitBAMP algorithm to identify and characterize membrane-associated proteins in a given biological sample. [Definition Source: llama3-8b-8192]" ;
+                                                                                             rdfs:comment "Mitbamp analyses refers to a type of bioinformatics analysis that uses the MitBAMP algorithm to identify and characterize membrane-associated proteins in a given biological sample. [Definition Source: llama3-8b-8192]" ;
                                                                                              rdfs:label "Mitbamp Analyses" .
 
 
@@ -26960,7 +26960,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                                                  <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/0d7133a73c28cba6> ,
                                                                                                                  <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/27c42d69fd559992> ;
                                                                                              dcterms:creator "Samuel Piron" ;
-                                                                                             rdfs:comment "Picrust_analysis is a bioinformatics tool used for the analysis of 16S rRNA gene sequences to infer the functional potential of microbial communities. [Definition Source: llama3-8b-8192]" ;
+                                                                                             rdfs:comment "Picrust analysis is a bioinformatics tool used for the analysis of 16S rRNA gene sequences to infer the functional potential of microbial communities. [Definition Source: llama3-8b-8192]" ;
                                                                                              rdfs:label "Picrust Analysis" .
 
 
@@ -26999,7 +26999,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                                                             <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/535c530fc73a44a2> ,
                                                                                                                             <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/6d8d96b8c89e8e1e> ;
                                                                                                         dcterms:creator "Samuel Piron" ;
-                                                                                                        rdfs:comment "Serum_metabolomics_profiling refers to the comprehensive analysis of small molecules, such as metabolites, in serum samples to identify and quantify their concentrations, providing insights into physiological and pathological processes. [Definition Source: llama3-8b-8192]" ;
+                                                                                                        rdfs:comment "Serum metabolomics profiling refers to the comprehensive analysis of small molecules, such as metabolites, in serum samples to identify and quantify their concentrations, providing insights into physiological and pathological processes. [Definition Source: llama3-8b-8192]" ;
                                                                                                         rdfs:label "Serum Metabolomics Profiling" .
 
 
@@ -27010,7 +27010,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                     skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/BiomedicalTechnique> ;
                                                                                     gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/31d58043e5d08e03> ;
                                                                                     dcterms:creator "Samuel Piron" ;
-                                                                                    rdfs:comment "A \"splash\" refers to a sudden and brief release of liquid, typically resulting from a sudden impact or movement. [Definition Source: llama3-8b-8192]" ;
+                                                                                    rdfs:comment "It refers to a sudden and brief release of liquid, typically resulting from a sudden impact or movement. [Definition Source: llama3-8b-8192]" ;
                                                                                     rdfs:label "Splash" .
 
 
@@ -27085,7 +27085,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                                      skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/BiomedicalTechnique> ;
                                                                                                      gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/c86828f9ef5fcdc7> ;
                                                                                                      dcterms:creator "Samuel Piron" ;
-                                                                                                     rdfs:comment "\"Updrs_part_iii_motor_scores\" refers to the motor subscore of the Unified Parkinson's Disease Rating Scale (UPDRS) Part III, which assesses the severity of motor symptoms in patients with Parkinson's disease. [Definition Source: llama3-8b-8192]" ;
+                                                                                                     rdfs:comment "It refers to the motor subscore of the Unified Parkinson's Disease Rating Scale (UPDRS) Part III, which assesses the severity of motor symptoms in patients with Parkinson's disease. [Definition Source: llama3-8b-8192]" ;
                                                                                                      rdfs:label "Updrs Part Iii Motor Score" .
 
 
@@ -27110,7 +27110,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                         skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/BiomedicalTechnique> ;
                                                                                         gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/08f7779f9aa4e69e> ;
                                                                                         dcterms:creator "Samuel Piron" ;
-                                                                                        rdfs:comment "16s_rdna_pcr refers to a molecular biology technique that amplifies a specific region of the 16S ribosomal RNA gene using polymerase chain reaction (PCR) to identify and quantify microbial communities. [Definition Source: llama3-8b-8192]" ;
+                                                                                        rdfs:comment "16s rdna pcr refers to a molecular biology technique that amplifies a specific region of the 16S ribosomal RNA gene using polymerase chain reaction (PCR) to identify and quantify microbial communities. [Definition Source: llama3-8b-8192]" ;
                                                                                         rdfs:label "16S Rdna Pcr" .
 
 
@@ -27122,7 +27122,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                              gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/efc7841b4ade2cd4> ,
                                                                                                                  <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/f9e90940f1e93344> ;
                                                                                              dcterms:creator "Samuel Piron" ;
-                                                                                             rdfs:comment "16s_rdna_analysis refers to a type of molecular biology technique that involves the amplification and sequencing of the 16S ribosomal RNA gene to identify and characterize microbial communities. [Definition Source: llama3-8b-8192]" ;
+                                                                                             rdfs:comment "16s rdna analysis refers to a type of molecular biology technique that involves the amplification and sequencing of the 16S ribosomal RNA gene to identify and characterize microbial communities. [Definition Source: llama3-8b-8192]" ;
                                                                                              rdfs:label "16S Rdna Analysis" .
 
 
@@ -27160,7 +27160,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                                                    <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/757afbb060000629> ,
                                                                                                                    <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/857e8e4e92b4dad1> ;
                                                                                                dcterms:creator "Samuel Piron" ;
-                                                                                               rdfs:comment "16s_rrna_sequencing refers to a type of high-throughput sequencing technique used to analyze the 16S ribosomal RNA gene, which is a widely used marker gene for identifying and characterizing microbial communities. [Definition Source: llama3-8b-8192]" ;
+                                                                                               rdfs:comment "16s rrna sequencing refers to a type of high-throughput sequencing technique used to analyze the 16S ribosomal RNA gene, which is a widely used marker gene for identifying and characterizing microbial communities. [Definition Source: llama3-8b-8192]" ;
                                                                                                rdfs:label "16S Rrna Sequencing" .
 
 
@@ -27171,7 +27171,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                 skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/Chemical> ;
                                                                                 gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/f0902197e6414591> ;
                                                                                 dcterms:creator "Samuel Piron" ;
-                                                                                rdfs:comment "\"cd4_regulatory\" refers to a type of T cell that plays a crucial role in regulating the immune response by suppressing or enhancing the activity of other immune cells. [Definition Source: llama3-8b-8192]" ;
+                                                                                rdfs:comment "It refers to a type of T cell that plays a crucial role in regulating the immune response by suppressing or enhancing the activity of other immune cells. [Definition Source: llama3-8b-8192]" ;
                                                                                 rdfs:label "Cd4 Regulatory" .
 
 
@@ -27209,7 +27209,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                            skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/Chemical> ;
                                                                                            gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/af1361b39dbe1191> ;
                                                                                            dcterms:creator "Samuel Piron" ;
-                                                                                           rdfs:comment "The \"enteric glial cells network\" refers to a complex network of glial cells, including enteric glial cells, satellite glial cells, and other supporting cells, that interact and communicate with each other to regulate the function and homeostasis of the enteric nervous system. [Definition Source: llama3-8b-8192]" ;
+                                                                                           rdfs:comment "The enteric glial cells network refers to a complex network of glial cells, including enteric glial cells, satellite glial cells, and other supporting cells, that interact and communicate with each other to regulate the function and homeostasis of the enteric nervous system. [Definition Source: llama3-8b-8192]" ;
                                                                                            rdfs:label "Enteric Glial Cell Network" .
 
 
@@ -27221,7 +27221,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                       gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/f8e2c04dec21b642> ;
                                                                                       gutprop:locatedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/human/AsdPatients> ;
                                                                                       dcterms:creator "Samuel Piron" ;
-                                                                                      rdfs:comment "Glutamate_metabolite refers to a metabolite that is derived from the amino acid glutamate, which plays a crucial role in various cellular processes, including neurotransmission and energy metabolism. [Definition Source: llama3-8b-8192]" ;
+                                                                                      rdfs:comment "Glutamate metabolite refers to a metabolite that is derived from the amino acid glutamate, which plays a crucial role in various cellular processes, including neurotransmission and energy metabolism. [Definition Source: llama3-8b-8192]" ;
                                                                                       rdfs:label "Glutamate Metabolite" .
 
 
@@ -27233,7 +27233,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                               gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/1f5bb5cd683022ec> ,
                                                                                                   <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/8d9569c18e0b2ff5> ;
                                                                               dcterms:creator "Samuel Piron" ;
-                                                                              rdfs:comment "The \"gut_iga_level\" refers to the level of IgA antibodies present in the gut, which plays a crucial role in the immune system's defense against pathogens and other foreign substances. [Definition Source: llama3-8b-8192]" ;
+                                                                              rdfs:comment "It refers to the level of IgA antibodies present in the gut, which plays a crucial role in the immune system's defense against pathogens and other foreign substances. [Definition Source: llama3-8b-8192]" ;
                                                                               rdfs:label "Gut Iga Level" .
 
 
@@ -27269,7 +27269,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                        gutprop:impact <http://purl.obolibrary.org/obo/NCBITaxon_2> ;
                                                                                        gutprop:influence <http://purl.obolibrary.org/obo/NCIT_C26845> ;
                                                                                        dcterms:creator "Samuel Piron" ;
-                                                                                       rdfs:comment "Microbiome-borne_curli refers to a type of extracellular matrix structure produced by certain bacteria, typically Pseudomonas aeruginosa, composed of a complex mixture of proteins, carbohydrates, and nucleic acids, which plays a role in biofilm formation and host-pathogen interactions. [Definition Source: llama3-8b-8192]" ;
+                                                                                       rdfs:comment "Microbiome-borne curli refers to a type of extracellular matrix structure produced by certain bacteria, typically Pseudomonas aeruginosa, composed of a complex mixture of proteins, carbohydrates, and nucleic acids, which plays a role in biofilm formation and host-pathogen interactions. [Definition Source: llama3-8b-8192]" ;
                                                                                        rdfs:label "Microbiome-Borne Curli" .
 
 
@@ -27319,7 +27319,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                        gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/00f8ee8d233e6089> ,
                                                                                                            <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/982d099f51db0786> ;
                                                                                        dcterms:creator "Samuel Piron" ;
-                                                                                       rdfs:comment "\"Sialyl-alpha-2,6-lactose\" is a type of glycan, specifically a sialylated oligosaccharide, composed of a lactose molecule with a sialic acid residue linked to the 6th carbon of the galactose moiety. [Definition Source: llama3-8b-8192]" ;
+                                                                                       rdfs:comment "Sialyl-alpha-2,6-lactose is a type of glycan, specifically a sialylated oligosaccharide, composed of a lactose molecule with a sialic acid residue linked to the 6th carbon of the galactose moiety. [Definition Source: llama3-8b-8192]" ;
                                                                                        rdfs:label "Sialyl Alpha2 6 Lactose" .
 
 
@@ -27569,7 +27569,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                                                       <https://w3id.org/hereditary/ontology/gutbrain/resource/biomedicaltechnique/16sRdnsAnalysis> ,
                                                                                                                       <https://w3id.org/hereditary/ontology/gutbrain/resource/biomedicaltechnique/16sRrnaSequencing> ;
                                                                                                        dcterms:creator "Samuel Piron" ;
-                                                                                                       rdfs:comment "Altered_gut_microbiota refers to a condition characterized by a disruption or imbalance in the normal composition of the gut microbiome, often resulting in changes to the host's metabolic, immune, or physiological processes. [Definition Source: llama3-8b-8192]" ;
+                                                                                                       rdfs:comment "Altered gut microbiota refers to a condition characterized by a disruption or imbalance in the normal composition of the gut microbiome, often resulting in changes to the host's metabolic, immune, or physiological processes. [Definition Source: llama3-8b-8192]" ;
                                                                                                        rdfs:label "Altered Gut Microbiota" .
 
 
@@ -27630,7 +27630,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                                        gutprop:affect <http://purl.obolibrary.org/obo/NCIT_C26845> ;
                                                                                                        gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/44cf8b50575bfa26> ;
                                                                                                        dcterms:creator "Samuel Piron" ;
-                                                                                                       rdfs:comment "\"Biliary abnormalities refer to any deviation from the normal structure or function of the biliary system, including the liver, bile ducts, and gallbladder.\" [Definition Source: llama3-8b-8192]" ;
+                                                                                                       rdfs:comment "Biliary abnormalities refer to any deviation from the normal structure or function of the biliary system, including the liver, bile ducts, and gallbladder. [Definition Source: llama3-8b-8192]" ;
                                                                                                        rdfs:label "Biliary Abnormality" .
 
 
@@ -27643,7 +27643,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                                      gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/d763ba673dd5a84c> ,
                                                                                                                          <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/5b7209ede1082a10> ;
                                                                                                      dcterms:creator "Samuel Piron" ;
-                                                                                                     rdfs:comment "Cell_danger_response refers to a cellular response to stress or damage, characterized by the activation of signaling pathways and the expression of genes involved in cell survival, apoptosis, or senescence. [Definition Source: llama3-8b-8192]" ;
+                                                                                                     rdfs:comment "Cell danger response refers to a cellular response to stress or damage, characterized by the activation of signaling pathways and the expression of genes involved in cell survival, apoptosis, or senescence. [Definition Source: llama3-8b-8192]" ;
                                                                                                      rdfs:label "Cell Danger Response" .
 
 
@@ -27656,7 +27656,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                                                               <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/d13fce8f1fcc30e0> ;
                                                                                                           gutprop:target <http://purl.obolibrary.org/obo/NCIT_C45247> ;
                                                                                                           dcterms:creator "Samuel Piron" ;
-                                                                                                          rdfs:comment "Cholesterol_accumulation refers to the abnormal accumulation of cholesterol in the body, often resulting in conditions such as atherosclerosis, xanthomas, or hyperlipidemia. [Definition Source: llama3-8b-8192]" ;
+                                                                                                          rdfs:comment "Cholesterol accumulation refers to the abnormal accumulation of cholesterol in the body, often resulting in conditions such as atherosclerosis, xanthomas, or hyperlipidemia. [Definition Source: llama3-8b-8192]" ;
                                                                                                           rdfs:label "Cholesterol Accumulation" .
 
 
@@ -27703,7 +27703,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                                         skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/DiseaseDisorderOrFinding> ;
                                                                                                         gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/a4df6e70cb5d6e37> ;
                                                                                                         dcterms:creator "Samuel Piron" ;
-                                                                                                        rdfs:comment "Endolysosomal_deficits refer to impairments or disruptions in the normal functioning of endolysosomes, which are membrane-bound organelles responsible for cellular digestion and recycling of cellular waste and foreign substances. [Definition Source: llama3-8b-8192]" ;
+                                                                                                        rdfs:comment "Endolysosomal deficits refer to impairments or disruptions in the normal functioning of endolysosomes, which are membrane-bound organelles responsible for cellular digestion and recycling of cellular waste and foreign substances. [Definition Source: llama3-8b-8192]" ;
                                                                                                         rdfs:label "Endolysosomal Deficit" .
 
 
@@ -27714,7 +27714,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                                                           skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/DiseaseDisorderOrFinding> ;
                                                                                                                           gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/11f5f62d85056aa6> ;
                                                                                                                           dcterms:creator "Samuel Piron" ;
-                                                                                                                          rdfs:comment "\"Gastrointestinal_and_mental_health_symptoms\" refers to a set of symptoms that occur simultaneously in the gastrointestinal and mental health systems, often indicative of a complex condition or disorder. [Definition Source: llama3-8b-8192]" ;
+                                                                                                                          rdfs:comment "It refers to a set of symptoms that occur simultaneously in the gastrointestinal and mental health systems, often indicative of a complex condition or disorder. [Definition Source: llama3-8b-8192]" ;
                                                                                                                           rdfs:label "Gastrointestinal And Mental Health Symptom" .
 
 
@@ -27752,7 +27752,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                                                            <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/c8ee5b5e0b0183d5> ,
                                                                                                                            <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/ec6626e15ecddd60> ;
                                                                                                        dcterms:creator "Samuel Piron" ;
-                                                                                                       rdfs:comment "Intestinal_alteration refers to a change or abnormality in the structure or function of the intestine, which can be caused by various factors such as disease, injury, or surgical intervention. [Definition Source: llama3-8b-8192]" ;
+                                                                                                       rdfs:comment "Intestinal alteration refers to a change or abnormality in the structure or function of the intestine, which can be caused by various factors such as disease, injury, or surgical intervention. [Definition Source: llama3-8b-8192]" ;
                                                                                                        rdfs:label "Intestinal Alteration" .
 
 
@@ -27769,7 +27769,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                                       gutprop:strike <http://purl.obolibrary.org/obo/NCIT_C12382> ;
                                                                                                       gutprop:target <http://purl.obolibrary.org/obo/NCIT_C45247> ;
                                                                                                       dcterms:creator "Samuel Piron" ;
-                                                                                                      rdfs:comment "Microbiome_depletion refers to a reduction or loss of microbial diversity and abundance in a specific ecosystem or environment, often resulting in altered physiological and pathological processes. [Definition Source: llama3-8b-8192]" ;
+                                                                                                      rdfs:comment "Microbiome depletion refers to a reduction or loss of microbial diversity and abundance in a specific ecosystem or environment, often resulting in altered physiological and pathological processes. [Definition Source: llama3-8b-8192]" ;
                                                                                                       rdfs:label "Microbiome Depletion" .
 
 
@@ -27786,7 +27786,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                                                              <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/919f67ad7e6b7c8a> ;
                                                                                                          gutprop:target <https://w3id.org/hereditary/ontology/gutbrain/resource/human/PediatricChronicIntestinalPseudoObstructionPatients> ;
                                                                                                          dcterms:creator "Samuel Piron" ;
-                                                                                                         rdfs:comment "Microbiota_perturbation refers to a disruption or alteration of the normal balance or composition of the microbiota, which is the collective community of microorganisms that inhabit a particular environment or host. [Definition Source: llama3-8b-8192]" ;
+                                                                                                         rdfs:comment "Microbiota perturbation refers to a disruption or alteration of the normal balance or composition of the microbiota, which is the collective community of microorganisms that inhabit a particular environment or host. [Definition Source: llama3-8b-8192]" ;
                                                                                                          rdfs:label "Microbiota Perturbation" .
 
 
@@ -27815,7 +27815,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                                                            <https://uts.nlm.nih.gov/uts/umls/concept/C1300203> ,
                                                                                                                            <https://www.ncbi.nlm.nih.gov/mesh/68010361> ;
                                                                                                             dcterms:creator "Samuel Piron" ;
-                                                                                                            rdfs:comment "Neurodegenerative_diseases refer to a group of disorders characterized by the progressive loss of structure or function of neurons, leading to cognitive, motor, or sensory impairment. [Definition Source: llama3-8b-8192]" ;
+                                                                                                            rdfs:comment "Neurodegenerative diseases refer to a group of disorders characterized by the progressive loss of structure or function of neurons, leading to cognitive, motor, or sensory impairment. [Definition Source: llama3-8b-8192]" ;
                                                                                                             rdfs:label "Neurodegenerative Disease" .
 
 
@@ -27858,7 +27858,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                                        skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/DiseaseDisorderOrFinding> ;
                                                                                                        gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/17a19ecb40762004> ;
                                                                                                        dcterms:creator "Samuel Piron" ;
-                                                                                                       rdfs:comment "Oleic_acid-induced_acne refers to a type of acne that is caused by the comedogenic properties of oleic acid, a fatty acid commonly found in certain skincare products and foods. [Definition Source: llama3-8b-8192]" ;
+                                                                                                       rdfs:comment "Oleic acid-induced acne refers to a type of acne that is caused by the comedogenic properties of oleic acid, a fatty acid commonly found in certain skincare products and foods. [Definition Source: llama3-8b-8192]" ;
                                                                                                        rdfs:label "Oleic Acid-Induced Acne" .
 
 
@@ -27980,7 +27980,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                            gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/af434f015cdfb25a> ,
                                                                                                <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/0a108d80851642e4> ;
                                                                            dcterms:creator "Samuel Piron" ;
-                                                                           rdfs:comment "Alpha_syn_a53t is a mutant form of the human alpha-synuclein protein, specifically the A53T variant, which is associated with early-onset Parkinson's disease. [Definition Source: llama3-8b-8192]" ;
+                                                                           rdfs:comment "It is a mutant form of the human alpha-synuclein protein, specifically the A53T variant, which is associated with early-onset Parkinson's disease. [Definition Source: llama3-8b-8192]" ;
                                                                            rdfs:label "Alpha Syn A53T" .
 
 
@@ -28002,7 +28002,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                     skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/Gene> ;
                                                                     gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/b472a4fde2f176d2> ;
                                                                     dcterms:creator "Samuel Piron" ;
-                                                                    rdfs:comment "Bai_cd refers to the BAI1 metalloprotease domain-containing protein, a protein involved in various cellular processes, including cell adhesion and migration. [Definition Source: llama3-8b-8192]" ;
+                                                                    rdfs:comment "It refers to the BAI1 metalloprotease domain-containing protein, a protein involved in various cellular processes, including cell adhesion and migration. [Definition Source: llama3-8b-8192]" ;
                                                                     rdfs:label "Bai Cd" .
 
 
@@ -28013,7 +28013,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                        skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/Gene> ;
                                                                        gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/c794c4f3dd06ee9b> ;
                                                                        dcterms:creator "Samuel Piron" ;
-                                                                       rdfs:comment "\"bdnf_mrna\" refers to Brain-Derived Neurotrophic Factor messenger RNA, a type of RNA molecule that carries genetic information from DNA to the ribosome for protein synthesis. [Definition Source: llama3-8b-8192]" ;
+                                                                       rdfs:comment "It refers to Brain-Derived Neurotrophic Factor messenger RNA, a type of RNA molecule that carries genetic information from DNA to the ribosome for protein synthesis. [Definition Source: llama3-8b-8192]" ;
                                                                        rdfs:label "Bdnf Mrna" .
 
 
@@ -28024,7 +28024,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                        skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/Gene> ;
                                                                        gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/f7b5cfe97c847b3e> ;
                                                                        dcterms:creator "Samuel Piron" ;
-                                                                       rdfs:comment "cfos_mrna refers to the messenger RNA molecule that encodes the transcription factor C-Fos, a key regulator of gene expression involved in various cellular processes, including cell proliferation, differentiation, and apoptosis. [Definition Source: llama3-8b-8192]" ;
+                                                                       rdfs:comment "It refers to the messenger RNA molecule that encodes the transcription factor C-Fos, a key regulator of gene expression involved in various cellular processes, including cell proliferation, differentiation, and apoptosis. [Definition Source: llama3-8b-8192]" ;
                                                                        rdfs:label "Cfos Mrna" .
 
 
@@ -28057,7 +28057,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                         skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/Gene> ;
                                                                         gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/b3056f6e8dca12bb> ;
                                                                         dcterms:creator "Samuel Piron" ;
-                                                                        rdfs:comment "Lagr-1_gene is a gene that encodes a protein involved in the regulation of axon guidance and neuronal migration during embryonic development in Caenorhabditis elegans. [Definition Source: llama3-8b-8192]" ;
+                                                                        rdfs:comment "Lagr-1 gene is a gene that encodes a protein involved in the regulation of axon guidance and neuronal migration during embryonic development in Caenorhabditis elegans. [Definition Source: llama3-8b-8192]" ;
                                                                         rdfs:label "Lagr-1 Gene" .
 
 
@@ -28068,7 +28068,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                        skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/Gene> ;
                                                                        gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/9ace027892db7a5a> ;
                                                                        dcterms:creator "Samuel Piron" ;
-                                                                       rdfs:comment "The siga_gene is a gene that encodes the SigA protein, a serine protease involved in the activation of the complement system. [Definition Source: llama3-8b-8192]" ;
+                                                                       rdfs:comment "The siga gene is a gene that encodes the SigA protein, a serine protease involved in the activation of the complement system. [Definition Source: llama3-8b-8192]" ;
                                                                        rdfs:label "Siga Gene" .
 
 
