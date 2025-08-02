@@ -1,5 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import Button from "react-bootstrap/Button";
+import { IoIosClose } from "react-icons/io";
 
 export default function PaperInfoModal({ selectedTitle, onClose }) {
   const navigate = useNavigate();
@@ -7,22 +9,30 @@ export default function PaperInfoModal({ selectedTitle, onClose }) {
   return (
     <div className="tm-modal-overlay" onClick={onClose}>
       <div className="tm-modal" onClick={e => e.stopPropagation()}>
-        <button className="tm-modal-close" onClick={onClose}>×</button>
+        <IoIosClose 
+          className="tm-modal-close" 
+          onClick={onClose}
+          />
         <h3 className="h3-title">Paper Information</h3>
         <p className="uri">
           <code className="code-underline-uri">{selectedTitle.paper}</code>
         </p>
         <p><strong>Title:</strong> {selectedTitle.titletext}</p>
         <div className="tm-paper-link">
-          <button
+          <Button variant="outline-dark"
             className="tm-link-button"
+            style={{
+                cursor: "pointer",
+                margin: "16px 0",
+                textAlign: "center",
+              }}
             onClick={() => {
               navigate(`/paper/${selectedTitle.paperid}`);
               onClose();
             }}
           >
             Check Paper Information
-          </button>
+          </Button>
         </div>
       </div>
     </div>

@@ -396,6 +396,14 @@ useEffect(() => {
 
 ]);
 
+window.addEventListener('DOMContentLoaded', function() {
+  let x = 0.1;
+  setInterval(function() {
+    document.querySelector('#progress-bar').value = (x >= 100) ? 100 : x;
+    x += 0.1;
+  }, 25);
+})
+
 
   return (
     <>
@@ -471,7 +479,7 @@ useEffect(() => {
                   }}
                 />
 
-                <button
+                <Button variant="outline-dark"
                   className="tm-button ms-2"
                   onClick={() => {
                     handleSearch();
@@ -480,7 +488,7 @@ useEffect(() => {
                   disabled={loading}
                 >
                   {loading ? "Searching…" : "Search"}
-                </button>
+                </Button>
               </div>
               <div className="tm-search-right d-flex align-items-center">
                 <div
@@ -656,7 +664,7 @@ useEffect(() => {
                 animated
                 now={100}
                 variant="info"
-                style={{ height: 8, weight: 150}}
+                style={{ height: '8px', width: '200px'}}
               />
             </div>
           )}
