@@ -65,12 +65,10 @@
 }
 
 .paper-card-header {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
   position: absolute;
   top: 1rem;
-  left: 1rem;
   right: 1rem;
+  display: inline-flex;
+  align-items: center;
   z-index: 1;
 }

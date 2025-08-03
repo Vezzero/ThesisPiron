@@ -9,8 +9,8 @@ import Fuse from 'fuse.js'
 import AsyncSelect from 'react-select/async'
 import { Chart } from "react-google-charts";
 import Alert from '@mui/material/Alert';
-import { FaNewspaper } from "react-icons/fa";
-import { FaFileDownload } from "react-icons/fa";
+import { SiGrapheneos } from "react-icons/si";
+import { FaDownload } from "react-icons/fa6";
 import { Row, Col, Container } from "react-bootstrap";
 import { BASE_URL } from "../App";
 import Button from 'react-bootstrap/Button';
@@ -546,7 +546,7 @@ window.addEventListener('DOMContentLoaded', function() {
                   }}
                   title="Go to Ontology Documentation"
                 >
-                  <FaNewspaper />
+                  <SiGrapheneos />
                 </div>
                 <a
                   href="./assets/hero_gutbrain_entities.ttl"
@@ -554,11 +554,11 @@ window.addEventListener('DOMContentLoaded', function() {
                   className="tm-home-icon-download"
                   title="Download Gut-Brain entities TTL"
                 >
-                  <FaFileDownload size={20} />
+                  <FaDownload size={20} />
                 </a>
                 {(selectedPaperId || selectedClassIri) && (
-                  <button
-                    className="tm-button-back ms-3"
+                  <Button variant="secondary" style={{justifyContent:'space-between'}}
+                    //className="tm-button-back ms-3"
                     onClick={() => {
                       navigate(-1);
                       setSelectedPaperId(null);
@@ -568,7 +568,7 @@ window.addEventListener('DOMContentLoaded', function() {
                     }}
                   >
                     Back
-                  </button>
+                  </Button>
                 )}
               </div>
             </div>
@@ -728,16 +728,17 @@ window.addEventListener('DOMContentLoaded', function() {
       {selectedPaper && (
     <div className="paper-card">
       {/* ——— Card Header: back + pubmed ——— */}
-      <div className="paper-card-header">
-        <a
-          href={`https://pubmed.ncbi.nlm.nih.gov/${selectedPaper.paperid}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="tm-pubmed-button"
-        >
-          View in PubMed
-        </a>
-      </div>
+      <Button
+        as="a"
+        href={`https://pubmed.ncbi.nlm.nih.gov/${selectedPaper.paperid}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        variant="outline-primary"
+        className="paper-card-header"
+      >
+        View in PubMed
+      </Button>
+
           <h3 className="h3-title"> Paper {selectedPaper.paperid}</h3>
           <p>
             <a
@@ -906,7 +907,7 @@ window.addEventListener('DOMContentLoaded', function() {
                    </div>
                   )}
                 <hr />
-                <h4 className="h4-title">Number of supporting publications per year</h4>
+                <h4 className="h4-title">Number of supporting <strong>publications</strong> per year</h4>
                       {publicationChart && (
                       <Chart
                         chartType="ColumnChart"

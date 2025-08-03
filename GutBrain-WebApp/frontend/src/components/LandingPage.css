@@ -32,11 +32,6 @@ html, body {
   cursor: pointer;
   justify-self: space-between;
 }
-.tm-search-left{
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-}
 
 .app-shell {
   display: flex;
@@ -703,10 +698,10 @@ h2 {
 }
 
 .tm-search-right {
+  position: absolute;
+  right: 1rem;
   display: flex;
-  flex: 1;        
   gap: 0.5rem;
-  justify-content: flex-end; 
 }
 
 .tm-page-wrapper {

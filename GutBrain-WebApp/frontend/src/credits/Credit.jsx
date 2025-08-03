@@ -112,8 +112,7 @@ export function Credits() {
                     <p className={'text-align-justify'} style={{maxWidth:'80vw', width:'auto'}}>
                         This work is partially supported by the <a href="https://hereditary-project.eu/"
                                                          target={"_blank"} rel={"noopener noreferrer"}>HEREDITARY</a> Project, as part of the
-                        European Union's Horizon Europe research and innovation program under grant agreement n
-                        No. GA 101137074.
+                        European Union's Horizon Europe research and innovation program under grant agreement No GA 101137074.
                         &nbsp;
                         <a href="https://hereditary-project.eu/"
                            target={"_blank"} rel={"noopener noreferrer"}>
@@ -129,21 +128,21 @@ export function Credits() {
                         <a href="https://www.unipd.it/" target="_blank" rel="noopener noreferrer">
                         <img
                             className="logo-footer"
-                            src={BASE_URL + "/static/images/unipd-logo.png"}
+                            src="/assets/unipd-logo.png"
                             alt="UniPD"
                         />
                         </a>
                         <a href="https://www.dei.unipd.it/" target="_blank" rel="noopener noreferrer">
                         <img
                             className="logo-footer"
-                            src={BASE_URL + "/static/images/dei-logo_white.png"}
+                            src="/assets/dei-logo_white.png"
                             alt="DEI"
                         />
                         </a>
                         <a href="https://iiia.dei.unipd.it/" target="_blank" rel="noopener noreferrer">
                         <img
                             className="logo-footer"
-                            src={BASE_URL + "/static/images/iiia-logo.png"}
+                            src="/assets/iiia-logo.png"
                             alt="IIIA"
                         />
                         </a>

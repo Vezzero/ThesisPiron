@@ -45,13 +45,11 @@ export default function ClassDetails({
   function handleSort(columnKey) {
   setSortConfig(({ key, direction }) => {
     if (key === columnKey) {
-      // same column: toggle direction
       return {
         key,
         direction: direction === 'asc' ? 'desc' : 'asc'
       };
     } else {
-      // new column: default to ascending
       return { key: columnKey, direction: 'asc' };
     }
   });

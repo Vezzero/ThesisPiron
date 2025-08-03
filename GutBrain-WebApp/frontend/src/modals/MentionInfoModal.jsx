@@ -25,7 +25,7 @@ export default function MentionInfoModal({ selectedMention, onClose }) {
         <h3 className="h3-title">Mention Information</h3>
           <p>
             The mention <strong>{mentiontext}</strong> appears in{' '}
-            {sentenceCount} {sentenceCount===1 ? 'sentence' : 'sentences'}
+            {sentenceCount} {sentenceCount===1 ? 'sentence' : 'sentences'}.
           </p>
 
         <Accordion defaultActiveKey="0" className="tm-mention-accordion">
@@ -43,19 +43,19 @@ export default function MentionInfoModal({ selectedMention, onClose }) {
                 </p>
                 <p><strong>Paper:</strong> {row.paper}</p>
                 <Button variant="outline-dark"
-            className="tm-link-button"
-            style={{
-                cursor: "pointer",
-                margin: "16px 0",
-                textAlign: "center",
-              }}
-            onClick={() => {
-              navigate(`/paper/${row.id}`);
-              onClose();
-            }}
-          >
-            Check Paper Information
-          </Button>
+                  className="tm-link-button"
+                  style={{
+                      cursor: "pointer",
+                      margin: "16px 0",
+                      textAlign: "center",
+                    }}
+                  onClick={() => {
+                    navigate(`/paper/${row.id}`);
+                    onClose();
+                  }}
+                  >
+                  Check Paper Information
+                </Button>
               </Accordion.Body>
             </Accordion.Item>
           ))}
