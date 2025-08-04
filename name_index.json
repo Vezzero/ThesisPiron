@@ -1,0 +1,6015 @@
+{
+  "acetobacter": [
+    [
+      "B03.440.400.425.100.100",
+      "D000091",
+      "Acetobacter"
+    ]
+  ],
+  "acholeplasma": [
+    [
+      "B03.440.860.074.150",
+      "D000127",
+      "Acholeplasma"
+    ]
+  ],
+  "acholeplasma laidlawii": [
+    [
+      "B03.440.860.074.150.500",
+      "D000128",
+      "Acholeplasma laidlawii"
+    ]
+  ],
+  "acholeplasmataceae": [
+    [
+      "B03.440.860.074",
+      "D000129",
+      "Acholeplasmataceae"
+    ]
+  ],
+  "acinetobacter": [
+    [
+      "B03.440.400.425.537.050",
+      "D000150",
+      "Acinetobacter"
+    ]
+  ],
+  "actinobacillus": [
+    [
+      "B03.440.450.009",
+      "D000188",
+      "Actinobacillus"
+    ]
+  ],
+  "actinomyces": [
+    [
+      "B03.510.024.049.050.050",
+      "D000190",
+      "Actinomyces"
+    ]
+  ],
+  "actinomycetaceae": [
+    [
+      "B03.510.024.049.050",
+      "D000191",
+      "Actinomycetaceae"
+    ]
+  ],
+  "actinomycetales": [
+    [
+      "B03.510.024.049",
+      "D000192",
+      "Actinomycetales"
+    ]
+  ],
+  "aeromonas": [
+    [
+      "B03.440.450.019.025",
+      "D000333",
+      "Aeromonas"
+    ]
+  ],
+  "alcaligenes": [
+    [
+      "B03.440.400.425.115.050",
+      "D000421",
+      "Alcaligenes"
+    ]
+  ],
+  "cyanobacteria": [
+    [
+      "B03.280",
+      "D000458",
+      "Cyanobacteria"
+    ]
+  ],
+  "anaplasma": [
+    [
+      "B03.440.664.750.050",
+      "D000709",
+      "Anaplasma"
+    ]
+  ],
+  "anaplasmataceae": [
+    [
+      "B03.440.664.750",
+      "D000710",
+      "Anaplasmataceae"
+    ]
+  ],
+  "arthrobacter": [
+    [
+      "B03.510.024.850.050",
+      "D001173",
+      "Arthrobacter"
+    ]
+  ],
+  "atypical bacterial forms": [
+    [
+      "B03.110",
+      "D001295",
+      "Atypical Bacterial Forms"
+    ]
+  ],
+  "azotobacter": [
+    [
+      "B03.440.400.425.625.050",
+      "D001395",
+      "Azotobacter"
+    ]
+  ],
+  "bacillaceae": [
+    [
+      "B03.300.390.400.158",
+      "D001406",
+      "Bacillaceae"
+    ]
+  ],
+  "bacillus": [
+    [
+      "B03.300.390.400.158.218",
+      "D001407",
+      "Bacillus"
+    ]
+  ],
+  "bacillus anthracis": [
+    [
+      "B03.300.390.400.158.218.151",
+      "D001408",
+      "Bacillus anthracis"
+    ]
+  ],
+  "bacillus cereus": [
+    [
+      "B03.300.390.400.158.218.252",
+      "D001409",
+      "Bacillus cereus"
+    ]
+  ],
+  "bacillus megaterium": [
+    [
+      "B03.300.390.400.158.218.500",
+      "D001410",
+      "Bacillus megaterium"
+    ]
+  ],
+  "geobacillus stearothermophilus": [
+    [
+      "B03.300.390.400.158.400.400",
+      "D001411",
+      "Geobacillus stearothermophilus"
+    ]
+  ],
+  "bacillus subtilis": [
+    [
+      "B03.300.390.400.158.218.725",
+      "D001412",
+      "Bacillus subtilis"
+    ]
+  ],
+  "bacillus thuringiensis": [
+    [
+      "B03.300.390.400.158.218.800",
+      "D001413",
+      "Bacillus thuringiensis"
+    ]
+  ],
+  "bacteria": [
+    [
+      "B03",
+      "D001419",
+      "Bacteria"
+    ]
+  ],
+  "bacteria, aerobic": [
+    [
+      "B03.120",
+      "D001420",
+      "Bacteria, Aerobic"
+    ]
+  ],
+  "bacteria, anaerobic": [
+    [
+      "B03.130",
+      "D001421",
+      "Bacteria, Anaerobic"
+    ]
+  ],
+  "bacteroidaceae": [
+    [
+      "B03.440.080.094",
+      "D001438",
+      "Bacteroidaceae"
+    ]
+  ],
+  "bacteroides": [
+    [
+      "B03.440.080.094.152",
+      "D001439",
+      "Bacteroides"
+    ]
+  ],
+  "bacteroides fragilis": [
+    [
+      "B03.440.080.094.152.400",
+      "D001441",
+      "Bacteroides fragilis"
+    ]
+  ],
+  "prevotella melaninogenica": [
+    [
+      "B03.440.080.094.640.500",
+      "D001443",
+      "Prevotella melaninogenica"
+    ]
+  ],
+  "bartonella": [
+    [
+      "B03.440.090.100",
+      "D001473",
+      "Bartonella"
+    ]
+  ],
+  "bartonellaceae": [
+    [
+      "B03.440.090",
+      "D001475",
+      "Bartonellaceae"
+    ]
+  ],
+  "bdellovibrio": [
+    [
+      "B03.440.400.425.180",
+      "D001501",
+      "Bdellovibrio"
+    ]
+  ],
+  "bifidobacterium": [
+    [
+      "B03.510.024.100",
+      "D001644",
+      "Bifidobacterium"
+    ]
+  ],
+  "bordetella": [
+    [
+      "B03.440.400.425.115.425",
+      "D001884",
+      "Bordetella"
+    ]
+  ],
+  "bordetella pertussis": [
+    [
+      "B03.440.400.425.115.425.600",
+      "D001886",
+      "Bordetella pertussis"
+    ]
+  ],
+  "borrelia": [
+    [
+      "B03.440.425.410.711.193",
+      "D001898",
+      "Borrelia"
+    ]
+  ],
+  "moraxella catarrhalis": [
+    [
+      "B03.440.400.425.537.525.200",
+      "D001936",
+      "Moraxella catarrhalis"
+    ]
+  ],
+  "brevibacterium": [
+    [
+      "B03.510.024.175",
+      "D001951",
+      "Brevibacterium"
+    ]
+  ],
+  "brucella": [
+    [
+      "B03.440.400.425.215.500",
+      "D002002",
+      "Brucella"
+    ]
+  ],
+  "brucella abortus": [
+    [
+      "B03.440.400.425.215.500.100",
+      "D002003",
+      "Brucella abortus"
+    ]
+  ],
+  "calymmatobacterium": [
+    [
+      "B03.440.450.425.180",
+      "D002157",
+      "Calymmatobacterium"
+    ]
+  ],
+  "campylobacter": [
+    [
+      "B03.440.180",
+      "D002167",
+      "Campylobacter"
+    ]
+  ],
+  "campylobacter fetus": [
+    [
+      "B03.440.180.325",
+      "D002168",
+      "Campylobacter fetus"
+    ]
+  ],
+  "capnocytophaga": [
+    [
+      "B03.440.080.190.100",
+      "D002206",
+      "Capnocytophaga"
+    ]
+  ],
+  "chlamydia": [
+    [
+      "B03.440.190.190.190",
+      "D002689",
+      "Chlamydia"
+    ]
+  ],
+  "chlamydophila psittaci": [
+    [
+      "B03.440.190.190.230.500",
+      "D002691",
+      "Chlamydophila psittaci"
+    ]
+  ],
+  "chlamydia trachomatis": [
+    [
+      "B03.440.190.190.190.750",
+      "D002692",
+      "Chlamydia trachomatis"
+    ]
+  ],
+  "chlamydiaceae": [
+    [
+      "B03.440.190.190",
+      "D002693",
+      "Chlamydiaceae"
+    ]
+  ],
+  "chlamydiales": [
+    [
+      "B03.440.190",
+      "D002695",
+      "Chlamydiales"
+    ]
+  ],
+  "chromatiaceae": [
+    [
+      "B03.660.250.110",
+      "D002841",
+      "Chromatiaceae"
+    ]
+  ],
+  "chromatium": [
+    [
+      "B03.440.425.410.290",
+      "D002844",
+      "Chromatium"
+    ]
+  ],
+  "chromobacterium": [
+    [
+      "B03.440.450.360",
+      "D002861",
+      "Chromobacterium"
+    ]
+  ],
+  "citrobacter": [
+    [
+      "B03.440.450.425.200",
+      "D002954",
+      "Citrobacter"
+    ]
+  ],
+  "clostridium": [
+    [
+      "B03.300.390.400.200",
+      "D003013",
+      "Clostridium"
+    ]
+  ],
+  "clostridium botulinum": [
+    [
+      "B03.300.390.400.200.160",
+      "D003014",
+      "Clostridium botulinum"
+    ]
+  ],
+  "clostridium perfringens": [
+    [
+      "B03.300.390.400.200.575",
+      "D003016",
+      "Clostridium perfringens"
+    ]
+  ],
+  "clostridium tetani": [
+    [
+      "B03.300.390.400.200.725",
+      "D003017",
+      "Clostridium tetani"
+    ]
+  ],
+  "corynebacterium": [
+    [
+      "B03.510.024.250",
+      "D003352",
+      "Corynebacterium"
+    ]
+  ],
+  "corynebacterium diphtheriae": [
+    [
+      "B03.510.024.250.150",
+      "D003353",
+      "Corynebacterium diphtheriae"
+    ]
+  ],
+  "corynebacterium pyogenes": [
+    [
+      "B03.510.024.250.625",
+      "D003355",
+      "Corynebacterium pyogenes"
+    ]
+  ],
+  "coxiella": [
+    [
+      "B03.440.400.425.297.150",
+      "D003381",
+      "Coxiella"
+    ]
+  ],
+  "cytophaga": [
+    [
+      "B03.440.080.130.150",
+      "D003589",
+      "Cytophaga"
+    ]
+  ],
+  "desulfovibrio": [
+    [
+      "B03.440.425.410.350",
+      "D003901",
+      "Desulfovibrio"
+    ]
+  ],
+  "ehrlichia": [
+    [
+      "B03.440.664.750.287",
+      "D004536",
+      "Ehrlichia"
+    ]
+  ],
+  "endospore-forming bacteria": [
+    [
+      "B03.300",
+      "D004725",
+      "Endospore-Forming Bacteria"
+    ]
+  ],
+  "enterobacter": [
+    [
+      "B03.440.450.425.275",
+      "D004754",
+      "Enterobacter"
+    ]
+  ],
+  "enterobacteriaceae": [
+    [
+      "B03.440.450.425",
+      "D004755",
+      "Enterobacteriaceae"
+    ]
+  ],
+  "erwinia": [
+    [
+      "B03.440.450.425.300",
+      "D004885",
+      "Erwinia"
+    ]
+  ],
+  "erysipelothrix": [
+    [
+      "B03.353.688",
+      "D004888",
+      "Erysipelothrix"
+    ]
+  ],
+  "escherichia": [
+    [
+      "B03.440.450.425.325",
+      "D004925",
+      "Escherichia"
+    ]
+  ],
+  "escherichia coli": [
+    [
+      "B03.440.450.425.325.300",
+      "D004926",
+      "Escherichia coli"
+    ]
+  ],
+  "eubacterium": [
+    [
+      "B03.353.625.750",
+      "D005051",
+      "Eubacterium"
+    ]
+  ],
+  "flavobacterium": [
+    [
+      "B03.440.080.190.250",
+      "D005417",
+      "Flavobacterium"
+    ]
+  ],
+  "francisella": [
+    [
+      "B03.440.400.425.340",
+      "D005603",
+      "Francisella"
+    ]
+  ],
+  "francisella tularensis": [
+    [
+      "B03.440.400.425.340.590",
+      "D005604",
+      "Francisella tularensis"
+    ]
+  ],
+  "fusobacterium": [
+    [
+      "B03.370.250",
+      "D005673",
+      "Fusobacterium"
+    ]
+  ],
+  "fusobacterium necrophorum": [
+    [
+      "B03.370.250.400",
+      "D005675",
+      "Fusobacterium necrophorum"
+    ]
+  ],
+  "gram-negative aerobic bacteria": [
+    [
+      "B03.440.400",
+      "D006088",
+      "Gram-Negative Aerobic Bacteria"
+    ]
+  ],
+  "gram-negative anaerobic bacteria": [
+    [
+      "B03.440.425",
+      "D006089",
+      "Gram-Negative Anaerobic Bacteria"
+    ]
+  ],
+  "gram-negative bacteria": [
+    [
+      "B03.440",
+      "D006090",
+      "Gram-Negative Bacteria"
+    ]
+  ],
+  "gram-negative chemolithotrophic bacteria": [
+    [
+      "B03.440.400.450",
+      "D006091",
+      "Gram-Negative Chemolithotrophic Bacteria"
+    ]
+  ],
+  "gram-negative facultatively anaerobic rods": [
+    [
+      "B03.440.450",
+      "D006092",
+      "Gram-Negative Facultatively Anaerobic Rods"
+    ]
+  ],
+  "gram-positive asporogenous rods": [
+    [
+      "B03.510.460.400",
+      "D006093",
+      "Gram-Positive Asporogenous Rods"
+    ]
+  ],
+  "gram-positive bacteria": [
+    [
+      "B03.510",
+      "D006094",
+      "Gram-Positive Bacteria"
+    ]
+  ],
+  "gram-positive cocci": [
+    [
+      "B03.510.400",
+      "D006095",
+      "Gram-Positive Cocci"
+    ]
+  ],
+  "haemophilus": [
+    [
+      "B03.440.450.600.450",
+      "D006190",
+      "Haemophilus"
+    ]
+  ],
+  "haemophilus ducreyi": [
+    [
+      "B03.440.450.600.450.125",
+      "D006191",
+      "Haemophilus ducreyi"
+    ]
+  ],
+  "haemophilus influenzae": [
+    [
+      "B03.440.450.600.450.330",
+      "D006193",
+      "Haemophilus influenzae"
+    ]
+  ],
+  "gardnerella vaginalis": [
+    [
+      "B03.510.024.400.800",
+      "D006194",
+      "Gardnerella vaginalis"
+    ]
+  ],
+  "klebsiella": [
+    [
+      "B03.440.450.425.425",
+      "D007709",
+      "Klebsiella"
+    ]
+  ],
+  "klebsiella pneumoniae": [
+    [
+      "B03.440.450.425.425.600",
+      "D007711",
+      "Klebsiella pneumoniae"
+    ]
+  ],
+  "l forms": [
+    [
+      "B03.110.422",
+      "D007740",
+      "L Forms"
+    ]
+  ],
+  "lactobacillaceae": [
+    [
+      "B03.353.750.450",
+      "D007777",
+      "Lactobacillaceae"
+    ]
+  ],
+  "lactobacillus": [
+    [
+      "B03.353.750.450.475",
+      "D007778",
+      "Lactobacillus"
+    ]
+  ],
+  "lactobacillus acidophilus": [
+    [
+      "B03.353.750.450.475.100",
+      "D007779",
+      "Lactobacillus acidophilus"
+    ]
+  ],
+  "lacticaseibacillus casei": [
+    [
+      "B03.353.750.450.606.500",
+      "D007780",
+      "Lacticaseibacillus casei"
+    ]
+  ],
+  "legionella": [
+    [
+      "B03.440.400.425.450.450",
+      "D007875",
+      "Legionella"
+    ]
+  ],
+  "leptospira": [
+    [
+      "B03.440.400.425.475.475",
+      "D007919",
+      "Leptospira"
+    ]
+  ],
+  "leptospira interrogans": [
+    [
+      "B03.440.400.425.475.475.400",
+      "D007921",
+      "Leptospira interrogans"
+    ]
+  ],
+  "leuconostoc": [
+    [
+      "B03.353.750.475.450",
+      "D007934",
+      "Leuconostoc"
+    ]
+  ],
+  "listeria": [
+    [
+      "B03.353.500.500",
+      "D008087",
+      "Listeria"
+    ]
+  ],
+  "listeria monocytogenes": [
+    [
+      "B03.353.500.500.500",
+      "D008089",
+      "Listeria monocytogenes"
+    ]
+  ],
+  "methylococcaceae": [
+    [
+      "B03.440.400.425.500",
+      "D008772",
+      "Methylococcaceae"
+    ]
+  ],
+  "micrococcaceae": [
+    [
+      "B03.510.024.850",
+      "D008835",
+      "Micrococcaceae"
+    ]
+  ],
+  "micrococcus": [
+    [
+      "B03.510.024.850.500",
+      "D008837",
+      "Micrococcus"
+    ]
+  ],
+  "micromonospora": [
+    [
+      "B03.300.390.400.500.500",
+      "D008847",
+      "Micromonospora"
+    ]
+  ],
+  "micromonosporaceae": [
+    [
+      "B03.300.390.400.500",
+      "D008848",
+      "Micromonosporaceae"
+    ]
+  ],
+  "tenericutes": [
+    [
+      "B03.440.860",
+      "D008973",
+      "Tenericutes"
+    ]
+  ],
+  "moraxella": [
+    [
+      "B03.440.400.425.537.525",
+      "D009016",
+      "Moraxella"
+    ]
+  ],
+  "mycobacteriaceae": [
+    [
+      "B03.510.024.962",
+      "D009159",
+      "Mycobacteriaceae"
+    ]
+  ],
+  "mycobacterium": [
+    [
+      "B03.510.024.962.500",
+      "D009161",
+      "Mycobacterium"
+    ]
+  ],
+  "mycobacterium avium": [
+    [
+      "B03.510.024.962.500.300",
+      "D009162",
+      "Mycobacterium avium"
+    ]
+  ],
+  "mycobacterium bovis": [
+    [
+      "B03.510.024.962.500.402",
+      "D009163",
+      "Mycobacterium bovis"
+    ]
+  ],
+  "mycobacterium leprae": [
+    [
+      "B03.510.024.962.500.502",
+      "D009166",
+      "Mycobacterium leprae"
+    ]
+  ],
+  "mycobacterium lepraemurium": [
+    [
+      "B03.510.024.962.500.602",
+      "D009167",
+      "Mycobacterium lepraemurium"
+    ]
+  ],
+  "mycobacterium phlei": [
+    [
+      "B03.510.024.962.500.640",
+      "D009168",
+      "Mycobacterium phlei"
+    ]
+  ],
+  "mycobacterium tuberculosis": [
+    [
+      "B03.510.024.962.500.702",
+      "D009169",
+      "Mycobacterium tuberculosis"
+    ]
+  ],
+  "nontuberculous mycobacteria": [
+    [
+      "B03.510.024.962.500.720",
+      "D009170",
+      "Nontuberculous Mycobacteria"
+    ]
+  ],
+  "mycoplasma": [
+    [
+      "B03.440.860.580.553.553",
+      "D009174",
+      "Mycoplasma"
+    ]
+  ],
+  "mycoplasma mycoides": [
+    [
+      "B03.440.860.580.553.553.585",
+      "D009176",
+      "Mycoplasma mycoides"
+    ]
+  ],
+  "mycoplasma pneumoniae": [
+    [
+      "B03.440.860.580.553.553.650",
+      "D009177",
+      "Mycoplasma pneumoniae"
+    ]
+  ],
+  "mycoplasmataceae": [
+    [
+      "B03.440.860.580.553",
+      "D009178",
+      "Mycoplasmataceae"
+    ]
+  ],
+  "mycoplasmatales": [
+    [
+      "B03.440.860.580",
+      "D009179",
+      "Mycoplasmatales"
+    ]
+  ],
+  "myxococcales": [
+    [
+      "B03.660.125.500",
+      "D009231",
+      "Myxococcales"
+    ]
+  ],
+  "neisseria": [
+    [
+      "B03.440.400.425.550.550",
+      "D009343",
+      "Neisseria"
+    ]
+  ],
+  "neisseria gonorrhoeae": [
+    [
+      "B03.440.400.425.550.550.474",
+      "D009344",
+      "Neisseria gonorrhoeae"
+    ]
+  ],
+  "neisseria meningitidis": [
+    [
+      "B03.440.400.425.550.550.641",
+      "D009345",
+      "Neisseria meningitidis"
+    ]
+  ],
+  "neisseriaceae": [
+    [
+      "B03.440.400.425.550",
+      "D009346",
+      "Neisseriaceae"
+    ]
+  ],
+  "nitrobacter": [
+    [
+      "B03.440.400.425.200.520",
+      "D009576",
+      "Nitrobacter"
+    ]
+  ],
+  "nitrosomonas": [
+    [
+      "B03.440.400.425.562.500",
+      "D009606",
+      "Nitrosomonas"
+    ]
+  ],
+  "nocardia": [
+    [
+      "B03.510.024.981.550",
+      "D009615",
+      "Nocardia"
+    ]
+  ],
+  "nocardia asteroides": [
+    [
+      "B03.510.024.981.550.550",
+      "D009616",
+      "Nocardia asteroides"
+    ]
+  ],
+  "nocardiaceae": [
+    [
+      "B03.510.024.981",
+      "D009618",
+      "Nocardiaceae"
+    ]
+  ],
+  "paracoccus": [
+    [
+      "B03.440.400.425.600",
+      "D010230",
+      "Paracoccus"
+    ]
+  ],
+  "paracoccus denitrificans": [
+    [
+      "B03.440.400.425.600.380",
+      "D010231",
+      "Paracoccus denitrificans"
+    ]
+  ],
+  "pasteurella": [
+    [
+      "B03.440.450.600.600",
+      "D010325",
+      "Pasteurella"
+    ]
+  ],
+  "pediococcus": [
+    [
+      "B03.353.750.450.737",
+      "D010376",
+      "Pediococcus"
+    ]
+  ],
+  "peptococcaceae": [
+    [
+      "B03.353.625.782",
+      "D010459",
+      "Peptococcaceae"
+    ]
+  ],
+  "peptococcus": [
+    [
+      "B03.353.625.782.593",
+      "D010460",
+      "Peptococcus"
+    ]
+  ],
+  "peptostreptococcus": [
+    [
+      "B03.353.625.798",
+      "D010462",
+      "Peptostreptococcus"
+    ]
+  ],
+  "photobacterium": [
+    [
+      "B03.440.450.900.604",
+      "D010776",
+      "Photobacterium"
+    ]
+  ],
+  "propionibacteriaceae": [
+    [
+      "B03.510.024.990",
+      "D011423",
+      "Propionibacteriaceae"
+    ]
+  ],
+  "propionibacterium": [
+    [
+      "B03.510.024.990.600",
+      "D011424",
+      "Propionibacterium"
+    ]
+  ],
+  "propionibacterium acnes": [
+    [
+      "B03.510.024.990.600.600",
+      "D011425",
+      "Propionibacterium acnes"
+    ]
+  ],
+  "proteus": [
+    [
+      "B03.440.450.425.600",
+      "D011511",
+      "Proteus"
+    ]
+  ],
+  "proteus mirabilis": [
+    [
+      "B03.440.450.425.600.501",
+      "D011513",
+      "Proteus mirabilis"
+    ]
+  ],
+  "proteus vulgaris": [
+    [
+      "B03.440.450.425.600.800",
+      "D011514",
+      "Proteus vulgaris"
+    ]
+  ],
+  "providencia": [
+    [
+      "B03.440.450.425.670",
+      "D011532",
+      "Providencia"
+    ]
+  ],
+  "pseudomonadaceae": [
+    [
+      "B03.440.400.425.625",
+      "D011548",
+      "Pseudomonadaceae"
+    ]
+  ],
+  "pseudomonas": [
+    [
+      "B03.440.400.425.625.625",
+      "D011549",
+      "Pseudomonas"
+    ]
+  ],
+  "pseudomonas aeruginosa": [
+    [
+      "B03.440.400.425.625.625.100",
+      "D011550",
+      "Pseudomonas aeruginosa"
+    ]
+  ],
+  "pseudomonas fluorescens": [
+    [
+      "B03.440.400.425.625.625.325",
+      "D011551",
+      "Pseudomonas fluorescens"
+    ]
+  ],
+  "rhizobiaceae": [
+    [
+      "B03.440.400.425.700",
+      "D012230",
+      "Rhizobiaceae"
+    ]
+  ],
+  "rhizobium": [
+    [
+      "B03.440.400.425.700.800",
+      "D012231",
+      "Rhizobium"
+    ]
+  ],
+  "rhodococcus": [
+    [
+      "B03.510.024.981.775",
+      "D012240",
+      "Rhodococcus"
+    ]
+  ],
+  "rhodopseudomonas": [
+    [
+      "B03.440.400.425.200.700",
+      "D012241",
+      "Rhodopseudomonas"
+    ]
+  ],
+  "rhodobacter sphaeroides": [
+    [
+      "B03.440.623.700",
+      "D012242",
+      "Rhodobacter sphaeroides"
+    ]
+  ],
+  "rhodospirillaceae": [
+    [
+      "B03.440.400.425.708",
+      "D012244",
+      "Rhodospirillaceae"
+    ]
+  ],
+  "rhodospirillales": [
+    [
+      "B03.660.050.755",
+      "D012245",
+      "Rhodospirillales"
+    ]
+  ],
+  "rhodospirillum": [
+    [
+      "B03.440.400.425.708.733",
+      "D012246",
+      "Rhodospirillum"
+    ]
+  ],
+  "rhodospirillum rubrum": [
+    [
+      "B03.440.400.425.708.733.650",
+      "D012247",
+      "Rhodospirillum rubrum"
+    ]
+  ],
+  "rickettsia": [
+    [
+      "B03.660.050.783.875.650.650",
+      "D012281",
+      "Rickettsia"
+    ]
+  ],
+  "rickettsia prowazekii": [
+    [
+      "B03.660.050.783.875.650.650.600",
+      "D012283",
+      "Rickettsia prowazekii"
+    ]
+  ],
+  "rickettsia rickettsii": [
+    [
+      "B03.660.050.783.875.650.650.650",
+      "D012284",
+      "Rickettsia rickettsii"
+    ]
+  ],
+  "orientia tsutsugamushi": [
+    [
+      "B03.660.050.783.875.650.450.500",
+      "D012285",
+      "Orientia tsutsugamushi"
+    ]
+  ],
+  "rickettsia typhi": [
+    [
+      "B03.660.050.783.875.650.650.810",
+      "D012286",
+      "Rickettsia typhi"
+    ]
+  ],
+  "rickettsiaceae": [
+    [
+      "B03.660.050.783.875",
+      "D012287",
+      "Rickettsiaceae"
+    ]
+  ],
+  "salmonella": [
+    [
+      "B03.440.450.425.800",
+      "D012475",
+      "Salmonella"
+    ]
+  ],
+  "salmonella arizonae": [
+    [
+      "B03.440.450.425.800.100",
+      "D012476",
+      "Salmonella arizonae"
+    ]
+  ],
+  "salmonella enteritidis": [
+    [
+      "B03.440.450.425.800.200.300",
+      "D012477",
+      "Salmonella enteritidis"
+    ]
+  ],
+  "salmonella paratyphi c": [
+    [
+      "B03.440.450.425.800.200.750",
+      "D012479",
+      "Salmonella paratyphi C"
+    ]
+  ],
+  "salmonella paratyphi a": [
+    [
+      "B03.440.450.425.800.200.600",
+      "D012482",
+      "Salmonella paratyphi A"
+    ]
+  ],
+  "salmonella paratyphi b": [
+    [
+      "B03.440.450.425.800.200.700",
+      "D012484",
+      "Salmonella paratyphi B"
+    ]
+  ],
+  "salmonella typhi": [
+    [
+      "B03.440.450.425.800.200.800",
+      "D012485",
+      "Salmonella typhi"
+    ]
+  ],
+  "salmonella typhimurium": [
+    [
+      "B03.440.450.425.800.200.825",
+      "D012486",
+      "Salmonella typhimurium"
+    ]
+  ],
+  "sarcina": [
+    [
+      "B03.353.625.375.750",
+      "D012505",
+      "Sarcina"
+    ]
+  ],
+  "serratia": [
+    [
+      "B03.440.450.425.814",
+      "D012705",
+      "Serratia"
+    ]
+  ],
+  "serratia marcescens": [
+    [
+      "B03.440.450.425.814.664",
+      "D012706",
+      "Serratia marcescens"
+    ]
+  ],
+  "shigella": [
+    [
+      "B03.440.450.425.850",
+      "D012760",
+      "Shigella"
+    ]
+  ],
+  "shigella boydii": [
+    [
+      "B03.440.450.425.850.175",
+      "D012761",
+      "Shigella boydii"
+    ]
+  ],
+  "shigella dysenteriae": [
+    [
+      "B03.440.450.425.850.350",
+      "D012762",
+      "Shigella dysenteriae"
+    ]
+  ],
+  "shigella flexneri": [
+    [
+      "B03.440.450.425.850.450",
+      "D012763",
+      "Shigella flexneri"
+    ]
+  ],
+  "shigella sonnei": [
+    [
+      "B03.440.450.425.850.800",
+      "D012764",
+      "Shigella sonnei"
+    ]
+  ],
+  "spheroplasts": [
+    [
+      "B03.110.761",
+      "D013104",
+      "Spheroplasts"
+    ]
+  ],
+  "spirillum": [
+    [
+      "B03.440.840.750",
+      "D013139",
+      "Spirillum"
+    ]
+  ],
+  "spirochaeta": [
+    [
+      "B03.440.425.410.711.679",
+      "D013142",
+      "Spirochaeta"
+    ]
+  ],
+  "spirochaetaceae": [
+    [
+      "B03.440.425.410.711",
+      "D013143",
+      "Spirochaetaceae"
+    ]
+  ],
+  "spirochaetales": [
+    [
+      "B03.851",
+      "D013144",
+      "Spirochaetales"
+    ]
+  ],
+  "spiroplasma": [
+    [
+      "B03.440.860.300.750.625",
+      "D013149",
+      "Spiroplasma"
+    ]
+  ],
+  "staphylococcus": [
+    [
+      "B03.300.390.400.800.750",
+      "D013210",
+      "Staphylococcus"
+    ]
+  ],
+  "staphylococcus aureus": [
+    [
+      "B03.300.390.400.800.750.100",
+      "D013211",
+      "Staphylococcus aureus"
+    ]
+  ],
+  "staphylococcus epidermidis": [
+    [
+      "B03.300.390.400.800.750.343",
+      "D013212",
+      "Staphylococcus epidermidis"
+    ]
+  ],
+  "streptobacillus": [
+    [
+      "B03.370.700",
+      "D013288",
+      "Streptobacillus"
+    ]
+  ],
+  "streptococcaceae": [
+    [
+      "B03.353.750.737",
+      "D013289",
+      "Streptococcaceae"
+    ]
+  ],
+  "streptococcus": [
+    [
+      "B03.353.750.737.872",
+      "D013291",
+      "Streptococcus"
+    ]
+  ],
+  "streptococcus agalactiae": [
+    [
+      "B03.353.750.737.872.100",
+      "D013292",
+      "Streptococcus agalactiae"
+    ]
+  ],
+  "enterococcus faecalis": [
+    [
+      "B03.353.750.250.250.280",
+      "D013293",
+      "Enterococcus faecalis"
+    ]
+  ],
+  "lactococcus lactis": [
+    [
+      "B03.353.750.737.500.400",
+      "D013294",
+      "Lactococcus lactis"
+    ]
+  ],
+  "streptococcus mutans": [
+    [
+      "B03.353.750.737.872.875.520",
+      "D013295",
+      "Streptococcus mutans"
+    ]
+  ],
+  "streptococcus pneumoniae": [
+    [
+      "B03.353.750.737.872.550",
+      "D013296",
+      "Streptococcus pneumoniae"
+    ]
+  ],
+  "streptococcus pyogenes": [
+    [
+      "B03.353.750.737.872.575",
+      "D013297",
+      "Streptococcus pyogenes"
+    ]
+  ],
+  "streptococcus sanguis": [
+    [
+      "B03.353.750.737.872.875.700",
+      "D013298",
+      "Streptococcus sanguis"
+    ]
+  ],
+  "streptomyces": [
+    [
+      "B03.300.390.400.810.768",
+      "D013302",
+      "Streptomyces"
+    ]
+  ],
+  "streptomyces antibioticus": [
+    [
+      "B03.300.390.400.810.768.100",
+      "D013303",
+      "Streptomyces antibioticus"
+    ]
+  ],
+  "streptomyces aureofaciens": [
+    [
+      "B03.300.390.400.810.768.125",
+      "D013304",
+      "Streptomyces aureofaciens"
+    ]
+  ],
+  "streptomyces griseus": [
+    [
+      "B03.300.390.400.810.768.375",
+      "D013305",
+      "Streptomyces griseus"
+    ]
+  ],
+  "streptomycetaceae": [
+    [
+      "B03.300.390.400.810",
+      "D013306",
+      "Streptomycetaceae"
+    ]
+  ],
+  "thermus": [
+    [
+      "B03.440.400.425.875",
+      "D013824",
+      "Thermus"
+    ]
+  ],
+  "thiobacillus": [
+    [
+      "B03.440.400.450.800",
+      "D013855",
+      "Thiobacillus"
+    ]
+  ],
+  "acidithiobacillus thiooxidans": [
+    [
+      "B03.440.400.425.103.800",
+      "D013856",
+      "Acidithiobacillus thiooxidans"
+    ]
+  ],
+  "treponema": [
+    [
+      "B03.440.425.410.711.795",
+      "D014208",
+      "Treponema"
+    ]
+  ],
+  "treponema pallidum": [
+    [
+      "B03.440.425.410.711.795.840",
+      "D014210",
+      "Treponema pallidum"
+    ]
+  ],
+  "ureaplasma": [
+    [
+      "B03.440.860.580.553.900",
+      "D014509",
+      "Ureaplasma"
+    ]
+  ],
+  "veillonella": [
+    [
+      "B03.440.425.410.800.938",
+      "D014678",
+      "Veillonella"
+    ]
+  ],
+  "vibrio": [
+    [
+      "B03.440.450.900.859",
+      "D014733",
+      "Vibrio"
+    ]
+  ],
+  "vibrio cholerae": [
+    [
+      "B03.440.450.900.859.225",
+      "D014734",
+      "Vibrio cholerae"
+    ]
+  ],
+  "vibrio parahaemolyticus": [
+    [
+      "B03.440.450.900.859.550",
+      "D014736",
+      "Vibrio parahaemolyticus"
+    ]
+  ],
+  "vibrionaceae": [
+    [
+      "B03.440.450.900",
+      "D014737",
+      "Vibrionaceae"
+    ]
+  ],
+  "xanthomonas": [
+    [
+      "B03.440.400.425.967.930",
+      "D014974",
+      "Xanthomonas"
+    ]
+  ],
+  "yersinia": [
+    [
+      "B03.440.450.425.900",
+      "D015007",
+      "Yersinia"
+    ]
+  ],
+  "yersinia enterocolitica": [
+    [
+      "B03.440.450.425.900.300",
+      "D015008",
+      "Yersinia enterocolitica"
+    ]
+  ],
+  "yersinia pestis": [
+    [
+      "B03.440.450.425.900.600",
+      "D015010",
+      "Yersinia pestis"
+    ]
+  ],
+  "yersinia pseudotuberculosis": [
+    [
+      "B03.440.450.425.900.615",
+      "D015011",
+      "Yersinia pseudotuberculosis"
+    ]
+  ],
+  "zoogloea": [
+    [
+      "B03.440.400.425.983",
+      "D015045",
+      "Zoogloea"
+    ]
+  ],
+  "mycobacterium avium complex": [
+    [
+      "B03.510.024.962.500.720.100",
+      "D015269",
+      "Mycobacterium avium Complex"
+    ]
+  ],
+  "mycobacterium scrofulaceum": [
+    [
+      "B03.510.024.962.500.720.625",
+      "D015359",
+      "Mycobacterium scrofulaceum"
+    ]
+  ],
+  "pasteurellaceae": [
+    [
+      "B03.440.450.600",
+      "D015661",
+      "Pasteurellaceae"
+    ]
+  ],
+  "borrelia burgdorferi group": [
+    [
+      "B03.440.425.410.711.193.150",
+      "D015748",
+      "Borrelia burgdorferi Group"
+    ]
+  ],
+  "azospirillum brasilense": [
+    [
+      "B03.440.400.425.708.100.020",
+      "D015806",
+      "Azospirillum brasilense"
+    ]
+  ],
+  "campylobacter jejuni": [
+    [
+      "B03.440.180.425",
+      "D016123",
+      "Campylobacter jejuni"
+    ]
+  ],
+  "eikenella corrodens": [
+    [
+      "B03.440.450.400.275",
+      "D016124",
+      "Eikenella corrodens"
+    ]
+  ],
+  "rhodobacter capsulatus": [
+    [
+      "B03.440.623.225",
+      "D016354",
+      "Rhodobacter capsulatus"
+    ]
+  ],
+  "clostridioides difficile": [
+    [
+      "B03.353.625.657.500",
+      "D016360",
+      "Clostridioides difficile"
+    ]
+  ],
+  "helicobacter pylori": [
+    [
+      "B03.440.500.550",
+      "D016480",
+      "Helicobacter pylori"
+    ]
+  ],
+  "mycoplasma fermentans": [
+    [
+      "B03.440.860.580.553.553.315",
+      "D016858",
+      "Mycoplasma fermentans"
+    ]
+  ],
+  "actinomyces viscosus": [
+    [
+      "B03.510.024.049.050.050.050",
+      "D016924",
+      "Actinomyces viscosus"
+    ]
+  ],
+  "corynebacterium pseudotuberculosis": [
+    [
+      "B03.510.024.250.600",
+      "D016925",
+      "Corynebacterium pseudotuberculosis"
+    ]
+  ],
+  "mycobacterium chelonae": [
+    [
+      "B03.510.024.962.500.720.225",
+      "D016926",
+      "Mycobacterium chelonae"
+    ]
+  ],
+  "mycobacterium avium subsp. paratuberculosis": [
+    [
+      "B03.510.024.962.500.300.600",
+      "D016927",
+      "Mycobacterium avium subsp. paratuberculosis"
+    ]
+  ],
+  "rhodococcus equi": [
+    [
+      "B03.510.024.981.775.700",
+      "D016929",
+      "Rhodococcus equi"
+    ]
+  ],
+  "saccharopolyspora": [
+    [
+      "B03.300.390.400.790",
+      "D016930",
+      "Saccharopolyspora"
+    ]
+  ],
+  "caulobacter": [
+    [
+      "B03.440.400.280",
+      "D016934",
+      "Caulobacter"
+    ]
+  ],
+  "caulobacter crescentus": [
+    [
+      "B03.440.400.280.280",
+      "D016935",
+      "Caulobacter crescentus"
+    ]
+  ],
+  "gram-positive endospore-forming bacteria": [
+    [
+      "B03.300.390",
+      "D016936",
+      "Gram-Positive Endospore-Forming Bacteria"
+    ]
+  ],
+  "gram-positive endospore-forming rods": [
+    [
+      "B03.300.390.400",
+      "D016937",
+      "Gram-Positive Endospore-Forming Rods"
+    ]
+  ],
+  "myxococcus": [
+    [
+      "B03.660.125.500.605",
+      "D016940",
+      "Myxococcus"
+    ]
+  ],
+  "myxococcus xanthus": [
+    [
+      "B03.660.125.500.605.900",
+      "D016941",
+      "Myxococcus xanthus"
+    ]
+  ],
+  "gram-negative aerobic rods and cocci": [
+    [
+      "B03.440.400.425",
+      "D016946",
+      "Gram-Negative Aerobic Rods and Cocci"
+    ]
+  ],
+  "acetobacteraceae": [
+    [
+      "B03.440.400.425.100",
+      "D016947",
+      "Acetobacteraceae"
+    ]
+  ],
+  "azotobacter vinelandii": [
+    [
+      "B03.440.400.425.625.050.850",
+      "D016948",
+      "Azotobacter vinelandii"
+    ]
+  ],
+  "azospirillum": [
+    [
+      "B03.440.400.425.708.100",
+      "D016949",
+      "Azospirillum"
+    ]
+  ],
+  "bordetella bronchiseptica": [
+    [
+      "B03.440.400.425.115.425.050",
+      "D016950",
+      "Bordetella bronchiseptica"
+    ]
+  ],
+  "legionellaceae": [
+    [
+      "B03.440.400.425.450",
+      "D016951",
+      "Legionellaceae"
+    ]
+  ],
+  "legionella pneumophila": [
+    [
+      "B03.440.400.425.450.450.500",
+      "D016952",
+      "Legionella pneumophila"
+    ]
+  ],
+  "leptospiraceae": [
+    [
+      "B03.440.400.425.475",
+      "D016953",
+      "Leptospiraceae"
+    ]
+  ],
+  "acinetobacter calcoaceticus": [
+    [
+      "B03.440.400.425.537.050.200",
+      "D016954",
+      "Acinetobacter calcoaceticus"
+    ]
+  ],
+  "moraxella bovis": [
+    [
+      "B03.440.400.425.537.525.500",
+      "D016955",
+      "Moraxella bovis"
+    ]
+  ],
+  "burkholderia cepacia": [
+    [
+      "B03.660.075.090.688.100.110.500",
+      "D016956",
+      "Burkholderia cepacia"
+    ]
+  ],
+  "burkholderia pseudomallei": [
+    [
+      "B03.660.075.090.688.100.600",
+      "D016957",
+      "Burkholderia pseudomallei"
+    ]
+  ],
+  "pseudomonas putida": [
+    [
+      "B03.440.400.425.625.625.675",
+      "D016958",
+      "Pseudomonas putida"
+    ]
+  ],
+  "xanthomonas campestris": [
+    [
+      "B03.440.400.425.967.930.100",
+      "D016959",
+      "Xanthomonas campestris"
+    ]
+  ],
+  "agrobacterium tumefaciens": [
+    [
+      "B03.440.400.425.700.024.050",
+      "D016960",
+      "Agrobacterium tumefaciens"
+    ]
+  ],
+  "rhizobium leguminosarum": [
+    [
+      "B03.440.400.425.700.800.450",
+      "D016961",
+      "Rhizobium leguminosarum"
+    ]
+  ],
+  "sinorhizobium meliloti": [
+    [
+      "B03.440.400.425.700.887.500",
+      "D016962",
+      "Sinorhizobium meliloti"
+    ]
+  ],
+  "thermus thermophilus": [
+    [
+      "B03.440.400.425.875.875",
+      "D016963",
+      "Thermus thermophilus"
+    ]
+  ],
+  "gram-negative anaerobic cocci": [
+    [
+      "B03.440.425.400",
+      "D016964",
+      "Gram-Negative Anaerobic Cocci"
+    ]
+  ],
+  "gram-negative anaerobic straight, curved, and helical rods": [
+    [
+      "B03.440.425.410",
+      "D016965",
+      "Gram-Negative Anaerobic Straight, Curved, and Helical Rods"
+    ]
+  ],
+  "porphyromonas gingivalis": [
+    [
+      "B03.440.080.094.625.515",
+      "D016966",
+      "Porphyromonas gingivalis"
+    ]
+  ],
+  "fusobacterium nucleatum": [
+    [
+      "B03.370.250.500",
+      "D016967",
+      "Fusobacterium nucleatum"
+    ]
+  ],
+  "wolinella": [
+    [
+      "B03.440.425.410.875",
+      "D016968",
+      "Wolinella"
+    ]
+  ],
+  "desulfovibrio vulgaris": [
+    [
+      "B03.440.425.410.350.875",
+      "D016969",
+      "Desulfovibrio vulgaris"
+    ]
+  ],
+  "eikenella": [
+    [
+      "B03.440.450.400",
+      "D016970",
+      "Eikenella"
+    ]
+  ],
+  "citrobacter freundii": [
+    [
+      "B03.440.450.425.200.275",
+      "D016971",
+      "Citrobacter freundii"
+    ]
+  ],
+  "enterobacter cloacae": [
+    [
+      "B03.440.450.425.275.200",
+      "D016972",
+      "Enterobacter cloacae"
+    ]
+  ],
+  "pectobacterium carotovorum": [
+    [
+      "B03.440.450.425.585.120",
+      "D016973",
+      "Pectobacterium carotovorum"
+    ]
+  ],
+  "dickeya chrysanthemi": [
+    [
+      "B03.660.250.139.500",
+      "D016974",
+      "Dickeya chrysanthemi"
+    ]
+  ],
+  "gardnerella": [
+    [
+      "B03.510.024.400",
+      "D016975",
+      "Gardnerella"
+    ]
+  ],
+  "aggregatibacter actinomycetemcomitans": [
+    [
+      "B03.440.450.600.224.500",
+      "D016976",
+      "Aggregatibacter actinomycetemcomitans"
+    ]
+  ],
+  "actinobacillus pleuropneumoniae": [
+    [
+      "B03.440.450.009.580",
+      "D016977",
+      "Actinobacillus pleuropneumoniae"
+    ]
+  ],
+  "mannheimia haemolytica": [
+    [
+      "B03.440.450.600.500.500",
+      "D016978",
+      "Mannheimia haemolytica"
+    ]
+  ],
+  "pasteurella multocida": [
+    [
+      "B03.440.450.600.600.500",
+      "D016979",
+      "Pasteurella multocida"
+    ]
+  ],
+  "aeromonas hydrophila": [
+    [
+      "B03.440.450.019.025.380",
+      "D016980",
+      "Aeromonas hydrophila"
+    ]
+  ],
+  "plesiomonas": [
+    [
+      "B03.440.450.425.595",
+      "D016981",
+      "Plesiomonas"
+    ]
+  ],
+  "micrococcus luteus": [
+    [
+      "B03.510.024.850.500.500",
+      "D016982",
+      "Micrococcus luteus"
+    ]
+  ],
+  "enterococcus": [
+    [
+      "B03.353.750.250.250",
+      "D016983",
+      "Enterococcus"
+    ]
+  ],
+  "enterococcus faecium": [
+    [
+      "B03.353.750.250.250.300",
+      "D016984",
+      "Enterococcus faecium"
+    ]
+  ],
+  "streptococcus bovis": [
+    [
+      "B03.353.750.737.872.150",
+      "D016985",
+      "Streptococcus bovis"
+    ]
+  ],
+  "streptococcus sobrinus": [
+    [
+      "B03.353.750.737.872.875.750",
+      "D016986",
+      "Streptococcus sobrinus"
+    ]
+  ],
+  "gram-positive rods": [
+    [
+      "B03.510.460",
+      "D016987",
+      "Gram-Positive Rods"
+    ]
+  ],
+  "gram-positive asporogenous rods, irregular": [
+    [
+      "B03.510.460.400.400",
+      "D016988",
+      "Gram-Positive Asporogenous Rods, Irregular"
+    ]
+  ],
+  "gram-positive asporogenous rods, regular": [
+    [
+      "B03.510.460.400.410",
+      "D016989",
+      "Gram-Positive Asporogenous Rods, Regular"
+    ]
+  ],
+  "ureaplasma urealyticum": [
+    [
+      "B03.440.860.580.553.900.800",
+      "D016990",
+      "Ureaplasma urealyticum"
+    ]
+  ],
+  "spiroplasmataceae": [
+    [
+      "B03.440.860.300.750",
+      "D016991",
+      "Spiroplasmataceae"
+    ]
+  ],
+  "rhodobacter": [
+    [
+      "B03.440.623",
+      "D016992",
+      "Rhodobacter"
+    ]
+  ],
+  "chlamydophila pneumoniae": [
+    [
+      "B03.440.190.190.230.249",
+      "D016993",
+      "Chlamydophila pneumoniae"
+    ]
+  ],
+  "ehrlichia ruminantium": [
+    [
+      "B03.440.664.750.287.700",
+      "D016995",
+      "Ehrlichia ruminantium"
+    ]
+  ],
+  "rickettsieae": [
+    [
+      "B03.660.050.783.875.650",
+      "D016996",
+      "Rickettsieae"
+    ]
+  ],
+  "coxiella burnetii": [
+    [
+      "B03.440.400.425.297.150.100",
+      "D016997",
+      "Coxiella burnetii"
+    ]
+  ],
+  "helicobacter": [
+    [
+      "B03.440.500",
+      "D016998",
+      "Helicobacter"
+    ]
+  ],
+  "sulfur-reducing bacteria": [
+    [
+      "B03.900",
+      "D016999",
+      "Sulfur-Reducing Bacteria"
+    ]
+  ],
+  "campylobacter coli": [
+    [
+      "B03.440.180.200",
+      "D017000",
+      "Campylobacter coli"
+    ]
+  ],
+  "streptococcus suis": [
+    [
+      "B03.353.750.737.872.750",
+      "D017011",
+      "Streptococcus suis"
+    ]
+  ],
+  "anabaena": [
+    [
+      "B03.280.100",
+      "D017033",
+      "Anabaena"
+    ]
+  ],
+  "lactococcus": [
+    [
+      "B03.353.750.737.500",
+      "D017045",
+      "Lactococcus"
+    ]
+  ],
+  "brucella melitensis": [
+    [
+      "B03.440.400.425.215.500.500",
+      "D017347",
+      "Brucella melitensis"
+    ]
+  ],
+  "zymomonas": [
+    [
+      "B03.440.450.980",
+      "D017355",
+      "Zymomonas"
+    ]
+  ],
+  "brachyspira": [
+    [
+      "B03.440.097",
+      "D017400",
+      "Brachyspira"
+    ]
+  ],
+  "brachyspira hyodysenteriae": [
+    [
+      "B03.440.097.100",
+      "D017401",
+      "Brachyspira hyodysenteriae"
+    ]
+  ],
+  "porphyromonas": [
+    [
+      "B03.440.080.094.625",
+      "D017861",
+      "Porphyromonas"
+    ]
+  ],
+  "kingella": [
+    [
+      "B03.440.400.425.550.400",
+      "D017881",
+      "Kingella"
+    ]
+  ],
+  "kingella kingae": [
+    [
+      "B03.440.400.425.550.400.375",
+      "D017882",
+      "Kingella kingae"
+    ]
+  ],
+  "mobiluncus": [
+    [
+      "B03.510.024.049.050.525",
+      "D017904",
+      "Mobiluncus"
+    ]
+  ],
+  "helicobacter heilmannii": [
+    [
+      "B03.440.500.350",
+      "D018247",
+      "Helicobacter heilmannii"
+    ]
+  ],
+  "mycobacterium haemophilum": [
+    [
+      "B03.510.024.962.500.480",
+      "D018393",
+      "Mycobacterium haemophilum"
+    ]
+  ],
+  "bartonella quintana": [
+    [
+      "B03.440.090.100.650",
+      "D018413",
+      "Bartonella quintana"
+    ]
+  ],
+  "bartonella henselae": [
+    [
+      "B03.440.090.100.350",
+      "D018416",
+      "Bartonella henselae"
+    ]
+  ],
+  "ehrlichia chaffeensis": [
+    [
+      "B03.440.664.750.287.150",
+      "D018469",
+      "Ehrlichia chaffeensis"
+    ]
+  ],
+  "streptococcus equi": [
+    [
+      "B03.353.750.737.872.225",
+      "D018502",
+      "Streptococcus equi"
+    ]
+  ],
+  "mycoplasma penetrans": [
+    [
+      "B03.440.860.580.553.553.645",
+      "D018661",
+      "Mycoplasma penetrans"
+    ]
+  ],
+  "prevotella intermedia": [
+    [
+      "B03.440.080.094.640.375",
+      "D018713",
+      "Prevotella intermedia"
+    ]
+  ],
+  "prevotella": [
+    [
+      "B03.440.080.094.640",
+      "D018720",
+      "Prevotella"
+    ]
+  ],
+  "burkholderia": [
+    [
+      "B03.660.075.090.688.100",
+      "D019117",
+      "Burkholderia"
+    ]
+  ],
+  "chlorobi": [
+    [
+      "B03.250",
+      "D019414",
+      "Chlorobi"
+    ]
+  ],
+  "escherichia coli o157": [
+    [
+      "B03.440.450.425.325.300.800.250.500",
+      "D019453",
+      "Escherichia coli O157"
+    ]
+  ],
+  "streptococcus oralis": [
+    [
+      "B03.353.750.737.872.875.600",
+      "D019533",
+      "Streptococcus oralis"
+    ]
+  ],
+  "mycoplasma hominis": [
+    [
+      "B03.440.860.580.553.553.400",
+      "D019535",
+      "Mycoplasma hominis"
+    ]
+  ],
+  "gram-negative oxygenic photosynthetic bacteria": [
+    [
+      "B03.440.475",
+      "D019688",
+      "Gram-Negative Oxygenic Photosynthetic Bacteria"
+    ]
+  ],
+  "prochloron": [
+    [
+      "B03.440.475.100.655.620",
+      "D019691",
+      "Prochloron"
+    ]
+  ],
+  "prochlorothrix": [
+    [
+      "B03.440.475.100.655.640",
+      "D019692",
+      "Prochlorothrix"
+    ]
+  ],
+  "haemophilus influenzae type b": [
+    [
+      "B03.440.450.600.450.330.150",
+      "D019741",
+      "Haemophilus influenzae type b"
+    ]
+  ],
+  "salmonella enterica": [
+    [
+      "B03.440.450.425.800.200",
+      "D019779",
+      "Salmonella enterica"
+    ]
+  ],
+  "mycobacterium fortuitum": [
+    [
+      "B03.510.024.962.500.720.325",
+      "D019907",
+      "Mycobacterium fortuitum"
+    ]
+  ],
+  "mycobacterium kansasii": [
+    [
+      "B03.510.024.962.500.720.400",
+      "D019909",
+      "Mycobacterium kansasii"
+    ]
+  ],
+  "mycobacterium marinum": [
+    [
+      "B03.510.024.962.500.720.500",
+      "D019910",
+      "Mycobacterium marinum"
+    ]
+  ],
+  "mycobacterium ulcerans": [
+    [
+      "B03.510.024.962.500.720.700",
+      "D019911",
+      "Mycobacterium ulcerans"
+    ]
+  ],
+  "mycobacterium xenopi": [
+    [
+      "B03.510.024.962.500.720.950",
+      "D019912",
+      "Mycobacterium xenopi"
+    ]
+  ],
+  "mycobacterium smegmatis": [
+    [
+      "B03.510.024.962.500.720.662",
+      "D020102",
+      "Mycobacterium smegmatis"
+    ]
+  ],
+  "rickettsia conorii": [
+    [
+      "B03.660.050.783.875.650.650.180",
+      "D020114",
+      "Rickettsia conorii"
+    ]
+  ],
+  "cupriavidus necator": [
+    [
+      "B03.440.400.425.251.200.200",
+      "D020118",
+      "Cupriavidus necator"
+    ]
+  ],
+  "thermotoga maritima": [
+    [
+      "B03.440.425.410.748.500",
+      "D020124",
+      "Thermotoga maritima"
+    ]
+  ],
+  "selenomonas": [
+    [
+      "B03.440.425.410.800.877",
+      "D020357",
+      "Selenomonas"
+    ]
+  ],
+  "bradyrhizobium": [
+    [
+      "B03.440.400.425.200.090",
+      "D020369",
+      "Bradyrhizobium"
+    ]
+  ],
+  "dichelobacter nodosus": [
+    [
+      "B03.440.425.410.400",
+      "D020376",
+      "Dichelobacter nodosus"
+    ]
+  ],
+  "proteobacteria": [
+    [
+      "B03.660",
+      "D020560",
+      "Proteobacteria"
+    ]
+  ],
+  "alphaproteobacteria": [
+    [
+      "B03.660.050",
+      "D020561",
+      "Alphaproteobacteria"
+    ]
+  ],
+  "betaproteobacteria": [
+    [
+      "B03.660.075",
+      "D020562",
+      "Betaproteobacteria"
+    ]
+  ],
+  "gammaproteobacteria": [
+    [
+      "B03.660.250",
+      "D020563",
+      "Gammaproteobacteria"
+    ]
+  ],
+  "deltaproteobacteria": [
+    [
+      "B03.660.125",
+      "D020564",
+      "Deltaproteobacteria"
+    ]
+  ],
+  "epsilonproteobacteria": [
+    [
+      "B03.660.150",
+      "D020565",
+      "Epsilonproteobacteria"
+    ]
+  ],
+  "gluconobacter": [
+    [
+      "B03.440.400.425.100.550",
+      "D020576",
+      "Gluconobacter"
+    ]
+  ],
+  "wolbachia": [
+    [
+      "B03.660.050.783.500.762",
+      "D020577",
+      "Wolbachia"
+    ]
+  ],
+  "sphingomonas": [
+    [
+      "B03.440.400.425.750",
+      "D020578",
+      "Sphingomonas"
+    ]
+  ],
+  "sinorhizobium": [
+    [
+      "B03.440.400.425.700.887",
+      "D020579",
+      "Sinorhizobium"
+    ]
+  ],
+  "methylobacterium": [
+    [
+      "B03.440.400.425.487.500",
+      "D020580",
+      "Methylobacterium"
+    ]
+  ],
+  "methylosinus": [
+    [
+      "B03.440.540",
+      "D020581",
+      "Methylosinus"
+    ]
+  ],
+  "hyphomicrobium": [
+    [
+      "B03.660.050.350.400",
+      "D020582",
+      "Hyphomicrobium"
+    ]
+  ],
+  "azorhizobium": [
+    [
+      "B03.440.400.425.127",
+      "D020583",
+      "Azorhizobium"
+    ]
+  ],
+  "xanthobacter": [
+    [
+      "B03.440.400.425.935",
+      "D020584",
+      "Xanthobacter"
+    ]
+  ],
+  "comamonas": [
+    [
+      "B03.440.400.425.293.150",
+      "D020585",
+      "Comamonas"
+    ]
+  ],
+  "thiocapsa": [
+    [
+      "B03.440.425.400.750",
+      "D020586",
+      "Thiocapsa"
+    ]
+  ],
+  "ectothiorhodospira": [
+    [
+      "B03.440.425.410.405.500",
+      "D020587",
+      "Ectothiorhodospira"
+    ]
+  ],
+  "stenotrophomonas": [
+    [
+      "B03.440.400.425.967.750",
+      "D020588",
+      "Stenotrophomonas"
+    ]
+  ],
+  "vitreoscilla": [
+    [
+      "B03.440.400.840",
+      "D020589",
+      "Vitreoscilla"
+    ]
+  ],
+  "alteromonas": [
+    [
+      "B03.440.400.425.126",
+      "D020591",
+      "Alteromonas"
+    ]
+  ],
+  "shewanella": [
+    [
+      "B03.440.450.690",
+      "D020592",
+      "Shewanella"
+    ]
+  ],
+  "xenorhabdus": [
+    [
+      "B03.440.450.425.890",
+      "D020593",
+      "Xenorhabdus"
+    ]
+  ],
+  "edwardsiella": [
+    [
+      "B03.440.450.425.260",
+      "D020594",
+      "Edwardsiella"
+    ]
+  ],
+  "hafnia": [
+    [
+      "B03.440.450.425.375",
+      "D020595",
+      "Hafnia"
+    ]
+  ],
+  "morganella": [
+    [
+      "B03.440.450.425.500",
+      "D020596",
+      "Morganella"
+    ]
+  ],
+  "stigmatella": [
+    [
+      "B03.660.125.500.710",
+      "D020597",
+      "Stigmatella"
+    ]
+  ],
+  "azorhizobium caulinodans": [
+    [
+      "B03.440.400.425.127.100",
+      "D020599",
+      "Azorhizobium caulinodans"
+    ]
+  ],
+  "gluconobacter oxydans": [
+    [
+      "B03.440.400.425.100.550.550",
+      "D020600",
+      "Gluconobacter oxydans"
+    ]
+  ],
+  "methylobacterium extorquens": [
+    [
+      "B03.440.400.425.487.500.150",
+      "D020601",
+      "Methylobacterium extorquens"
+    ]
+  ],
+  "methylosinus trichosporium": [
+    [
+      "B03.440.540.500",
+      "D020602",
+      "Methylosinus trichosporium"
+    ]
+  ],
+  "comamonas testosteroni": [
+    [
+      "B03.440.400.425.293.150.750",
+      "D020604",
+      "Comamonas testosteroni"
+    ]
+  ],
+  "delftia acidovorans": [
+    [
+      "B03.440.400.425.293.170.030",
+      "D020605",
+      "Delftia acidovorans"
+    ]
+  ],
+  "stigmatella aurantiaca": [
+    [
+      "B03.660.125.500.710.050",
+      "D020606",
+      "Stigmatella aurantiaca"
+    ]
+  ],
+  "halorhodospira halophila": [
+    [
+      "B03.440.425.410.405.750",
+      "D020607",
+      "Halorhodospira halophila"
+    ]
+  ],
+  "ectothiorhodospira shaposhnikovii": [
+    [
+      "B03.440.425.410.405.500.720",
+      "D020608",
+      "Ectothiorhodospira shaposhnikovii"
+    ]
+  ],
+  "edwardsiella tarda": [
+    [
+      "B03.440.450.425.260.750",
+      "D020609",
+      "Edwardsiella tarda"
+    ]
+  ],
+  "edwardsiella ictaluri": [
+    [
+      "B03.440.450.425.260.340",
+      "D020610",
+      "Edwardsiella ictaluri"
+    ]
+  ],
+  "hafnia alvei": [
+    [
+      "B03.440.450.425.375.050",
+      "D020611",
+      "Hafnia alvei"
+    ]
+  ],
+  "morganella morganii": [
+    [
+      "B03.440.450.425.500.500",
+      "D020613",
+      "Morganella morganii"
+    ]
+  ],
+  "shewanella putrefaciens": [
+    [
+      "B03.440.450.690.590",
+      "D020614",
+      "Shewanella putrefaciens"
+    ]
+  ],
+  "stenotrophomonas maltophilia": [
+    [
+      "B03.440.400.425.967.750.500",
+      "D020615",
+      "Stenotrophomonas maltophilia"
+    ]
+  ],
+  "thiocapsa roseopersicina": [
+    [
+      "B03.440.425.400.750.660",
+      "D020616",
+      "Thiocapsa roseopersicina"
+    ]
+  ],
+  "methylococcus": [
+    [
+      "B03.440.400.425.500.500",
+      "D020618",
+      "Methylococcus"
+    ]
+  ],
+  "methylococcus capsulatus": [
+    [
+      "B03.440.400.425.500.500.100",
+      "D020619",
+      "Methylococcus capsulatus"
+    ]
+  ],
+  "methylomonas": [
+    [
+      "B03.440.400.425.500.505",
+      "D020620",
+      "Methylomonas"
+    ]
+  ],
+  "ochrobactrum anthropi": [
+    [
+      "B03.440.400.425.575.650",
+      "D020621",
+      "Ochrobactrum anthropi"
+    ]
+  ],
+  "afipia": [
+    [
+      "B03.440.400.425.200.040",
+      "D020622",
+      "Afipia"
+    ]
+  ],
+  "rhodomicrobium": [
+    [
+      "B03.440.645",
+      "D020623",
+      "Rhodomicrobium"
+    ]
+  ],
+  "oxalobacter formigenes": [
+    [
+      "B03.440.425.410.580",
+      "D020624",
+      "Oxalobacter formigenes"
+    ]
+  ],
+  "taylorella equigenitalis": [
+    [
+      "B03.440.400.425.115.800.200",
+      "D020625",
+      "Taylorella equigenitalis"
+    ]
+  ],
+  "azoarcus": [
+    [
+      "B03.440.450.040",
+      "D020627",
+      "Azoarcus"
+    ]
+  ],
+  "thauera": [
+    [
+      "B03.440.425.410.745",
+      "D020628",
+      "Thauera"
+    ]
+  ],
+  "methylophilus": [
+    [
+      "B03.440.400.425.525.520",
+      "D020629",
+      "Methylophilus"
+    ]
+  ],
+  "methylophilus methylotrophus": [
+    [
+      "B03.440.400.425.525.520.500",
+      "D020630",
+      "Methylophilus methylotrophus"
+    ]
+  ],
+  "methylobacillus": [
+    [
+      "B03.440.400.425.525.500",
+      "D020631",
+      "Methylobacillus"
+    ]
+  ],
+  "halomonas": [
+    [
+      "B03.440.400.425.377.500",
+      "D020632",
+      "Halomonas"
+    ]
+  ],
+  "cellvibrio": [
+    [
+      "B03.440.400.425.625.150",
+      "D020633",
+      "Cellvibrio"
+    ]
+  ],
+  "buchnera": [
+    [
+      "B03.440.100",
+      "D020635",
+      "Buchnera"
+    ]
+  ],
+  "pantoea": [
+    [
+      "B03.440.450.425.580",
+      "D020636",
+      "Pantoea"
+    ]
+  ],
+  "photorhabdus": [
+    [
+      "B03.440.450.425.590",
+      "D020637",
+      "Photorhabdus"
+    ]
+  ],
+  "rahnella": [
+    [
+      "B03.440.450.650",
+      "D020638",
+      "Rahnella"
+    ]
+  ],
+  "lawsonia bacteria": [
+    [
+      "B03.440.520",
+      "D020639",
+      "Lawsonia Bacteria"
+    ]
+  ],
+  "arcobacter": [
+    [
+      "B03.440.050",
+      "D020640",
+      "Arcobacter"
+    ]
+  ],
+  "enterobacter aerogenes": [
+    [
+      "B03.440.450.425.275.099",
+      "D021902",
+      "Enterobacter aerogenes"
+    ]
+  ],
+  "chlamydophila": [
+    [
+      "B03.440.190.190.230",
+      "D023501",
+      "Chlamydophila"
+    ]
+  ],
+  "chlamydia muridarum": [
+    [
+      "B03.440.190.190.190.500",
+      "D023502",
+      "Chlamydia muridarum"
+    ]
+  ],
+  "borrelia burgdorferi": [
+    [
+      "B03.440.425.410.711.193.150.125",
+      "D025065",
+      "Borrelia burgdorferi"
+    ]
+  ],
+  "mannheimia": [
+    [
+      "B03.440.450.600.500",
+      "D031121",
+      "Mannheimia"
+    ]
+  ],
+  "pseudoalteromonas": [
+    [
+      "B03.440.400.425.622",
+      "D031161",
+      "Pseudoalteromonas"
+    ]
+  ],
+  "gordonia bacterium": [
+    [
+      "B03.510.024.700",
+      "D033601",
+      "Gordonia Bacterium"
+    ]
+  ],
+  "moritella": [
+    [
+      "B03.440.450.510",
+      "D034221",
+      "Moritella"
+    ]
+  ],
+  "alteromonadaceae": [
+    [
+      "B03.660.250.021",
+      "D034241",
+      "Alteromonadaceae"
+    ]
+  ],
+  "deinococcus": [
+    [
+      "B03.510.400.200",
+      "D034301",
+      "Deinococcus"
+    ]
+  ],
+  "streptococcus mitis": [
+    [
+      "B03.353.750.737.872.875.500",
+      "D034361",
+      "Streptococcus mitis"
+    ]
+  ],
+  "viridans streptococci": [
+    [
+      "B03.353.750.737.872.875",
+      "D034363",
+      "Viridans Streptococci"
+    ]
+  ],
+  "streptococcus milleri group": [
+    [
+      "B03.353.750.737.872.875.475",
+      "D034364",
+      "Streptococcus milleri Group"
+    ]
+  ],
+  "streptococcus constellatus": [
+    [
+      "B03.353.750.737.872.875.475.150",
+      "D034365",
+      "Streptococcus constellatus"
+    ]
+  ],
+  "streptococcus anginosus": [
+    [
+      "B03.353.750.737.872.875.475.080",
+      "D034366",
+      "Streptococcus anginosus"
+    ]
+  ],
+  "streptococcus intermedius": [
+    [
+      "B03.353.750.737.872.875.475.400",
+      "D034367",
+      "Streptococcus intermedius"
+    ]
+  ],
+  "neisseria meningitidis, serogroup a": [
+    [
+      "B03.440.400.425.550.550.641.700",
+      "D038381",
+      "Neisseria meningitidis, Serogroup A"
+    ]
+  ],
+  "neisseria meningitidis, serogroup b": [
+    [
+      "B03.440.400.425.550.550.641.710",
+      "D038541",
+      "Neisseria meningitidis, Serogroup B"
+    ]
+  ],
+  "neisseria meningitidis, serogroup c": [
+    [
+      "B03.440.400.425.550.550.641.720",
+      "D038542",
+      "Neisseria meningitidis, Serogroup C"
+    ]
+  ],
+  "neisseria meningitidis, serogroup y": [
+    [
+      "B03.440.400.425.550.550.641.820",
+      "D038581",
+      "Neisseria meningitidis, Serogroup Y"
+    ]
+  ],
+  "neisseria meningitidis, serogroup w-135": [
+    [
+      "B03.440.400.425.550.550.641.800",
+      "D038582",
+      "Neisseria meningitidis, Serogroup W-135"
+    ]
+  ],
+  "actinobacteria": [
+    [
+      "B03.510.024",
+      "D039903",
+      "Actinobacteria"
+    ]
+  ],
+  "staphylococcaceae": [
+    [
+      "B03.300.390.400.800",
+      "D040141",
+      "Staphylococcaceae"
+    ]
+  ],
+  "brevibacterium flavum": [
+    [
+      "B03.510.024.250.100",
+      "D040142",
+      "Brevibacterium flavum"
+    ]
+  ],
+  "cellulomonas": [
+    [
+      "B03.510.024.213",
+      "D040143",
+      "Cellulomonas"
+    ]
+  ],
+  "frankia": [
+    [
+      "B03.510.024.325",
+      "D040161",
+      "Frankia"
+    ]
+  ],
+  "acinetobacter baumannii": [
+    [
+      "B03.440.400.425.537.050.099",
+      "D040981",
+      "Acinetobacter baumannii"
+    ]
+  ],
+  "brucella canis": [
+    [
+      "B03.440.400.425.215.500.150",
+      "D041002",
+      "Brucella canis"
+    ]
+  ],
+  "brucella suis": [
+    [
+      "B03.440.400.425.215.500.750",
+      "D041021",
+      "Brucella suis"
+    ]
+  ],
+  "citrobacter koseri": [
+    [
+      "B03.440.450.425.200.475",
+      "D041041",
+      "Citrobacter koseri"
+    ]
+  ],
+  "ehrlichia canis": [
+    [
+      "B03.440.664.750.287.090",
+      "D041061",
+      "Ehrlichia canis"
+    ]
+  ],
+  "anaplasma phagocytophilum": [
+    [
+      "B03.440.664.750.050.600",
+      "D041081",
+      "Anaplasma phagocytophilum"
+    ]
+  ],
+  "neorickettsia sennetsu": [
+    [
+      "B03.440.664.750.525.720",
+      "D041101",
+      "Neorickettsia sennetsu"
+    ]
+  ],
+  "neorickettsia": [
+    [
+      "B03.440.664.750.525",
+      "D041102",
+      "Neorickettsia"
+    ]
+  ],
+  "neorickettsia risticii": [
+    [
+      "B03.440.664.750.525.700",
+      "D041103",
+      "Neorickettsia risticii"
+    ]
+  ],
+  "klebsiella oxytoca": [
+    [
+      "B03.440.450.425.425.580",
+      "D041121",
+      "Klebsiella oxytoca"
+    ]
+  ],
+  "rickettsia akari": [
+    [
+      "B03.660.050.783.875.650.650.040",
+      "D041141",
+      "Rickettsia akari"
+    ]
+  ],
+  "rickettsia felis": [
+    [
+      "B03.660.050.783.875.650.650.320",
+      "D041161",
+      "Rickettsia felis"
+    ]
+  ],
+  "staphylococcus haemolyticus": [
+    [
+      "B03.300.390.400.800.750.400",
+      "D041162",
+      "Staphylococcus haemolyticus"
+    ]
+  ],
+  "staphylococcus hominis": [
+    [
+      "B03.300.390.400.800.750.425",
+      "D041181",
+      "Staphylococcus hominis"
+    ]
+  ],
+  "vibrio cholerae o1": [
+    [
+      "B03.440.450.900.859.225.151",
+      "D041241",
+      "Vibrio cholerae O1"
+    ]
+  ],
+  "vibrio cholerae o139": [
+    [
+      "B03.440.450.900.859.225.200",
+      "D041242",
+      "Vibrio cholerae O139"
+    ]
+  ],
+  "vibrio vulnificus": [
+    [
+      "B03.440.450.900.859.900",
+      "D041261",
+      "Vibrio vulnificus"
+    ]
+  ],
+  "leptospira interrogans serovar australis": [
+    [
+      "B03.440.400.425.475.475.400.050",
+      "D041281",
+      "Leptospira interrogans serovar australis"
+    ]
+  ],
+  "leptospira interrogans serovar autumnalis": [
+    [
+      "B03.440.400.425.475.475.400.055",
+      "D041301",
+      "Leptospira interrogans serovar autumnalis"
+    ]
+  ],
+  "leptospira interrogans serovar canicola": [
+    [
+      "B03.440.400.425.475.475.400.150",
+      "D041341",
+      "Leptospira interrogans serovar canicola"
+    ]
+  ],
+  "leptospira interrogans serovar hebdomadis": [
+    [
+      "B03.440.400.425.475.475.400.400",
+      "D041343",
+      "Leptospira interrogans serovar hebdomadis"
+    ]
+  ],
+  "leptospira interrogans serovar icterohaemorrhagiae": [
+    [
+      "B03.440.400.425.475.475.400.420",
+      "D041383",
+      "Leptospira interrogans serovar icterohaemorrhagiae"
+    ]
+  ],
+  "leptospira interrogans serovar pomona": [
+    [
+      "B03.440.400.425.475.475.400.650",
+      "D041401",
+      "Leptospira interrogans serovar pomona"
+    ]
+  ],
+  "acidiphilium": [
+    [
+      "B03.440.400.425.100.110",
+      "D041801",
+      "Acidiphilium"
+    ]
+  ],
+  "gluconacetobacter": [
+    [
+      "B03.440.400.425.365",
+      "D041821",
+      "Gluconacetobacter"
+    ]
+  ],
+  "gluconacetobacter xylinus": [
+    [
+      "B03.440.400.425.365.500",
+      "D041822",
+      "Gluconacetobacter xylinus"
+    ]
+  ],
+  "bradyrhizobiaceae": [
+    [
+      "B03.440.400.425.200",
+      "D041841",
+      "Bradyrhizobiaceae"
+    ]
+  ],
+  "chloroflexus": [
+    [
+      "B03.275.150",
+      "D041861",
+      "Chloroflexus"
+    ]
+  ],
+  "chloroflexi": [
+    [
+      "B03.275",
+      "D041862",
+      "Chloroflexi"
+    ]
+  ],
+  "chlorobium": [
+    [
+      "B03.250.140",
+      "D041883",
+      "Chlorobium"
+    ]
+  ],
+  "rhodobacteraceae": [
+    [
+      "B03.660.050.750",
+      "D041902",
+      "Rhodobacteraceae"
+    ]
+  ],
+  "rhodovulum": [
+    [
+      "B03.440.646",
+      "D041903",
+      "Rhodovulum"
+    ]
+  ],
+  "roseobacter": [
+    [
+      "B03.440.680",
+      "D041904",
+      "Roseobacter"
+    ]
+  ],
+  "hyphomicrobiaceae": [
+    [
+      "B03.660.050.350",
+      "D041921",
+      "Hyphomicrobiaceae"
+    ]
+  ],
+  "thiotrichaceae": [
+    [
+      "B03.440.400.645",
+      "D041962",
+      "Thiotrichaceae"
+    ]
+  ],
+  "bacteroidetes": [
+    [
+      "B03.440.080",
+      "D041963",
+      "Bacteroidetes"
+    ]
+  ],
+  "cytophagaceae": [
+    [
+      "B03.440.080.130",
+      "D041964",
+      "Cytophagaceae"
+    ]
+  ],
+  "flavobacteriaceae": [
+    [
+      "B03.440.080.190",
+      "D041965",
+      "Flavobacteriaceae"
+    ]
+  ],
+  "ectothiorhodospiraceae": [
+    [
+      "B03.440.425.410.405",
+      "D042001",
+      "Ectothiorhodospiraceae"
+    ]
+  ],
+  "brucellaceae": [
+    [
+      "B03.440.400.425.215",
+      "D042021",
+      "Brucellaceae"
+    ]
+  ],
+  "ochrobactrum": [
+    [
+      "B03.440.400.425.575",
+      "D042041",
+      "Ochrobactrum"
+    ]
+  ],
+  "brucella ovis": [
+    [
+      "B03.440.400.425.215.500.625",
+      "D042061",
+      "Brucella ovis"
+    ]
+  ],
+  "beijerinckiaceae": [
+    [
+      "B03.585.200",
+      "D042062",
+      "Beijerinckiaceae"
+    ]
+  ],
+  "caulobacteraceae": [
+    [
+      "B03.440.400.425.288",
+      "D042063",
+      "Caulobacteraceae"
+    ]
+  ],
+  "azospirillum lipoferum": [
+    [
+      "B03.440.400.425.708.100.510",
+      "D042081",
+      "Azospirillum lipoferum"
+    ]
+  ],
+  "methylobacteriaceae": [
+    [
+      "B03.440.400.425.487",
+      "D042082",
+      "Methylobacteriaceae"
+    ]
+  ],
+  "methylocystaceae": [
+    [
+      "B03.660.050.512",
+      "D042083",
+      "Methylocystaceae"
+    ]
+  ],
+  "paracoccus pantotrophus": [
+    [
+      "B03.440.400.425.600.690",
+      "D042084",
+      "Paracoccus pantotrophus"
+    ]
+  ],
+  "rhizobium phaseoli": [
+    [
+      "B03.440.400.425.700.800.600",
+      "D042161",
+      "Rhizobium phaseoli"
+    ]
+  ],
+  "rhizobium tropici": [
+    [
+      "B03.440.400.425.700.800.800",
+      "D042162",
+      "Rhizobium tropici"
+    ]
+  ],
+  "rhizobium etli": [
+    [
+      "B03.440.400.425.700.800.337",
+      "D042163",
+      "Rhizobium etli"
+    ]
+  ],
+  "sinorhizobium fredii": [
+    [
+      "B03.440.400.425.700.887.249",
+      "D042181",
+      "Sinorhizobium fredii"
+    ]
+  ],
+  "rhodospirillum centenum": [
+    [
+      "B03.440.400.425.708.733.150",
+      "D042182",
+      "Rhodospirillum centenum"
+    ]
+  ],
+  "magnetospirillum": [
+    [
+      "B03.440.400.425.708.500",
+      "D042201",
+      "Magnetospirillum"
+    ]
+  ],
+  "holosporaceae": [
+    [
+      "B03.660.050.340",
+      "D042281",
+      "Holosporaceae"
+    ]
+  ],
+  "sphingomonadaceae": [
+    [
+      "B03.660.050.800",
+      "D042301",
+      "Sphingomonadaceae"
+    ]
+  ],
+  "anaplasma centrale": [
+    [
+      "B03.440.664.750.050.100",
+      "D042321",
+      "Anaplasma centrale"
+    ]
+  ],
+  "anaplasma marginale": [
+    [
+      "B03.440.664.750.050.500",
+      "D042322",
+      "Anaplasma marginale"
+    ]
+  ],
+  "anaplasma ovis": [
+    [
+      "B03.440.664.750.050.575",
+      "D042323",
+      "Anaplasma ovis"
+    ]
+  ],
+  "alcaligenaceae": [
+    [
+      "B03.440.400.425.115",
+      "D042401",
+      "Alcaligenaceae"
+    ]
+  ],
+  "achromobacter": [
+    [
+      "B03.440.400.425.115.030",
+      "D042402",
+      "Achromobacter"
+    ]
+  ],
+  "achromobacter cycloclastes": [
+    [
+      "B03.440.400.425.115.030.100",
+      "D042422",
+      "Achromobacter cycloclastes"
+    ]
+  ],
+  "achromobacter denitrificans": [
+    [
+      "B03.440.400.425.115.030.120",
+      "D042441",
+      "Achromobacter denitrificans"
+    ]
+  ],
+  "alcaligenes faecalis": [
+    [
+      "B03.440.400.425.115.050.200",
+      "D042481",
+      "Alcaligenes faecalis"
+    ]
+  ],
+  "bordetella avium": [
+    [
+      "B03.440.400.425.115.425.024",
+      "D042482",
+      "Bordetella avium"
+    ]
+  ],
+  "bordetella parapertussis": [
+    [
+      "B03.440.400.425.115.425.590",
+      "D042483",
+      "Bordetella parapertussis"
+    ]
+  ],
+  "taylorella": [
+    [
+      "B03.440.400.425.115.800",
+      "D042502",
+      "Taylorella"
+    ]
+  ],
+  "burkholderiaceae": [
+    [
+      "B03.440.400.425.251",
+      "D042521",
+      "Burkholderiaceae"
+    ]
+  ],
+  "burkholderia cepacia complex": [
+    [
+      "B03.660.075.090.688.100.110",
+      "D042602",
+      "Burkholderia cepacia complex"
+    ]
+  ],
+  "comamonadaceae": [
+    [
+      "B03.440.400.425.293",
+      "D042621",
+      "Comamonadaceae"
+    ]
+  ],
+  "burkholderia gladioli": [
+    [
+      "B03.660.075.090.688.100.355",
+      "D042725",
+      "Burkholderia gladioli"
+    ]
+  ],
+  "burkholderia mallei": [
+    [
+      "B03.660.075.090.688.100.477",
+      "D042726",
+      "Burkholderia mallei"
+    ]
+  ],
+  "delftia": [
+    [
+      "B03.440.400.425.293.170",
+      "D042742",
+      "Delftia"
+    ]
+  ],
+  "leptothrix": [
+    [
+      "B03.440.400.425.481",
+      "D042743",
+      "Leptothrix"
+    ]
+  ],
+  "sphaerotilus": [
+    [
+      "B03.440.400.425.293.750",
+      "D042744",
+      "Sphaerotilus"
+    ]
+  ],
+  "methylophilaceae": [
+    [
+      "B03.440.400.425.525",
+      "D042762",
+      "Methylophilaceae"
+    ]
+  ],
+  "acidithiobacillus": [
+    [
+      "B03.440.400.425.103",
+      "D042763",
+      "Acidithiobacillus"
+    ]
+  ],
+  "oxalobacteraceae": [
+    [
+      "B03.440.400.425.587",
+      "D042802",
+      "Oxalobacteraceae"
+    ]
+  ],
+  "herbaspirillum": [
+    [
+      "B03.440.400.425.587.400",
+      "D042803",
+      "Herbaspirillum"
+    ]
+  ],
+  "neisseria cinerea": [
+    [
+      "B03.440.400.425.550.550.125",
+      "D042804",
+      "Neisseria cinerea"
+    ]
+  ],
+  "neisseria elongata": [
+    [
+      "B03.440.400.425.550.550.299",
+      "D042805",
+      "Neisseria elongata"
+    ]
+  ],
+  "neisseria lactamica": [
+    [
+      "B03.440.400.425.550.550.600",
+      "D042806",
+      "Neisseria lactamica"
+    ]
+  ],
+  "neisseria mucosa": [
+    [
+      "B03.440.400.425.550.550.660",
+      "D042807",
+      "Neisseria mucosa"
+    ]
+  ],
+  "neisseria sicca": [
+    [
+      "B03.440.400.425.550.550.800",
+      "D042808",
+      "Neisseria sicca"
+    ]
+  ],
+  "spirillaceae": [
+    [
+      "B03.440.840",
+      "D043167",
+      "Spirillaceae"
+    ]
+  ],
+  "rhodocyclaceae": [
+    [
+      "B03.660.075.655",
+      "D043362",
+      "Rhodocyclaceae"
+    ]
+  ],
+  "hydrogenophilaceae": [
+    [
+      "B03.660.075.400",
+      "D043363",
+      "Hydrogenophilaceae"
+    ]
+  ],
+  "ralstonia": [
+    [
+      "B03.660.075.090.688.600",
+      "D043367",
+      "Ralstonia"
+    ]
+  ],
+  "ralstonia solanacearum": [
+    [
+      "B03.660.075.090.688.600.750",
+      "D043368",
+      "Ralstonia solanacearum"
+    ]
+  ],
+  "nitrosomonadaceae": [
+    [
+      "B03.440.400.425.562",
+      "D043369",
+      "Nitrosomonadaceae"
+    ]
+  ],
+  "nitrosomonas europaea": [
+    [
+      "B03.440.400.425.562.500.200",
+      "D043370",
+      "Nitrosomonas europaea"
+    ]
+  ],
+  "gallionellaceae": [
+    [
+      "B03.440.400.400",
+      "D043372",
+      "Gallionellaceae"
+    ]
+  ],
+  "moraxellaceae": [
+    [
+      "B03.440.400.425.537",
+      "D044007",
+      "Moraxellaceae"
+    ]
+  ],
+  "pectobacterium": [
+    [
+      "B03.440.450.425.585",
+      "D044043",
+      "Pectobacterium"
+    ]
+  ],
+  "aeromonadaceae": [
+    [
+      "B03.440.450.019",
+      "D044044",
+      "Aeromonadaceae"
+    ]
+  ],
+  "succinivibrionaceae": [
+    [
+      "B03.440.425.410.722",
+      "D044063",
+      "Succinivibrionaceae"
+    ]
+  ],
+  "anaerobiospirillum": [
+    [
+      "B03.440.425.410.145",
+      "D044064",
+      "Anaerobiospirillum"
+    ]
+  ],
+  "cardiobacteriaceae": [
+    [
+      "B03.440.450.342",
+      "D044065",
+      "Cardiobacteriaceae"
+    ]
+  ],
+  "cardiobacterium": [
+    [
+      "B03.440.450.342.100",
+      "D044066",
+      "Cardiobacterium"
+    ]
+  ],
+  "citrobacter rodentium": [
+    [
+      "B03.440.450.425.200.737",
+      "D044082",
+      "Citrobacter rodentium"
+    ]
+  ],
+  "cronobacter sakazakii": [
+    [
+      "B03.440.450.425.215.150",
+      "D044083",
+      "Cronobacter sakazakii"
+    ]
+  ],
+  "erwinia amylovora": [
+    [
+      "B03.440.450.425.300.050",
+      "D044084",
+      "Erwinia amylovora"
+    ]
+  ],
+  "kluyvera": [
+    [
+      "B03.440.450.425.435",
+      "D044086",
+      "Kluyvera"
+    ]
+  ],
+  "serratia liquefaciens": [
+    [
+      "B03.440.450.425.814.620",
+      "D044090",
+      "Serratia liquefaciens"
+    ]
+  ],
+  "proteus penneri": [
+    [
+      "B03.440.450.425.600.650",
+      "D044095",
+      "Proteus penneri"
+    ]
+  ],
+  "psychrobacter": [
+    [
+      "B03.440.400.425.537.650",
+      "D044096",
+      "Psychrobacter"
+    ]
+  ],
+  "wigglesworthia": [
+    [
+      "B03.440.450.425.887",
+      "D044106",
+      "Wigglesworthia"
+    ]
+  ],
+  "yersinia ruckeri": [
+    [
+      "B03.440.450.425.900.650",
+      "D044124",
+      "Yersinia ruckeri"
+    ]
+  ],
+  "coxiellaceae": [
+    [
+      "B03.440.400.425.297",
+      "D044125",
+      "Coxiellaceae"
+    ]
+  ],
+  "legionella longbeachae": [
+    [
+      "B03.440.400.425.450.450.400",
+      "D044128",
+      "Legionella longbeachae"
+    ]
+  ],
+  "halomonadaceae": [
+    [
+      "B03.440.400.425.377",
+      "D044129",
+      "Halomonadaceae"
+    ]
+  ],
+  "oceanospirillaceae": [
+    [
+      "B03.440.595",
+      "D044130",
+      "Oceanospirillaceae"
+    ]
+  ],
+  "actinobacillus equuli": [
+    [
+      "B03.440.450.009.200",
+      "D044131",
+      "Actinobacillus equuli"
+    ]
+  ],
+  "actinobacillus suis": [
+    [
+      "B03.440.450.009.700",
+      "D044132",
+      "Actinobacillus suis"
+    ]
+  ],
+  "actinobacillus seminis": [
+    [
+      "B03.440.450.009.675",
+      "D044133",
+      "Actinobacillus seminis"
+    ]
+  ],
+  "haemophilus paragallinarum": [
+    [
+      "B03.440.450.600.450.665",
+      "D044134",
+      "Haemophilus paragallinarum"
+    ]
+  ],
+  "haemophilus parainfluenzae": [
+    [
+      "B03.440.450.600.450.675",
+      "D044135",
+      "Haemophilus parainfluenzae"
+    ]
+  ],
+  "haemophilus paraphrophilus": [
+    [
+      "B03.440.450.600.450.690",
+      "D044136",
+      "Haemophilus paraphrophilus"
+    ]
+  ],
+  "haemophilus parasuis": [
+    [
+      "B03.440.450.600.450.700",
+      "D044137",
+      "Haemophilus parasuis"
+    ]
+  ],
+  "haemophilus somnus": [
+    [
+      "B03.440.450.600.450.750",
+      "D044138",
+      "Haemophilus somnus"
+    ]
+  ],
+  "pasteurella pneumotropica": [
+    [
+      "B03.440.450.600.600.650",
+      "D044142",
+      "Pasteurella pneumotropica"
+    ]
+  ],
+  "piscirickettsiaceae": [
+    [
+      "B03.440.612",
+      "D044147",
+      "Piscirickettsiaceae"
+    ]
+  ],
+  "vibrio alginolyticus": [
+    [
+      "B03.440.450.900.859.030",
+      "D044149",
+      "Vibrio alginolyticus"
+    ]
+  ],
+  "vibrio cholerae non-o1": [
+    [
+      "B03.440.450.900.859.225.075",
+      "D044163",
+      "Vibrio cholerae non-O1"
+    ]
+  ],
+  "vibrio mimicus": [
+    [
+      "B03.440.450.900.859.500",
+      "D044164",
+      "Vibrio mimicus"
+    ]
+  ],
+  "aliivibrio salmonicida": [
+    [
+      "B03.440.450.900.050.930",
+      "D044165",
+      "Aliivibrio salmonicida"
+    ]
+  ],
+  "xanthomonadaceae": [
+    [
+      "B03.440.400.425.967",
+      "D044166",
+      "Xanthomonadaceae"
+    ]
+  ],
+  "xylella": [
+    [
+      "B03.440.400.425.967.950",
+      "D044167",
+      "Xylella"
+    ]
+  ],
+  "xanthomonas vesicatoria": [
+    [
+      "B03.440.400.425.967.930.850",
+      "D044184",
+      "Xanthomonas vesicatoria"
+    ]
+  ],
+  "pseudomonas alcaligenes": [
+    [
+      "B03.440.400.425.625.625.120",
+      "D044202",
+      "Pseudomonas alcaligenes"
+    ]
+  ],
+  "pseudomonas mendocina": [
+    [
+      "B03.440.400.425.625.625.500",
+      "D044203",
+      "Pseudomonas mendocina"
+    ]
+  ],
+  "pseudomonas oleovorans": [
+    [
+      "B03.440.400.425.625.625.650",
+      "D044204",
+      "Pseudomonas oleovorans"
+    ]
+  ],
+  "pseudomonas pseudoalcaligenes": [
+    [
+      "B03.440.400.425.625.625.662",
+      "D044205",
+      "Pseudomonas pseudoalcaligenes"
+    ]
+  ],
+  "pseudomonas fragi": [
+    [
+      "B03.440.400.425.625.625.350",
+      "D044206",
+      "Pseudomonas fragi"
+    ]
+  ],
+  "halothiobacillus": [
+    [
+      "B03.440.400.425.395",
+      "D044222",
+      "Halothiobacillus"
+    ]
+  ],
+  "pseudomonas stutzeri": [
+    [
+      "B03.440.400.425.625.625.750",
+      "D044223",
+      "Pseudomonas stutzeri"
+    ]
+  ],
+  "pseudomonas syringae": [
+    [
+      "B03.440.400.425.625.625.770",
+      "D044224",
+      "Pseudomonas syringae"
+    ]
+  ],
+  "campylobacter hyointestinalis": [
+    [
+      "B03.440.180.375",
+      "D044862",
+      "Campylobacter hyointestinalis"
+    ]
+  ],
+  "campylobacter lari": [
+    [
+      "B03.440.180.500",
+      "D044863",
+      "Campylobacter lari"
+    ]
+  ],
+  "campylobacter rectus": [
+    [
+      "B03.440.180.650",
+      "D044883",
+      "Campylobacter rectus"
+    ]
+  ],
+  "campylobacter sputorum": [
+    [
+      "B03.440.180.700",
+      "D044884",
+      "Campylobacter sputorum"
+    ]
+  ],
+  "campylobacter upsaliensis": [
+    [
+      "B03.440.180.800",
+      "D044885",
+      "Campylobacter upsaliensis"
+    ]
+  ],
+  "helicobacter felis": [
+    [
+      "B03.440.500.250",
+      "D044922",
+      "Helicobacter felis"
+    ]
+  ],
+  "helicobacter hepaticus": [
+    [
+      "B03.440.500.362",
+      "D044923",
+      "Helicobacter hepaticus"
+    ]
+  ],
+  "fusobacteria": [
+    [
+      "B03.370",
+      "D045182",
+      "Fusobacteria"
+    ]
+  ],
+  "leptotrichia": [
+    [
+      "B03.370.437",
+      "D045183",
+      "Leptotrichia"
+    ]
+  ],
+  "propionigenium": [
+    [
+      "B03.370.600",
+      "D045184",
+      "Propionigenium"
+    ]
+  ],
+  "porphyromonas endodontalis": [
+    [
+      "B03.440.080.094.625.350",
+      "D045202",
+      "Porphyromonas endodontalis"
+    ]
+  ],
+  "prevotella nigrescens": [
+    [
+      "B03.440.080.094.640.550",
+      "D045242",
+      "Prevotella nigrescens"
+    ]
+  ],
+  "prevotella ruminicola": [
+    [
+      "B03.440.080.094.640.700",
+      "D045243",
+      "Prevotella ruminicola"
+    ]
+  ],
+  "rhodothermus": [
+    [
+      "B03.440.080.750",
+      "D045245",
+      "Rhodothermus"
+    ]
+  ],
+  "ornithobacterium": [
+    [
+      "B03.440.080.190.600",
+      "D045246",
+      "Ornithobacterium"
+    ]
+  ],
+  "chryseobacterium": [
+    [
+      "B03.440.080.190.120",
+      "D045247",
+      "Chryseobacterium"
+    ]
+  ],
+  "flexibacter": [
+    [
+      "B03.440.080.130.200",
+      "D045248",
+      "Flexibacter"
+    ]
+  ],
+  "sphingobacterium": [
+    [
+      "B03.440.080.800",
+      "D045249",
+      "Sphingobacterium"
+    ]
+  ],
+  "bilophila": [
+    [
+      "B03.440.425.410.200",
+      "D045282",
+      "Bilophila"
+    ]
+  ],
+  "desulfovibrio africanus": [
+    [
+      "B03.440.425.410.350.040",
+      "D045284",
+      "Desulfovibrio africanus"
+    ]
+  ],
+  "desulfovibrio desulfuricans": [
+    [
+      "B03.440.425.410.350.150",
+      "D045285",
+      "Desulfovibrio desulfuricans"
+    ]
+  ],
+  "desulfovibrio gigas": [
+    [
+      "B03.440.425.410.350.350",
+      "D045286",
+      "Desulfovibrio gigas"
+    ]
+  ],
+  "desulfuromonas": [
+    [
+      "B03.440.425.410.360",
+      "D045287",
+      "Desulfuromonas"
+    ]
+  ],
+  "geobacter": [
+    [
+      "B03.440.425.410.430",
+      "D045302",
+      "Geobacter"
+    ]
+  ],
+  "helicobacter mustelae": [
+    [
+      "B03.440.500.450",
+      "D045502",
+      "Helicobacter mustelae"
+    ]
+  ],
+  "bartonella bacilliformis": [
+    [
+      "B03.440.090.100.080",
+      "D045503",
+      "Bartonella bacilliformis"
+    ]
+  ],
+  "phytoplasma": [
+    [
+      "B03.440.860.074.575",
+      "D045582",
+      "Phytoplasma"
+    ]
+  ],
+  "entomoplasmataceae": [
+    [
+      "B03.440.860.300.250",
+      "D045622",
+      "Entomoplasmataceae"
+    ]
+  ],
+  "mycoplasma capricolum": [
+    [
+      "B03.440.860.580.553.553.210",
+      "D045623",
+      "Mycoplasma capricolum"
+    ]
+  ],
+  "spiroplasma citri": [
+    [
+      "B03.440.860.300.750.625.500",
+      "D045642",
+      "Spiroplasma citri"
+    ]
+  ],
+  "mycoplasma agalactiae": [
+    [
+      "B03.440.860.580.553.553.050",
+      "D045644",
+      "Mycoplasma agalactiae"
+    ]
+  ],
+  "mycoplasma arthritidis": [
+    [
+      "B03.440.860.580.553.553.075",
+      "D045645",
+      "Mycoplasma arthritidis"
+    ]
+  ],
+  "mycoplasma bovigenitalium": [
+    [
+      "B03.440.860.580.553.553.195",
+      "D045646",
+      "Mycoplasma bovigenitalium"
+    ]
+  ],
+  "mycoplasma bovis": [
+    [
+      "B03.440.860.580.553.553.200",
+      "D045682",
+      "Mycoplasma bovis"
+    ]
+  ],
+  "mycoplasma conjunctivae": [
+    [
+      "B03.440.860.580.553.553.220",
+      "D045684",
+      "Mycoplasma conjunctivae"
+    ]
+  ],
+  "mycoplasma dispar": [
+    [
+      "B03.440.860.580.553.553.267",
+      "D045685",
+      "Mycoplasma dispar"
+    ]
+  ],
+  "mycoplasma gallisepticum": [
+    [
+      "B03.440.860.580.553.553.345",
+      "D045686",
+      "Mycoplasma gallisepticum"
+    ]
+  ],
+  "mycoplasma genitalium": [
+    [
+      "B03.440.860.580.553.553.355",
+      "D045704",
+      "Mycoplasma genitalium"
+    ]
+  ],
+  "mycoplasma hyopneumoniae": [
+    [
+      "B03.440.860.580.553.553.420",
+      "D045705",
+      "Mycoplasma hyopneumoniae"
+    ]
+  ],
+  "mycoplasma hyorhinis": [
+    [
+      "B03.440.860.580.553.553.425",
+      "D045790",
+      "Mycoplasma hyorhinis"
+    ]
+  ],
+  "mycoplasma hyosynoviae": [
+    [
+      "B03.440.860.580.553.553.430",
+      "D045791",
+      "Mycoplasma hyosynoviae"
+    ]
+  ],
+  "mycoplasma iowae": [
+    [
+      "B03.440.860.580.553.553.450",
+      "D045793",
+      "Mycoplasma iowae"
+    ]
+  ],
+  "mycoplasma meleagridis": [
+    [
+      "B03.440.860.580.553.553.570",
+      "D045794",
+      "Mycoplasma meleagridis"
+    ]
+  ],
+  "mycoplasma orale": [
+    [
+      "B03.440.860.580.553.553.630",
+      "D045795",
+      "Mycoplasma orale"
+    ]
+  ],
+  "mycoplasma ovipneumoniae": [
+    [
+      "B03.440.860.580.553.553.635",
+      "D045802",
+      "Mycoplasma ovipneumoniae"
+    ]
+  ],
+  "mycoplasma pulmonis": [
+    [
+      "B03.440.860.580.553.553.670",
+      "D045803",
+      "Mycoplasma pulmonis"
+    ]
+  ],
+  "mycoplasma salivarium": [
+    [
+      "B03.440.860.580.553.553.720",
+      "D045804",
+      "Mycoplasma salivarium"
+    ]
+  ],
+  "mycoplasma synoviae": [
+    [
+      "B03.440.860.580.553.553.770",
+      "D045805",
+      "Mycoplasma synoviae"
+    ]
+  ],
+  "fibrobacter": [
+    [
+      "B03.440.305.500",
+      "D045848",
+      "Fibrobacter"
+    ]
+  ],
+  "acidaminococcus": [
+    [
+      "B03.353.250",
+      "D045850",
+      "Acidaminococcus"
+    ]
+  ],
+  "megasphaera": [
+    [
+      "B03.440.425.400.500",
+      "D045851",
+      "Megasphaera"
+    ]
+  ],
+  "pectinatus": [
+    [
+      "B03.440.425.410.800.755",
+      "D045852",
+      "Pectinatus"
+    ]
+  ],
+  "veillonellaceae": [
+    [
+      "B03.353.984",
+      "D045854",
+      "Veillonellaceae"
+    ]
+  ],
+  "acetobacterium": [
+    [
+      "B03.510.460.400.400.024",
+      "D045855",
+      "Acetobacterium"
+    ]
+  ],
+  "butyrivibrio": [
+    [
+      "B03.353.625.250",
+      "D045856",
+      "Butyrivibrio"
+    ]
+  ],
+  "ruminococcus": [
+    [
+      "B03.353.625.806",
+      "D045857",
+      "Ruminococcus"
+    ]
+  ],
+  "desulfitobacterium": [
+    [
+      "B03.353.625.782.149",
+      "D045858",
+      "Desulfitobacterium"
+    ]
+  ],
+  "desulfotomaculum": [
+    [
+      "B03.353.625.782.297",
+      "D045859",
+      "Desulfotomaculum"
+    ]
+  ],
+  "anabaena cylindrica": [
+    [
+      "B03.280.100.150",
+      "D046868",
+      "Anabaena cylindrica"
+    ]
+  ],
+  "dolichospermum flos-aquae": [
+    [
+      "B03.280.283",
+      "D046869",
+      "Dolichospermum flos-aquae"
+    ]
+  ],
+  "anabaena variabilis": [
+    [
+      "B03.280.100.900",
+      "D046870",
+      "Anabaena variabilis"
+    ]
+  ],
+  "cyanothece": [
+    [
+      "B03.280.200",
+      "D046889",
+      "Cyanothece"
+    ]
+  ],
+  "aphanizomenon": [
+    [
+      "B03.280.110",
+      "D046890",
+      "Aphanizomenon"
+    ]
+  ],
+  "cylindrospermopsis": [
+    [
+      "B03.280.210",
+      "D046891",
+      "Cylindrospermopsis"
+    ]
+  ],
+  "microcystis": [
+    [
+      "B03.280.500",
+      "D046931",
+      "Microcystis"
+    ]
+  ],
+  "nodularia": [
+    [
+      "B03.280.550",
+      "D046932",
+      "Nodularia"
+    ]
+  ],
+  "nostoc": [
+    [
+      "B03.280.575",
+      "D046937",
+      "Nostoc"
+    ]
+  ],
+  "plectonema": [
+    [
+      "B03.280.650",
+      "D046938",
+      "Plectonema"
+    ]
+  ],
+  "synechocystis": [
+    [
+      "B03.280.750",
+      "D046939",
+      "Synechocystis"
+    ]
+  ],
+  "synechococcus": [
+    [
+      "B03.280.745",
+      "D046940",
+      "Synechococcus"
+    ]
+  ],
+  "thermotoga neapolitana": [
+    [
+      "B03.440.425.410.748.750",
+      "D046949",
+      "Thermotoga neapolitana"
+    ]
+  ],
+  "thermoanaerobacterium": [
+    [
+      "B03.353.968",
+      "D046950",
+      "Thermoanaerobacterium"
+    ]
+  ],
+  "thermoanaerobacter": [
+    [
+      "B03.353.937",
+      "D046968",
+      "Thermoanaerobacter"
+    ]
+  ],
+  "clostridium acetobutylicum": [
+    [
+      "B03.300.390.400.200.025",
+      "D046969",
+      "Clostridium acetobutylicum"
+    ]
+  ],
+  "clostridium beijerinckii": [
+    [
+      "B03.300.390.400.200.100",
+      "D046970",
+      "Clostridium beijerinckii"
+    ]
+  ],
+  "clostridium bifermentans": [
+    [
+      "B03.300.390.400.200.130",
+      "D046971",
+      "Clostridium bifermentans"
+    ]
+  ],
+  "clostridium butyricum": [
+    [
+      "B03.300.390.400.200.180",
+      "D046972",
+      "Clostridium butyricum"
+    ]
+  ],
+  "clostridium cellulolyticum": [
+    [
+      "B03.300.390.400.200.200",
+      "D046973",
+      "Clostridium cellulolyticum"
+    ]
+  ],
+  "clostridium cellulovorans": [
+    [
+      "B03.300.390.400.200.205",
+      "D046974",
+      "Clostridium cellulovorans"
+    ]
+  ],
+  "clostridium chauvoei": [
+    [
+      "B03.300.390.400.200.215",
+      "D046975",
+      "Clostridium chauvoei"
+    ]
+  ],
+  "clostridium histolyticum": [
+    [
+      "B03.300.390.400.200.412",
+      "D047009",
+      "Clostridium histolyticum"
+    ]
+  ],
+  "clostridium kluyveri": [
+    [
+      "B03.300.390.400.200.493",
+      "D047010",
+      "Clostridium kluyveri"
+    ]
+  ],
+  "clostridium botulinum type a": [
+    [
+      "B03.300.390.400.200.160.050",
+      "D047013",
+      "Clostridium botulinum type A"
+    ]
+  ],
+  "clostridium botulinum type b": [
+    [
+      "B03.300.390.400.200.160.100",
+      "D047014",
+      "Clostridium botulinum type B"
+    ]
+  ],
+  "clostridium botulinum type c": [
+    [
+      "B03.300.390.400.200.160.150",
+      "D047968",
+      "Clostridium botulinum type C"
+    ]
+  ],
+  "clostridium botulinum type d": [
+    [
+      "B03.300.390.400.200.160.200",
+      "D047969",
+      "Clostridium botulinum type D"
+    ]
+  ],
+  "clostridium botulinum type e": [
+    [
+      "B03.300.390.400.200.160.250",
+      "D047970",
+      "Clostridium botulinum type E"
+    ]
+  ],
+  "clostridium botulinum type f": [
+    [
+      "B03.300.390.400.200.160.300",
+      "D047971",
+      "Clostridium botulinum type F"
+    ]
+  ],
+  "clostridium sordellii": [
+    [
+      "B03.300.390.400.200.700",
+      "D047989",
+      "Clostridium sordellii"
+    ]
+  ],
+  "clostridium sticklandii": [
+    [
+      "B03.300.390.400.200.710",
+      "D047991",
+      "Clostridium sticklandii"
+    ]
+  ],
+  "clostridium symbiosum": [
+    [
+      "B03.300.390.400.200.713",
+      "D048009",
+      "Clostridium symbiosum"
+    ]
+  ],
+  "clostridium tertium": [
+    [
+      "B03.300.390.400.200.722",
+      "D048010",
+      "Clostridium tertium"
+    ]
+  ],
+  "clostridium tetanomorphum": [
+    [
+      "B03.300.390.400.200.740",
+      "D048012",
+      "Clostridium tetanomorphum"
+    ]
+  ],
+  "clostridium thermocellum": [
+    [
+      "B03.300.390.400.200.770",
+      "D048013",
+      "Clostridium thermocellum"
+    ]
+  ],
+  "clostridium tyrobutyricum": [
+    [
+      "B03.300.390.400.200.800",
+      "D048014",
+      "Clostridium tyrobutyricum"
+    ]
+  ],
+  "escherichia coli k12": [
+    [
+      "B03.440.450.425.325.300.360",
+      "D048168",
+      "Escherichia coli K12"
+    ]
+  ],
+  "streptomyces lividans": [
+    [
+      "B03.300.390.400.810.768.500",
+      "D048170",
+      "Streptomyces lividans"
+    ]
+  ],
+  "lactobacillus plantarum": [
+    [
+      "B03.353.750.450.475.612",
+      "D048191",
+      "Lactobacillus plantarum"
+    ]
+  ],
+  "corynebacterium glutamicum": [
+    [
+      "B03.510.024.250.300",
+      "D048230",
+      "Corynebacterium glutamicum"
+    ]
+  ],
+  "streptococcus thermophilus": [
+    [
+      "B03.353.750.737.872.800",
+      "D048249",
+      "Streptococcus thermophilus"
+    ]
+  ],
+  "streptomyces coelicolor": [
+    [
+      "B03.300.390.400.810.768.200",
+      "D048372",
+      "Streptomyces coelicolor"
+    ]
+  ],
+  "treponema denticola": [
+    [
+      "B03.440.425.410.711.795.700",
+      "D048373",
+      "Treponema denticola"
+    ]
+  ],
+  "aeromonas salmonicida": [
+    [
+      "B03.440.450.019.025.690",
+      "D048409",
+      "Aeromonas salmonicida"
+    ]
+  ],
+  "clostridium botulinum type g": [
+    [
+      "B03.300.390.400.200.160.350",
+      "D048568",
+      "Clostridium botulinum type G"
+    ]
+  ],
+  "lactobacillus delbrueckii": [
+    [
+      "B03.353.750.450.475.250",
+      "D048668",
+      "Lactobacillus delbrueckii"
+    ]
+  ],
+  "aliivibrio fischeri": [
+    [
+      "B03.440.450.900.050.860",
+      "D048908",
+      "Aliivibrio fischeri"
+    ]
+  ],
+  "prochlorophytes": [
+    [
+      "B03.440.475.100.655",
+      "D048928",
+      "Prochlorophytes"
+    ]
+  ],
+  "prochlorococcus": [
+    [
+      "B03.440.475.100.655.600",
+      "D048929",
+      "Prochlorococcus"
+    ]
+  ],
+  "ralstonia pickettii": [
+    [
+      "B03.660.075.090.688.600.600",
+      "D049920",
+      "Ralstonia pickettii"
+    ]
+  ],
+  "cupriavidus": [
+    [
+      "B03.440.400.425.251.200",
+      "D049921",
+      "Cupriavidus"
+    ]
+  ],
+  "nostoc commune": [
+    [
+      "B03.280.575.150",
+      "D050501",
+      "Nostoc commune"
+    ]
+  ],
+  "nostoc muscorum": [
+    [
+      "B03.280.575.500",
+      "D050502",
+      "Nostoc muscorum"
+    ]
+  ],
+  "levilactobacillus brevis": [
+    [
+      "B03.353.750.450.639",
+      "D052196",
+      "Levilactobacillus brevis"
+    ]
+  ],
+  "limosilactobacillus fermentum": [
+    [
+      "B03.353.750.450.672",
+      "D052197",
+      "Limosilactobacillus fermentum"
+    ]
+  ],
+  "lactobacillus helveticus": [
+    [
+      "B03.353.750.450.475.400",
+      "D052198",
+      "Lactobacillus helveticus"
+    ]
+  ],
+  "lactobacillus leichmannii": [
+    [
+      "B03.353.750.450.475.506",
+      "D052199",
+      "Lactobacillus leichmannii"
+    ]
+  ],
+  "limosilactobacillus reuteri": [
+    [
+      "B03.353.750.450.705",
+      "D052200",
+      "Limosilactobacillus reuteri"
+    ]
+  ],
+  "lacticaseibacillus rhamnosus": [
+    [
+      "B03.353.750.450.606.875",
+      "D052201",
+      "Lacticaseibacillus rhamnosus"
+    ]
+  ],
+  "clostridium septicum": [
+    [
+      "B03.300.390.400.200.690",
+      "D052557",
+      "Clostridium septicum"
+    ]
+  ],
+  "marinobacter": [
+    [
+      "B03.660.250.021.480",
+      "D053520",
+      "Marinobacter"
+    ]
+  ],
+  "alcanivoraceae": [
+    [
+      "B03.660.250.019",
+      "D053521",
+      "Alcanivoraceae"
+    ]
+  ],
+  "piscirickettsia": [
+    [
+      "B03.660.250.565.600",
+      "D053522",
+      "Piscirickettsia"
+    ]
+  ],
+  "beggiatoa": [
+    [
+      "B03.440.400.645.100",
+      "D053524",
+      "Beggiatoa"
+    ]
+  ],
+  "thiothrix": [
+    [
+      "B03.440.400.645.800",
+      "D053525",
+      "Thiothrix"
+    ]
+  ],
+  "listonella": [
+    [
+      "B03.440.450.900.500",
+      "D053526",
+      "Listonella"
+    ]
+  ],
+  "lysobacter": [
+    [
+      "B03.440.400.425.967.500",
+      "D053528",
+      "Lysobacter"
+    ]
+  ],
+  "xanthomonas axonopodis": [
+    [
+      "B03.660.250.915.930.049",
+      "D053532",
+      "Xanthomonas axonopodis"
+    ]
+  ],
+  "marinomonas": [
+    [
+      "B03.660.250.540.500",
+      "D053544",
+      "Marinomonas"
+    ]
+  ],
+  "spirulina": [
+    [
+      "B03.280.697",
+      "D053545",
+      "Spirulina"
+    ]
+  ],
+  "oscillatoria": [
+    [
+      "B03.280.612",
+      "D054300",
+      "Oscillatoria"
+    ]
+  ],
+  "enterotoxigenic escherichia coli": [
+    [
+      "B03.440.450.425.325.300.340",
+      "D054307",
+      "Enterotoxigenic Escherichia coli"
+    ]
+  ],
+  "enteropathogenic escherichia coli": [
+    [
+      "B03.440.450.425.325.300.330",
+      "D054308",
+      "Enteropathogenic Escherichia coli"
+    ]
+  ],
+  "shiga-toxigenic escherichia coli": [
+    [
+      "B03.440.450.425.325.300.800",
+      "D054323",
+      "Shiga-Toxigenic Escherichia coli"
+    ]
+  ],
+  "enterohemorrhagic escherichia coli": [
+    [
+      "B03.440.450.425.325.300.800.250",
+      "D054324",
+      "Enterohemorrhagic Escherichia coli"
+    ]
+  ],
+  "streptococcus gordonii": [
+    [
+      "B03.353.750.737.872.260",
+      "D054773",
+      "Streptococcus gordonii"
+    ]
+  ],
+  "tropheryma": [
+    [
+      "B03.510.024.998",
+      "D054851",
+      "Tropheryma"
+    ]
+  ],
+  "chromohalobacter": [
+    [
+      "B03.440.400.425.377.249",
+      "D055353",
+      "Chromohalobacter"
+    ]
+  ],
+  "methicillin-resistant staphylococcus aureus": [
+    [
+      "B03.300.390.400.800.750.100.500",
+      "D055624",
+      "Methicillin-Resistant Staphylococcus aureus"
+    ]
+  ],
+  "arcanobacterium": [
+    [
+      "B03.510.024.049.050.287",
+      "D055667",
+      "Arcanobacterium"
+    ]
+  ],
+  "bacillales": [
+    [
+      "B03.353.500",
+      "D056449",
+      "Bacillales"
+    ]
+  ],
+  "alicyclobacillus": [
+    [
+      "B03.353.500.050",
+      "D056450",
+      "Alicyclobacillus"
+    ]
+  ],
+  "geobacillus": [
+    [
+      "B03.300.390.400.158.400",
+      "D056506",
+      "Geobacillus"
+    ]
+  ],
+  "paenibacillus": [
+    [
+      "B03.300.390.400.645",
+      "D056507",
+      "Paenibacillus"
+    ]
+  ],
+  "thermoactinomyces": [
+    [
+      "B03.353.500.875",
+      "D056509",
+      "Thermoactinomyces"
+    ]
+  ],
+  "lactobacillales": [
+    [
+      "B03.353.750",
+      "D056546",
+      "Lactobacillales"
+    ]
+  ],
+  "aerococcaceae": [
+    [
+      "B03.353.750.030",
+      "D056567",
+      "Aerococcaceae"
+    ]
+  ],
+  "carnobacteriaceae": [
+    [
+      "B03.353.750.130",
+      "D056568",
+      "Carnobacteriaceae"
+    ]
+  ],
+  "enterococcaceae": [
+    [
+      "B03.353.750.250",
+      "D056569",
+      "Enterococcaceae"
+    ]
+  ],
+  "aerococcus": [
+    [
+      "B03.353.750.030.030",
+      "D056570",
+      "Aerococcus"
+    ]
+  ],
+  "carnobacterium": [
+    [
+      "B03.353.750.130.150",
+      "D056573",
+      "Carnobacterium"
+    ]
+  ],
+  "leuconostocaceae": [
+    [
+      "B03.353.750.475",
+      "D056584",
+      "Leuconostocaceae"
+    ]
+  ],
+  "oenococcus": [
+    [
+      "B03.353.750.475.600",
+      "D056585",
+      "Oenococcus"
+    ]
+  ],
+  "uropathogenic escherichia coli": [
+    [
+      "B03.440.450.425.325.300.580.500",
+      "D056689",
+      "Uropathogenic Escherichia coli"
+    ]
+  ],
+  "burkholderia cenocepacia": [
+    [
+      "B03.660.075.090.688.100.110.490",
+      "D057508",
+      "Burkholderia cenocepacia"
+    ]
+  ],
+  "aeromonas caviae": [
+    [
+      "B03.440.450.019.025.150",
+      "D057585",
+      "Aeromonas caviae"
+    ]
+  ],
+  "staphylococcus lugdunensis": [
+    [
+      "B03.300.390.400.800.750.500",
+      "D057787",
+      "Staphylococcus lugdunensis"
+    ]
+  ],
+  "staphylococcus hyicus": [
+    [
+      "B03.300.390.400.800.750.435",
+      "D057788",
+      "Staphylococcus hyicus"
+    ]
+  ],
+  "staphylococcus intermedius": [
+    [
+      "B03.300.390.400.800.750.445",
+      "D057789",
+      "Staphylococcus intermedius"
+    ]
+  ],
+  "staphylococcus saprophyticus": [
+    [
+      "B03.300.390.400.800.750.750",
+      "D057790",
+      "Staphylococcus saprophyticus"
+    ]
+  ],
+  "brochothrix": [
+    [
+      "B03.353.500.120",
+      "D058640",
+      "Brochothrix"
+    ]
+  ],
+  "planococcaceae": [
+    [
+      "B03.353.500.700",
+      "D058641",
+      "Planococcaceae"
+    ]
+  ],
+  "planococcus bacteria": [
+    [
+      "B03.510.400.630.600",
+      "D058642",
+      "Planococcus Bacteria"
+    ]
+  ],
+  "sporosarcina": [
+    [
+      "B03.300.390.825",
+      "D058644",
+      "Sporosarcina"
+    ]
+  ],
+  "brevibacillus": [
+    [
+      "B03.300.390.400.160",
+      "D058675",
+      "Brevibacillus"
+    ]
+  ],
+  "pasteuria": [
+    [
+      "B03.300.390.650",
+      "D058676",
+      "Pasteuria"
+    ]
+  ],
+  "anoxybacillus": [
+    [
+      "B03.300.390.400.158.108",
+      "D058677",
+      "Anoxybacillus"
+    ]
+  ],
+  "halobacillus": [
+    [
+      "B03.300.390.400.158.600",
+      "D058678",
+      "Halobacillus"
+    ]
+  ],
+  "virgibacillus": [
+    [
+      "B03.300.390.400.158.900",
+      "D058679",
+      "Virgibacillus"
+    ]
+  ],
+  "gemella": [
+    [
+      "B03.353.500.310",
+      "D058834",
+      "Gemella"
+    ]
+  ],
+  "abiotrophia": [
+    [
+      "B03.353.750.030.014",
+      "D058835",
+      "Abiotrophia"
+    ]
+  ],
+  "weissella": [
+    [
+      "B03.353.750.475.900",
+      "D058836",
+      "Weissella"
+    ]
+  ],
+  "moorella": [
+    [
+      "B03.300.390.400.525",
+      "D058845",
+      "Moorella"
+    ]
+  ],
+  "cronobacter": [
+    [
+      "B03.440.450.425.215",
+      "D059126",
+      "Cronobacter"
+    ]
+  ],
+  "phyllobacteriaceae": [
+    [
+      "B03.660.050.600",
+      "D059127",
+      "Phyllobacteriaceae"
+    ]
+  ],
+  "mesorhizobium": [
+    [
+      "B03.660.050.600.500",
+      "D059128",
+      "Mesorhizobium"
+    ]
+  ],
+  "aliivibrio": [
+    [
+      "B03.440.450.900.050",
+      "D059706",
+      "Aliivibrio"
+    ]
+  ],
+  "agricultural inoculants": [
+    [
+      "B03.054",
+      "D059827",
+      "Agricultural Inoculants"
+    ]
+  ],
+  "agrobacterium": [
+    [
+      "B03.440.400.425.700.024",
+      "D060054",
+      "Agrobacterium"
+    ]
+  ],
+  "entomoplasmatales": [
+    [
+      "B03.440.860.300",
+      "D060366",
+      "Entomoplasmatales"
+    ]
+  ],
+  "pedobacter": [
+    [
+      "B03.440.080.600",
+      "D060485",
+      "Pedobacter"
+    ]
+  ],
+  "tenacibaculum": [
+    [
+      "B03.440.080.190.800",
+      "D060493",
+      "Tenacibaculum"
+    ]
+  ],
+  "riemerella": [
+    [
+      "B03.440.080.190.700",
+      "D060494",
+      "Riemerella"
+    ]
+  ],
+  "acidobacteria": [
+    [
+      "B03.026",
+      "D061271",
+      "Acidobacteria"
+    ]
+  ],
+  "fibrobacteres": [
+    [
+      "B03.440.305",
+      "D061306",
+      "Fibrobacteres"
+    ]
+  ],
+  "verrucomicrobia": [
+    [
+      "B03.440.930",
+      "D061327",
+      "Verrucomicrobia"
+    ]
+  ],
+  "planctomycetales": [
+    [
+      "B03.440.619.500",
+      "D061328",
+      "Planctomycetales"
+    ]
+  ],
+  "aggregatibacter": [
+    [
+      "B03.440.450.600.224",
+      "D064206",
+      "Aggregatibacter"
+    ]
+  ],
+  "aggregatibacter aphrophilus": [
+    [
+      "B03.440.450.600.224.750",
+      "D064207",
+      "Aggregatibacter aphrophilus"
+    ]
+  ],
+  "aggregatibacter segnis": [
+    [
+      "B03.440.450.600.224.875",
+      "D064208",
+      "Aggregatibacter segnis"
+    ]
+  ],
+  "streptomyces rimosus": [
+    [
+      "B03.300.390.400.810.768.750",
+      "D064411",
+      "Streptomyces rimosus"
+    ]
+  ],
+  "vancomycin-resistant enterococci": [
+    [
+      "B03.353.750.250.250.650",
+      "D065507",
+      "Vancomycin-Resistant Enterococci"
+    ]
+  ],
+  "clostridiales": [
+    [
+      "B03.353.625",
+      "D000068016",
+      "Clostridiales"
+    ]
+  ],
+  "firmicutes": [
+    [
+      "B03.353",
+      "D000068536",
+      "Firmicutes"
+    ]
+  ],
+  "bacillus licheniformis": [
+    [
+      "B03.300.390.400.158.218.376",
+      "D000069976",
+      "Bacillus licheniformis"
+    ]
+  ],
+  "bacillus amyloliquefaciens": [
+    [
+      "B03.300.390.400.158.218.076",
+      "D000069977",
+      "Bacillus amyloliquefaciens"
+    ]
+  ],
+  "bifidobacterium longum": [
+    [
+      "B03.510.024.100.500",
+      "D000069978",
+      "Bifidobacterium longum"
+    ]
+  ],
+  "bacillus pumilus": [
+    [
+      "B03.300.390.400.158.218.613",
+      "D000069979",
+      "Bacillus pumilus"
+    ]
+  ],
+  "lacticaseibacillus paracasei": [
+    [
+      "B03.353.750.450.606.750",
+      "D000069980",
+      "Lacticaseibacillus paracasei"
+    ]
+  ],
+  "escherichia coli o104": [
+    [
+      "B03.440.450.425.325.300.800.250.250",
+      "D000069981",
+      "Escherichia coli O104"
+    ]
+  ],
+  "bifidobacterium animalis": [
+    [
+      "B03.510.024.100.250",
+      "D000069982",
+      "Bifidobacterium animalis"
+    ]
+  ],
+  "bifidobacterium breve": [
+    [
+      "B03.510.024.100.375",
+      "D000069984",
+      "Bifidobacterium breve"
+    ]
+  ],
+  "bifidobacterium bifidum": [
+    [
+      "B03.510.024.100.313",
+      "D000069985",
+      "Bifidobacterium bifidum"
+    ]
+  ],
+  "ligilactobacillus salivarius": [
+    [
+      "B03.353.750.450.656",
+      "D000069996",
+      "Ligilactobacillus salivarius"
+    ]
+  ],
+  "lactobacillus gasseri": [
+    [
+      "B03.353.750.450.475.363",
+      "D000069998",
+      "Lactobacillus gasseri"
+    ]
+  ],
+  "lactobacillus johnsonii": [
+    [
+      "B03.353.750.450.475.453",
+      "D000069999",
+      "Lactobacillus johnsonii"
+    ]
+  ],
+  "bacillus coagulans": [
+    [
+      "B03.300.390.400.158.218.314",
+      "D000070000",
+      "Bacillus coagulans"
+    ]
+  ],
+  "streptococcus salivarius": [
+    [
+      "B03.353.750.737.872.663",
+      "D000070001",
+      "Streptococcus salivarius"
+    ]
+  ],
+  "propionibacterium freudenreichii": [
+    [
+      "B03.510.024.990.600.800",
+      "D000070002",
+      "Propionibacterium freudenreichii"
+    ]
+  ],
+  "lactobacillus crispatus": [
+    [
+      "B03.353.750.450.475.238",
+      "D000070003",
+      "Lactobacillus crispatus"
+    ]
+  ],
+  "bifidobacterium adolescentis": [
+    [
+      "B03.510.024.100.125",
+      "D000070005",
+      "Bifidobacterium adolescentis"
+    ]
+  ],
+  "pediococcus pentosaceus": [
+    [
+      "B03.353.750.450.737.750",
+      "D000070006",
+      "Pediococcus pentosaceus"
+    ]
+  ],
+  "leuconostoc mesenteroides": [
+    [
+      "B03.353.750.475.450.500",
+      "D000070007",
+      "Leuconostoc mesenteroides"
+    ]
+  ],
+  "pediococcus acidilactici": [
+    [
+      "B03.353.750.450.737.500",
+      "D000070016",
+      "Pediococcus acidilactici"
+    ]
+  ],
+  "lactobacillus pentosus": [
+    [
+      "B03.353.750.450.475.586",
+      "D000070018",
+      "Lactobacillus pentosus"
+    ]
+  ],
+  "bacillus clausii": [
+    [
+      "B03.300.390.400.158.218.283",
+      "D000070019",
+      "Bacillus clausii"
+    ]
+  ],
+  "faecalibacterium": [
+    [
+      "B03.353.625.766",
+      "D000070036",
+      "Faecalibacterium"
+    ]
+  ],
+  "faecalibacterium prausnitzii": [
+    [
+      "B03.353.625.766.500",
+      "D000070037",
+      "Faecalibacterium prausnitzii"
+    ]
+  ],
+  "paenibacillus polymyxa": [
+    [
+      "B03.300.390.400.645.750",
+      "D000070057",
+      "Paenibacillus polymyxa"
+    ]
+  ],
+  "streptococcus iniae": [
+    [
+      "B03.353.750.737.872.405",
+      "D000070058",
+      "Streptococcus iniae"
+    ]
+  ],
+  "paenibacillus larvae": [
+    [
+      "B03.300.390.400.645.500",
+      "D000070059",
+      "Paenibacillus larvae"
+    ]
+  ],
+  "bdellovibrio bacteriovorus": [
+    [
+      "B03.440.400.425.180.500",
+      "D000070060",
+      "Bdellovibrio bacteriovorus"
+    ]
+  ],
+  "enterococcus hirae": [
+    [
+      "B03.353.750.250.250.475",
+      "D000070076",
+      "Enterococcus hirae"
+    ]
+  ],
+  "bacteroides thetaiotaomicron": [
+    [
+      "B03.440.080.094.152.700",
+      "D000070077",
+      "Bacteroides thetaiotaomicron"
+    ]
+  ],
+  "aeromonas veronii": [
+    [
+      "B03.440.450.019.025.845",
+      "D000070079",
+      "Aeromonas veronii"
+    ]
+  ],
+  "pseudomonas chlororaphis": [
+    [
+      "B03.440.400.425.625.625.223",
+      "D000070096",
+      "Pseudomonas chlororaphis"
+    ]
+  ],
+  "butyrivibrio fibrisolvens": [
+    [
+      "B03.353.625.250.500",
+      "D000070097",
+      "Butyrivibrio fibrisolvens"
+    ]
+  ],
+  "bacillus firmus": [
+    [
+      "B03.300.390.400.158.218.345",
+      "D000070098",
+      "Bacillus firmus"
+    ]
+  ],
+  "streptococcus gallolyticus": [
+    [
+      "B03.353.750.737.872.243",
+      "D000070099",
+      "Streptococcus gallolyticus"
+    ]
+  ],
+  "megasphaera elsdenii": [
+    [
+      "B03.440.425.400.500.500",
+      "D000070101",
+      "Megasphaera elsdenii"
+    ]
+  ],
+  "streptococcus gallolyticus subspecies gallolyticus": [
+    [
+      "B03.353.750.737.872.243.500",
+      "D000070197",
+      "Streptococcus gallolyticus subspecies gallolyticus"
+    ]
+  ],
+  "bifidobacterium longum subspecies infantis": [
+    [
+      "B03.510.024.100.500.500",
+      "D000070236",
+      "Bifidobacterium longum subspecies infantis"
+    ]
+  ],
+  "latilactobacillus sakei": [
+    [
+      "B03.353.750.450.623",
+      "D000070256",
+      "Latilactobacillus sakei"
+    ]
+  ],
+  "bifidobacterium pseudocatenulatum": [
+    [
+      "B03.510.024.100.750",
+      "D000070257",
+      "Bifidobacterium pseudocatenulatum"
+    ]
+  ],
+  "tannerella forsythia": [
+    [
+      "B03.440.080.850.500",
+      "D000070436",
+      "Tannerella forsythia"
+    ]
+  ],
+  "bacteria, thermoduric": [
+    [
+      "B03.135",
+      "D000072280",
+      "Bacteria, Thermoduric"
+    ]
+  ],
+  "extraintestinal pathogenic escherichia coli": [
+    [
+      "B03.440.450.425.325.300.580",
+      "D000072282",
+      "Extraintestinal Pathogenic Escherichia coli"
+    ]
+  ],
+  "trichodesmium": [
+    [
+      "B03.280.875",
+      "D000072359",
+      "Trichodesmium"
+    ]
+  ],
+  "nitrogen-fixing bacteria": [
+    [
+      "B03.585",
+      "D000072738",
+      "Nitrogen-Fixing Bacteria"
+    ]
+  ],
+  "carbapenem-resistant enterobacteriaceae": [
+    [
+      "B03.440.450.425.189",
+      "D000073182",
+      "Carbapenem-Resistant Enterobacteriaceae"
+    ]
+  ],
+  "mycobacterium abscessus": [
+    [
+      "B03.510.024.962.500.720.050",
+      "D000073358",
+      "Mycobacterium abscessus"
+    ]
+  ],
+  "burkholderiales": [
+    [
+      "B03.660.075.090",
+      "D000073556",
+      "Burkholderiales"
+    ]
+  ],
+  "campylobacteraceae": [
+    [
+      "B03.660.150.235.250",
+      "D000073557",
+      "Campylobacteraceae"
+    ]
+  ],
+  "clostridiaceae": [
+    [
+      "B03.353.625.375",
+      "D000073561",
+      "Clostridiaceae"
+    ]
+  ],
+  "desulfovibrionaceae": [
+    [
+      "B03.440.425.200",
+      "D000073564",
+      "Desulfovibrionaceae"
+    ]
+  ],
+  "helicobacteraceae": [
+    [
+      "B03.660.150.235.500",
+      "D000073569",
+      "Helicobacteraceae"
+    ]
+  ],
+  "staphylococcus capitis": [
+    [
+      "B03.300.390.400.800.750.222",
+      "D000074039",
+      "Staphylococcus capitis"
+    ]
+  ],
+  "campylobacterales": [
+    [
+      "B03.660.150.235",
+      "D000074707",
+      "Campylobacterales"
+    ]
+  ],
+  "aeromonadales": [
+    [
+      "B03.660.250.018",
+      "D000074762",
+      "Aeromonadales"
+    ]
+  ],
+  "desulfovibrionales": [
+    [
+      "B03.660.125.144",
+      "D000076642",
+      "Desulfovibrionales"
+    ]
+  ],
+  "rickettsiales": [
+    [
+      "B03.440.664",
+      "D000076944",
+      "Rickettsiales"
+    ]
+  ],
+  "actinoplanes": [
+    [
+      "B03.300.390.400.500.250",
+      "D000079584",
+      "Actinoplanes"
+    ]
+  ],
+  "actinomadura": [
+    [
+      "B03.510.024.049.025",
+      "D000082403",
+      "Actinomadura"
+    ]
+  ],
+  "amycolatopsis": [
+    [
+      "B03.510.024.049.075",
+      "D000082502",
+      "Amycolatopsis"
+    ]
+  ],
+  "caldicellulosiruptor": [
+    [
+      "B03.353.563",
+      "D000082623",
+      "Caldicellulosiruptor"
+    ]
+  ],
+  "clostridioides": [
+    [
+      "B03.353.625.657",
+      "D000082682",
+      "Clostridioides"
+    ]
+  ],
+  "dehalococcoides": [
+    [
+      "B03.275.575",
+      "D000082942",
+      "Dehalococcoides"
+    ]
+  ],
+  "dickeya": [
+    [
+      "B03.660.250.139",
+      "D000083042",
+      "Dickeya"
+    ]
+  ],
+  "vancomycin-resistant staphylococcus aureus": [
+    [
+      "B03.300.390.400.800.750.100.750",
+      "D000083123",
+      "Vancomycin-Resistant Staphylococcus aureus"
+    ]
+  ],
+  "lyngbya": [
+    [
+      "B03.280.355",
+      "D000083582",
+      "Lyngbya"
+    ]
+  ],
+  "microbacterium": [
+    [
+      "B03.510.024.775",
+      "D000083822",
+      "Microbacterium"
+    ]
+  ],
+  "nocardioides": [
+    [
+      "B03.510.024.986",
+      "D000083962",
+      "Nocardioides"
+    ]
+  ],
+  "orientia": [
+    [
+      "B03.660.050.783.875.650.450",
+      "D000084162",
+      "Orientia"
+    ]
+  ],
+  "phormidium": [
+    [
+      "B03.280.631",
+      "D000084242",
+      "Phormidium"
+    ]
+  ],
+  "pseudonocardia": [
+    [
+      "B03.510.024.993",
+      "D000084382",
+      "Pseudonocardia"
+    ]
+  ],
+  "renibacterium": [
+    [
+      "B03.510.024.850.750",
+      "D000084402",
+      "Renibacterium"
+    ]
+  ],
+  "tannerella": [
+    [
+      "B03.440.080.850",
+      "D000084422",
+      "Tannerella"
+    ]
+  ],
+  "thermomonospora": [
+    [
+      "B03.510.460.400.400.049.971",
+      "D000084442",
+      "Thermomonospora"
+    ]
+  ],
+  "thermotoga": [
+    [
+      "B03.440.425.410.748",
+      "D000084444",
+      "Thermotoga"
+    ]
+  ],
+  "akkermansia": [
+    [
+      "B03.440.930.500",
+      "D000086102",
+      "Akkermansia"
+    ]
+  ],
+  "aquifex": [
+    [
+      "B03.440.025",
+      "D000086142",
+      "Aquifex"
+    ]
+  ],
+  "clavibacter": [
+    [
+      "B03.510.024.232",
+      "D000086162",
+      "Clavibacter"
+    ]
+  ],
+  "dermatophilus": [
+    [
+      "B03.510.024.288",
+      "D000086182",
+      "Dermatophilus"
+    ]
+  ],
+  "exiguobacterium": [
+    [
+      "B03.353.500.100.309",
+      "D000086183",
+      "Exiguobacterium"
+    ]
+  ],
+  "liberibacter": [
+    [
+      "B03.660.050.662.347",
+      "D000086202",
+      "Liberibacter"
+    ]
+  ],
+  "mediterranea": [
+    [
+      "B03.440.080.094.389",
+      "D000086222",
+      "Mediterranea"
+    ]
+  ],
+  "neglecta": [
+    [
+      "B03.353.625.774",
+      "D000086242",
+      "Neglecta"
+    ]
+  ],
+  "nocardiopsis": [
+    [
+      "B03.510.024.988",
+      "D000086262",
+      "Nocardiopsis"
+    ]
+  ],
+  "pannus": [
+    [
+      "B03.280.622",
+      "D000086282",
+      "Pannus"
+    ]
+  ],
+  "planktothrix": [
+    [
+      "B03.280.641",
+      "D000086302",
+      "Planktothrix"
+    ]
+  ],
+  "rappaport": [
+    [
+      "B03.660.250.080.775",
+      "D000086322",
+      "Rappaport"
+    ]
+  ],
+  "sorangium": [
+    [
+      "B03.660.125.500.658",
+      "D000086323",
+      "Sorangium"
+    ]
+  ],
+  "thermobifida": [
+    [
+      "B03.510.460.400.400.049.957",
+      "D000086324",
+      "Thermobifida"
+    ]
+  ],
+  "thermosynechococcus": [
+    [
+      "B03.280.813",
+      "D000086325",
+      "Thermosynechococcus"
+    ]
+  ],
+  "xylophilus": [
+    [
+      "B03.660.075.090.941",
+      "D000086326",
+      "Xylophilus"
+    ]
+  ],
+  "planctomycetes": [
+    [
+      "B03.440.619",
+      "D000090643",
+      "Planctomycetes"
+    ]
+  ],
+  "lacticaseibacillus": [
+    [
+      "B03.353.750.450.606",
+      "D000093622",
+      "Lacticaseibacillus"
+    ]
+  ]
+}

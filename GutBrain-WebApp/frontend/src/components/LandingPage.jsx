@@ -37,6 +37,9 @@ import { FiArrowUp } from "react-icons/fi";
 import { FiArrowDown } from "react-icons/fi";
 import { LuArrowUpDown } from "react-icons/lu";
 import HighlightMention from '../components/HighlightMention';
+import { Dropdown } from "react-bootstrap";
+import { FaFileCode, FaFileAlt } from "react-icons/fa";
+import DownloadButtonMenu from '../components/DownloadButtonMenu';
 
 
 export default function LandingPage() {
@@ -796,75 +799,77 @@ window.addEventListener('DOMContentLoaded', function() {
                 {/* Card #1 */}
                 <div className="tm-results-card">
                   <div className="tm-header-grid1">
-  <h3 className="h3-title">{mentions[0].indname}</h3>
+                    <div className="d-flex align-items-center justify-content-between py-2">
+                      <h2 className="h2-title mb-0 ">{mentions[0].indname}</h2>
+                      <DownloadButtonMenu />
+                    </div>
+                    <p>
+                      <a
+                        href={mentions[0].ind}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <code className="code-underline">
+                          {mentions[0].ind}
+                        </code>
+                      </a>
+                    </p>
 
-  <p>
-    <a
-      href={mentions[0].ind}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <code className="code-underline">
-        {mentions[0].ind}
-      </code>
-    </a>
-  </p>
+                    <p>
+                      <strong>Full Name:</strong> {mentions[0].indname}
+                    </p>
 
-  <p>
-    <strong>Full Name:</strong> {mentions[0].indname}
-  </p>
+                    {mentions[0].classIri && (
+                      <p>
+                        <strong>Class:</strong>{" "}
+                        <button
+                    className="tm-link-button-class"
+                    onClick={() => {
+                    navigate(
+                      `/class/${encodeURIComponent(mentions[0].classLabel)}`,
+                      { replace: false }
+                    )
 
-  {mentions[0].classIri && (
-    <p>
-      <strong>Class:</strong>{" "}
-      <button
-  className="tm-link-button-class"
-   onClick={() => {
-   navigate(
-     `/class/${encodeURIComponent(mentions[0].classLabel)}`,
-     { replace: false }
-   )
+                    loadClassDetails(
+                      mentions[0].classIri,
+                      mentions[0].classLabel
+                    )
+                  }}
+                  >
+                    {mentions[0].classLabel || mentions[0].classIri.split("/").pop()}
+                  </button>
+                </p>
+              )}
 
-   loadClassDetails(
-     mentions[0].classIri,
-     mentions[0].classLabel
-   )
- }}
->
-  {mentions[0].classLabel || mentions[0].classIri.split("/").pop()}
-</button>
-    </p>
-  )}
+              <p>
+                <strong>Definition:</strong>{" "}
+                {mentions[0].definition || "-"}
+              </p>
 
-  <p>
-    <strong>Definition:</strong>{" "}
-    {mentions[0].definition || "-"}
-  </p>
-
-  {(() => {
-    const match = mentions[0].ontologyMatch?.trim();
-    const url = ONTOLOGY_URLS[match];
-    return (
-      <p>
-        <strong>Ontology Match:</strong>{" "}
-        {match ? (
-          url ? (
-            <a
-              href={url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="tm-ontology-link"
-            >
-              {match}
-            </a>
-          ) : (
-            <span>{match}</span>
-          )
-        ) : (
-          <span>-</span>
-        )}
-      </p>
-    );
+              {(() => {
+                const match = mentions[0].ontologyMatch?.trim();
+                const url = ONTOLOGY_URLS[match];
+                return (
+                  <p>
+                    <strong>Ontology Match:</strong>{" "}
+                    {match ? (
+                      url ? (
+                        <a
+                          href={url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="tm-ontology-link"
+                        >
+                          {match}
+                        </a>
+                      ) : (
+                        <span>{match}</span>
+                      )
+                    ) : (
+                      <span>-</span>
+                    )}
+                  </p>
+                );
             })()}
           </div>
           </div>

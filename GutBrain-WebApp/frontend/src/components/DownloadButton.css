@@ -1,0 +1,25 @@
+.download-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 0.25rem;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 0.25rem;
+  width: 12rem;
+  padding: 0.25rem 0;
+  z-index: 1000;
+}
+
+.download-menu .dropdown-item {
+  width: 100%;
+  text-align: left;
+  padding: 0.5rem 1rem;
+  background: none;
+  border: none;
+}
+
+.download-menu .dropdown-item:hover {
+  background-color: #f8f9fa;
+  cursor: pointer;
+}
