@@ -185,7 +185,7 @@ ORDER BY DESC(?count)
         termx_list.append({
             "prop":  b["prop"]["value"],
             "label": b.get("label", {}).get("value", b["prop"]["value"].split("/").pop()),
-            "count": int(b["count"]["value"])
+            "count": int(b["count"]["value"]),
         })
     return JsonResponse({"relations": termx_list})
 

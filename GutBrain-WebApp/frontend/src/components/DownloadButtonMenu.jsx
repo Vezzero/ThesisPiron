@@ -2,10 +2,11 @@ import { useState, useRef, useEffect } from 'react';
 import { Button } from 'react-bootstrap';
 import { FaDownload, FaFileCode, FaFileAlt } from 'react-icons/fa';
 import '../components/DownloadButton.css'
+import { downloadJsonIndividual } from '../utils/downloadUtils';
 
-function DownloadButtonMenu() {
+function DownloadButtonMenu({individual, relationsList, mentions}) {
   const [menuOpen, setMenuOpen] = useState(false);
-  const menuRef = useRef(null);
+  const wrapperRef = useRef(null);
 
   const openDownloadMenu = () => {
     setMenuOpen(open => !open);
@@ -13,7 +14,7 @@ function DownloadButtonMenu() {
 
   useEffect(() => {
     function onClickOutside(e) {
-      if (menuRef.current && !menuRef.current.contains(e.target)) {
+      if (wrapperRef.current && !wrapperRef.current.contains(e.target)) {
         setMenuOpen(false);
       }
     }
@@ -21,8 +22,17 @@ function DownloadButtonMenu() {
     return () => document.removeEventListener('mousedown', onClickOutside);
   }, []);
 
+  const handleDownloadJson = async () => {
+    await downloadJsonIndividual(individual, relationsList, mentions);
+    setMenuOpen(false);
+  };
+
+  const handleDownloadRdf = () => {
+    setMenuOpen(false);
+  };
+
   return (
-    <div className="position-relative d-inline-block" ref={menuRef}>
+    <div className="position-relative d-inline-block" ref={wrapperRef}>
       <Button variant="transparent" onClick={openDownloadMenu}>
         <FaDownload />
       </Button>
@@ -30,13 +40,13 @@ function DownloadButtonMenu() {
       {menuOpen && (
         <ul className="download-menu list-unstyled shadow">
           <li>
-            <Button className="dropdown-item" onClick={() => {/* download JSON */}}>
+            <Button className="dropdown-item" onClick={handleDownloadJson}>
               <FaFileCode className="me-2" />
               Download JSON
             </Button>
           </li>
           <li>
-            <Button className="dropdown-item" onClick={() => {/* download RDF */}}>
+            <Button className="dropdown-item" onClick={handleDownloadRdf}>
               <FaFileAlt className="me-2" />
               Download RDF
             </Button>

@@ -402,13 +402,11 @@ const loadOptions = (inputValue) => {
 const sortedMentions = useMemo(() => {
   if (!sortConfig.key) return filteredMentions;
 
-  // Copy array to avoid mutating original
   const arr = [...filteredMentions];
   arr.sort((a, b) => {
     let vA = a[sortConfig.key];
     let vB = b[sortConfig.key];
 
-    // if numeric (e.g. pubYear), convert
     if (sortConfig.key === 'pubYear') {
       vA = Number(vA) || 0;
       vB = Number(vB) || 0;
@@ -801,7 +799,11 @@ window.addEventListener('DOMContentLoaded', function() {
                   <div className="tm-header-grid1">
                     <div className="d-flex align-items-center justify-content-between py-2">
                       <h2 className="h2-title mb-0 ">{mentions[0].indname}</h2>
-                      <DownloadButtonMenu />
+                      <DownloadButtonMenu
+                        individual={mentions[0]}
+                        relationsList={relationsList}
+                        mentions={mentions}
+                      />
                     </div>
                     <p>
                       <a
