@@ -23,6 +23,7 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 SELECT DISTINCT
   ?paperid
   ?title
+  ?abstract
   ?author
   ?journal
   ?pubYear
@@ -39,6 +40,12 @@ SELECT DISTINCT
   ?classLabel
   ?class
   ?ind
+  ?x
+  ?abstractLabel
+  ?titleLabel
+  ?mentionLabel
+  ?sentenceLabel
+  ?paperLabel
 
 WHERE {{
 
@@ -47,6 +54,7 @@ WHERE {{
         gutprop:contains ?p .
 
   ?p a gutprop:Paper ;
+     rdfs:label ?paperLabel ;
      gutprop:paperId       ?paperid ;
      gutprop:hasTitle      ?title ;
      gutprop:paperAuthor      ?author;
@@ -56,17 +64,21 @@ WHERE {{
      gutprop:hasAbstract     ?abstract .
 
     ?abstract a gutprop:PaperAbstract ;
+              rdfs:label ?abstractLabel ;
               gutprop:hasAbstractText ?abstracttext .
 
     ?title a gutprop:PaperTitle;
+             rdfs:label ?titleLabel ;
              gutprop:hasTitleText ?titletext.
   # Mentions
   ?mention a gutprop:Mention ;
+           rdfs:label ?mentionLabel ;
            gutprop:hasMentionText  ?mentiontext ;
            gutprop:locatedIn       ?sent .
         
   # Sentence
   ?sent a gutprop:Sentence ;
+        rdfs:label ?sentenceLabel ;
         gutprop:hasSentenceText ?senttext;
         gutprop:partOf         ?abstract .
 
@@ -125,6 +137,14 @@ WHERE {{
             "classLabel":  b.get("classLabel", {}).get("value", ""),
             "classIri":       b["class"]["value"],
             "ind":         b["ind"]["value"],
+            "abstract":    b["abstract"]["value"],
+            "title":       b["title"]["value"],
+            "collectionUri":  b["x"]["value"],
+            "abstractLabel": b["abstractLabel"]["value"],
+            "titleLabel": b["titleLabel"]["value"],
+            "mentionLabel": b["mentionLabel"]["value"],
+            "sentenceLabel": b["sentenceLabel"]["value"],
+            "paperLabel": b["paperLabel"]["value"],
         })
 
     merged = {}

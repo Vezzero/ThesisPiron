@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { Button } from 'react-bootstrap';
 import { FaDownload, FaFileCode, FaFileAlt } from 'react-icons/fa';
 import '../components/DownloadButton.css'
-import { downloadJsonIndividual } from '../utils/downloadUtils';
+import { downloadJsonIndividual, downloadRdfIndividual } from '../utils/downloadUtils';
 
 function DownloadButtonMenu({individual, relationsList, mentions}) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -27,7 +27,8 @@ function DownloadButtonMenu({individual, relationsList, mentions}) {
     setMenuOpen(false);
   };
 
-  const handleDownloadRdf = () => {
+  const handleDownloadRdf = async () => {
+    await downloadRdfIndividual(individual, relationsList, mentions);
     setMenuOpen(false);
   };
 
