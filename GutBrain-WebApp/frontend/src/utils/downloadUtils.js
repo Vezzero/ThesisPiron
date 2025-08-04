@@ -106,6 +106,18 @@ export async function downloadRdfIndividual(individual, relationsList, mentions)
   ttl += `    rdfs:comment "${ttlEscape(individual.definition)}" ;\n`;
   ttl += `    rdfs:comment "${ttlEscape(individual.ontologyMatch)}" ;\n`;
 
+
+  const mentionUris = Array.from(
+    new Set(
+      mentions
+        .filter(m => m.indname === term)
+        .map(m => m.mention)
+    )
+  );
+  mentionUris.forEach(uri => {
+    ttl += `    gutprop:containedIn <${uri}> ;\n`;
+  });
+
   relObjs.forEach(({ prop, objects }) => {
     const short = prop.split("/").pop();
     objects.forEach(o => {
@@ -120,13 +132,31 @@ export async function downloadRdfIndividual(individual, relationsList, mentions)
   });
   ttl += `\n`;
 
-  const collUri = `<${ttlEscape(individual.collectionUri)}>`;
-  ttl += `${collUri} a gutprop:PaperCollection ;
-           rdfs:label "${ttlEscape(individual.collection)}" ; \n`;
-  papers.forEach(pu => {
+  // 5) paper collections — one block *per* distinct collection
+// build a map from URI → label
+const colls = new Map();
+mentions.forEach(m => {
+  if (m.collectionUri) {
+    colls.set(m.collectionUri, m.collection);
+  }
+});
+
+for (const [uri, label] of colls.entries()) {
+  const collUri = `<${uri}>`;
+  ttl += `${collUri} a gutprop:PaperCollection ;\n`;
+  ttl += `    rdfs:label "${ttlEscape(label)}" ;\n`;
+
+  const papersInThisColl = mentions
+    .filter(m => m.collectionUri === uri)
+    .map(m => m.paper);
+
+  const uniqPapers = Array.from(new Set(papersInThisColl));
+
+  uniqPapers.forEach(pu => {
     ttl += `    gutprop:contains <${pu}> ;\n`;
   });
   ttl = ttl.replace(/;\n$/, " .\n\n");
+}
 
   for (const pu of papers) {
   const sentForPaper = mentions.filter(
@@ -169,6 +199,14 @@ export async function downloadRdfIndividual(individual, relationsList, mentions)
   ttl += titleSents.length
     ? `    gutprop:composedOf ${titleSents.join(", ")} .\n\n`
     : `    .\n\n`;
+
+  sentForPaper.forEach(s => {
+  const mentionUri = `<${s.mention}>`;
+  ttl += `${mentionUri} a gutprop:Mention ;\n`;
+  ttl += `    rdfs:label           "${ttlEscape(s.mentionLabel)}" ;\n`;
+  ttl += `    gutprop:hasMentionText "${ttlEscape(s.mentiontext)}" ;\n`;
+  ttl += `    gutprop:locatedIn     <${s.sent}> .\n\n`;
+  });
 
   sentForPaper.forEach(s => {
     const partOfUri = s.sent.endsWith("_0") ? ttlUri : absUri;

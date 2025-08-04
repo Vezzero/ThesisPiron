@@ -1046,7 +1046,7 @@ window.addEventListener('DOMContentLoaded', function() {
                             {m.pubYear}
                         </td>
                         <td
-                            className="tm-truncate tm-clickable"
+                            className="tm-clickable"
                             onClick={() => {
                               const mention = m.mentiontext;
                               const paper   = m.titletext;

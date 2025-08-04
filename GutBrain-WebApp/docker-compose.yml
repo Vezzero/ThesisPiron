@@ -16,6 +16,8 @@ services:
       dockerfile: Dockerfile.dockerfile
     container_name: gutbrain-web
     command: python manage.py runserver 0.0.0.0:8000
+    environment:
+      - PYTHONUNBUFFERED=1
     volumes:
       - ./backend:/app
     ports:

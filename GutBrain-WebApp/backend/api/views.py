@@ -2,26 +2,32 @@ import re
 from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
 from rdfapp.rdf_client import run_sparql_query
+import logging
+
+
+logger = logging.getLogger(__name__)
 
 @require_http_methods(["GET"])
 def list_everything(request):
     term = request.GET.get("term", "").strip()
+    logger.debug("raw term: %r", term)
     safe_term = term.replace('"', '\\"')
+    logger.debug("safe_term: %r", safe_term)
 
     filter_clause = (
     f'FILTER(LCASE(STR(?indname)) = LCASE("{safe_term}"))'
     if safe_term else ""
     )
     sparql = f"""
-
 PREFIX xsd:      <http://www.w3.org/2001/XMLSchema#>
 PREFIX gutbrain: <https://w3id.org/hereditary/ontology/gutbrain/resource/>
 PREFIX gutprop:  <https://w3id.org/hereditary/ontology/gutbrain/schema/>
 PREFIX rdfs:     <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
 SELECT DISTINCT
   ?paperid
+  ?mention
   ?title
   ?abstract
   ?author
@@ -48,51 +54,60 @@ SELECT DISTINCT
   ?paperLabel
 
 WHERE {{
-
   ?x a gutprop:PaperCollection ;
-        rdfs:label ?collection;
-        gutprop:contains ?p .
+     rdfs:label       ?collection ;
+     gutprop:contains ?p .
 
   ?p a gutprop:Paper ;
-     rdfs:label ?paperLabel ;
-     gutprop:paperId       ?paperid ;
-     gutprop:hasTitle      ?title ;
-     gutprop:paperAuthor      ?author;
-     gutprop:paperJournal     ?journal;
-     gutprop:paperAnnotator ?annotator;
-     gutprop:paperYear  ?pubYear ;    
-     gutprop:hasAbstract     ?abstract .
+     rdfs:label          ?paperLabel ;
+     gutprop:paperId     ?paperid ;
+     gutprop:hasTitle    ?title ;
+     gutprop:paperAuthor ?author ;
+     gutprop:paperJournal ?journal ;
+     gutprop:paperAnnotator ?annotator ;
+     gutprop:paperYear   ?pubYear ;
+     gutprop:hasAbstract ?abstract .
 
-    ?abstract a gutprop:PaperAbstract ;
-              rdfs:label ?abstractLabel ;
-              gutprop:hasAbstractText ?abstracttext .
+  ?abstract a gutprop:PaperAbstract ;
+            gutprop:hasAbstractText ?abstracttext .
+  OPTIONAL {{ ?abstract rdfs:label ?abstractLabel }}
 
-    ?title a gutprop:PaperTitle;
-             rdfs:label ?titleLabel ;
-             gutprop:hasTitleText ?titletext.
-  # Mentions
+  ?title a gutprop:PaperTitle ;
+         gutprop:hasTitleText ?titletext .
+  OPTIONAL {{ ?title rdfs:label ?titleLabel }}
+
+  # Mentions (label optional)
   ?mention a gutprop:Mention ;
-           rdfs:label ?mentionLabel ;
-           gutprop:hasMentionText  ?mentiontext ;
-           gutprop:locatedIn       ?sent .
-        
-  # Sentence
-  ?sent a gutprop:Sentence ;
-        rdfs:label ?sentenceLabel ;
-        gutprop:hasSentenceText ?senttext;
-        gutprop:partOf         ?abstract .
+           gutprop:hasMentionText ?mentiontext ;
+           gutprop:locatedIn      ?sent .
+  OPTIONAL {{ ?mention rdfs:label ?mentionLabel }}
+
+  # Sentences from EITHER abstract OR title
+  {{
+    ?sent a gutprop:Sentence ;
+          gutprop:hasSentenceText ?senttext ;
+          gutprop:partOf          ?abstract .
+  }}
+  UNION
+  {{
+    ?sent a gutprop:Sentence ;
+          gutprop:hasSentenceText ?senttext ;
+          gutprop:partOf          ?title .
+  }}
+  OPTIONAL {{ ?sent rdfs:label ?sentenceLabel }}
 
   # Individual and its comment
-  ?ind gutprop:containedIn   ?mention ;
-       rdfs:label            ?indname ;
-       rdf:type             ?class.
-	OPTIONAL {{ ?ind rdfs:comment ?comment . }}
-    ?class rdfs:label ?classLabel
-  
+  ?ind gutprop:containedIn ?mention ;
+       rdfs:label           ?indname ;
+       rdf:type             ?class .
+  OPTIONAL {{ ?ind rdfs:comment ?comment }}
+  ?class rdfs:label ?classLabel
 
   {filter_clause}
 }}
+ORDER BY ?paperid ?senttext
 """
+
 
     try:
         results = run_sparql_query(sparql)
@@ -129,8 +144,6 @@ WHERE {{
             "sent":      b["sent"]["value"],
             "abstracttext":      b["abstracttext"]["value"],
             "titletext":      b["titletext"]["value"],
-            "definition":    definition,
-            "ontologyMatch": ontology_match,
             "mentiontext":  b["mentiontext"]["value"],
             "paper":        b["p"]["value"],
             "collection":  b.get("collection", {}).get("value", ""),
@@ -145,11 +158,12 @@ WHERE {{
             "mentionLabel": b["mentionLabel"]["value"],
             "sentenceLabel": b["sentenceLabel"]["value"],
             "paperLabel": b["paperLabel"]["value"],
+            "mention" : b["mention"]["value"]
         })
 
     merged = {}
     for m in raw:
-        key = (m["paperid"], m["senttext"])
+        key = (m["paperid"], m["senttext"], m["mentiontext"])
         if key not in merged:
             merged[key] = m.copy()
         else:
