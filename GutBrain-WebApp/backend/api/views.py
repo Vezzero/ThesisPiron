@@ -101,7 +101,13 @@ WHERE {{
        rdfs:label           ?indname ;
        rdf:type             ?class .
   OPTIONAL {{ ?ind rdfs:comment ?comment }}
-  ?class rdfs:label ?classLabel
+  ?class rdfs:label ?classLabel .
+
+  FILTER NOT EXISTS {{
+    ?ind rdf:type ?subcls .
+    ?subcls rdfs:subClassOf+ ?class .
+    FILTER(?subcls != ?class)
+  }}
 
   {filter_clause}
 }}
