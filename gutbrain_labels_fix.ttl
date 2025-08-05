@@ -106043,7 +106043,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                                          gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/a5f9fa57add4ab46> ,
                                                                                                              <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/c1416ac513c9dbb1> ;
                                                                                          dcterms:creator "Samuel Piron" ;
-                                                                                         rdfs:comment "The \"chao1 index\" is a measure of alpha diversity that estimates the number of unique species in a community, taking into account the relative abundance of each species. [Definition Source: llama3-8b-8192]" ;
+                                                                                         rdfs:comment "The chao1 index is a measure of alpha diversity that estimates the number of unique species in a community, taking into account the relative abundance of each species. [Definition Source: llama3-8b-8192]" ;
                                                                                          rdfs:label "Chao1 Index" .
 
 

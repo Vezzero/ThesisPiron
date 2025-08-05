@@ -132,8 +132,6 @@ export async function downloadRdfIndividual(individual, relationsList, mentions)
   });
   ttl += `\n`;
 
-  // 5) paper collections — one block *per* distinct collection
-// build a map from URI → label
 const colls = new Map();
 mentions.forEach(m => {
   if (m.collectionUri) {
