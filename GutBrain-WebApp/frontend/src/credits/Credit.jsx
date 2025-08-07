@@ -26,6 +26,13 @@ const people = [
     link: "https://www.dei.unipd.it/~silvello",
     linkedInLink: "https://www.linkedin.com/in/gianmariasilvello/",
   },
+  {
+    name: "Fabio Giachelle",
+    img: "https://gda.dei.unipd.it/static/images/credits/fabio_480x480.jpg",
+    email: "giachell@dei.unipd.it",
+    link: "https://www.dei.unipd.it/~giachell/",
+    linkedInLink: "https://www.linkedin.com/in/fabiogiachelle/",
+  }
 ];
 
 export function Credits() {

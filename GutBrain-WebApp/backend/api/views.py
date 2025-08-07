@@ -19,100 +19,100 @@ def list_everything(request):
     if safe_term else ""
     )
     sparql = f"""
-PREFIX xsd:      <http://www.w3.org/2001/XMLSchema#>
-PREFIX gutbrain: <https://w3id.org/hereditary/ontology/gutbrain/resource/>
-PREFIX gutprop:  <https://w3id.org/hereditary/ontology/gutbrain/schema/>
-PREFIX rdfs:     <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+                PREFIX xsd:      <http://www.w3.org/2001/XMLSchema#>
+                PREFIX gutbrain: <https://w3id.org/hereditary/ontology/gutbrain/resource/>
+                PREFIX gutprop:  <https://w3id.org/hereditary/ontology/gutbrain/schema/>
+                PREFIX rdfs:     <http://www.w3.org/2000/01/rdf-schema#>
+                PREFIX rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
-SELECT DISTINCT
-  ?paperid
-  ?mention
-  ?title
-  ?abstract
-  ?author
-  ?journal
-  ?pubYear
-  ?indname
-  ?comment
-  ?annotator
-  ?senttext
-  ?sent
-  ?abstracttext
-  ?titletext
-  ?mentiontext
-  ?p
-  ?collection
-  ?classLabel
-  ?class
-  ?ind
-  ?x
-  ?abstractLabel
-  ?titleLabel
-  ?mentionLabel
-  ?sentenceLabel
-  ?paperLabel
+                SELECT DISTINCT
+                ?paperid
+                ?mention
+                ?title
+                ?abstract
+                ?author
+                ?journal
+                ?pubYear
+                ?indname
+                ?comment
+                ?annotator
+                ?senttext
+                ?sent
+                ?abstracttext
+                ?titletext
+                ?mentiontext
+                ?p
+                ?collection
+                ?classLabel
+                ?class
+                ?ind
+                ?x
+                ?abstractLabel
+                ?titleLabel
+                ?mentionLabel
+                ?sentenceLabel
+                ?paperLabel
 
-WHERE {{
-  ?x a gutprop:PaperCollection ;
-     rdfs:label       ?collection ;
-     gutprop:contains ?p .
+                WHERE {{
+                ?x a gutprop:PaperCollection ;
+                    rdfs:label       ?collection ;
+                    gutprop:contains ?p .
 
-  ?p a gutprop:Paper ;
-     rdfs:label          ?paperLabel ;
-     gutprop:paperId     ?paperid ;
-     gutprop:hasTitle    ?title ;
-     gutprop:paperAuthor ?author ;
-     gutprop:paperJournal ?journal ;
-     gutprop:paperAnnotator ?annotator ;
-     gutprop:paperYear   ?pubYear ;
-     gutprop:hasAbstract ?abstract .
+                ?p a gutprop:Paper ;
+                    rdfs:label          ?paperLabel ;
+                    gutprop:paperId     ?paperid ;
+                    gutprop:hasTitle    ?title ;
+                    gutprop:paperAuthor ?author ;
+                    gutprop:paperJournal ?journal ;
+                    gutprop:paperAnnotator ?annotator ;
+                    gutprop:paperYear   ?pubYear ;
+                    gutprop:hasAbstract ?abstract .
 
-  ?abstract a gutprop:PaperAbstract ;
-            gutprop:hasAbstractText ?abstracttext .
-  OPTIONAL {{ ?abstract rdfs:label ?abstractLabel }}
+                ?abstract a gutprop:PaperAbstract ;
+                            gutprop:hasAbstractText ?abstracttext .
+                OPTIONAL {{ ?abstract rdfs:label ?abstractLabel }}
 
-  ?title a gutprop:PaperTitle ;
-         gutprop:hasTitleText ?titletext .
-  OPTIONAL {{ ?title rdfs:label ?titleLabel }}
+                ?title a gutprop:PaperTitle ;
+                        gutprop:hasTitleText ?titletext .
+                OPTIONAL {{ ?title rdfs:label ?titleLabel }}
 
-  # Mentions (label optional)
-  ?mention a gutprop:Mention ;
-           gutprop:hasMentionText ?mentiontext ;
-           gutprop:locatedIn      ?sent .
-  OPTIONAL {{ ?mention rdfs:label ?mentionLabel }}
+                # Mentions (label optional)
+                ?mention a gutprop:Mention ;
+                        gutprop:hasMentionText ?mentiontext ;
+                        gutprop:locatedIn      ?sent .
+                OPTIONAL {{ ?mention rdfs:label ?mentionLabel }}
 
-  # Sentences from EITHER abstract OR title
-  {{
-    ?sent a gutprop:Sentence ;
-          gutprop:hasSentenceText ?senttext ;
-          gutprop:partOf          ?abstract .
-  }}
-  UNION
-  {{
-    ?sent a gutprop:Sentence ;
-          gutprop:hasSentenceText ?senttext ;
-          gutprop:partOf          ?title .
-  }}
-  OPTIONAL {{ ?sent rdfs:label ?sentenceLabel }}
+                # Sentences from EITHER abstract OR title
+                {{
+                    ?sent a gutprop:Sentence ;
+                        gutprop:hasSentenceText ?senttext ;
+                        gutprop:partOf          ?abstract .
+                }}
+                UNION
+                {{
+                    ?sent a gutprop:Sentence ;
+                        gutprop:hasSentenceText ?senttext ;
+                        gutprop:partOf          ?title .
+                }}
+                OPTIONAL {{ ?sent rdfs:label ?sentenceLabel }}
 
-  # Individual and its comment
-  ?ind gutprop:containedIn ?mention ;
-       rdfs:label           ?indname ;
-       rdf:type             ?class .
-  OPTIONAL {{ ?ind rdfs:comment ?comment }}
-  ?class rdfs:label ?classLabel .
+                # Individual and its comment
+                ?ind gutprop:containedIn ?mention ;
+                    rdfs:label           ?indname ;
+                    rdf:type             ?class .
+                OPTIONAL {{ ?ind rdfs:comment ?comment }}
+                ?class rdfs:label ?classLabel .
 
-  FILTER NOT EXISTS {{
-    ?ind rdf:type ?subcls .
-    ?subcls rdfs:subClassOf+ ?class .
-    FILTER(?subcls != ?class)
-  }}
+                FILTER NOT EXISTS {{
+                    ?ind rdf:type ?subcls .
+                    ?subcls rdfs:subClassOf+ ?class .
+                    FILTER(?subcls != ?class)
+                }}
 
-  {filter_clause}
-}}
-ORDER BY ?paperid ?senttext
-"""
+                {filter_clause}
+                }}
+                ORDER BY ?paperid ?senttext
+                """
 
 
     try:
@@ -188,31 +188,31 @@ def list_property_term(request):
         return JsonResponse({"error": "Missing `term` parameter"}, status=400)
 
     sparql = f"""
-PREFIX gutprop: <https://w3id.org/hereditary/ontology/gutbrain/schema/>
-PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+                PREFIX gutprop: <https://w3id.org/hereditary/ontology/gutbrain/schema/>
+                PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT 
-  ?prop
-  (COUNT(DISTINCT ?obj)    AS ?count)
-  (SAMPLE(?propLabel)      AS ?label)
-WHERE {{
+                SELECT 
+                ?prop
+                (COUNT(DISTINCT ?obj)    AS ?count)
+                (SAMPLE(?propLabel)      AS ?label)
+                WHERE {{
 
-  ?seed
-     rdfs:label        ?lbl .
-  FILTER( REGEX(STR(?lbl), "^{term}$", "i") )
+                ?seed
+                    rdfs:label        ?lbl .
+                FILTER( REGEX(STR(?lbl), "^{term}$", "i") )
 
-  ?seed ?prop ?obj .
-  FILTER(isIRI(?obj))
-  FILTER( STRSTARTS(STR(?prop),
-        "https://w3id.org/hereditary/ontology/gutbrain/schema/") )
-  FILTER(?prop != gutprop:containedIn)
+                ?seed ?prop ?obj .
+                FILTER(isIRI(?obj))
+                FILTER( STRSTARTS(STR(?prop),
+                        "https://w3id.org/hereditary/ontology/gutbrain/schema/") )
+                FILTER(?prop != gutprop:containedIn)
 
-  OPTIONAL {{ ?prop rdfs:label ?propLabel }}
-}}
-GROUP BY ?prop
-ORDER BY DESC(?count)
+                OPTIONAL {{ ?prop rdfs:label ?propLabel }}
+                }}
+                GROUP BY ?prop
+                ORDER BY DESC(?count)
 
-"""
+                """
 
     try:
         results = run_sparql_query(sparql)
@@ -239,42 +239,40 @@ def list_property_objects(request):
             status=400
         )
 
-    # clean up the inputs
     safe_term = term.replace('"', '\\"')
-    # strip any angle-brackets the client might have included
     prop_iri  = prop.strip().strip("<>")
 
     sparql = f"""
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX gutprop: <https://w3id.org/hereditary/ontology/gutbrain/schema/>
+                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                    PREFIX gutprop: <https://w3id.org/hereditary/ontology/gutbrain/schema/>
 
-SELECT DISTINCT ?obj ?objLabel
-WHERE {{
-  ?paper
-      a                 gutprop:Paper ;
-    					gutprop:paperId ?paperId;
-      gutprop:hasAbstract  ?abstract .
-  ?abstract
-      a                   gutprop:PaperAbstract ;
-    				      gutprop:hasAbstractText ?abstractText;
-      gutprop:composedOf  ?sentence .
-  ?sentence
-      a                   gutprop:Sentence;
-    					  gutprop:hasSentenceText ?sentText;
-    					  gutprop:partOf ?abstract.
-  ?mention
-      a                   gutprop:Mention ;
-      gutprop:locatedIn   ?sentence .
-  ?seed
-     rdfs:label        ?lbl;
-     gutprop:containedIn ?mention;
-     <{prop_iri}> ?obj .
+                    SELECT DISTINCT ?obj ?objLabel
+                    WHERE {{
+                    ?paper
+                        a                 gutprop:Paper ;
+                                            gutprop:paperId ?paperId;
+                        gutprop:hasAbstract  ?abstract .
+                    ?abstract
+                        a                   gutprop:PaperAbstract ;
+                                            gutprop:hasAbstractText ?abstractText;
+                        gutprop:composedOf  ?sentence .
+                    ?sentence
+                        a                   gutprop:Sentence;
+                                            gutprop:hasSentenceText ?sentText;
+                                            gutprop:partOf ?abstract.
+                    ?mention
+                        a                   gutprop:Mention ;
+                        gutprop:locatedIn   ?sentence .
+                    ?seed
+                        rdfs:label        ?lbl;
+                        gutprop:containedIn ?mention;
+                        <{prop_iri}> ?obj .
 
-  FILTER( LCASE(STR(?lbl)) = LCASE("{safe_term}") )
+                    FILTER( LCASE(STR(?lbl)) = LCASE("{safe_term}") )
 
-  OPTIONAL {{ ?obj rdfs:label ?objLabel }}
-}}
-"""
+                    OPTIONAL {{ ?obj rdfs:label ?objLabel }}
+                    }}
+                    """
 
     try:
         results = run_sparql_query(sparql)
@@ -308,38 +306,38 @@ def list_class_individuals(request):
     class_iri = class_param.strip().strip("<>")
 
     sparql = f"""
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX gutprop: <https://w3id.org/hereditary/ontology/gutbrain/schema/>
-PREFIX rdfs:     <http://www.w3.org/2000/01/rdf-schema#>
+                PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+                PREFIX gutprop: <https://w3id.org/hereditary/ontology/gutbrain/schema/>
+                PREFIX rdfs:     <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT
-  ?seed
-  ?lbl
-  ?classComment
-  ?indComment
-  (COUNT(DISTINCT ?p) AS ?count)
-WHERE {{
-  ?p a gutprop:Paper ;
-     gutprop:paperYear  ?year ;
-     gutprop:hasAbstract ?abstract.
-  ?abstract a gutprop:PaperAbstract .
-  ?sentence a gutprop:Sentence ;
-            gutprop:partOf   ?abstract .
-  ?mention a gutprop:Mention ;
-           gutprop:hasMentionText  ?mtext ;
-           gutprop:locatedIn      ?sentence .
-        
-        ?seed rdf:type <{class_iri}> ;
-               rdfs:label ?lbl;
-        	   gutprop:containedIn ?mention.
+                SELECT
+                ?seed
+                ?lbl
+                ?classComment
+                ?indComment
+                (COUNT(DISTINCT ?p) AS ?count)
+                WHERE {{
+                ?p a gutprop:Paper ;
+                    gutprop:paperYear  ?year ;
+                    gutprop:hasAbstract ?abstract.
+                ?abstract a gutprop:PaperAbstract .
+                ?sentence a gutprop:Sentence ;
+                            gutprop:partOf   ?abstract .
+                ?mention a gutprop:Mention ;
+                        gutprop:hasMentionText  ?mtext ;
+                        gutprop:locatedIn      ?sentence .
+                        
+                        ?seed rdf:type <{class_iri}> ;
+                            rdfs:label ?lbl;
+                            gutprop:containedIn ?mention.
 
-        <{class_iri}> rdfs:label ?classLabel ;
-                    rdfs:comment ?classComment .
-      OPTIONAL {{ ?seed rdfs:comment ?indComment . }}
-}}
-GROUP BY ?seed ?lbl ?classComment ?indComment
-ORDER BY ?lbl
-"""
+                        <{class_iri}> rdfs:label ?classLabel ;
+                                    rdfs:comment ?classComment .
+                    OPTIONAL {{ ?seed rdfs:comment ?indComment . }}
+                }}
+                GROUP BY ?seed ?lbl ?classComment ?indComment
+                ORDER BY ?lbl
+                """
 
     try:
         results = run_sparql_query(sparql)
@@ -384,29 +382,28 @@ ORDER BY ?lbl
 @require_http_methods(["GET"])
 def list_all_individuals(request):
     sparql = """
+                PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+                PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-PREFIX owl:  <http://www.w3.org/2002/07/owl#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                SELECT DISTINCT
+                ?ind
+                ?indname
+                WHERE {{
+                ?ind a owl:NamedIndividual ;
+                    rdfs:label    ?indname .
 
-SELECT DISTINCT
-  ?ind
-  ?indname
-WHERE {{
-  ?ind a owl:NamedIndividual ;
-       rdfs:label    ?indname .
-
-  FILTER(
-    !REGEX(?indname, "mention",  "i") &&
-    !REGEX(?indname, "abstract", "i") &&
-    !REGEX(?indname, "paper",    "i") &&
-    !REGEX(?indname, "title",    "i") &&
-    !REGEX(?indname, "sentence", "i") &&
-    !REGEX(?indname, "collection", "i") &&
-    !REGEX(?indname, "Concept Scheme", "i")
-  )
-}}
-ORDER BY LCASE(?indname)
-"""
+                FILTER(
+                    !REGEX(?indname, "mention",  "i") &&
+                    !REGEX(?indname, "abstract", "i") &&
+                    !REGEX(?indname, "paper",    "i") &&
+                    !REGEX(?indname, "title",    "i") &&
+                    !REGEX(?indname, "sentence", "i") &&
+                    !REGEX(?indname, "collection", "i") &&
+                    !REGEX(?indname, "Concept Scheme", "i")
+                )
+                }}
+                ORDER BY LCASE(?indname)
+                """
     results = run_sparql_query(sparql)
     bindings = results["results"]["bindings"]
     individuals = [
@@ -421,55 +418,53 @@ def paper_details(request):
     if not paper_id:
         return JsonResponse({"error": "Missing paperId"}, status=400)
 
-    # we're going to match the paperId exactly
     filter_clause = f'FILTER(STR(?paperid) = "{paper_id}") .'
 
     sparql = f"""
-PREFIX xsd:      <http://www.w3.org/2001/XMLSchema#>
-PREFIX gutbrain: <https://w3id.org/hereditary/ontology/gutbrain/resource/>
-PREFIX gutprop:  <https://w3id.org/hereditary/ontology/gutbrain/schema/>
-PREFIX rdfs:     <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+                PREFIX xsd:      <http://www.w3.org/2001/XMLSchema#>
+                PREFIX gutbrain: <https://w3id.org/hereditary/ontology/gutbrain/resource/>
+                PREFIX gutprop:  <https://w3id.org/hereditary/ontology/gutbrain/schema/>
+                PREFIX rdfs:     <http://www.w3.org/2000/01/rdf-schema#>
+                PREFIX rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
-SELECT DISTINCT
-  ?paperid
-  (?p as ?uri)
-  ?titletext
-  ?author
-  ?journal
-  ?annotator
-  ?pubYear
-  ?collection
-  ?abstracttext
-WHERE {{
-  # get the collection and paper IRI
-  ?col a gutprop:PaperCollection ;
-       rdfs:label       ?collection ;
-       gutprop:contains ?p       .
+                SELECT DISTINCT
+                ?paperid
+                (?p as ?uri)
+                ?titletext
+                ?author
+                ?journal
+                ?annotator
+                ?pubYear
+                ?collection
+                ?abstracttext
+                WHERE {{
+                # get the collection and paper IRI
+                ?col a gutprop:PaperCollection ;
+                    rdfs:label       ?collection ;
+                    gutprop:contains ?p       .
 
-  # restrict to our paper IRI
-  ?p   a gutprop:Paper ;
-       gutprop:paperId        ?paperid ;
-       gutprop:hasTitle       ?title ;
-       gutprop:paperAuthor    ?author ;
-       gutprop:paperJournal   ?journal ;
-       gutprop:paperAnnotator ?annotator ;
-       gutprop:paperYear      ?pubYear ;
-       gutprop:hasAbstract    ?abstract .
+                # restrict to our paper IRI
+                ?p   a gutprop:Paper ;
+                    gutprop:paperId        ?paperid ;
+                    gutprop:hasTitle       ?title ;
+                    gutprop:paperAuthor    ?author ;
+                    gutprop:paperJournal   ?journal ;
+                    gutprop:paperAnnotator ?annotator ;
+                    gutprop:paperYear      ?pubYear ;
+                    gutprop:hasAbstract    ?abstract .
 
-  # title text node
-  ?title a gutprop:PaperTitle ;
-         gutprop:hasTitleText ?titletext .
+                # title text node
+                ?title a gutprop:PaperTitle ;
+                        gutprop:hasTitleText ?titletext .
 
-  # abstract text node
-  ?abstract a gutprop:PaperAbstract ;
-            gutprop:hasAbstractText ?abstracttext .
+                # abstract text node
+                ?abstract a gutprop:PaperAbstract ;
+                            gutprop:hasAbstractText ?abstracttext .
 
-  {filter_clause}
-}}
-LIMIT 1
-"""
-
+                {filter_clause}
+                }}
+                LIMIT 1
+                """
     try:
         results = run_sparql_query(sparql)
     except Exception as e:
@@ -497,38 +492,38 @@ LIMIT 1
 @require_http_methods(["GET"])
 def list_details(request):
     sparql = """
-PREFIX gutprop: <https://w3id.org/hereditary/ontology/gutbrain/schema/>
-PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+                PREFIX gutprop: <https://w3id.org/hereditary/ontology/gutbrain/schema/>
+                PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT DISTINCT
-  ?annotator
-  ?paper
-  ?collection
-  ?year
-  ?journal
-  (GROUP_CONCAT(DISTINCT ?author; separator=", ") AS ?authors)
-WHERE {
-  ?col a gutprop:PaperCollection ;
-       rdfs:label            ?collection ;
-       gutprop:contains     ?pap .
+                SELECT DISTINCT
+                ?annotator
+                ?paper
+                ?collection
+                ?year
+                ?journal
+                (GROUP_CONCAT(DISTINCT ?author; separator=", ") AS ?authors)
+                WHERE {
+                ?col a gutprop:PaperCollection ;
+                    rdfs:label            ?collection ;
+                    gutprop:contains     ?pap .
 
-  ?pap a            gutprop:Paper ;
-       gutprop:paperAnnotator ?annotator ;
-       gutprop:paperId        ?paper ;
-       gutprop:paperYear      ?year ;
-       gutprop:paperJournal   ?journal ;
-       gutprop:paperAuthor    ?author .
-}
-GROUP BY
-  ?annotator
-  ?paper
-  ?collection
-  ?year
-  ?journal
-ORDER BY
-  ?collection
-  ?paper
-"""
+                ?pap a            gutprop:Paper ;
+                    gutprop:paperAnnotator ?annotator ;
+                    gutprop:paperId        ?paper ;
+                    gutprop:paperYear      ?year ;
+                    gutprop:paperJournal   ?journal ;
+                    gutprop:paperAuthor    ?author .
+                }
+                GROUP BY
+                ?annotator
+                ?paper
+                ?collection
+                ?year
+                ?journal
+                ORDER BY
+                ?collection
+                ?paper
+                """
     try:
         results = run_sparql_query(sparql)
     except Exception as e:
@@ -582,16 +577,16 @@ from collections import Counter
 @require_http_methods(["GET"])
 def list_authors(request):
     sparql = """
-PREFIX gutprop: <https://w3id.org/hereditary/ontology/gutbrain/schema/>
+                PREFIX gutprop: <https://w3id.org/hereditary/ontology/gutbrain/schema/>
 
-SELECT DISTINCT
-  ?p
-  ?authors
-WHERE {
-  ?p a gutprop:Paper ;
-     gutprop:paperAuthor ?authors .
-}
-"""
+                SELECT DISTINCT
+                ?p
+                ?authors
+                WHERE {
+                ?p a gutprop:Paper ;
+                    gutprop:paperAuthor ?authors .
+                }
+            """
     try:
         results = run_sparql_query(sparql)
     except Exception as e:
@@ -617,70 +612,70 @@ WHERE {
 @require_http_methods(["GET"])
 def list_classes_with_individuals(request):
     sparql = """
-PREFIX gutprop: <https://w3id.org/hereditary/ontology/gutbrain/schema/>
-PREFIX bt:      <https://w3id.org/brainteaser/ontology/schema/>
-PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+                PREFIX gutprop: <https://w3id.org/hereditary/ontology/gutbrain/schema/>
+                PREFIX bt:      <https://w3id.org/brainteaser/ontology/schema/>
+                PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT
-  ?cls
-  ?clsLabel
-  ?ind
-  ?indLabel
-  (COUNT(DISTINCT ?paper) AS ?numpapers)
-WHERE {
-  ?paper
-    a                 gutprop:Paper ;
-    gutprop:hasAbstract  ?abstract .
-  ?abstract
-    a                 gutprop:PaperAbstract ;
-    gutprop:composedOf ?sentence .
-  ?sentence
-    a                   gutprop:Sentence ;
-    gutprop:partOf      ?abstract .
-  ?mention
-    a                   gutprop:Mention ;
-    gutprop:locatedIn   ?sentence .
+                SELECT
+                ?cls
+                ?clsLabel
+                ?ind
+                ?indLabel
+                (COUNT(DISTINCT ?paper) AS ?numpapers)
+                WHERE {
+                ?paper
+                    a                 gutprop:Paper ;
+                    gutprop:hasAbstract  ?abstract .
+                ?abstract
+                    a                 gutprop:PaperAbstract ;
+                    gutprop:composedOf ?sentence .
+                ?sentence
+                    a                   gutprop:Sentence ;
+                    gutprop:partOf      ?abstract .
+                ?mention
+                    a                   gutprop:Mention ;
+                    gutprop:locatedIn   ?sentence .
 
-  # Restrict to only those 13 classes
-  VALUES ?cls {
-    bt:AnatomicalSite
-    gutprop:Animal
-    gutprop:BiomedicalTechnique
-    gutprop:Chemical
-    gutprop:DietarySupplement
-    bt:DiseaseDisorderOrFinding
-    gutprop:Drug
-    gutprop:Family
-    gutprop:Food
-    gutprop:Species
-    bt:Gene
-    gutprop:Human
-    gutprop:Mention
-    gutprop:Microbiome
-    gutprop:Paper
-    gutprop:PaperAbstract
-    gutprop:PaperCollection
-    gutprop:PaperTitle
-    gutprop:Sentence
-    gutprop:StatisticalTechnique
-  }
+                # Restrict to only those 13 classes
+                VALUES ?cls {
+                    bt:AnatomicalSite
+                    gutprop:Animal
+                    gutprop:BiomedicalTechnique
+                    gutprop:Chemical
+                    gutprop:DietarySupplement
+                    bt:DiseaseDisorderOrFinding
+                    gutprop:Drug
+                    gutprop:Family
+                    gutprop:Food
+                    gutprop:Species
+                    bt:Gene
+                    gutprop:Human
+                    gutprop:Mention
+                    gutprop:Microbiome
+                    gutprop:Paper
+                    gutprop:PaperAbstract
+                    gutprop:PaperCollection
+                    gutprop:PaperTitle
+                    gutprop:Sentence
+                    gutprop:StatisticalTechnique
+                }
 
-  ?cls rdfs:label ?clsLabel .
+                ?cls rdfs:label ?clsLabel .
 
-  ?ind
-    a         ?cls ;
-    rdfs:label ?indLabel ;
-    gutprop:containedIn ?mention .
-}
-GROUP BY
-  ?cls
-  ?clsLabel
-  ?ind
-  ?indLabel
-ORDER BY
-  ASC(?clsLabel)
-  ASC(?indLabel)
-"""
+                ?ind
+                    a         ?cls ;
+                    rdfs:label ?indLabel ;
+                    gutprop:containedIn ?mention .
+                }
+                GROUP BY
+                ?cls
+                ?clsLabel
+                ?ind
+                ?indLabel
+                ORDER BY
+                ASC(?clsLabel)
+                ASC(?indLabel)
+             """
     try:
         results = run_sparql_query(sparql)
     except Exception as e:
@@ -725,34 +720,32 @@ def list_publications_per_year(request):
             status=400
         )
 
-    # SPARQL: count distinct papers per year where the mention text matches `term`
     sparql = f"""
-PREFIX gutprop: <https://w3id.org/hereditary/ontology/gutbrain/schema/>
-PREFIX rdfs:     <http://www.w3.org/2000/01/rdf-schema#>
+                PREFIX gutprop: <https://w3id.org/hereditary/ontology/gutbrain/schema/>
+                PREFIX rdfs:     <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT
-  ?year
-  (COUNT(DISTINCT ?p) AS ?count)
-WHERE {{
-  ?p a gutprop:Paper ;
-     gutprop:paperYear  ?year ;
-     gutprop:hasAbstract ?abstract.
-  ?abstract a gutprop:PaperAbstract .
-  ?sentence a gutprop:Sentence ;
-            gutprop:partOf   ?abstract .
-  ?mention a gutprop:Mention ;
-           gutprop:hasMentionText  ?mtext ;
-           gutprop:locatedIn      ?sentence .
-        
-   
-   ?seed rdfs:label ?indname;
-         gutprop:containedIn ?mention.
-  FILTER(LCASE(STR(?indname)) = LCASE("{term}"))
-}}
-GROUP BY ?year
-ORDER BY ?year
-"""
-
+                SELECT
+                ?year
+                (COUNT(DISTINCT ?p) AS ?count)
+                WHERE {{
+                ?p a gutprop:Paper ;
+                    gutprop:paperYear  ?year ;
+                    gutprop:hasAbstract ?abstract.
+                ?abstract a gutprop:PaperAbstract .
+                ?sentence a gutprop:Sentence ;
+                            gutprop:partOf   ?abstract .
+                ?mention a gutprop:Mention ;
+                        gutprop:hasMentionText  ?mtext ;
+                        gutprop:locatedIn      ?sentence .
+                        
+                
+                ?seed rdfs:label ?indname;
+                        gutprop:containedIn ?mention.
+                FILTER(LCASE(STR(?indname)) = LCASE("{term}"))
+                }}
+                GROUP BY ?year
+                ORDER BY ?year
+               """
     try:
         results = run_sparql_query(sparql)
     except Exception as e:
@@ -760,8 +753,6 @@ ORDER BY ?year
 
     bindings = results.get("results", {}).get("bindings", [])
 
-    # Build the chartData array-of-arrays:
-    # First row = headers, then [year, count] for each binding.
     chart_data = [["Year", "Count"]]
     for b in bindings:
         year  = b["year"]["value"]
