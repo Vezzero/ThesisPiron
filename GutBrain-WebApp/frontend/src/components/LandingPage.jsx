@@ -37,9 +37,8 @@ import { FiArrowUp } from "react-icons/fi";
 import { FiArrowDown } from "react-icons/fi";
 import { LuArrowUpDown } from "react-icons/lu";
 import HighlightMention from '../components/HighlightMention';
-import { Dropdown } from "react-bootstrap";
-import { FaFileCode, FaFileAlt } from "react-icons/fa";
 import DownloadButtonMenu from '../components/DownloadButtonMenu';
+import useAllIndividuals from "../hooks/useAllIndividuals";
 
 
 export default function LandingPage() {
@@ -68,7 +67,6 @@ export default function LandingPage() {
   const [filterJournals,     setFilterJournals]     = useState([]);
   const [filterYears,        setFilterYears]        = useState([]);
   const [filterCollections,  setFilterCollections]  = useState([]);
-  const [allIndividuals, setAllIndividuals] = useState([]);
   const [allCollections, setAllCollections] = useState([]);
   const [allYears, setAllYears] = useState([]);
   const [allJournals, setAllJournals] = useState([]);
@@ -109,6 +107,7 @@ export default function LandingPage() {
 const { authors: allAuthors, error: authorsError } = useAuthors();
 const { chartData: publicationChart, error: pubChartError } = usePublicationChart(term);
 const { classes: allClasses,   loading: classesLoading, error: classesError } = useClassesWithIndividuals();
+const { individuals: allIndividuals, loading:individualsLoading, error:individualsError} = useAllIndividuals();
 const { paper: selectedPaper, loading: paperLoading, error: paperError } = usePaperDetails(selectedPaperId);
 const anyModalOpen = showRelModal || showObjectsModal || !!selected;
 useLockBodyScroll(anyModalOpen);
@@ -138,28 +137,15 @@ const [sortConfig, setSortConfig] = useState({ key: null, direction: 'asc' });
 function handleSort(columnKey) {
   setSortConfig(({ key, direction }) => {
     if (key === columnKey) {
-      // same column: toggle direction
       return {
         key,
         direction: direction === 'asc' ? 'desc' : 'asc'
       };
     } else {
-      // new column: default to ascending
       return { key: columnKey, direction: 'asc' };
     }
   });
 }
-
-
- useEffect(() => {
-  async function loadAllIndividuals() {
-    const resp = await fetch("/api/list_all_individuals");
-    if (!resp.ok) throw new Error(await resp.text());
-    const { individuals } = await resp.json();
-    setAllIndividuals(individuals);
-  }
-  loadAllIndividuals().catch(console.error);
-}, []);
 
   const ONTOLOGY_URLS = {
   UMLS:      "https://www.nlm.nih.gov/research/umls/index.html",
@@ -444,15 +430,6 @@ useEffect(() => {
 
 ]);
 
-window.addEventListener('DOMContentLoaded', function() {
-  let x = 0.1;
-  setInterval(function() {
-    document.querySelector('#progress-bar').value = (x >= 100) ? 100 : x;
-    x += 0.1;
-  }, 25);
-})
-
-
   return (
     <>
    <SideBar />
@@ -559,11 +536,9 @@ window.addEventListener('DOMContentLoaded', function() {
                 </a>
                 {(selectedPaperId || selectedClassIri) && (
                   <Button variant="secondary" style={{justifyContent:'space-between'}}
-                    //className="tm-button-back ms-3"
                     onClick={() => {
                       navigate(-1);
                       setSelectedPaperId(null);
-                      //setSelectedPaper(null);
                       setSelectedClassIri(null);
                       setSelectedClassLabel(null);
                     }}
@@ -595,27 +570,26 @@ window.addEventListener('DOMContentLoaded', function() {
             Select a Class
           </Form.Label>
           <Form.Select
-        className="tm-filter-btn"
-        aria-label="Select a Class"
-        value={selectedClass?.classIri || ""}
-        onChange={e => { 
+            className="tm-filter-btn"
+            aria-label="Select a Class"
+            value={selectedClass?.classIri || ""}
+            onChange={e => { 
               const iri = e.target.value;
               const cls = allClasses.find(c => c.classIri === iri);
               setSelectedClass(cls);
               setClassInds(cls ? cls.individuals : []);
             }} 
-      >
-        <option value="" disabled hidden>
-          Select a Class…
-        </option>
-        {allClasses.map(c => (
-          <option key={c.classIri} value={c.classIri}>
-            {c.classLabel}
+          >
+          <option value="" disabled hidden>
+            Select a Class…
           </option>
-        ))}
-      </Form.Select>
-
-  </Form.Group>
+           {allClasses.map(c => (
+              <option key={c.classIri} value={c.classIri}>
+               {c.classLabel}
+              </option>
+            ))}
+          </Form.Select>
+        </Form.Group>
 
   {/** 2) Individual selector **/}
   {selectedClass && (
@@ -683,24 +657,24 @@ window.addEventListener('DOMContentLoaded', function() {
         </div>
       )}
 
-  <Button variant="outline-dark"
-    className="tm-button tm-button--reset"
-    onClick={e => {
-      e.stopPropagation();
-      setFilterAuthors([])
-      setFilterJournals([]);
-      setFilterYears([]);
-      setFilterCollections([]);
-      setSentenceFilter("");
-      setPaperTitleFilter("");
-      setSelectedClass(null);
-      handleSearch("");
-      setSelectedOption(null);
-      setTerm("");
-    }}
-  >
-    Reset all filters
-    </Button>
+    <Button variant="outline-dark"
+      className="tm-button tm-button--reset"
+      onClick={e => {
+        e.stopPropagation();
+        setFilterAuthors([])
+        setFilterJournals([]);
+        setFilterYears([]);
+        setFilterCollections([]);
+        setSentenceFilter("");
+        setPaperTitleFilter("");
+        setSelectedClass(null);
+        handleSearch("");
+        setSelectedOption(null);
+        setTerm("");
+      }}
+    >
+      Reset all filters
+      </Button>
    </aside>
 
 

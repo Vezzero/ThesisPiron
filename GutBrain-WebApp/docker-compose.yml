@@ -1,12 +1,10 @@
 services:
   graphdb:
-    # Use the official Ontotext GraphDB image (tags like 10.7.0, 11.0.0, or latest)
     image: ontotext/graphdb:11.0.0
     container_name: graphdb
     ports:
       - "7200:7200"
     volumes:
-      # Persist your data under ./graphdb-data
       - ./graphdb-data:/opt/graphdb/home
     restart: unless-stopped
 
