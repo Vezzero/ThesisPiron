@@ -9,7 +9,6 @@ import Fuse from 'fuse.js'
 import AsyncSelect from 'react-select/async'
 import { Chart } from "react-google-charts";
 import Alert from '@mui/material/Alert';
-import { SiGrapheneos } from "react-icons/si";
 import { FaDownload } from "react-icons/fa6";
 import { Row, Col, Container } from "react-bootstrap";
 import { BASE_URL } from "../App";
@@ -25,14 +24,15 @@ import JournalInfoModal from "../modals/JournalInfoModal";
 import RelationsModal from "../modals/RelationsModal";
 import ObjectsModal from "../modals/ObjectsModal";
 import MentionInfoModal from "../modals/MentionInfoModal";
+import PublicationModal from "../modals/PublicationModal";
 import AuthorFilter from "./AuthorFilter";
 import useAuthors from "../hooks/useAuthors";
 import usePublicationChart from "../hooks/usePublicationChart";
 import { useClassesWithIndividuals } from "../hooks/useClassesWithIndividuals";
 import { usePaperDetails } from "../hooks/usePaperDetails";
-//import { useClassIndividuals } from "../hooks/useClassIndividuals";
+import ontologyIcon from "../assets/images.png";
 import { useLockBodyScroll } from "../hooks/useLockBodyScroll";
-import ProgressBar from 'react-bootstrap/ProgressBar';
+import Spinner from 'react-bootstrap/Spinner';
 import { FiArrowUp } from "react-icons/fi";
 import { FiArrowDown } from "react-icons/fi";
 import { LuArrowUpDown } from "react-icons/lu";
@@ -84,6 +84,9 @@ export default function LandingPage() {
   const [selectedPropLabel, setSelectedPropLabel] = useState(null);
   const [selectedTermLabel, setSelectedTermLabel] = useState(null);
   const [visibleCount, setVisibleCount] = useState(5);
+  const [showPubModal, setShowPubModal] = useState(false);
+  const [pubYearClicked, setPubYearClicked] = useState(null);
+  const [pubPapers, setPubPapers] = useState([]);
   const [showAuthorFilter, setShowAuthorFilter] = useState(false);
   const { _showbar } = useContext(AppContext);
   const [, _setShowBar] = _showbar;
@@ -133,6 +136,37 @@ const [sortConfig, setSortConfig] = useState({ key: null, direction: 'asc' });
      setClassLoading(false);
    }
  }
+
+ const pubChartEvents = [
+  {
+    eventName: "select",
+    callback: ({ chartWrapper }) => {
+      const chart = chartWrapper.getChart();
+      const sel = chart.getSelection();
+      if (sel.length === 0) return;
+      const row = sel[0].row;
+      const year = publicationChart[row + 1][0];
+
+      const papersForYear = mentions
+        .filter(m => m.pubYear === year)
+        .reduce((acc, m) => {
+          if (!acc.some(x => x.paperid === m.paperid)) {
+            acc.push({
+              paperid: m.paperid, 
+              title:   m.titletext,
+              journal: m.journal,
+              author:  m.author,
+            });
+          }
+          return acc;
+        }, []);
+
+      setPubYearClicked(year);
+      setPubPapers(papersForYear);
+      setShowPubModal(true);
+    }
+  }
+];
 
 function handleSort(columnKey) {
   setSortConfig(({ key, direction }) => {
@@ -524,13 +558,17 @@ useEffect(() => {
                   }}
                   title="Go to Ontology Documentation"
                 >
-                  <SiGrapheneos />
+                  <img 
+                    src={ontologyIcon} 
+                    alt="Ontology Documentation" 
+                    style={{ width: "24px", height: "24px", objectFit: "contain" }} 
+                  />
                 </div>
                 <a
                   href="./assets/hero_gutbrain_entities.ttl"
                   download="hero_gutbrain_entities.ttl"
                   className="tm-home-icon-download"
-                  title="Download Gut-Brain entities TTL"
+                  title="Download the RDF dataset"
                 >
                   <FaDownload size={20} />
                 </a>
@@ -683,13 +721,7 @@ useEffect(() => {
         <div className="tm-content">
           {loading && (
             <div className="tm-loading-bar-container">
-              <span className="tm-loading-label">Loading results…</span>
-              <ProgressBar
-                animated
-                now={100}
-                variant="info"
-                style={{ height: '8px', width: '200px'}}
-              />
+             <Spinner animation="grow" style={{'color': '#00809d'}}/>
             </div>
           )}
           {error && <div className="tm-error">{error}</div>}
@@ -890,21 +922,29 @@ useEffect(() => {
                 <hr />
                 <h4 className="h4-title">Number of supporting <strong>publications</strong> per year</h4>
                       {publicationChart && (
-                      <Chart
-                        chartType="ColumnChart"
-                        data={publicationChart}
-                        options={{
-                          legend: { position: "none" },
-                          bar: { groupWidth: "45%" },
-                          vAxis: { minValue: 0 },
-                          chartArea: { left: 40, top: 40, width: "100%", height: "50%" },
-                          annotations: { alwaysOutside: true },
-                          colors: ["#82D4BB"],
-                        }}
-                        width="100%"
-                        height="150px"
-                      />
+                        <Chart
+                          chartType="ColumnChart"
+                          data={publicationChart}
+                          options={{
+                            legend: { position: "none" },
+                            bar: { groupWidth: "45%" },
+                            vAxis: { minValue: 0 },
+                            chartArea: { left: 40, top: 40, width: "100%", height: "50%" },
+                            annotations: { alwaysOutside: true },
+                            colors: ["#82D4BB"],
+                          }}
+                          width="100%"
+                          height="150px"
+                          chartEvents={pubChartEvents}
+                        />
                       )}
+
+                      <PublicationModal
+                        open={showPubModal}
+                        year={pubYearClicked}
+                        papers={pubPapers}
+                        onClose={() => setShowPubModal(false)}
+                      />
                       {!publicationChart && (
                             <div style={{ fontSize: '0.8rem', textAlign: 'left' }}>
                               <Alert severity="info">No publications found for this term.</Alert>

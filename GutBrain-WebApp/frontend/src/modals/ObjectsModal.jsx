@@ -1,5 +1,5 @@
-import React, { useState, useMemo } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useMemo, useCallback } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import ReactFlow, {
   Controls,
   Background,
@@ -11,6 +11,8 @@ import CircleNode from "../components/CircleNode";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosClose } from "react-icons/io";
 import Button from "react-bootstrap/Button";
+import { SiGrapheneos } from "react-icons/si";
+import { FaArrowCircleRight } from "react-icons/fa";
 
 const nodeTypes = { circleNode: CircleNode };
 
@@ -22,6 +24,7 @@ export default function ObjectsModal({
   onClose,
 }) {
   const [showGraph, setShowGraph] = useState(false);
+  const navigate = useNavigate();
 
   const [nodes, edges] = useMemo(() => {
     const center = {
@@ -98,6 +101,16 @@ export default function ObjectsModal({
     return [[center, ...periphs], edgeArr];
   }, [objectsList, termLabel, propLabel]);
 
+  const onNodeClick = useCallback((event, node) => {
+    if (node.id === termLabel) {
+      return;
+    }
+    const clickedTerm = node.data.label;
+    const url = `/search?term=${encodeURIComponent(clickedTerm)}`;
+
+    window.open(url, "_blank", "noopener,noreferrer");
+  }, [termLabel]);
+
   if (!open) return null;
 
   return (
@@ -130,7 +143,6 @@ export default function ObjectsModal({
                     <th>Entity Name</th>
                     <th>Property</th>
                     <th>Object Individual</th>
-                    <th>Object URI</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -138,27 +150,30 @@ export default function ObjectsModal({
                     <tr key={o.uri}>
                       <td>{termLabel}</td>
                       <td>{propLabel}</td>
-                      <td>
+                      <td className="p-2">
+                      <div className="d-flex justify-content-between align-items-center">
                         <Link
-                          to={`${BASE_URL}/search?term=${encodeURIComponent(
-                            o.label
-                          )}`}
+                          to={`${BASE_URL}/search?term=${encodeURIComponent(o.label)}`}
                           className="tm-link-button"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
                           {o.label}
                         </Link>
-                      </td>
-                      <td className="tm-truncate">
+
                         <a
                           href={o.uri}
                           target="_blank"
                           rel="noopener noreferrer"
+                          title="Go to source URI"
+                          className="text-dark"
+                          style={{ fontSize: "1.25rem" }}
                         >
-                          <code className="code-underline">{o.uri}</code>
+                          <FaArrowCircleRight />
                         </a>
-                      </td>
+                      </div>
+                    </td>
+
                     </tr>
                   ))}
                 </tbody>
@@ -175,7 +190,8 @@ export default function ObjectsModal({
               }}
               onClick={() => setShowGraph(true)}
             >
-              Check the Relation Graph
+              Visualize the Entity Graph
+              <SiGrapheneos style={{marginLeft:'3px'}} />
             </Button>
           </>
         ) : (
@@ -185,6 +201,7 @@ export default function ObjectsModal({
               nodes={nodes}
               edges={edges}
               nodeTypes={nodeTypes}
+              onNodeClick={onNodeClick}
               fitView
               style={{ width: '100%', height: '100%', overflow: 'hidden', overflowX: 'hidden' }}
             >
