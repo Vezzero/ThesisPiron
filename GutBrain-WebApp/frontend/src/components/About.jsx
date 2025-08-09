@@ -3,6 +3,11 @@ import {AppContext, BASE_URL} from "../App";
 //import AboutCarousel from "./AboutCarousel"; //TODO ADD THE CAROUSEL AT THE END  OF THE WORK
 import {Col, Row, Container} from "react-bootstrap";
 import MenuButton from "../menu/MenuButton.jsx";
+import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch"
+import gutBrainGraph from "../assets/gutbrainimgv0.png";
+import { FiPlus } from "react-icons/fi";
+import { FiMinus } from "react-icons/fi";
+import Button from 'react-bootstrap/Button'
 
 export function About() {
     return (
@@ -52,6 +57,50 @@ export function About() {
                         </a>.
                     </p>
                 </div>
+                <Row>
+                    <h5 style={{textAlign:'center', fontWeight:'700', marginTop: '15px', marginBottom:'25px'}}>Gut-brain Axis Scheme</h5>
+                </Row>
+                <TransformWrapper initialScale={1} centerOnInit onInit={(ref) => {
+    // Center view on init
+    ref.centerView();
+  }}>
+                    {({ zoomIn, zoomOut, resetTransform }) => (
+                        <>
+                        <div className="d-flex justify-content-center gap-2 mb-3">
+                            <Button variant="outline-dark" onClick={() => zoomIn()}>
+                            <FiPlus /> Zoom In
+                            </Button>
+                            <Button variant="outline-dark" onClick={() => zoomOut()}>
+                            <FiMinus /> Zoom Out
+                            </Button>
+                            <Button variant="outline-dark" onClick={() => resetTransform()}>
+                            Reset
+                            </Button>
+                        </div>
+
+                        <TransformComponent
+                            wrapperStyle={{
+                            width: '100%',
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            minHeight: 300,
+                            marginBottom: 50
+                            }}
+                            contentStyle={{ display: 'flex', justifyContent: 'center'}}
+                        >
+                            <img
+                            src={gutBrainGraph}
+                            alt="Gut-Brain Scheme"
+                            style={{
+                                width: '100%',
+                                height: "auto"
+                            }}
+                            />
+                        </TransformComponent>
+                        </>
+                    )}
+                    </TransformWrapper>
             </Container>
     );
 }
