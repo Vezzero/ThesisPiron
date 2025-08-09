@@ -8,6 +8,7 @@ import { Credits } from './credits/Credit';
 import { About } from './components/About';
 import SideBar from "./components/Sidebar.jsx";
 import './App.css';
+import HomePage from "./components/HomePage.jsx";
 
 // Mode
 // export const mode = "development";
@@ -36,6 +37,7 @@ export default function App() {
     <BrowserRouter>
     <SideBar />
       <Routes>
+        <Route path="/" element={<HomePage />} />
         <Route path="/search" element={<LandingPage />} />
         <Route path="/paper/:paperId" element={<LandingPage />} />
         <Route path="/class/:className" element={<LandingPage />} />

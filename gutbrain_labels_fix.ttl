@@ -109276,7 +109276,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/Bacteria> ;
                                                gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/a2d7062b55bb30f4> ;
                                                gutprop:influence <http://purl.obolibrary.org/obo/NCIT_C3362> ;
-                                               rdfs:comment "\"Clostridiales\" refers to an order of Gram-positive, anaerobic, rod-shaped bacteria that includes species such as Clostridium and Peptococcus. [Definition Source: llama3-8b-8192]" ,
+                                               rdfs:comment "Clostridiales refers to an order of Gram-positive, anaerobic, rod-shaped bacteria that includes species such as Clostridium and Peptococcus. [Definition Source: llama3-8b-8192]" ,
                                                             "MESH Match" ;
                                                rdfs:label "Clostridiales" .
 
@@ -109390,7 +109390,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                             skos:broaderTransitive <http://purl.obolibrary.org/obo/NCBITaxon_2> ;
                                             skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/Bacteria> ;
                                             gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/c6632d112d5a8169> ;
-                                            rdfs:comment "\"Bacillus subtilis\" is a species of Gram-positive, rod-shaped bacteria commonly found in soil and known for its ability to produce antibiotics and enzymes. [Definition Source: llama3-8b-8192]" ,
+                                            rdfs:comment "Bacillus subtilis is a species of Gram-positive, rod-shaped bacteria commonly found in soil and known for its ability to produce antibiotics and enzymes. [Definition Source: llama3-8b-8192]" ,
                                                          "MESH Match" ;
                                             rdfs:label "Bacillus Subtilis" .
 
@@ -109591,7 +109591,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                             gutprop:usedBy <https://w3id.org/hereditary/ontology/gutbrain/resource/biomedicaltechnique/StressModel> ,
                                                            <https://w3id.org/hereditary/ontology/gutbrain/resource/biomedicaltechnique/16sRrnaSequencing> ;
                                             rdfs:comment "MeSH Match" ,
-                                                         "The entity \"world_s_population\" refers to the total number of human beings living on Earth at a given time. [Definition Source: llama3-8b-8192]" ;
+                                                         "It refers to the total number of human beings living on Earth at a given time. [Definition Source: llama3-8b-8192]" ;
                                             rdfs:label "Population" .
 
 
@@ -109658,7 +109658,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                                                 <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/daf82c75d0955595> ,
                                                                 <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/739b4b30e14bb619> ;
                                             gutprop:influence <http://purl.obolibrary.org/obo/NCIT_C124639> ;
-                                            rdfs:comment "\"Gaba-producing bacteria\" refers to a type of microorganism that is capable of producing gamma-aminobutyric acid (GABA), a neurotransmitter and amino acid, as a metabolic byproduct or through intentional genetic engineering. [Definition Source: llama3-8b-8192]" ,
+                                            rdfs:comment "Gaba-producing bacteria refers to a type of microorganism that is capable of producing gamma-aminobutyric acid (GABA), a neurotransmitter and amino acid, as a metabolic byproduct or through intentional genetic engineering. [Definition Source: llama3-8b-8192]" ,
                                                          "MESH Match" ;
                                             rdfs:label "Sulfur-Reducing Bacteria" .
 
@@ -109801,7 +109801,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                             skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/Bacteria> ;
                                             gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/8f2919263e1d814d> ;
                                             gutprop:partOf <https://w3id.org/hereditary/ontology/gutbrain/resource/diseasedisorderorfinding/AlteredGutMicrobiota> ;
-                                            rdfs:comment "\"Clostridium cluster III\" refers to a group of Gram-positive, anaerobic bacteria within the genus Clostridium that includes species such as Clostridium difficile, a major cause of antibiotic-associated diarrhea and colitis. [Definition Source: llama3-8b-8192]" ,
+                                            rdfs:comment "It refers to a group of Gram-positive, anaerobic bacteria within the genus Clostridium that includes species such as Clostridium difficile, a major cause of antibiotic-associated diarrhea and colitis. [Definition Source: llama3-8b-8192]" ,
                                                          "MESH Match" ;
                                             rdfs:label "Clostridium Kluyveri" .
 
@@ -109850,7 +109850,7 @@ gutbrain:platinumCollection rdf:type owl:NamedIndividual ,
                                             skos:broaderTransitive <http://purl.obolibrary.org/obo/NCBITaxon_2> ;
                                             skos:inScheme <https://w3id.org/hereditary/ontology/gutbrain/schema/conceptScheme/Bacteria> ;
                                             gutprop:containedIn <https://w3id.org/hereditary/ontology/gutbrain/resource/mention/af5ccda6414d39d7> ;
-                                            rdfs:comment "\"Clostridium sensu stricto 1\" refers to a species of anaerobic, gram-positive bacteria that belongs to the genus Clostridium and is characterized by its ability to produce endospores and its role in various human infections. [Definition Source: llama3-8b-8192]" ,
+                                            rdfs:comment "It refers to a species of anaerobic, gram-positive bacteria that belongs to the genus Clostridium and is characterized by its ability to produce endospores and its role in various human infections. [Definition Source: llama3-8b-8192]" ,
                                                          "MESH Match" ;
                                             rdfs:label "Clostridium Septicum" .
 

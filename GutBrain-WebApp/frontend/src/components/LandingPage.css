@@ -951,9 +951,46 @@ input {
   left: 1rem;
 }
 
-/* Override button bootstrap */
 .accordion-button {
   padding: 0.5rem 0.5rem !important;
   font-size: 0.9rem !important;
   line-height: 1.3 !important;
 }
+
+/* Centered card/box */
+.landing-card {
+  position: relative;
+  z-index: 2;
+  width: 60%;
+  top:20px;
+  padding: 2.25rem 2rem;
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-radius: 20px;
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.08),
+    0 3px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+/* Logo sizing */
+.landing-logo {
+  max-width: 240px;
+  width: 100%;
+  height: auto;
+  display: inline-block;
+}
+
+/* Button tweaks to align nicely with the select */
+.tm-button {
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+
+/* If your .tm-input needs rounded corners to match the button */
+.tm-input .tm-input__control,
+.tm-input .tm-input__menu,
+.tm-input .tm-input__value-container {
+  border-radius: 12px !important;
+}
+
