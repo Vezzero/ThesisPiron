@@ -584,8 +584,11 @@ useEffect(() => {
                 <div
                   className="tm-home-icon me-3"
                   onClick={() => {
-                    window.location.href =
-                      "https://hereditary.dei.unipd.it/ontology/gutbrain/";
+                    window.open (
+                      "https://hereditary.dei.unipd.it/ontology/gutbrain/",
+                      "_blank",
+                      "noopener,noreferrer"
+                    );
                   }}
                   title="Go to Ontology Documentation"
                 >
