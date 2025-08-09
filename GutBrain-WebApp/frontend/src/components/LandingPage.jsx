@@ -42,7 +42,7 @@ import useAllIndividuals from "../hooks/useAllIndividuals";
 
 
 export default function LandingPage() {
-  const { paperId } = useParams();
+  const { paperId, label: classLabelParam } = useParams();
   const [term, setTerm] = useState("");
   const [mentions, setMentions] = useState([]);
   const [selected, setSelected] = useState(null);
@@ -200,6 +200,27 @@ const chartData = [
     }
   }, [paperId]);
 
+  useEffect(() => {
+    if (!classLabelParam) return;
+    const label = classLabelParam;
+    const found = allClasses.find(
+      c => (c.classLabel || "").toLowerCase() === label.toLowerCase()
+    );
+    if (found) {
+      setSelectedClassIri(found.classIri);
+      setSelectedClassLabel(found.classLabel);
+      loadClassDetails(found.classIri, found.classLabel);
+    }
+  }, [classLabelParam, allClasses]);
+
+  useEffect(() => {
+  if (!classLabelParam) {
+    setSelectedClassIri(null);
+    setSelectedClassLabel(null);
+    setSelectedClass(null);
+  }
+}, [classLabelParam]);
+
   const fuse = useMemo(() => {
   return new Fuse(
     allIndividuals.map(i => i.label), 
@@ -278,6 +299,12 @@ const loadOptions = (inputValue) => {
 }
 
  const handleSearch = overrideTerm => {
+
+  setSelectedClassIri(null);
+  setSelectedClassLabel(null);
+  setSelectedClass(null);
+  setSelectedPaperId(null);
+
   setMentions([]);
   let q = (overrideTerm ?? term).trim();
   if (!q) {
@@ -494,6 +521,10 @@ useEffect(() => {
   filterCollections,
 
 ]);
+
+  const deepLinkingClass = !!classLabelParam;
+  const waitingClassData = deepLinkingClass && classesLoading && !selectedClassIri;
+  const unresolvedClass  = deepLinkingClass && !classesLoading && !selectedClassIri;
 
   return (
     <>
@@ -758,12 +789,28 @@ useEffect(() => {
              <Spinner animation="grow" style={{'color': '#00809d'}}/>
             </div>
           )}
+
+          {waitingClassData && (
+            <div className="tm-loading-bar-container">
+              <Spinner animation="grow" style={{ color: '#00809d' }} />
+            </div>
+          )}
+
+          {unresolvedClass && !waitingClassData && !unresolvedClass && (
+            <div className="tm-error">
+              Class “{decodeURIComponent(classLabelParam)}” not found.
+            </div>
+          )}
           {error && <div className="tm-error">{error}</div>}
 
           {selectedPaper ? (
           <div className="paper-inline">
 
-      {paperLoading && <p>Loading paper…</p>}
+      {paperLoading &&
+       <div className="tm-loading-bar-container">
+             <Spinner animation="grow" style={{'color': '#00809d'}}/>
+       </div>
+       }
       {paperError   && <p className="tm-error">Error: {paperError}</p>}
             
       {selectedPaper && (

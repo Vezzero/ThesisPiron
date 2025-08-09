@@ -140,6 +140,10 @@ const handleSearch = (overrideTerm) => {
                   {loading ? "Searching…" : "Search"}
                 </Button>
               </Col>
+              <Row>
+                <p style={{textAlign: 'center', fontSize: '0.7rem', margin: '10px'}}>Looking for an example? Try these queries:
+                </p>
+              </Row>
                 <Row style={{display: 'flex', justifyContent: 'center'}}>
                     <Col md={3} style={{width:'auto', margin:'5px'}}>
                         <Chip

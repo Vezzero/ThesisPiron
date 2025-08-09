@@ -40,7 +40,7 @@ export default function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/search" element={<LandingPage />} />
         <Route path="/paper/:paperId" element={<LandingPage />} />
-        <Route path="/class/:className" element={<LandingPage />} />
+        <Route path="/class/:label" element={<LandingPage/>} />
         <Route path="/credits" element={<Credits />} />
         <Route path="/about" element={<About />} />
       </Routes>

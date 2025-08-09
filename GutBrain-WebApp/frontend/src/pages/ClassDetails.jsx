@@ -13,6 +13,7 @@ import Table from 'react-bootstrap/Table';
 import { FiArrowUp } from "react-icons/fi";
 import { FiArrowDown } from "react-icons/fi";
 import { LuArrowUpDown } from "react-icons/lu";
+import Spinner from 'react-bootstrap/Spinner';
 
 
 export default function ClassDetails({
@@ -132,7 +133,13 @@ const visibleIndividuals = useMemo(() => {
   }, [classIri]);
 
 
-  if (loading) return <p>Loading…</p>;
+  if (loading) {
+  return (
+    <div className="tm-loading-bar-container">
+      <Spinner animation="grow" style={{ color: '#00809d' }} />
+    </div>
+  );
+}
   if (error)   return <p className="tm-error">{error}</p>;
 
   return (
