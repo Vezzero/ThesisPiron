@@ -137,37 +137,6 @@ const [sortConfig, setSortConfig] = useState({ key: null, direction: 'asc' });
    }
  }
 
- const pubChartEvents = [
-  {
-    eventName: "select",
-    callback: ({ chartWrapper }) => {
-      const chart = chartWrapper.getChart();
-      const sel = chart.getSelection();
-      if (sel.length === 0) return;
-      const row = sel[0].row;
-      const year = publicationChart[row + 1][0];
-
-      const papersForYear = mentions
-        .filter(m => m.pubYear === year)
-        .reduce((acc, m) => {
-          if (!acc.some(x => x.paperid === m.paperid)) {
-            acc.push({
-              paperid: m.paperid, 
-              title:   m.titletext,
-              journal: m.journal,
-              author:  m.author,
-            });
-          }
-          return acc;
-        }, []);
-
-      setPubYearClicked(year);
-      setPubPapers(papersForYear);
-      setShowPubModal(true);
-    }
-  }
-];
-
 function handleSort(columnKey) {
   setSortConfig(({ key, direction }) => {
     if (key === columnKey) {
@@ -441,6 +410,68 @@ const sortedMentions = useMemo(() => {
   });
   return arr;
 }, [filteredMentions, sortConfig]);
+
+const filteredPublicationChart = useMemo(() => {
+  if (!filteredMentions.length) {
+    return [["Year", "Papers", { role: "annotation" }]];
+  }
+
+  const byYear = new Map();
+  const seen = new Set();
+
+  for (const m of filteredMentions) {
+    const key = `${m.paperid}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+
+    const y = String(m.pubYear ?? "");
+    byYear.set(y, (byYear.get(y) || 0) + 1);
+  }
+
+  const rows = [...byYear.entries()]
+    .sort((a, b) => Number(a[0]) - Number(b[0]))
+    .map(([year, count]) => [year, count, String(count)]);
+
+  return [["Year", "Papers", { role: "annotation" }], ...rows];
+}, [filteredMentions]);
+
+
+const pubChartEvents = useMemo(() => ([
+  {
+    eventName: "select",
+    callback: ({ chartWrapper }) => {
+      const chart = chartWrapper.getChart();
+      const sel = chart.getSelection?.() ?? [];
+      if (!sel.length) return;
+
+      const row = sel[0].row;
+      const year = filteredPublicationChart[row + 1]?.[0];
+      if (!year) return;
+
+      const unique = new Map();
+for (const m of filteredMentions) {
+  if (String(m.pubYear) !== String(year)) continue;
+  if (!unique.has(m.paperid)) {
+    unique.set(m.paperid, {
+      paperid: m.paperid,
+      uri: m.uri,
+      title: m.titletext,
+      titletext: m.titletext,
+      journal: m.journal,
+      authors: m.author,
+      author:  m.author,
+      pubYear: m.pubYear,
+    });
+  }
+}
+
+setPubYearClicked(year);
+setPubPapers(Array.from(unique.values()));
+setShowPubModal(true);
+
+    }
+  }
+]), [filteredMentions, filteredPublicationChart]);
 
 
   const visible = sortedMentions.slice(0, visibleCount);
@@ -921,35 +952,47 @@ useEffect(() => {
                   )}
                 <hr />
                 <h4 className="h4-title">Number of supporting <strong>publications</strong> per year</h4>
-                      {publicationChart && (
+                      {filteredPublicationChart.length > 1 ? (
                         <Chart
                           chartType="ColumnChart"
-                          data={publicationChart}
+                          data={filteredPublicationChart}
                           options={{
                             legend: { position: "none" },
                             bar: { groupWidth: "45%" },
-                            vAxis: { minValue: 0 },
                             chartArea: { left: 40, top: 40, width: "100%", height: "50%" },
-                            annotations: { alwaysOutside: true },
+                            annotations: { alwaysOutside: true,
+                              textStyle: {
+                                fontSize: 12,
+                                color: "#000",
+                                auraColor: "none"
+                              },
+                              stem: {
+                                color: "transparent",
+                                length: 4,
+                              }
+                             },
+                             vAxis: {
+                              viewWindow: { min: 0},
+                              minValue: 0,
+                              maxValue: Math.max(...filteredPublicationChart.slice(1).map(r => r[1])) + 1
+                             },
                             colors: ["#82D4BB"],
                           }}
                           width="100%"
                           height="150px"
                           chartEvents={pubChartEvents}
                         />
+                        ) : (
+                            <div style={{ fontSize: '0.8rem', textAlign: 'left' }}>
+                              <Alert severity="info">No publications found for this term.</Alert>
+                            </div>
                       )}
-
                       <PublicationModal
                         open={showPubModal}
                         year={pubYearClicked}
                         papers={pubPapers}
                         onClose={() => setShowPubModal(false)}
                       />
-                      {!publicationChart && (
-                            <div style={{ fontSize: '0.8rem', textAlign: 'left' }}>
-                              <Alert severity="info">No publications found for this term.</Alert>
-                            </div>
-                      )}
                 </div>
               </div>
 

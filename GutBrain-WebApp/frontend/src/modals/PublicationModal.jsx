@@ -15,8 +15,9 @@ export default function PublicationModal({ open, year, papers, onClose }) {
   return (
     <div className="tm-modal-overlay" onClick={onClose}>
       <div className="tm-modal" onClick={e => e.stopPropagation()}>
+        <div className="tm-modal-header">
         <IoIosClose className="tm-modal-close" onClick={onClose} />
-        <h3>Papers Published in {year}</h3>
+        </div>
         <div className="tm-table-wrapper">
         <table className="tm-objects-table">
           <thead>
