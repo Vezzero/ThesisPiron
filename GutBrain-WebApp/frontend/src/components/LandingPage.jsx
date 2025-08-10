@@ -889,7 +889,7 @@ useEffect(() => {
                       <DownloadButtonMenu
                         individual={mentions[0]}
                         relationsList={relationsList}
-                        mentions={mentions}
+                        mentions={filteredMentions}
                       />
                     </div>
                     <p>
