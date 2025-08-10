@@ -1,76 +1,92 @@
-import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import "./PaperDetails.css";
+import React, { useEffect, useState } from "react";
+import Spinner from "react-bootstrap/Spinner";
+import Button from "react-bootstrap/Button";
 
-export default function PaperDetails() {
-  const { paperId } = useParams();
-  const navigate    = useNavigate();
-
-  const [paper, setPaper]     = useState(null);
+export default function PaperDetails({ paperId }) {
+  const [paper, setPaper] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError]     = useState("");
+  const [error, setError] = useState("");
 
   useEffect(() => {
-    async function loadPaper() {
-      setLoading(true);
-      setError("");
+    let abort = false;
+    async function load() {
+      setLoading(true); setError(""); setPaper(null);
       try {
-        const resp = await fetch(
-          `/api/paper_details/?paperId=${encodeURIComponent(paperId)}`
-        );
-        if (!resp.ok) {
-          const txt = await resp.text();
-          throw new Error(txt || resp.statusText);
-        }
+        const resp = await fetch(`/api/paper_details/?paperId=${encodeURIComponent(paperId)}`);
+        if (!resp.ok) throw new Error(await resp.text());
         const data = await resp.json();
-        if (data.error) throw new Error(data.error);
-        setPaper(data.paper);
+        if (!abort) setPaper(data.paper || null);
       } catch (e) {
-        setError(e.message);
+        if (!abort) setError(e.message);
       } finally {
-        setLoading(false);
+        if (!abort) setLoading(false);
       }
     }
-    loadPaper();
+    if (paperId) load();
+    return () => { abort = true; };
   }, [paperId]);
 
-  if (loading) return <p>Loading paper…</p>;
-  if (error)   return <p className="tm-error">Error: {error}</p>;
-  if (!paper)  return <p>No paper found.</p>;
+  if (loading) {
+    return (
+      <div className="tm-loading-bar-container">
+        <Spinner animation="grow" style={{ color: "#00809d" }} />
+      </div>
+    );
+  }
+  if (error)   return <div className="tm-error">Error: {error}</div>;
+  if (!paper)  return <div className="tm-error">Paper “{paperId}” not found.</div>;
 
   return (
-    <div className="paper-container">
-      <button onClick={() => navigate(-1)} className="tm-button">
-    Back
-      </button>
-
+    <div className="paper-inline">
       <div className="paper-card">
-        <h2>Paper ID: {paper.paperid}</h2>
-
-        <p>
-          <a
-            href={paper.uri}
+          <Button
+            as="a"
+            href={`https://pubmed.ncbi.nlm.nih.gov/${paper.paperid}`}
             target="_blank"
             rel="noopener noreferrer"
+            variant="outline-primary"
+            className="paper-card-header"
           >
-            <code className="code-underline"> {paper.uri} </code>
-          </a>
-        </p>
+            View in PubMed
+          </Button>
 
-        <div className="paper-field">
-          <h3>Title:</h3>
-          <p>{paper.titletext}</p>
+          <h3 className="h3-title">Paper {paper.paperid}</h3>
+
+          <p>
+            <a href={paper.uri} target="_blank" rel="noopener noreferrer">
+              <code className="code-underline">{paper.uri}</code>
+            </a>
+          </p>
+
+          <div className="paper-field">
+            <h3 className="paper-h3-subdef">Title:</h3>
+            <p>{paper.titletext}</p>
+          </div>
+
+          <div className="paper-field">
+            <h3 className="paper-h3-subdef">Abstract:</h3>
+            <p className="tm-abstract">{paper.abstracttext}</p>
+          </div>
+
+          <div className="paper-info-line">
+            <h3 className="paper-h3-subdef">Authors:</h3>
+            <p>{paper.author}</p>
+          </div>
+
+          <div className="paper-info-line">
+            <h3 className="paper-h3-subdef">Journal:</h3>
+            <p>{paper.journal}</p>
+          </div>
+
+          <div className="paper-info-line">
+            <h3 className="paper-h3-subdef">Publication Year:</h3>
+            <p>{paper.pubYear}</p>
+          </div>
+
+          <div className="paper-info-line">
+            <h3 className="paper-h3-subdef">Collections:</h3>
+            <p>{paper.collection || "-"}</p>
         </div>
-
-        <div className="paper-field">
-          <h3>Abstract:</h3>
-          <p>{paper.abstracttext}</p>
-        </div>
-
-        <p><strong>Authors:</strong> {paper.author}</p>
-        <p><strong>Journal:</strong> {paper.journal}</p>
-        <p><strong>Publication Year:</strong> {paper.pubYear}</p>
-        <p><strong>Collection:</strong> {paper.collection}</p>
       </div>
     </div>
   );

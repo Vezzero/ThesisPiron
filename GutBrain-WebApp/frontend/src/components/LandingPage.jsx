@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo, useContext } from "react";
 import { fetchTermMentions } from "../services/graphServices";
 import "./LandingPage.css";
 import ClassDetails from "../pages/ClassDetails";
+import PaperDetails from "../pages/PaperDetails";
 import FacetFilter from "./FacetFilters";
 import "../pages/PaperDetails.css";
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
@@ -195,10 +196,13 @@ const chartData = [
 
 
   useEffect(() => {
-    if (paperId) {
-      setSelectedPaperId(paperId);
-    }
-  }, [paperId]);
+  setSelectedPaperId(paperId ?? null);
+  if (paperId) {
+    setSelectedClassIri(null);
+    setSelectedClassLabel(null);
+    setSelectedClass(null);
+  }
+}, [paperId]);
 
   useEffect(() => {
     if (!classLabelParam) return;
@@ -526,6 +530,10 @@ useEffect(() => {
   const waitingClassData = deepLinkingClass && classesLoading && !selectedClassIri;
   const unresolvedClass  = deepLinkingClass && !classesLoading && !selectedClassIri;
 
+  const deepLinkingPaper   = !!paperId;
+  const waitingPaperData   = deepLinkingPaper && paperLoading && !selectedPaper;
+  const unresolvedPaper    = deepLinkingPaper && !paperLoading && !selectedPaper && !paperError;
+
   return (
     <>
    <SideBar />
@@ -801,76 +809,27 @@ useEffect(() => {
               Class “{decodeURIComponent(classLabelParam)}” not found.
             </div>
           )}
+
+          {waitingPaperData && (
+            <div className="tm-loading-bar-container">
+              <Spinner animation="grow" style={{ color: '#00809d' }} />
+            </div>
+          )}
+
+          {paperError && (
+            <div className="tm-error">Error: {paperError}</div>
+          )}
+
+          {unresolvedPaper && (
+            <div className="tm-error">Paper “{paperId}” not found.</div>
+          )}
+          
           {error && <div className="tm-error">{error}</div>}
 
-          {selectedPaper ? (
-          <div className="paper-inline">
-
-      {paperLoading &&
-       <div className="tm-loading-bar-container">
-             <Spinner animation="grow" style={{'color': '#00809d'}}/>
-       </div>
-       }
-      {paperError   && <p className="tm-error">Error: {paperError}</p>}
-            
-      {selectedPaper && (
-    <div className="paper-card">
-      {/* ——— Card Header: back + pubmed ——— */}
-      <Button
-        as="a"
-        href={`https://pubmed.ncbi.nlm.nih.gov/${selectedPaper.paperid}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        variant="outline-primary"
-        className="paper-card-header"
-      >
-        View in PubMed
-      </Button>
-
-          <h3 className="h3-title"> Paper {selectedPaper.paperid}</h3>
-          <p>
-            <a
-              href={selectedPaper.uri}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <code className="code-underline">
-                {selectedPaper.uri}
-              </code>
-            </a>
-          </p>
-
-          <div className="paper-field">
-            <h3 className="paper-h3-subdef">Title:</h3>
-            <p>{selectedPaper.titletext}</p>
-          </div>
-          <div className="paper-field">
-            <h3 className="paper-h3-subdef">Abstract:</h3>
-            <p className="tm-abstract">
-              {selectedPaper.abstracttext}
-            </p>
-          </div>
-
-          <div className="paper-info-line">
-            <h3 className="paper-h3-subdef">Authors:</h3>
-            <p>{selectedPaper.author}</p>
-          </div>
-          <div className="paper-info-line">
-            <h3 className="paper-h3-subdef">Journal:</h3>
-            <p>{selectedPaper.journal}</p>
-          </div>
-          <div className="paper-info-line">
-            <h3 className="paper-h3-subdef">Publication Year:</h3>
-            <p>{selectedPaper.pubYear}</p>
-          </div>
-          <div className="paper-info-line">
-            <h3 className="paper-h3-subdef">Collections:</h3>
-            <p>{selectedPaper.collection || "-"}</p>
-          </div>
-          </div>
-           )}
-          </div>
-           ) : selectedClassIri ? (
+            {paperId ? (
+            <PaperDetails paperId={paperId} />
+          )
+            : selectedClassIri ? (
             <ClassDetails
             classIri={selectedClassIri}
             classLabel={selectedClassLabel}
