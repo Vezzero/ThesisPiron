@@ -546,11 +546,13 @@ useEffect(() => {
             <MenuButton />
           </Col>
           <Col className="text-center">
+          <Link to={`${BASE_URL}/`} aria-label="Go to Home">
             <img
               src="/static/img/gb-logo-text.JPEG"
               alt="Gut-Brain KB"
               style={{ maxWidth: "200px", width: "100%" }}
             />
+            </Link>
           </Col>
           <Col xs="auto">
           </Col>

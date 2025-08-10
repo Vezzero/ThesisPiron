@@ -18,7 +18,7 @@ export default function PublicationModal({ open, year, papers, onClose }) {
         <div className="tm-modal-header">
         <IoIosClose className="tm-modal-close" onClick={onClose} />
         </div>
-        <div className="tm-table-wrapper">
+        <div className="tm-table-wrapper" style={{overflowX:'hidden'}}>
         <table className="tm-objects-table">
           <thead>
             <tr>

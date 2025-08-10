@@ -26,15 +26,8 @@ export default function PaperDetails({ paperId }) {
     return () => { abort = true; };
   }, [paperId]);
 
-  if (loading) {
-    return (
-      <div className="tm-loading-bar-container">
-        <Spinner animation="grow" style={{ color: "#00809d" }} />
-      </div>
-    );
-  }
   if (error)   return <div className="tm-error">Error: {error}</div>;
-  if (!paper)  return <div className="tm-error">Paper “{paperId}” not found.</div>;
+  if (!paper) return null;
 
   return (
     <div className="paper-inline">
