@@ -36,7 +36,7 @@ function SideBar(){
                     <img src="/static/img/gutbrain-logo-png.png" alt="Gut-Brain KB" style={{maxWidth: '200px', width: '100%'}}/>
                 <hr />
 
-                    <a onClick={()=>setShowBar(false)} href={`${BASE_URL}/search`}>Home</a>
+                    <a onClick={()=>setShowBar(false)} href={`${BASE_URL}/`}>Home</a>
                     <a onClick={()=>setShowBar(false)} href={`${BASE_URL}/about`}>About</a>
                     <a onClick={()=>setShowBar(false)} href={`${BASE_URL}/credits`}>Credits</a>
 

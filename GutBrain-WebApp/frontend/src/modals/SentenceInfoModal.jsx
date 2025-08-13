@@ -6,7 +6,7 @@ export default function SentenceInfoModal({ selected, onClose }) {
   if (!selected) return null;
   return (
     <div className="tm-modal-overlay" onClick={onClose}>
-      <div className="tm-modal" onClick={e => e.stopPropagation()}>
+      <div className="tm-modal tm-modal-sentence-mobile" onClick={e => e.stopPropagation()}>
         <IoIosClose 
          className="tm-modal-close" 
          onClick={onClose}

@@ -152,6 +152,7 @@ function handleSort(columnKey) {
 }
 
   const ONTOLOGY_URLS = {
+  STATO:     "https://ontobee.org/ontology/STATO",
   UMLS:      "https://www.nlm.nih.gov/research/umls/index.html",
   NCIT:      "https://ontobee.org/ontology/NCIT",
   NCBITaxon: "https://ontobee.org/ontology/NCBITaxon",
@@ -604,9 +605,9 @@ useEffect(() => {
                     }
                   }}
                   styles={{
-                    container: base => ({ ...base, width: "300px" }),
-                    control: base => ({ ...base, width: "300px" }),
-                    menu: base => ({ ...base, width: "300px" }),
+                    container: (b) => ({ ...b, width: "100%", minWidth: 0 }),
+                    control:   (b) => ({ ...b, width: "100%", minWidth: 0 }),
+                    menu:      (b) => ({ ...b, width: "100%" }),
                   }}
                 />
 
@@ -806,7 +807,7 @@ useEffect(() => {
             </div>
           )}
 
-          {unresolvedClass && !waitingClassData && !unresolvedClass && (
+          {unresolvedClass && !waitingClassData && (
             <div className="tm-error">
               Class “{decodeURIComponent(classLabelParam)}” not found.
             </div>

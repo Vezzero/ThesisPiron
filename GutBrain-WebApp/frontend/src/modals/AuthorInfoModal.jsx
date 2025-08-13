@@ -9,11 +9,11 @@ export default function AuthorInfoModal({ selectedAuthor, onClose }) {
 
   return (
     <div className="tm-modal-overlay" onClick={onClose}>
-      <div className="tm-modal" onClick={e => e.stopPropagation()}>
+      <div className="tm-modal min-width-author" onClick={e => e.stopPropagation()} style={{minWidth: '350px'}}>
         <IoIosClose 
           className="tm-modal-close" 
           onClick={onClose}
-          style={{ top: "0.25rem" }}
+          style={{ top: "0.25rem"}}
         />
         <h3 className="h3-title">Author Information</h3>
 

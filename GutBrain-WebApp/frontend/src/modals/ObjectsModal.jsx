@@ -136,7 +136,7 @@ export default function ObjectsModal({
         {!showGraph ? (
           <>
             {/* ─────── Table ─────── */}
-            <div className="tm-table-wrapper" style={{overflowX:'hidden'}}>
+            <div className="tm-table-wrapper table-overflow" style={{overflowX:'hidden'}}>
               <table className="tm-objects-table">
                 <thead>
                   <tr>

@@ -6,7 +6,7 @@ export default function JournalInfoModal({ selectedJournal, onClose }) {
   if (!selectedJournal) return null;
   return (
     <div className="tm-modal-overlay" onClick={onClose}>
-      <div className="tm-modal" style={{minWidth:'400px', minHeight:'100px'}} onClick={e => e.stopPropagation()}>
+      <div className="tm-modal journalModal" onClick={e => e.stopPropagation()}>
 
         <IoIosClose 
           className="tm-modal-close" 

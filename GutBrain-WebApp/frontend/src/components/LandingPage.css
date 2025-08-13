@@ -1,5 +1,6 @@
 :root {
   --header-height: 150px;
+  --header-height-mobile: 180px;
   --footer-height: 80px;
   --sidebar-width: 240px;
   --sidebar-padding: 1rem;
@@ -18,7 +19,7 @@ html, body {
 .tm-button { padding: 0px 12px; font-size: 0.9rem; margin: 5px; }
 .tm-error { color: rgb(0, 0, 0); margin-bottom: 1rem; }
 .tm-header p { margin: 0.5rem 0; }
-.tm-table-wrapper { overflow-x: auto; max-height: 450px; flex: 1; margin-top: 1rem; margin-bottom: 2rem; }
+.tm-table-wrapper { overflow-x: auto; max-height: none; flex: 1; margin-top: 1rem; margin-bottom: 2rem; }
 .tm-table { width: 100%; border-collapse: collapse; }
 .tm-table th, .tm-table td { border: 1px solid #ccc; text-align: left; }
 .tm-table th { background: #f0f0f0; }
@@ -139,13 +140,18 @@ html, body {
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   padding: 1.5rem;
+  min-width: 0;            /* critical: allow children to shrink inside */
+  max-width: 100%;
+  overflow: hidden;   
 }
 
-@media (max-width: 768px) {
-  .tm-results-wrapper {
-    grid-template-columns: 1fr;
-  }
-}
+.tm-results-card *{ min-width: 0; }               /* nested flex/grids can shrink */
+.tm-results-card code,
+.tm-results-card a,
+.tm-results-card p{ word-break: break-word; overflow-wrap: anywhere; }
+
+/* Google Charts sometimes overflows: clamp it */
+.tm-results-card svg{ max-width: 100% !important; height: auto; }
 
 .tm-clickable-number {
   cursor: pointer;
@@ -327,7 +333,7 @@ p {
 }
 
 .tm-truncate {
-  max-width: 150px;
+  max-width: clamp(120px, 25vw, 320px);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -435,7 +441,8 @@ p {
 }
 
 .tm-all-dropdown {
-  width: 300px;
+  width: 100%;
+  max-width: 480px;
   margin: 1rem 0;
   position: relative;
 }
@@ -721,10 +728,10 @@ h2 {
 }
 
 .tm-page-wrapper {
-  display: flex;
-  grid-template-columns: 270px 1fr;
-  margin-top: var(--header-height);
+  display: grid;                                  /* was flex */
+  grid-template-columns: var(--sidebar-width) 1fr;
   gap: var(--content-gutter);
+  margin-top: var(--header-height);
 }
 
 .tm-content {
@@ -740,7 +747,7 @@ h2 {
 
 .tm-results-wrapper {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   justify-content: center;
   gap: 1rem;
   margin-bottom: 1.5rem;
@@ -769,7 +776,7 @@ h2 {
 }
 
 .form-select {
-  width: 69% !important;
+  width: 100% !important;
 }
 
 .paper-field h3 {
@@ -957,13 +964,13 @@ input {
   line-height: 1.3 !important;
 }
 
-/* Centered card/box */
 .landing-card {
   position: relative;
   z-index: 2;
-  width: 60%;
+  width: min(900px, 100% - 2rem);
+  margin: 0 auto;
   top:20px;
-  padding: 2.25rem 2rem;
+  padding: clamp(1rem, 3vw, 2.25rem) clamp(1rem, 2.5vw, 2rem);
   background: rgba(255, 255, 255, 0.9) !important;
   border-radius: 20px;
   box-shadow:
@@ -972,25 +979,196 @@ input {
   border: 1px solid rgba(0,0,0,0.06);
 }
 
-/* Logo sizing */
 .landing-logo {
-  max-width: 240px;
-  width: 100%;
+  max-width: 100%;
+  width: min(320px, 60vw);
   height: auto;
   display: inline-block;
 }
 
-/* Button tweaks to align nicely with the select */
-.tm-button {
-  padding: 0.6rem 1rem;
-  border-radius: 12px;
-  white-space: nowrap;
+.tm-input__control {
+  width: 300px !important;
 }
 
-/* If your .tm-input needs rounded corners to match the button */
-.tm-input .tm-input__control,
-.tm-input .tm-input__menu,
-.tm-input .tm-input__value-container {
-  border-radius: 12px !important;
+.journalModal {
+  min-width:400px;
+  min-height:100px;
 }
 
+@media (max-width: 400px) {
+  .tm-page-wrapper {
+    display: block;
+    margin-top: var(--header-height);
+  }
+
+  .tm-table-wrapper {
+    overflow-x: hidden;
+  }
+
+  .tm-modal {
+    max-width: 85%;
+  }
+
+  .min-width-author {
+    min-width: 0 !important;
+  }
+
+  .tm-input__control {
+    width: auto !important;
+  }
+
+    .tm-modal-sentence-mobile {
+    max-width: 70%;
+  }
+
+  .tm-modal-mention-mobile {
+    max-width: 90%;
+  }
+  
+  .journalModal {
+    min-width: 0px;
+    min-height: 0px;
+  }
+
+  .tm-sidebar {
+    position: sticky;
+    top: var(--header-height-mobile);
+    left: 0; right: 0;
+    z-index: 60;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: .5rem;
+    width: 100%;
+    padding: .5rem 1rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    background: #fafafa;
+    border-right: none;
+    border-bottom: 1px solid #000;
+    height: auto;
+    flex: 0 0 auto;
+  }
+
+  .tm-sidebar > * { flex: 0 0 auto; }
+  .tm-filter-title { flex: 0 0 auto; white-space: nowrap; }
+  .tm-all-dropdown,
+  .author-box,
+  .tm-filter-control { min-width: 200px; }
+  .form-select,
+  .tm-filter-btn { width: auto !important; max-width: 250px; }
+  .tm-filter-body { max-height: none; padding: .25rem; }
+  .tm-filter-title {
+    display: none;
+  }
+
+  .tm-content {
+    padding: 1rem;
+    overflow-x: hidden;
+    top: 40px;
+    position: relative;
+  }
+  
+  .table-overflow {
+    overflow-x: auto !important;
+  }
+
+  .tm-header{
+  height: auto;
+  min-height: var(--header-height-mobile);
+   }
+
+  .tm-search-bar{
+    display: grid;
+    grid-template-columns: minmax(0,1fr) auto auto;
+    align-items: center;
+    gap: .5rem;
+  }
+
+  .tm-search-left{ display:none; }
+  .tm-search-center.d-flex{ display: contents !important; }
+  .tm-search-center{
+    display: contents;
+    min-width: 0;
+  }
+
+  .tm-search-center .tm-input{ min-width: 0; width: 100%; }
+
+  .tm-search-center .tm-button{
+    width: auto !important;
+    white-space: nowrap;
+    flex: 0 0 auto;
+  }
+
+  .tm-search-right{
+    position: static !important;
+    top: auto !important;
+    right: auto !important;
+    grid-column: 3;
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    z-index: 1;
+  }
+
+  .tm-home-icon,
+  .tm-home-icon-download{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+  }
+
+  .tm-home-icon img{ width: 24px; height: 24px; }
+
+  .accordion-button{
+    box-shadow: none !important; 
+    background-image: none !important; 
+    background-color: #fff;          
+    border: 0;                  
+  }
+
+  .accordion-item{
+    border: 1px solid #d9d9d9;
+    border-radius: 12px;
+    overflow: hidden;  
+    background: #fff;
+    margin-bottom: .5rem;
+  }
+
+  .accordion-collapse{
+    border-top: 1px solid #e6e6e6;
+  }
+
+  .accordion-button::after{
+    transition: transform .2s ease;
+  }
+
+  .accordion-button:not(.collapsed)::after{
+    transform: rotate(-180deg);
+  }
+
+  .author-box {
+    border: none;
+    margin-bottom: 0;
+  }
+
+}
+
+
+
+@media (max-width: 992px){
+  .tm-page-wrapper{ grid-template-columns: 1fr; }
+  .tm-sidebar{ order: -1; }
+}
+
+@media (max-width: 768px){
+  .tm-results-wrapper{ grid-template-columns: 1fr; }
+  .tm-search-bar{ grid-template-columns: 1fr; }
+  .tm-search-right{ justify-self: center; }
+}

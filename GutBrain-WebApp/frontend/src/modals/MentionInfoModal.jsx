@@ -15,7 +15,7 @@ export default function MentionInfoModal({ selectedMention, onClose }) {
 
   return (
     <div className="tm-modal-overlay" onClick={onClose}>
-      <div className="tm-modal" onClick={e => e.stopPropagation()}>
+      <div className="tm-modal tm-modal-mention-mobile" onClick={e => e.stopPropagation()}>
         <IoIosClose
           className="tm-modal-close"
           onClick={onClose}
