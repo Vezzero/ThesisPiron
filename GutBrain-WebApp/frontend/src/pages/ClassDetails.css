@@ -119,3 +119,50 @@
   align-items: flex-start;
   margin-bottom: 1.5rem;
 }
+
+/* Container spans the column but never touches edges */
+.cd-container{
+  width: min(1100px, 100% - 2rem);
+  margin: 0 auto;
+}
+
+/* Two-column overview that collapses cleanly */
+.cd-overview{
+  display: grid;
+  grid-template-columns: 320px 1fr; /* left card width, right grows */
+  gap: 1rem;
+  align-items: start;
+  margin-bottom: 1.5rem;
+}
+
+.cd-card__left{ max-width: 100%; }
+.cd-card__right{ min-width: 0; } /* allow chart to shrink */
+
+/* Cards: contain wide content */
+.cd-card{
+  background: #fff;
+  border: 2px solid #000;
+  border-radius: 8px;
+  padding: clamp(.75rem, 2vw, 1rem);
+  margin-bottom: 1.25rem;
+  overflow: hidden;   /* keep chart/links inside the radius */
+}
+
+/* Headings scale a bit on small screens */
+.h3-title{ font-size: clamp(1.1rem, 3.5vw, 1.5rem); }
+.h4-title{ font-size: clamp(1rem, 3vw, 1.25rem); }
+
+/* Stack on tablets/phones */
+@media (max-width: 992px){
+  .cd-overview{ grid-template-columns: 1fr; }
+  .cd-card__right{ align-items: stretch; }
+}
+
+/* Ensure the chart never forces the card wider than the column */
+.cd-card__right svg{
+  max-width: 100% !important;
+  height: auto;
+}
+
+/* Optional: a bit more breathing room under the pie chart title */
+.cd-card__right .h4-title{ margin-bottom: .5rem; }

@@ -113,6 +113,13 @@ const visibleIndividuals = useMemo(() => {
     ];
   }, [top10Individuals]);
 
+  const [chartH, setChartH] = useState(window.innerWidth < 576 ? 220 : 260);
+    useEffect(() => {
+      const onResize = () => setChartH(window.innerWidth < 576 ? 220 : 260);
+      window.addEventListener('resize', onResize);
+      return () => window.removeEventListener('resize', onResize);
+    }, []);
+
   useEffect(() => {
     async function load() {
       setLoading(true);
@@ -180,15 +187,13 @@ const visibleIndividuals = useMemo(() => {
       chartType="PieChart"
       data={chartDataPie}
       options={{
-        title: ``,
         legend: { position: "right", textStyle: { fontSize: 12 } },
         pieSliceText: "value",
         chartArea: { width: "100%", height: "100%" },
         pieHole: 0.4,
-        is3D: false
       }}
       width="100%"
-      height="250px"
+      height={`${chartH}px`}
     />
   </div>
   </div>

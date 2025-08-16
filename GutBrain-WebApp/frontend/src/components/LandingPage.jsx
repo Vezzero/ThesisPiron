@@ -549,7 +549,7 @@ useEffect(() => {
           <Col className="text-center">
           <Link to={`${BASE_URL}/`} aria-label="Go to Home">
             <img
-              src="/static/img/gb-logo-text.JPEG"
+              src="/static/img/gutbrain-logo-png.png"
               alt="Gut-Brain KB"
               style={{ maxWidth: "200px", width: "100%" }}
             />
@@ -611,7 +611,7 @@ useEffect(() => {
                   }}
                 />
 
-                <Button variant="outline-dark"
+                <Button variant="dark"
                   className="tm-button ms-2"
                   onClick={() => {
                     handleSearch();
@@ -807,12 +807,6 @@ useEffect(() => {
             </div>
           )}
 
-          {unresolvedClass && !waitingClassData && (
-            <div className="tm-error">
-              Class “{decodeURIComponent(classLabelParam)}” not found.
-            </div>
-          )}
-
           {waitingPaperData && (
             <div className="tm-loading-bar-container">
               <Spinner animation="grow" style={{ color: '#00809d' }} />
@@ -821,10 +815,6 @@ useEffect(() => {
 
           {paperError && (
             <div className="tm-error">Error: {paperError}</div>
-          )}
-
-          {unresolvedPaper && (
-            <div className="tm-error">Paper “{paperId}” not found.</div>
           )}
           
           {error && <div className="tm-error">{error}</div>}

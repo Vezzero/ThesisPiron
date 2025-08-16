@@ -662,7 +662,7 @@ p {
 .tm-header {
   position: fixed;
   top: 0; left: 0; right: 0;
-  background: #fff;
+  background: #BCD3F2;
   height: var(--header-height);
   z-index: 100;
   padding: 1rem;
@@ -988,6 +988,7 @@ input {
 
 .tm-input__control {
   width: 300px !important;
+  border: 1px solid black !important;
 }
 
 .journalModal {
@@ -1093,7 +1094,7 @@ input {
     min-width: 0;
   }
 
-  .tm-search-center .tm-input{ min-width: 0; width: 100%; }
+  .tm-search-center .tm-input{ min-width: 80px; width: 100%; }
 
   .tm-search-center .tm-button{
     width: auto !important;
@@ -1158,13 +1159,18 @@ input {
     margin-bottom: 0;
   }
 
+  .paper-card {
+    margin-bottom: 2.5rem;
+  }
+  .paper-card-header {
+    position: sticky;
+  }
+
 }
 
 
 
 @media (max-width: 992px){
-  .tm-page-wrapper{ grid-template-columns: 1fr; }
-  .tm-sidebar{ order: -1; }
 }
 
 @media (max-width: 768px){

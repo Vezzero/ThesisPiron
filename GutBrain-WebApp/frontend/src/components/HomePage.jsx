@@ -82,7 +82,7 @@ const handleSearch = (overrideTerm) => {
             </Row>
 
             <Row className="justify-content-center">
-              <Col xs={12} md={10} lg={8} className="d-flex gap-2">
+              <Col xs={12} md={10} lg={8} className="d-flex gap-2 justify-content-center">
                 <AsyncSelect
                   className="tm-input flex-grow-1"
                   classNamePrefix="tm-input"
