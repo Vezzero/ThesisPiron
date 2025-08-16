@@ -572,7 +572,7 @@ useEffect(() => {
                   loadOptions={loadOptions}
                   defaultOptions={false}
                   isClearable
-                  placeholder="Type a term (e.g. brain, mouse)…"
+                  placeholder="Type a term..."
                   menuIsOpen={menuIsOpen}
                   onMenuOpen={() => setMenuIsOpen(true)}
                   onMenuClose={() => setMenuIsOpen(false)}
