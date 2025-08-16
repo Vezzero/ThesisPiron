@@ -3,6 +3,7 @@
   --header-height-mobile: 180px;
   --footer-height: 80px;
   --sidebar-width: 240px;
+  --sidebar-width-max700: 175px;
   --sidebar-padding: 1rem;
   --sidebar-full-w: calc(var(--sidebar-width) + var(--sidebar-padding));
   --sidebar-height: calc(100vh - var(--header-height) - var(--footer-height));
@@ -19,7 +20,7 @@ html, body {
 .tm-button { padding: 0px 12px; font-size: 0.9rem; margin: 5px; }
 .tm-error { color: rgb(0, 0, 0); margin-bottom: 1rem; }
 .tm-header p { margin: 0.5rem 0; }
-.tm-table-wrapper { overflow-x: auto; max-height: none; flex: 1; margin-top: 1rem; margin-bottom: 2rem; }
+.tm-table-wrapper { max-height: none; flex: 1; margin-top: 1rem; margin-bottom: 2rem; }
 .tm-table { width: 100%; border-collapse: collapse; }
 .tm-table th, .tm-table td { border: 1px solid #ccc; text-align: left; }
 .tm-table th { background: #f0f0f0; }
@@ -202,7 +203,6 @@ html, body {
   overflow-y: auto;
   overflow-x: hidden;
   position: relative;
-  max-width: 70%;
   border-color: #333;
   border-width: 2px;
   border-style: solid;
@@ -290,9 +290,8 @@ html, body {
 }
 
 .tm-objects-table {
-  width: 100%;
+  width: auto;
   border-collapse: collapse;
-  min-width: 600px;
   table-layout: auto;
 }
 .tm-objects-table thead th {
@@ -1018,7 +1017,7 @@ input {
     width: auto !important;
   }
 
-    .tm-modal-sentence-mobile {
+  .tm-modal-sentence-mobile {
     max-width: 70%;
   }
 
@@ -1177,4 +1176,36 @@ input {
   .tm-results-wrapper{ grid-template-columns: 1fr; }
   .tm-search-bar{ grid-template-columns: 1fr; }
   .tm-search-right{ justify-self: center; }
+
+  .tm-modal {
+    max-width: 70%;
+  }
+  .tm-truncate {
+  max-width: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+
+.tm-page-wrapper {
+  grid-template-columns: var(--sidebar-width-max700) 1fr;
+}
+.tm-objects-table {
+  min-width: 300px;
+}
+}
+
+
+
+
+@media (min-width:400px) and (max-width: 600px) {
+  .tm-input__control {
+  width: 200px !important;
+  border: 1px solid black !important;
+}
+.btn-dark {
+  margin-right: 85px !important;
+}
+
+}
+
