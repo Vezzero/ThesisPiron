@@ -16,11 +16,9 @@ export default function AuthorInfoModal({ selectedAuthor, onClose }) {
           style={{ top: "0.25rem"}}
         />
         <h3 className="h3-title">Author Information</h3>
-
         <p>
-          <strong>Name:</strong> {name}
+          {name}
         </p>
-
       </div>
     </div>
   );

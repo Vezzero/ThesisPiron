@@ -5,7 +5,7 @@ import ClassDetails from "../pages/ClassDetails";
 import PaperDetails from "../pages/PaperDetails";
 import FacetFilter from "./FacetFilters";
 import "../pages/PaperDetails.css";
-import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams, useSearchParams } from "react-router-dom";
 import Fuse from 'fuse.js'
 import AsyncSelect from 'react-select/async'
 import { Chart } from "react-google-charts";
@@ -151,6 +151,24 @@ function handleSort(columnKey) {
   });
 }
 
+  const EmptyResults = ({ mentions = [], loading = false, error = null }) => {
+    const [params] = useSearchParams();
+    const term = (params.get("term") || "").trim();
+
+    if (!term) return null;
+    if (loading || error) return null;
+
+    if (Array.isArray(mentions) && mentions.length === 0) {
+      return (
+        <Alert severity="error" className="tm-empty">
+          No results for query: <strong>{term}</strong>
+        </Alert>
+      );
+    }
+    return null;
+  };
+
+
   const ONTOLOGY_URLS = {
   STATO:     "https://ontobee.org/ontology/STATO",
   UMLS:      "https://www.nlm.nih.gov/research/umls/index.html",
@@ -184,17 +202,6 @@ const colorMap = {
   "isLinkedTo":         "#D4B2D8",
   "comparedTo":         "#FFEB3B",
 };
-
-const chartData = [
-  ["Relation Name", "Count", { role: "style" }, { role: "annotation" }],
-  ...relationsList.map(r => [
-    r.label,
-    r.count,
-    colorMap[r.label] || "#888888",
-    r.count.toString()
-  ])
-];
-
 
   useEffect(() => {
   setSelectedPaperId(paperId ?? null);
@@ -361,8 +368,6 @@ const loadOptions = (inputValue) => {
     setError("Failed loading objects: " + e.message);
   }
 };
-
-
 
   const filteredMentions = mentions.filter(m => {
   const sent = m.senttext.toLowerCase();
@@ -553,11 +558,67 @@ useEffect(() => {
 
   const deepLinkingClass = !!classLabelParam;
   const waitingClassData = deepLinkingClass && classesLoading && !selectedClassIri;
-  const unresolvedClass  = deepLinkingClass && !classesLoading && !selectedClassIri;
 
   const deepLinkingPaper   = !!paperId;
   const waitingPaperData   = deepLinkingPaper && paperLoading && !selectedPaper;
-  const unresolvedPaper    = deepLinkingPaper && !paperLoading && !selectedPaper && !paperError;
+
+  const tooltipHTML = (label, count) => `
+  <div class="tm-tip">
+    <div><b>${label}</b></div>
+    <div>Count: ${count}</div>
+    <div class="tm-tip-foot">Click for more info</div>
+  </div>
+`;
+
+function addTooltips(table) {
+  if (!Array.isArray(table) || table.length < 2) return table;
+  const header = table[0];
+
+  if (header.some(c => c && typeof c === "object" && c.role === "tooltip")) return table;
+
+  const tooltipCol = { type: "string", role: "tooltip", p: { html: true } };
+  const insertAt = 2;
+
+  const newHeader = [
+    ...header.slice(0, insertAt),
+    tooltipCol,
+    ...header.slice(insertAt),
+  ];
+
+  const newRows = table.slice(1).map(r => {
+    const label = r[0];
+    const count = r[1];
+    const tip = tooltipHTML(label, count);
+    return [...r.slice(0, insertAt), tip, ...r.slice(insertAt)];
+  });
+
+  return [newHeader, ...newRows];
+}
+
+const dataWithTooltips = useMemo(
+  () => addTooltips(filteredPublicationChart),
+  [filteredPublicationChart]
+);
+
+const chartDataWithTooltips = useMemo(() => {
+  const header = [
+    "Relation Name",
+    "Count",
+    { role: "style" },
+    { type: "string", role: "tooltip", p: { html: true } },
+    { role: "annotation" },
+  ];
+
+  const rows = (relationsList ?? []).map(r => [
+    r.label,
+    r.count,
+    colorMap[r.label] || "#888888",
+    tooltipHTML(r.label, r.count),
+    String(r.count),
+  ]);
+
+  return [header, ...rows];
+}, [relationsList]);
 
   useEffect(() => {
   window.scrollTo(0, 0);
@@ -814,13 +875,12 @@ useEffect(() => {
         handleSearch("");
         setSelectedOption(null);
         setTerm("");
+        navigate("/search", { replace: true });
       }}
-    >
+      >
       Reset all filters
       </Button>
    </aside>
-
-
 
         {/* -- 2) div Content Column -- */}
         <div className="tm-content">
@@ -858,7 +918,8 @@ useEffect(() => {
            />
             ) : (
             <>
-            {mentions.length > 0 && (
+            <EmptyResults mentions={mentions} loading={loading} error={error} />
+            {Array.isArray(mentions) && mentions.length > 0 && (
               <>
               {/* • Results Cards Grid */}
               <div className="tm-results-wrapper">
@@ -952,30 +1013,39 @@ useEffect(() => {
                     {relationsList.length > 0 ? (
                     <Chart
                       chartType="BarChart"
-                      data={chartData}
+                      data={chartDataWithTooltips}
                       options={{
                         bars: "horizontal",
                         legend: { position: "none" },
                         chartArea: { left: 120, top: 40, width: "75%", height: "75%" },
-                        hAxis: { minValue: 0 },
-                        annotations: { alwaysOutside: true },
-                        vAxis: { textStyle: { fontSize: 12 } },
+                        hAxis: { minValue: 0, textStyle: { color: "#000" } },
+                        vAxis: { textStyle: { fontSize: 12, color: "#000" } },
+                        annotations: {
+                          alwaysOutside: true,
+                          highContrast: false,
+                          textStyle: {
+                            color: "#000",
+                            auraColor: "none",
+                            fontSize: 12,
+                          },
+                        },
+                        tooltip: { isHtml: true },
                       }}
                       width="100%"
                       height="150px"
                       chartEvents={[
-                    {
-                        eventName: "select",
-                        callback({ chartWrapper }) {
-                        const chart = chartWrapper.getChart();
-                        const sel   = chart.getSelection();
-                        if (sel.length === 0) return;
-                        const row = sel[0].row;
-                        const rel = relationsList[row];
-                        handlePropClick(rel.prop, rel.label);
-                      }
-                    }
-                  ]}
+                        {
+                          eventName: "select",
+                          callback({ chartWrapper }) {
+                            const chart = chartWrapper.getChart();
+                            const sel = chart.getSelection();
+                            if (!sel.length) return;
+                            const row = sel[0].row;
+                            const rel = relationsList[row];
+                            handlePropClick(rel.prop, rel.label);
+                          }
+                        }
+                      ]}
                     />
                   ) : (
                     <div style={{ fontSize: '0.8rem', textAlign: 'left' }}>
@@ -987,27 +1057,23 @@ useEffect(() => {
                       {filteredPublicationChart.length > 1 ? (
                         <Chart
                           chartType="ColumnChart"
-                          data={filteredPublicationChart}
+                          data={dataWithTooltips}
                           options={{
                             legend: { position: "none" },
                             bar: { groupWidth: "45%" },
                             chartArea: { left: 40, top: 40, width: "100%", height: "50%" },
-                            annotations: { alwaysOutside: true,
-                              textStyle: {
-                                fontSize: 12,
-                                color: "#000",
-                                auraColor: "none"
-                              },
-                              stem: {
-                                color: "transparent",
-                                length: 4,
-                              }
-                             },
-                             vAxis: {
-                              viewWindow: { min: 0},
+                            tooltip: { isHtml: true },
+                            annotations: {
+                              alwaysOutside: true,
+                              textStyle: { fontSize: 12, color: "#000", auraColor: "none" },
+                              stem: { color: "transparent", length: 4 },
+                            },
+                            vAxis: {
+                              viewWindow: { min: 0 },
                               minValue: 0,
-                              maxValue: Math.max(...filteredPublicationChart.slice(1).map(r => r[1])) + 1
-                             },
+                              maxValue:
+                                Math.max(...filteredPublicationChart.slice(1).map(r => r[1])) + 1,
+                            },
                             colors: ["#82D4BB"],
                           }}
                           width="100%"
