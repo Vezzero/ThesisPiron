@@ -160,7 +160,7 @@ function handleSort(columnKey) {
   FOODON:    "https://ontobee.org/ontology/FOODON",
   GO:        "https://ontobee.org/ontology/GO",
   BTO:       "https://ontobee.org/ontology/BTO",
-  MESH:      "https://meshb.nlm.nih.gov/",
+  MeSH:      "https://meshb.nlm.nih.gov/",
   OMIT:      "https://ontobee.org/ontology/OMIT",
   OHMI:      "https://ontobee.org/ontology/OHMI",
 };
@@ -442,6 +442,30 @@ const sortedMentions = useMemo(() => {
   });
   return arr;
 }, [filteredMentions, sortConfig]);
+
+const urlRegex = /(https?:\/\/[^\s\]]+)/g;
+
+function renderDefinition(definition) {
+  if (!definition) return "-";
+  const parts = definition.split(urlRegex);
+
+  return parts.map((part, i) =>
+    urlRegex.test(part) ? (
+      <a
+        key={i}
+        href={part}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{ color: '#4A6EE0' }}
+      >
+        {part}
+      </a>
+    ) : (
+      part
+    )
+  );
+}
+
 
 const filteredPublicationChart = useMemo(() => {
   if (!filteredMentions.length) {
@@ -888,8 +912,7 @@ useEffect(() => {
               )}
 
               <p>
-                <strong>Definition:</strong>{" "}
-                {mentions[0].definition || "-"}
+                <strong>Definition:</strong>{" "}{renderDefinition(mentions[0]?.definition)}
               </p>
 
               {(() => {
@@ -912,7 +935,9 @@ useEffect(() => {
                         <span>{match}</span>
                       )
                     ) : (
-                      <span>-</span>
+                      <span style={{ fontSize: '0.8rem', textAlign: 'left' }}>
+                       <Alert severity="info">No Ontology Match.</Alert>
+                   </span>
                     )}
                   </p>
                 );
@@ -941,7 +966,7 @@ useEffect(() => {
                       chartEvents={[
                     {
                         eventName: "select",
-                      callback({ chartWrapper }) {
+                        callback({ chartWrapper }) {
                         const chart = chartWrapper.getChart();
                         const sel   = chart.getSelection();
                         if (sel.length === 0) return;
