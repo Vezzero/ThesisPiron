@@ -26,6 +26,7 @@ export default function PaperInfoModal({ selectedTitle, onClose }) {
                 cursor: "pointer",
                 margin: "16px 0",
                 textAlign: "center",
+                width: "100%"
               }}
             onClick={() => {
               navigate(`/paper/${selectedTitle.paperid}`);

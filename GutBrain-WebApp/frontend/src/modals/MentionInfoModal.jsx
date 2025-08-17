@@ -46,7 +46,7 @@ export default function MentionInfoModal({ selectedMention, onClose }) {
               Check Paper Information
             </Button>
           </div>
-        <Accordion defaultActiveKey="0" className="tm-mention-accordion">
+        <Accordion defaultActiveKey="0" className="tm-mention-accordion" alwaysOpen>
           {sentences.map((row, idx) => (
             <Accordion.Item eventKey={idx.toString()} key={idx}>
                 <Accordion.Header>

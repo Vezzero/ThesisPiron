@@ -21,10 +21,7 @@
 .paper-card h2 {
   margin-top: 0;
   margin-bottom: 0.75rem;
-}
-
-.paper-card p {
-  margin: 0.5rem 0;
+  font-size: 1.5rem;
 }
 
 .paper-container .cd-table-wrapper {
@@ -72,3 +69,13 @@
   align-items: center;
   z-index: 1;
 }
+
+/* Scope to PaperDetails only */
+.paper-details-accordion .accordion-body-paper-details {
+  padding: 0.5rem 1rem !important;
+}
+
+.paper-details-accordion .accordion-button-paper-size {
+  font-size: 1.2rem !important;
+}
+

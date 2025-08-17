@@ -1,6 +1,6 @@
 :root {
   --header-height: 150px;
-  --header-height-mobile: 180px;
+  --header-height-mobile: 200px;
   --footer-height: 80px;
   --sidebar-width: 240px;
   --sidebar-width-max700: 175px;
@@ -923,6 +923,10 @@ aside {
   margin-top: 0.5rem;
 }
 
+.modal-publication {
+  max-width: none !important;
+}
+
 input {
   margin-right: 5px !important;
 }
@@ -1070,6 +1074,11 @@ input {
     top: 40px;
     position: relative;
   }
+
+  .app-footer {
+    position: relative;
+    top: 25px !important;
+  }
   
   .table-overflow {
     overflow-x: auto !important;
@@ -1167,7 +1176,7 @@ input {
     margin-bottom: 2.5rem;
   }
   .paper-card-header {
-    position: sticky;
+    position: sticky !important;
   }
 
 }

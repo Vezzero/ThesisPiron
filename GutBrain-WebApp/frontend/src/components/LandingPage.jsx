@@ -535,6 +535,11 @@ useEffect(() => {
   const waitingPaperData   = deepLinkingPaper && paperLoading && !selectedPaper;
   const unresolvedPaper    = deepLinkingPaper && !paperLoading && !selectedPaper && !paperError;
 
+  useEffect(() => {
+  window.scrollTo(0, 0);
+}, [paperId]);
+
+
   return (
     <>
    <SideBar />

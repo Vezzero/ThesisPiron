@@ -14,7 +14,7 @@ export default function PublicationModal({ open, year, papers, onClose }) {
   if (!open) return null;
   return (
     <div className="tm-modal-overlay" onClick={onClose}>
-      <div className="tm-modal" onClick={e => e.stopPropagation()}>
+      <div className="tm-modal modal-publication" onClick={e => e.stopPropagation()}>
         <div className="tm-modal-header">
         <IoIosClose className="tm-modal-close" onClick={onClose} />
         </div>
