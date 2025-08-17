@@ -159,3 +159,32 @@
 }
 
 .cd-card__right .h4-title{ margin-bottom: .5rem; }
+
+@media (max-width: 400px) {
+  .cd-container { width: 100%; padding: 0 .5rem; }
+  .cd-card { padding: .75rem; margin-bottom: 1rem; border-width: 1px; }
+  .h3-title { font-size: 1.1rem; margin-bottom: .4rem; }
+  .h4-title { font-size: .95rem; }
+
+  .cd-overview { display: block; gap: .75rem; margin-bottom: 1rem; }
+  .cd-card__left { max-width: none; }
+  .cd-card__right { margin-top: .75rem; align-items: stretch; }
+
+  .cd-card__right svg,
+  .cd-card__right div[style*="position: relative"] {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  .cd-container .tm-table-wrapper { overflow-x: hidden; }
+  .cd-container .tm-table { table-layout: fixed; width: 100%; }
+  .cd-container .tm-truncate { max-width: 60vw; }
+
+  .cd-container .tm-filter-input {
+    width: 100%;
+    padding: .4rem;
+    font-size: .9rem;
+    box-sizing: border-box;
+  }
+
+}
