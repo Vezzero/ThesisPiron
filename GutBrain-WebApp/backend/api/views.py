@@ -251,15 +251,28 @@ def list_property_objects(request):
                     ?paper
                         a                 gutprop:Paper ;
                                             gutprop:paperId ?paperId;
-                        gutprop:hasAbstract  ?abstract .
+                        gutprop:hasAbstract  ?abstract ;
+                        gutprop:hasTitle     ?title .
+
                     ?abstract
                         a                   gutprop:PaperAbstract ;
-                                            gutprop:hasAbstractText ?abstractText;
-                        gutprop:composedOf  ?sentence .
-                    ?sentence
-                        a                   gutprop:Sentence;
-                                            gutprop:hasSentenceText ?sentText;
-                                            gutprop:partOf ?abstract.
+                                            gutprop:hasAbstractText ?abstractText.
+
+                    ?title a gutprop:PaperTitle ;
+                        gutprop:hasTitleText ?titletext .
+
+                    # Sentences from EITHER abstract OR title
+                        {{
+                            ?sentence a gutprop:Sentence ;
+                                gutprop:hasSentenceText ?senttext ;
+                                gutprop:partOf          ?abstract .
+                        }}
+                        UNION
+                        {{
+                            ?sentence a gutprop:Sentence ;
+                                gutprop:hasSentenceText ?senttext ;
+                                gutprop:partOf          ?title .
+                        }}
                     ?mention
                         a                   gutprop:Mention ;
                         gutprop:locatedIn   ?sentence .
@@ -319,10 +332,23 @@ def list_class_individuals(request):
                 WHERE {{
                 ?p a gutprop:Paper ;
                     gutprop:paperYear  ?year ;
-                    gutprop:hasAbstract ?abstract.
+                    gutprop:hasAbstract ?abstract;
+                    gutprop:hasTitle    ?title .
+
                 ?abstract a gutprop:PaperAbstract .
-                ?sentence a gutprop:Sentence ;
-                            gutprop:partOf   ?abstract .
+                ?title a gutprop:PaperTitle .
+                # Sentences from EITHER abstract OR title
+                        {{
+                            ?sentence a gutprop:Sentence ;
+                                gutprop:hasSentenceText ?senttext ;
+                                gutprop:partOf          ?abstract .
+                        }}
+                        UNION
+                        {{
+                            ?sentence a gutprop:Sentence ;
+                                gutprop:hasSentenceText ?senttext ;
+                                gutprop:partOf          ?title .
+                        }}
                 ?mention a gutprop:Mention ;
                         gutprop:hasMentionText  ?mtext ;
                         gutprop:locatedIn      ?sentence .
@@ -625,13 +651,23 @@ def list_classes_with_individuals(request):
                 WHERE {
                 ?paper
                     a                 gutprop:Paper ;
-                    gutprop:hasAbstract  ?abstract .
+                    gutprop:hasAbstract  ?abstract ;
+                    gutprop:hasTitle     ?title .
                 ?abstract
-                    a                 gutprop:PaperAbstract ;
-                    gutprop:composedOf ?sentence .
-                ?sentence
-                    a                   gutprop:Sentence ;
-                    gutprop:partOf      ?abstract .
+                    a                 gutprop:PaperAbstract .
+                ?title a gutprop:PaperTitle .
+                # Sentences from EITHER abstract OR title
+                        {{
+                            ?sentence a gutprop:Sentence ;
+                                gutprop:hasSentenceText ?senttext ;
+                                gutprop:partOf          ?abstract .
+                        }}
+                        UNION
+                        {{
+                            ?sentence a gutprop:Sentence ;
+                                gutprop:hasSentenceText ?senttext ;
+                                gutprop:partOf          ?title .
+                        }}
                 ?mention
                     a                   gutprop:Mention ;
                     gutprop:locatedIn   ?sentence .
@@ -730,10 +766,23 @@ def list_publications_per_year(request):
                 WHERE {{
                 ?p a gutprop:Paper ;
                     gutprop:paperYear  ?year ;
-                    gutprop:hasAbstract ?abstract.
+                    gutprop:hasAbstract ?abstract;
+                    gutprop:hasTitle    ?title .
                 ?abstract a gutprop:PaperAbstract .
-                ?sentence a gutprop:Sentence ;
-                            gutprop:partOf   ?abstract .
+                ?title a gutprop:PaperTitle .
+                # Sentences from EITHER abstract OR title
+                        {{
+                            ?sentence a gutprop:Sentence ;
+                                gutprop:hasSentenceText ?senttext ;
+                                gutprop:partOf          ?abstract .
+                        }}
+                        UNION
+                        {{
+                            ?sentence a gutprop:Sentence ;
+                                gutprop:hasSentenceText ?senttext ;
+                                gutprop:partOf          ?title .
+                        }}
+                        OPTIONAL {{ ?sentence rdfs:label ?sentenceLabel }}
                 ?mention a gutprop:Mention ;
                         gutprop:hasMentionText  ?mtext ;
                         gutprop:locatedIn      ?sentence .

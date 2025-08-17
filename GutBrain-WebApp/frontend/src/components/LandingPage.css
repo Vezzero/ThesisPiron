@@ -196,6 +196,7 @@ html, body {
   background: #ffffff;
   border-radius: 8px;
   padding: 1.25rem;
+  max-width: 600px;
   box-shadow: 0 15px 24px rgba(0,0,0,0.12);
   max-height: 90vh;
   display: flex;
@@ -1099,6 +1100,10 @@ input {
     width: auto !important;
     white-space: nowrap;
     flex: 0 0 auto;
+  }
+
+  .button-paper-mobile {
+    font-size: x-small !important;
   }
 
   .tm-search-right{

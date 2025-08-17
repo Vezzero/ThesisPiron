@@ -37,6 +37,7 @@ export default function MentionInfoModal({ selectedMention, onClose }) {
           <div style={{ marginBottom: '16px' }}>
             <Button
               variant="outline-dark"
+              className="button-paper-mobile"
               onClick={() => {
                 navigate(`/paper/${id}`);
                 onClose();

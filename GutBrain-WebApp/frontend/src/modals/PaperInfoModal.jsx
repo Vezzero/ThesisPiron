@@ -21,7 +21,7 @@ export default function PaperInfoModal({ selectedTitle, onClose }) {
         <p><strong>Title:</strong> {selectedTitle.titletext}</p>
         <div className="tm-paper-link">
           <Button variant="outline-dark"
-            className="tm-link-button"
+            className="tm-link-button button-paper-mobile"
             style={{
                 cursor: "pointer",
                 margin: "16px 0",
