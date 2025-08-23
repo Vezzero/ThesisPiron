@@ -1011,6 +1011,10 @@ input {
   text-align: center;
 }
 
+.ontology-row {
+  font-size: 0.9rem;
+}
+
 .tm-tip { padding: 6px 8px; }
 .tm-tip b { display: block; margin-bottom: 4px; }
 .tm-tip-foot { margin-top: 6px; font-style: italic; opacity: 0.8; }

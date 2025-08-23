@@ -58,6 +58,7 @@ export default function LandingPage() {
   const [objectsList, setObjectsList]     = useState([]);
   const [showObjectsModal, setShowObjectsModal] = useState(false);
   const location = useLocation();
+  const [noResultsQuery, setNoResultsQuery] = useState(null);
   const navigate = useNavigate();
   const [sentenceFilter, setSentenceFilter] = useState("");
   const [paperTitleFilter,    setPaperTitleFilter]    = useState("");
@@ -278,13 +279,17 @@ const loadOptions = (inputValue) => {
   setError(null);
   setLoading(true);
 
-  let results = [];
   try {
-    results = await fetchTermMentions(q);
+    const results = await fetchTermMentions(q);
     setMentions(results);
 
-    if (results.length > 0) {
-      const resp2 = await fetch(
+    if (results.length === 0) {
+      setNoResultsQuery(q);
+      setRelationsList([]);
+      setRelationCount(0);
+    } else {
+      setNoResultsQuery(null);
+       const resp2 = await fetch(
         `/api/list_property_term/?term=${encodeURIComponent(q)}`
       );
       if (!resp2.ok) {
@@ -293,57 +298,44 @@ const loadOptions = (inputValue) => {
       const { relations } = await resp2.json();
       setRelationsList(relations);
       setRelationCount(relations.length);
-    } else {
-      setRelationsList([]);
-      setRelationCount(0);
     }
 
-    return results;
   } catch (e) {
     setError(e.message);
     setMentions([]);
     setRelationsList([]);
     setRelationCount(0);
-    return [];
   } finally {
     setLoading(false);
   }
 }
 
- const handleSearch = overrideTerm => {
+const handleSearch = async (overrideTerm) => {
+  const q = (overrideTerm ?? term).trim();
+  if (!q) return;
 
   setSelectedClassIri(null);
   setSelectedClassLabel(null);
   setSelectedClass(null);
   setSelectedPaperId(null);
-
   setMentions([]);
-  let q = (overrideTerm ?? term).trim();
-  if (!q) {
-    return;
-  }
 
   navigate(`/search?term=${encodeURIComponent(q)}`);
   setTerm(q);
 
-  fetchResults(q).then(firstResults => {
-    if (firstResults.length > 0) return;
+  // always coerce to an array
+  const firstResults = (await fetchResults(q).catch(() => [])) ?? [];
+  if (firstResults.length > 0) return;
 
-    const [best] = fuse.search(q);
-    if (best?.item && best.item.toLowerCase() !== q.toLowerCase()) {
-      const corrected = best.item;
-      console.log(`no hits for "${q}", retrying as "${corrected}"`);
-
-      setTerm(corrected);
-      navigate(
-        `/search?term=${encodeURIComponent(corrected)}`,
-        { replace: true }
-      );
-
-      fetchResults(corrected);
-    }
-  });
+  const [best] = fuse.search(q) ?? [];
+  if (best?.item && best.item.toLowerCase() !== q.toLowerCase()) {
+    const corrected = best.item;
+    setTerm(corrected);
+    navigate(`/search?term=${encodeURIComponent(corrected)}`, { replace: true });
+    await fetchResults(corrected);
+  }
 };
+
 
   const handlePropClick = async (propIri, propLabel) => {
   try {
@@ -620,6 +612,16 @@ const chartDataWithTooltips = useMemo(() => {
   return [header, ...rows];
 }, [relationsList]);
 
+const resetSearchUI = () => {
+  setTerm("");
+  setSelectedOption(null);
+  setMentions([]);
+  setRelationsList([]);
+  setRelationCount(0);
+  setError(null);
+  setNoResultsQuery(null);
+};
+
   useEffect(() => {
   window.scrollTo(0, 0);
 }, [paperId]);
@@ -681,9 +683,7 @@ const chartDataWithTooltips = useMemo(() => {
                       setTerm(opt.value);
                       handleSearch(opt.value);
                     } else if (meta.action === "clear") {
-                      setTerm("");
-                      setSelectedOption(null);
-                      handleSearch("");
+                      resetSearchUI();
                       setMenuIsOpen(false);
                     }
                   }}
@@ -890,6 +890,12 @@ const chartDataWithTooltips = useMemo(() => {
             </div>
           )}
 
+              {noResultsQuery && (
+                <Alert severity="warning">
+                  No results for query: <strong>{noResultsQuery}</strong>
+                </Alert>
+              )}
+
           {waitingClassData && (
             <div className="tm-loading-bar-container">
               <Spinner animation="grow" style={{ color: '#00809d' }} />
@@ -918,7 +924,6 @@ const chartDataWithTooltips = useMemo(() => {
            />
             ) : (
             <>
-            <EmptyResults mentions={mentions} loading={loading} error={error} />
             {Array.isArray(mentions) && mentions.length > 0 && (
               <>
               {/* • Results Cards Grid */}
@@ -980,27 +985,21 @@ const chartDataWithTooltips = useMemo(() => {
                 const match = mentions[0].ontologyMatch?.trim();
                 const url = ONTOLOGY_URLS[match];
                 return (
-                  <p>
+                  <div className="ontology-row">
                     <strong>Ontology Match:</strong>{" "}
                     {match ? (
                       url ? (
-                        <a
-                          href={url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="tm-ontology-link"
-                        >
-                          {match}
-                        </a>
+                        <a>{match}</a>
                       ) : (
                         <span>{match}</span>
                       )
                     ) : (
-                      <span style={{ fontSize: '0.8rem', textAlign: 'left' }}>
-                       <Alert severity="info">No Ontology Match.</Alert>
-                   </span>
+                      <Alert severity="info" sx={{ display: 'inline-flex', ml: 1 }}>
+                        No Ontology Match.
+                      </Alert>
                     )}
-                  </p>
+                  </div>
+
                 );
             })()}
           </div>
