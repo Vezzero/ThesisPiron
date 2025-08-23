@@ -108,7 +108,7 @@ const visibleIndividuals = useMemo(() => {
     return [
       ["Individual", "Count"], 
       ...top10Individuals.map(ind => [
-        `${ind.label} (${ind.count})`,
+        `${ind.label}`,
          ind.count])
     ];
   }, [top10Individuals]);
