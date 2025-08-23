@@ -7,7 +7,5 @@ import "datatables.net-bs5/css/dataTables.bootstrap5.min.css";
 import "datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css";
 //to remove strictmode during production
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
     <App />
-  </React.StrictMode>
 );
