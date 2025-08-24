@@ -1,6 +1,6 @@
 import React from "react";
 import {AppContext, BASE_URL} from "../App";
-//import AboutCarousel from "./AboutCarousel"; //TODO ADD THE CAROUSEL AT THE END  OF THE WORK
+import AboutCarousel from "../carousel/AboutCarousel"
 import {Col, Row, Container} from "react-bootstrap";
 import MenuButton from "../menu/MenuButton.jsx";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch"
@@ -58,12 +58,11 @@ export function About() {
                     </p>
                 </div>
                 <Row>
-                    <h5 style={{textAlign:'center', fontWeight:'700', marginTop: '15px', marginBottom:'25px'}}>Gut-brain Axis Scheme</h5>
+                    <h5 style={{textAlign:'center', fontWeight:'700', marginTop: '15px', marginBottom:'25px'}}>Gut-Brain Axis Scheme</h5>
                 </Row>
                 <TransformWrapper initialScale={1} centerOnInit onInit={(ref) => {
-    // Center view on init
-    ref.centerView();
-  }}>
+                        ref.centerView();
+                    }}>
                     {({ zoomIn, zoomOut, resetTransform }) => (
                         <>
                         <div className="d-flex justify-content-center gap-2 mb-3">
@@ -101,6 +100,14 @@ export function About() {
                         </>
                     )}
                     </TransformWrapper>
+                    <Row className="justify-content-center my-5">
+                        <Col xs={12} md={10} lg={9}>
+                        <h5 style={{ textAlign: "center", fontWeight: 700, marginBottom: 16 }}>
+                            Gallery Carousel
+                        </h5>
+                        <AboutCarousel/>
+                        </Col>
+                    </Row>
             </Container>
     );
 }

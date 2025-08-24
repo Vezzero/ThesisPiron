@@ -1,60 +1,40 @@
-import React, {useContext, useState} from "react";
-import {AppContext, BASE_URL} from "./App";
+import React, {useState} from "react";
 import {Carousel, Row} from "react-bootstrap";
+import slide1 from "../assets/carouselhome.png";
+import slide2 from "../assets/carousel1.png";
+import slide3 from "../assets/carousel2.png";
+import slide4 from "../assets/carousel3.png";
+import slide5 from "../assets/carousel4.png";
+import '../App.css';
 
 export default function ControlledCarousel() {
     const [index, setIndex] = useState(0);
-    const {
-        _showOptions,
-        _useMode,
-        _action,
-        _reportString,
-        _institute,
-        _language,
-        _usecase,
-        _updateMenu,
-        _useCaseList,
-        _languageList,
-        _instituteList,
-        _username,
-        _loadingControl,
-        _openFullScreen,
-        _cardExpanded,
-        _cardExpandedID,
-        _phase,
-        _step,
-        _loadingSankey,
-        _loadingRules,
-        _tableRowsIn
-    } = useContext(AppContext);
-
-    const slides = [{"id": 1, "alt": "Main search interface providing three sample queries.", "caption": "Main search interface providing three sample queries."},
-        {"id": 2, "alt": "Search results for query 'Braf oncogene melanoma'", "caption": "Search results for query <q><i>Braf oncogene melanoma </i></q>."},
-        {"id": 3, "alt": "Structured search interface providing facets for gene, disease, and gene class", "caption": "Structured search" +
-                " interface providing facets for <i>gene</i>," +
-                " <i>disease</i>, and <i>gene class</i>."},
-        {"id": 4, "alt": "Landing page for gene BRAF", "caption": "Landing page for the human gene <i>BRAF</i>"},
-    ];
+    const slides = [
+    { id: 0, src: slide1, alt: "Main search interface providing three sample queries.", caption: "Main search interface providing three sample queries." },
+    { id: 1, src: slide2, alt: "Search results overview",  caption: "Main search results for <i>Alzheimer's Disease</i>." },
+    { id: 2, src: slide3, alt: "Paper details view",       caption: "Example of a Paper Details page with title, abstract, and metadata." },
+    { id: 3, src: slide4, alt: "Class details view",       caption: "<i>Disease, Disorder, or Finding</i> Details page with its URI, description, top ten individuals, and a chart." },
+    { id: 4, src: slide5, alt: "Graph visualization",      caption: "Interactive graph view of entities and relations of the entity <i>Human Gut Microbiome</i>." },
+  ];
     const [captionText, setCaptionText] = useState(slides[index]["caption"]);
     const handleSelect = (selectedIndex) => {
         setIndex(selectedIndex);
         setCaptionText(slides[selectedIndex]["caption"]);
-
     };
-
     return (
         <div>
             <Row>
                 <Carousel activeIndex={index} onSelect={handleSelect} variant='dark' className={'carousel-about'}>
-                    {slides.map((slide, index) => (
-                    <Carousel.Item>
+                    {slides.map((slide) => (
+                    <Carousel.Item key={slide.id}>
                         <img
-                            className="d-block carousel-item"
-                            src={BASE_URL + `/static/images/screenshots/slide_${index+1}.jpg`}
-                            alt={slide["alt"]}
-                            caption={slide["caption"]}
+                            className="d-block w-100"
+                            src={slide.src}
+                            alt={slide.alt}
+                            loading="lazy"
+                            style={{ objectFit: "contain", maxHeight: 520 }}
                         />
-                    </Carousel.Item>))
+                        </Carousel.Item>))
                     }
                 </Carousel>
             </Row>
