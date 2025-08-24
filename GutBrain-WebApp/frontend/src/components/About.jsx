@@ -4,7 +4,6 @@ import AboutCarousel from "../carousel/AboutCarousel"
 import {Col, Row, Container} from "react-bootstrap";
 import MenuButton from "../menu/MenuButton.jsx";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch"
-import gutBrainGraph from "../assets/gutbrainimgv0.png";
 import { FiPlus } from "react-icons/fi";
 import { FiMinus } from "react-icons/fi";
 import Button from 'react-bootstrap/Button'
@@ -89,7 +88,7 @@ export function About() {
                             contentStyle={{ display: 'flex', justifyContent: 'center'}}
                         >
                             <img
-                            src={gutBrainGraph}
+                            src="./static/img/gutbrainimgv0.png"
                             alt="Gut-Brain Scheme"
                             style={{
                                 width: '100%',

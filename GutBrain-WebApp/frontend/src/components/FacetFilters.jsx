@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from "react";
 import Accordion from "react-bootstrap/Accordion";
-import '../components/LandingPage.css';
+import '../styles/LandingPage.css';
 
 export default function FacetFilter({
   title,

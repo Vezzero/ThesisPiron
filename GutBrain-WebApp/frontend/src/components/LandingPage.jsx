@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useMemo, useContext } from "react";
 import { fetchTermMentions } from "../services/graphServices";
-import "./LandingPage.css";
+import "../styles/LandingPage.css";
 import ClassDetails from "../pages/ClassDetails";
 import PaperDetails from "../pages/PaperDetails";
 import FacetFilter from "./FacetFilters";
-import "../pages/PaperDetails.css";
+import "../styles/PaperDetails.css";
 import { Link, useLocation, useNavigate, useParams, useSearchParams } from "react-router-dom";
 import Fuse from 'fuse.js'
 import AsyncSelect from 'react-select/async'
@@ -31,7 +31,6 @@ import useAuthors from "../hooks/useAuthors";
 import usePublicationChart from "../hooks/usePublicationChart";
 import { useClassesWithIndividuals } from "../hooks/useClassesWithIndividuals";
 import { usePaperDetails } from "../hooks/usePaperDetails";
-import ontologyIcon from "../assets/images.png";
 import { useLockBodyScroll } from "../hooks/useLockBodyScroll";
 import Spinner from 'react-bootstrap/Spinner';
 import { FiArrowUp } from "react-icons/fi";
@@ -725,13 +724,13 @@ const resetSearchUI = () => {
                   title="Go to Ontology Documentation"
                 >
                   <img 
-                    src={ontologyIcon} 
+                    src="./static/img/images.png"
                     alt="Ontology Documentation" 
                     style={{ width: "24px", height: "24px", objectFit: "contain" }} 
                   />
                 </div>
                 <a
-                  href="./assets/hero_gutbrain_entities.ttl"
+                  href="./static/rdfdb/hero_gutbrain_entities.ttl"
                   download="hero_gutbrain_entities.ttl"
                   className="tm-home-icon-download"
                   title="Download the RDF dataset"
@@ -1294,21 +1293,21 @@ const resetSearchUI = () => {
          <a href="https://www.unipd.it/" target="_blank" rel="noopener noreferrer">
            <img
              className="logo-footer"
-             src="/assets/unipd-logo.png"
+             src="/static/footer/unipd-logo.png"
              alt="UniPD"
            />
          </a>
          <a href="https://www.dei.unipd.it/" target="_blank" rel="noopener noreferrer">
            <img
              className="logo-footer"
-             src="/assets/dei-logo_white.png"
+             src="/static/footer/dei-logo_white.png"
              alt="DEI"
            />
          </a>
          <a href="https://iiia.dei.unipd.it/" target="_blank" rel="noopener noreferrer">
            <img
              className="logo-footer"
-             src="/assets/iiia-logo.png"
+             src="/static/footer/iiia-logo.png"
             alt="IIIA"
            />
          </a>

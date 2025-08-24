@@ -1,20 +1,15 @@
 import React, {useState} from "react";
 import {Carousel, Row} from "react-bootstrap";
-import slide1 from "../assets/carouselhome.png";
-import slide2 from "../assets/carousel1.png";
-import slide3 from "../assets/carousel2.png";
-import slide4 from "../assets/carousel3.png";
-import slide5 from "../assets/carousel4.png";
 import '../App.css';
 
 export default function ControlledCarousel() {
     const [index, setIndex] = useState(0);
     const slides = [
-    { id: 0, src: slide1, alt: "Main search interface providing three sample queries.", caption: "Main search interface providing three sample queries." },
-    { id: 1, src: slide2, alt: "Search results overview",  caption: "Main search results for <i>Alzheimer's Disease</i>." },
-    { id: 2, src: slide3, alt: "Paper details view",       caption: "Example of a Paper Details page with title, abstract, and metadata." },
-    { id: 3, src: slide4, alt: "Class details view",       caption: "<i>Disease, Disorder, or Finding</i> Details page with its URI, description, top ten individuals, and a chart." },
-    { id: 4, src: slide5, alt: "Graph visualization",      caption: "Interactive graph view of entities and relations of the entity <i>Human Gut Microbiome</i>." },
+    { id: 0, src: "./static/img/carouselImg/carouselhome.png", alt: "Main search interface providing three sample queries.", caption: "Main search interface providing three sample queries." },
+    { id: 1, src: "./static/img/carouselImg/carousel1.png", alt: "Search results overview",  caption: "Main search results for <i>Alzheimer's Disease</i>." },
+    { id: 2, src: "./static/img/carouselImg/carousel2.png", alt: "Paper details view",       caption: "Example of a Paper Details page with title, abstract, and metadata." },
+    { id: 3, src: "./static/img/carouselImg/carousel3.png", alt: "Class details view",       caption: "<i>Disease, Disorder, or Finding</i> Details page with its URI, description, top ten individuals, and a chart." },
+    { id: 4, src: "./static/img/carouselImg/carousel4.png", alt: "Graph visualization",      caption: "Interactive graph view of entities and relations of the entity <i>Human Gut Microbiome</i>." },
   ];
     const [captionText, setCaptionText] = useState(slides[index]["caption"]);
     const handleSelect = (selectedIndex) => {

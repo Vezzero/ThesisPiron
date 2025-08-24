@@ -1,23 +1,17 @@
 import React, {useContext, useEffect} from 'react'
-import './sideBar.css';
+import '../styles/sideBar.css';
 import {AppContext, BASE_URL} from "../App.jsx";
 import {faTimes} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import Slide from '@mui/material/Slide';
 
-
-
 function SideBar(){
 
     const {_showbar } = useContext(AppContext);
     const [showBar,setShowBar] = _showbar;
-    //const navigate = useNavigate();
-
 
     useEffect(()=>{
         const height = document.documentElement.scrollHeight
-        //console.log('height',height)
-
         if(document.getElementById('sidenav') !== null){
             document.getElementById('sidenav').style.height = height.toString() + 'px'
 
@@ -30,20 +24,15 @@ function SideBar(){
 
                 <div className="sidenav" id='sidenav' style={{textAlign:'center'}}>
                     <button onClick={()=>setShowBar(false)} className='closeButtonMenu'><FontAwesomeIcon icon={faTimes} size='2x'/></button>
-
                     <div style={{textAlign:'center',marginTop:'20%',marginBottom:'10%'}}>
                     </div>
                     <img src="/static/img/gutbrain-logo-png.png" alt="Gut-Brain KB" style={{maxWidth: '200px', width: '100%'}}/>
                 <hr />
-
                     <a onClick={()=>setShowBar(false)} href={`${BASE_URL}/`}>Home</a>
                     <a onClick={()=>setShowBar(false)} href={`${BASE_URL}/about`}>About</a>
                     <a onClick={()=>setShowBar(false)} href={`${BASE_URL}/credits`}>Credits</a>
-
-
                 </div>
         </Slide>
-
     );
 }
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Accordion from "react-bootstrap/Accordion";
-import "./PaperDetails.css";
+import "../styles/PaperDetails.css";
 
 export default function PaperDetails({ paperId }) {
   const [paper, setPaper]   = useState(null);

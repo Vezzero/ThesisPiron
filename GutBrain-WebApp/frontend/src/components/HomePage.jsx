@@ -4,8 +4,8 @@ import { Container, Row, Col, Button, Form } from "react-bootstrap";
 import Fuse from "fuse.js";
 import useAllIndividuals from "../hooks/useAllIndividuals";
 import AsyncSelect from "react-select/async";
-import "./LandingPage.css";
-import './HomePage.css';
+import "../styles/LandingPage.css";
+import '../styles/HomePage.css';
 import Chip from '@mui/material/Chip';
 import { Link } from "react-router-dom";
 
@@ -180,21 +180,21 @@ const handleSearch = (overrideTerm) => {
                      <a href="https://www.unipd.it/" target="_blank" rel="noopener noreferrer">
                        <img
                          className="logo-footer"
-                         src="/assets/unipd-logo.png"
+                         src="/static/footer/unipd-logo.png"
                          alt="UniPD"
                        />
                      </a>
                      <a href="https://www.dei.unipd.it/" target="_blank" rel="noopener noreferrer">
                        <img
                          className="logo-footer"
-                         src="/assets/dei-logo_white.png"
+                         src="/static/footer/dei-logo_white.png"
                          alt="DEI"
                        />
                      </a>
                      <a href="https://iiia.dei.unipd.it/" target="_blank" rel="noopener noreferrer">
                        <img
                          className="logo-footer"
-                         src="/assets/iiia-logo.png"
+                         src="/static/footer/iiia-logo.png"
                         alt="IIIA"
                        />
                      </a>

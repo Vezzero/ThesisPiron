@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { Button } from 'react-bootstrap';
 import { FaDownload, FaFileCode, FaFileAlt } from 'react-icons/fa';
-import '../components/DownloadButton.css'
+import '../styles/DownloadButton.css'
 import { downloadJsonIndividual, downloadRdfIndividual } from '../utils/downloadUtils';
 
 function DownloadButtonMenu({individual, relationsList, mentions}) {
