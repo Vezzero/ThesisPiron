@@ -32,6 +32,13 @@ const people = [
     email: "giachell@dei.unipd.it",
     link: "https://www.dei.unipd.it/~giachell/",
     linkedInLink: "https://www.linkedin.com/in/fabiogiachelle/",
+  },
+  {
+    name: "Ornella Irrera",
+    img:  "https://iiia.dei.unipd.it/static/images/person/irrera.jpg",
+    email: "irreraorne@dei.unipd.it",
+    link: "https://www.dei.unipd.it/~irreraorne/",
+    linkedInLink: "https://www.linkedin.com/in/ornella-irrera/",
   }
 ];
 
