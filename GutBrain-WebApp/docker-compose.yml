@@ -3,7 +3,7 @@ services:
     image: ontotext/graphdb:11.0.0
     container_name: graphdb
     ports:
-      - "7200:7200"
+      - "7201:7200"
     volumes:
       - ./graphdb-data:/opt/graphdb/home
     restart: unless-stopped
@@ -19,6 +19,6 @@ services:
     volumes:
       - ./backend:/app
     ports:
-      - "8000:8000"
+      - "8088:8000"
     depends_on:
       - graphdb

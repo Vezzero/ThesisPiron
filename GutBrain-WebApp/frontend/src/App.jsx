@@ -1,7 +1,5 @@
 import React, { createContext, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ClassDetails   from "./pages/ClassDetails";
-import PaperDetails from "./pages/PaperDetails";
 import LandingPage from "./components/LandingPage.jsx";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Credits } from './credits/Credit';
@@ -19,13 +17,8 @@ export const domain = "https://gda.dei.unipd.it";   // Production URL
 export const domain_dev = "http://localhost:5173"; // Development domain:port
 
 
-export var BASE_URL = "http://localhost:5173";
-
-//if (mode === "production") {
-    //BASE_URL = domain;
-//} else {
-    //BASE_URL = domain_dev;
-//}
+//export var BASE_URL = "http://localhost:5173";
+export var BASE_URL = "https://hereditary.dei.unipd.it/app/gutbrainkb/";
 
 export const AppContext = createContext();
 
