@@ -1,17 +1,22 @@
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react'
 
-export default defineConfig({
-  plugins: [react()],
-  server: {
-    proxy: {
-      // whenever React does `fetch('/api/...')`, Vite will forward to Django:8000
-      '/api': {
-        target: 'http://localhost:8000',
-        changeOrigin: true,
-        secure: false,
-        // you can rewrite the path if needed, but here `/api/...` → `/api/...`
-      },
-    },
-  },
-})
+export default ({ mode }) => {
+  const env = loadEnv(mode, process.cwd(), '')
+  return defineConfig({
+    plugins: [react()],
+    base: env.VITE_BASE || '/',
+    server: {
+      host: true,            // espone su 0.0.0.0 (necessario in container)
+      port: 5173,
+      strictPort: true,
+      hmr: { clientPort: 5173 },
+      proxy: {
+        '/api': {
+          target: 'http://web:8000',  // service name del backend in Compose
+          changeOrigin: true,
+        }
+      }
+    }
+  })
+}

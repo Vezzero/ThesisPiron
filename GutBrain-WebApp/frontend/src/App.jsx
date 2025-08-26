@@ -18,7 +18,7 @@ export const domain_dev = "http://localhost:5173"; // Development domain:port
 
 
 //export var BASE_URL = "http://localhost:5173";
-export var BASE_URL = "https://hereditary.dei.unipd.it/app/gutbrainkb/";
+export var BASE_URL = "https://hereditary.dei.unipd.it/app/gutbrainkb";
 
 export const AppContext = createContext();
 
