@@ -5,11 +5,11 @@ import '../App.css';
 export default function ControlledCarousel() {
     const [index, setIndex] = useState(0);
     const slides = [
-    { id: 0, src: "./static/img/carouselImg/carouselhome.png", alt: "Main search interface providing three sample queries.", caption: "Main search interface providing three sample queries." },
-    { id: 1, src: "./static/img/carouselImg/carousel1.png", alt: "Search results overview",  caption: "Main search results for <i>Alzheimer's Disease</i>." },
-    { id: 2, src: "./static/img/carouselImg/carousel2.png", alt: "Paper details view",       caption: "Example of a Paper Details page with title, abstract, and metadata." },
-    { id: 3, src: "./static/img/carouselImg/carousel3.png", alt: "Class details view",       caption: "<i>Disease, Disorder, or Finding</i> Details page with its URI, description, top ten individuals, and a chart." },
-    { id: 4, src: "./static/img/carouselImg/carousel4.png", alt: "Graph visualization",      caption: "Interactive graph view of entities and relations of the entity <i>Human Gut Microbiome</i>." },
+    { id: 0, src: "/img/carouselImg/carouselhome.png", alt: "Main search interface providing three sample queries.", caption: "Main search interface providing three sample queries." },
+    { id: 1, src: "/img/carouselImg/carousel1.png", alt: "Search results overview",  caption: "Main search results for <i>Alzheimer's Disease</i>." },
+    { id: 2, src: "/img/carouselImg/carousel2.png", alt: "Paper details view",       caption: "Example of a Paper Details page with title, abstract, and metadata." },
+    { id: 3, src: "/img/carouselImg/carousel3.png", alt: "Class details view",       caption: "<i>Disease, Disorder, or Finding</i> Details page with its URI, description, top ten individuals, and a chart." },
+    { id: 4, src: "/img/carouselImg/carousel4.png", alt: "Graph visualization",      caption: "Interactive graph view of entities and relations of the entity <i>Human Gut Microbiome</i>." },
   ];
     const [captionText, setCaptionText] = useState(slides[index]["caption"]);
     const handleSelect = (selectedIndex) => {

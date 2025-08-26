@@ -18,7 +18,7 @@ export function About() {
 
                     <Col className="text-center">
                     <img
-                        src="/static/img/gb-logo-text.JPEG"
+                        src="/img/gb-logo-text.JPEG"
                         alt="Gut-Brain KB"
                         style={{ maxWidth: '200px', width: '100%' }}
                     />
@@ -88,7 +88,7 @@ export function About() {
                             contentStyle={{ display: 'flex', justifyContent: 'center'}}
                         >
                             <img
-                            src="./static/img/gutbrainimgv0.png"
+                            src="/img/gutbrainimgv0.png"
                             alt="Gut-Brain Scheme"
                             style={{
                                 width: '100%',

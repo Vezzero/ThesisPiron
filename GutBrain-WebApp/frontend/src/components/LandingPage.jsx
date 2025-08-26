@@ -640,7 +640,7 @@ const resetSearchUI = () => {
           <Col className="text-center">
           <Link to={`${BASE_URL}/`} aria-label="Go to Home">
             <img
-              src="/static/img/gutbrain-logo-png.png"
+              src="/img/gutbrain-logo-png.png"
               alt="Gut-Brain KB"
               style={{ maxWidth: "200px", width: "100%" }}
             />
@@ -724,13 +724,13 @@ const resetSearchUI = () => {
                   title="Go to Ontology Documentation"
                 >
                   <img 
-                    src="./static/img/images.png"
+                    src="/img/images.png"
                     alt="Ontology Documentation" 
                     style={{ width: "24px", height: "24px", objectFit: "contain" }} 
                   />
                 </div>
                 <a
-                  href="./static/rdfdb/hero_gutbrain_entities.ttl"
+                  href="/rdfdb/hero_gutbrain_entities.ttl"
                   download="hero_gutbrain_entities.ttl"
                   className="tm-home-icon-download"
                   title="Download the RDF dataset"
@@ -1293,21 +1293,21 @@ const resetSearchUI = () => {
          <a href="https://www.unipd.it/" target="_blank" rel="noopener noreferrer">
            <img
              className="logo-footer"
-             src="/static/footer/unipd-logo.png"
+             src="/footer/unipd-logo.png"
              alt="UniPD"
            />
          </a>
          <a href="https://www.dei.unipd.it/" target="_blank" rel="noopener noreferrer">
            <img
              className="logo-footer"
-             src="/static/footer/dei-logo_white.png"
+             src="/footer/dei-logo_white.png"
              alt="DEI"
            />
          </a>
          <a href="https://iiia.dei.unipd.it/" target="_blank" rel="noopener noreferrer">
            <img
              className="logo-footer"
-             src="/static/footer/iiia-logo.png"
+             src="/footer/iiia-logo.png"
             alt="IIIA"
            />
          </a>
