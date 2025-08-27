@@ -123,9 +123,16 @@ DATABASES = {
 }
 
 GRAPHDB = {
-     # From inside the Django container, "graphdb" resolves to your GraphDB service
-     "ENDPOINT_URL": "http://graphdb:7200/repositories/gutbrainqueriesv1",
-     "STATEMENTS_URL": "http://graphdb:7200/repositories/gutbrainqueriesv1/statements",
+    "ENDPOINT_URL": os.getenv(
+        "GRAPHDB_ENDPOINT_URL",
+        "http://examode.dei.unipd.it:7200/repositories/gutbrainkb"
+    ),
+    "STATEMENTS_URL": os.getenv(
+        "GRAPHDB_STATEMENTS_URL",
+        "http://examode.dei.unipd.it:7200/repositories/gutbrainkb/statements"
+    ),
+    "USERNAME": os.getenv("GRAPHDB_USERNAME", ""),
+    "PASSWORD": os.getenv("GRAPHDB_PASSWORD", ""),
 }
 
 

@@ -1,15 +1,6 @@
 version: "3.9"
 
 services:
-  graphdb:
-    image: ontotext/graphdb:11.0.0
-    container_name: graphdb
-    ports:
-      - "7201:7200"
-    volumes:
-      - ./graphdb-data:/opt/graphdb/home
-    restart: unless-stopped
-
   web:
     build:
       context: ./backend
@@ -17,16 +8,16 @@ services:
     container_name: gutbrain-web
     environment:
       - PYTHONUNBUFFERED=1
-      - GRAPHDB_ENDPOINT=http://graphdb:7200
-      - GRAPHDB_REPOSITORY=gutbrainqueriesv1
       - DJANGO_ALLOWED_HOSTS=*
+      - GRAPHDB_ENDPOINT_URL=http://examode.dei.unipd.it:7200/repositories/gutbrainkb
+      - GRAPHDB_STATEMENTS_URL=http://examode.dei.unipd.it:7200/repositories/gutbrainkb/statements
+      - GRAPHDB_USERNAME=****
+      - GRAPHDB_PASSWORD=****
     command: sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
     volumes:
       - ./backend:/app
     ports:
       - "8088:8000"
-    depends_on:
-      - graphdb
     restart: unless-stopped
 
   frontend:
