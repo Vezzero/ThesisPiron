@@ -9,6 +9,8 @@ services:
     environment:
       - PYTHONUNBUFFERED=1
       - DJANGO_ALLOWED_HOSTS=*
+      # If you're on Django 4+, add this (adjust host/port if needed):
+      # - CSRF_TRUSTED_ORIGINS=http://exa.dei.unipd.it:8088
       - GRAPHDB_ENDPOINT_URL=http://examode.dei.unipd.it:7200/repositories/gutbrainkb
       - GRAPHDB_STATEMENTS_URL=http://examode.dei.unipd.it:7200/repositories/gutbrainkb/statements
       - GRAPHDB_USERNAME=****
@@ -16,8 +18,8 @@ services:
     command: sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
     volumes:
       - ./backend:/app
-    ports:
-      - "8088:8000"
+    expose:
+      - "8000"               # only inside the Docker network
     restart: unless-stopped
 
   frontend:
@@ -27,7 +29,7 @@ services:
       - ./frontend/dist:/usr/share/nginx/html:ro
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
     ports:
-      - "5173:80"
+      - "8088:80"            # public entry point → Nginx
     depends_on:
       - web
     restart: unless-stopped

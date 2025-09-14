@@ -9,15 +9,12 @@ import './App.css';
 import HomePage from "./components/HomePage.jsx";
 
 // Mode
-// export const mode = "development";
 export const mode = "production";
 
 // Domain
-export const domain = "https://gda.dei.unipd.it";   // Production URL
-export const domain_dev = "http://localhost:5173"; // Development domain:port
+export const domain = "https://gda.dei.unipd.it";
+export const domain_dev = "http://localhost:5173";
 
-
-//export var BASE_URL = "http://localhost:5173";
 export var BASE_URL = "https://hereditary.dei.unipd.it/app/gutbrainkb";
 
 export const AppContext = createContext();
@@ -27,7 +24,7 @@ export default function App() {
   const showBarState = useState(false);
   return (
     <AppContext.Provider value={{ _showbar: showBarState, }}>
-    <BrowserRouter>
+    <BrowserRouter basename="/app/gutbrainkb">
     <SideBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
