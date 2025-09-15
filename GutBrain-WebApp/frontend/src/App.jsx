@@ -24,7 +24,7 @@ export default function App() {
   const showBarState = useState(false);
   return (
     <AppContext.Provider value={{ _showbar: showBarState, }}>
-    <BrowserRouter basename="/app/gutbrainkb">
+    <BrowserRouter>
     <SideBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
