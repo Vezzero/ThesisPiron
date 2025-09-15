@@ -6,7 +6,7 @@ export default ({ mode }) => {
   return defineConfig({
     plugins: [react()],
     publicDir: 'static',
-    base: '/app/gutbrainkb/',
+    base: env.VITE_BASE_URL || '/',
     server: {
       host: true,            // espone su 0.0.0.0 (necessario in container)
       port: 5173,
