@@ -8,7 +8,7 @@ import "../App.css";
 const people = [
   {
     name: "Samuel Piron",
-    img: "/person/piron.jpg",
+    img: "./person/piron.jpg",
     email: "pironsamue@dei.unipd.it",
     linkedInLink: "https://www.linkedin.com/in/samuel-piron",
   },
@@ -53,7 +53,7 @@ export function Credits() {
 
     <Col className="text-center">
       <img
-        src="/img/gb-logo-text.JPEG"
+        src="./img/gb-logo-text.JPEG"
         alt="Gut-Brain KB"
         style={{ maxWidth: '200px', width: '100%' }}
       />
@@ -142,21 +142,21 @@ export function Credits() {
                         <a href="https://www.unipd.it/" target="_blank" rel="noopener noreferrer">
                         <img
                             className="logo-footer"
-                            src="/footer/unipd-logo.png"
+                            src="./footer/unipd-logo.png"
                             alt="UniPD"
                         />
                         </a>
                         <a href="https://www.dei.unipd.it/" target="_blank" rel="noopener noreferrer">
                         <img
                             className="logo-footer"
-                            src="/footer/dei-logo_white.png"
+                            src="./footer/dei-logo_white.png"
                             alt="DEI"
                         />
                         </a>
                         <a href="https://iiia.dei.unipd.it/" target="_blank" rel="noopener noreferrer">
                         <img
                             className="logo-footer"
-                            src="/footer/iiia-logo.png"
+                            src="./footer/iiia-logo.png"
                             alt="IIIA"
                         />
                         </a>

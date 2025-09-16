@@ -74,7 +74,7 @@ const handleSearch = (overrideTerm) => {
             <Row className="mb-4">
               <Col>
                 <img
-                  src="/img/gutbrain-logo-png.png"
+                  src="./img/gutbrain-logo-png.PNG"
                   alt="Gut-Brain KB"
                   className="landing-logo"
                 />
@@ -180,21 +180,21 @@ const handleSearch = (overrideTerm) => {
                      <a href="https://www.unipd.it/" target="_blank" rel="noopener noreferrer">
                        <img
                          className="logo-footer"
-                         src="/footer/unipd-logo.png"
+                         src="./footer/unipd-logo.png"
                          alt="UniPD"
                        />
                      </a>
                      <a href="https://www.dei.unipd.it/" target="_blank" rel="noopener noreferrer">
                        <img
                          className="logo-footer"
-                         src="/footer/dei-logo_white.png"
+                         src="./footer/dei-logo_white.png"
                          alt="DEI"
                        />
                      </a>
                      <a href="https://iiia.dei.unipd.it/" target="_blank" rel="noopener noreferrer">
                        <img
                          className="logo-footer"
-                         src="/footer/iiia-logo.png"
+                         src="./footer/iiia-logo.png"
                         alt="IIIA"
                        />
                      </a>
