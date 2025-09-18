@@ -1,17 +1,17 @@
 export async function listAuthors() {
-  const resp = await fetch("/api/list_authors/");
+  const resp = await fetch("/app/gutbrain/api/list_authors/");
   if (!resp.ok) throw new Error(await resp.text());
   return resp.json().then(json => json.authors);
 }
 
 export async function listClassesWithIndividuals() {
-  const resp = await fetch("/api/list_classes_with_inds/");
+  const resp = await fetch("/app/gutbrain/api/list_classes_with_inds/");
   if (!resp.ok) throw new Error(await resp.text());
   return resp.json().then(json => json.classes);
 }
 
 export async function listAllIndividuals() {
-  const resp = await fetch("/api/list_all_individuals/");
+  const resp = await fetch("/app/gutbrain/api/list_all_individuals/");
   if (!resp.ok) throw new Error(await resp.text());
   return resp.json().then(json => json.individuals);
 }
@@ -23,7 +23,7 @@ export async function fetchTermMentions(term) {
 
 export async function listPropertyTerm(term) {
   const resp = await fetch(
-    `/api/list_property_term/?term=${encodeURIComponent(term)}`
+    `/app/gutbrain/api/list_property_term/?term=${encodeURIComponent(term)}`
   );
   if (!resp.ok) throw new Error(await resp.text());
   return resp.json().then(json => json.relations);
@@ -31,7 +31,7 @@ export async function listPropertyTerm(term) {
 
 export async function listClassIndividuals(classIri) {
   const resp = await fetch(
-    `/api/list_class_individuals/?class=${encodeURIComponent(classIri)}`
+    `/app/gutbrain/api/list_class_individuals/?class=${encodeURIComponent(classIri)}`
   );
   if (!resp.ok) throw new Error(await resp.text());
   return resp.json().then(json => json.individuals);
@@ -39,7 +39,7 @@ export async function listClassIndividuals(classIri) {
 
 export async function listPublicationsPerYear(term) {
   const resp = await fetch(
-    `/api/list_publications_per_year/?term=${encodeURIComponent(term)}`
+    `/app/gutbrain/api/list_publications_per_year/?term=${encodeURIComponent(term)}`
   );
   if (!resp.ok) throw new Error(await resp.text());
   const { chartData } = await resp.json();
@@ -48,7 +48,7 @@ export async function listPublicationsPerYear(term) {
 
 export async function listPropertyObjects(term, prop) {
   const resp = await fetch(
-    `/api/list_property_objects/?term=${encodeURIComponent(
+    `/app/gutbrain/api/list_property_objects/?term=${encodeURIComponent(
       term
     )}&prop=${encodeURIComponent(prop)}`
   );
@@ -58,7 +58,7 @@ export async function listPropertyObjects(term, prop) {
 
 export async function getPaperDetails(paperId) {
   const resp = await fetch(
-    `/api/paper_details/?paperId=${encodeURIComponent(paperId)}`
+    `/app/gutbrain/api/paper_details/?paperId=${encodeURIComponent(paperId)}`
   );
   if (!resp.ok) throw new Error(await resp.text());
   return resp.json().then(json => json.paper);

@@ -8,7 +8,7 @@ export function useClassesWithIndividuals() {
 
   useEffect(() => {
     setLoading(true);
-    fetch("/api/list_classes_with_inds/")
+    fetch("/app/gutbrain/api/list_classes_with_inds/")
       .then((r) => {
         if (!r.ok) throw new Error(r.statusText);
         return r.json();

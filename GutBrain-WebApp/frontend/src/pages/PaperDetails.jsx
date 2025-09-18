@@ -23,7 +23,7 @@ export default function PaperDetails({ paperId }) {
     async function load() {
       setLoading(true); setError(""); setPaper(null);
       try {
-        const resp = await fetch(`/api/paper_details/?paperId=${encodeURIComponent(paperId)}`);
+        const resp = await fetch(`/app/gutbrain/api/paper_details/?paperId=${encodeURIComponent(paperId)}`);
         if (!resp.ok) throw new Error(await resp.text());
         const data = await resp.json();
         if (!abort) setPaper(data.paper || null);
