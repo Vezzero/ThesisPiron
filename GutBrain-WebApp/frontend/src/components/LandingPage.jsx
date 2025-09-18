@@ -125,7 +125,7 @@ const [sortConfig, setSortConfig] = useState({ key: null, direction: 'asc' });
    setSelectedClassLabel(classLabel);
    try {
      const resp = await fetch(
-       `/app/gutbrain/api/list_class_individuals/?class=${encodeURIComponent(classIri)}`
+       `/app/gutbrainkb/api/list_class_individuals/?class=${encodeURIComponent(classIri)}`
      );
      if (!resp.ok) throw new Error(await resp.text());
      const { individuals } = await resp.json();
@@ -265,7 +265,7 @@ const loadOptions = (inputValue) => {
   }, [location.search]);
 
   useEffect(() => {
-  fetch("/app/gutbrain/api/list_details/")
+  fetch("/app/gutbrainkb/api/list_details/")
     .then(r => r.json())
     .then(json => {
       setAllCollections(json.collections);
@@ -289,7 +289,7 @@ const loadOptions = (inputValue) => {
     } else {
       setNoResultsQuery(null);
        const resp2 = await fetch(
-        `/app/gutbrain/api/list_property_term/?term=${encodeURIComponent(q)}`
+        `/app/gutbrainkb/api/list_property_term/?term=${encodeURIComponent(q)}`
       );
       if (!resp2.ok) {
         throw new Error(await resp2.text());
@@ -341,7 +341,7 @@ const handleSearch = async (overrideTerm) => {
     const seedLabel = mentions[0].indname;
 
     const resp = await fetch(
-      `/app/gutbrain/api/list_property_objects/`
+      `/app/gutbrainkb/api/list_property_objects/`
       + `?term=${encodeURIComponent(seedLabel)}`
       + `&prop=${encodeURIComponent(propIri)}`
     );

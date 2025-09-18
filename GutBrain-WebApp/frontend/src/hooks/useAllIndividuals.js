@@ -9,7 +9,7 @@ export default function useAllIndividuals() {
   useEffect(() => {
     let cancelled = false;
     setLoading(true);
-    fetch("/app/gutbrain/api/list_all_individuals/")
+    fetch("/app/gutbrainkb/api/list_all_individuals/")
       .then(r => {
         if (!r.ok) throw new Error(r.statusText);
         return r.json();

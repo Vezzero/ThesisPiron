@@ -1,5 +1,5 @@
 const API_BASE =
-  (import.meta.env.VITE_API_BASE?.replace(/\/$/, '')) || '/app/gutbrain/api';
+  (import.meta.env.VITE_API_BASE?.replace(/\/$/, '')) || '/app/gutbrainkb/api';
 
 export async function fetchTermMentions(term = "") {
   const params = new URLSearchParams();

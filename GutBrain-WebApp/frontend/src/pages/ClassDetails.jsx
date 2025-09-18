@@ -124,7 +124,7 @@ const visibleIndividuals = useMemo(() => {
       setLoading(true);
       try {
         const resp = await fetch(
-          `/app/gutbrain/api/list_class_individuals/?class=${encodeURIComponent(classIri)}`
+          `/app/gutbrainkb/api/list_class_individuals/?class=${encodeURIComponent(classIri)}`
         );
         if (!resp.ok) throw new Error(await resp.text());
         const { individuals } = await resp.json();

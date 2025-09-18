@@ -3,7 +3,7 @@ export async function downloadJsonIndividual(individual, relationsList, mentions
   
   const allRelationEntries = await Promise.all(
     relationsList.map(async r => {
-      const url = `/app/gutbrain/api/list_property_objects/?term=${encodeURIComponent(term)}&prop=${encodeURIComponent(r.prop)}`;
+      const url = `/app/gutbrainkb/api/list_property_objects/?term=${encodeURIComponent(term)}&prop=${encodeURIComponent(r.prop)}`;
       let objects = [];
       try {
         const resp = await fetch(url);
@@ -81,7 +81,7 @@ export async function downloadRdfIndividual(individual, relationsList, mentions)
 
   const relObjs = await Promise.all(
     relationsList.map(async r => {
-      const url = `/app/gutbrain/api/list_property_objects/`
+      const url = `/app/gutbrainkb/api/list_property_objects/`
         + `?term=${encodeURIComponent(term)}`
         + `&prop=${encodeURIComponent(r.prop)}`;
       let objects = [];

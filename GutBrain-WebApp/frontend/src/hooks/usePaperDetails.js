@@ -14,7 +14,7 @@ export function usePaperDetails(paperId) {
     setLoading(true);
     setError(null);
 
-    fetch(`/app/gutbrain/api/paper_details/?paperId=${encodeURIComponent(paperId)}`)
+    fetch(`/app/gutbrainkb/api/paper_details/?paperId=${encodeURIComponent(paperId)}`)
       .then(resp => {
         if (!resp.ok) throw new Error(resp.statusText);
         return resp.json();
