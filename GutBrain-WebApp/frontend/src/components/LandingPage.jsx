@@ -730,7 +730,7 @@ const resetSearchUI = () => {
                   />
                 </div>
                 <a
-                  href="/rdfdb/hero_gutbrain_entities.ttl"
+                  href="./rdfdb/hero_gutbrain_entities.ttl"
                   download="hero_gutbrain_entities.ttl"
                   className="tm-home-icon-download"
                   title="Download the RDF dataset"
