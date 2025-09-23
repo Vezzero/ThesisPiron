@@ -625,6 +625,8 @@ const resetSearchUI = () => {
   window.scrollTo(0, 0);
 }, [paperId]);
 
+const base = String(BASE_URL || "").replace(/\/+$/, "");
+
 
   return (
     <>
@@ -638,7 +640,7 @@ const resetSearchUI = () => {
             <MenuButton />
           </Col>
           <Col className="text-center">
-          <Link to={`${BASE_URL}/`} aria-label="Go to Home">
+          <Link to={{ pathname: `${base}/` }} aria-label="Go to Home">
             <img
               src="./img/gutbrain-logo-png.PNG"
               alt="Gut-Brain KB"

@@ -106,7 +106,7 @@ export default function ObjectsModal({
       return;
     }
     const clickedTerm = node.data.label;
-    const url = `/search?term=${encodeURIComponent(clickedTerm)}`;
+    const url = `/app/gutbrainkb/search?term=${encodeURIComponent(clickedTerm)}`;
 
     window.open(url, "_blank", "noopener,noreferrer");
   }, [termLabel]);

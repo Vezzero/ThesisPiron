@@ -39,7 +39,15 @@ const people = [
     email: "irreraorne@dei.unipd.it",
     link: "https://www.dei.unipd.it/~irreraorne/",
     linkedInLink: "https://www.linkedin.com/in/ornella-irrera/",
+  },
+  {
+    name: "Simone Merlo",
+    img: "https://iiia.dei.unipd.it/static/images/person/merlo.jpeg",
+    email: "simone.merlo@phd.unipd.it",
+    link: "https://www.dei.unipd.it/~merlosimon/",
+    linkedInLink: "https://www.linkedin.com/in/simone-merlo-2858882a9/",
   }
+
 ];
 
 export function Credits() {
