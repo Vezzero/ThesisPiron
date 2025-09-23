@@ -13,8 +13,8 @@ services:
       # - CSRF_TRUSTED_ORIGINS=http://exa.dei.unipd.it:8088
       - GRAPHDB_ENDPOINT_URL=http://examode.dei.unipd.it:7200/repositories/gutbrainkb
       - GRAPHDB_STATEMENTS_URL=http://examode.dei.unipd.it:7200/repositories/gutbrainkb/statements
-      - GRAPHDB_USERNAME=****
-      - GRAPHDB_PASSWORD=****
+      - GRAPHDB_USERNAME=gutbrainkb
+      - GRAPHDB_PASSWORD=gutbrainkb25
     command: sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
     volumes:
       - ./backend:/app
