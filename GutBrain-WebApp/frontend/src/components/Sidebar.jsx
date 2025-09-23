@@ -26,7 +26,7 @@ function SideBar(){
                     <button onClick={()=>setShowBar(false)} className='closeButtonMenu'><FontAwesomeIcon icon={faTimes} size='2x'/></button>
                     <div style={{textAlign:'center',marginTop:'20%',marginBottom:'10%'}}>
                     </div>
-                    <img src="./img/gutbrain-logo-png.PNG" alt="Gut-Brain KB" style={{maxWidth: '200px', width: '100%'}}/>
+                    <img src="https://hereditary.dei.unipd.it/app/gutbrainkb/img/gutbrain-logo-png.PNG" alt="Gut-Brain KB" style={{maxWidth: '200px', width: '100%'}}/>
                 <hr />
                     <a onClick={()=>setShowBar(false)} href={`${BASE_URL}/`}>Home</a>
                     <a onClick={()=>setShowBar(false)} href={`${BASE_URL}/about`}>About</a>
