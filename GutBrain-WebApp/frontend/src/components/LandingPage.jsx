@@ -264,16 +264,6 @@ const loadOptions = (inputValue) => {
     }
   }, [location.search]);
 
-  useEffect(() => {
-  fetch("/app/gutbrainkb/api/list_details/")
-    .then(r => r.json())
-    .then(json => {
-      setAllCollections(json.collections);
-      setAllYears(json.years);
-      setAllJournals(json.journals);
-    });
-}, []);
-
   async function fetchResults(q) {
   setError(null);
   setLoading(true);
@@ -547,6 +537,53 @@ useEffect(() => {
 
 ]);
 
+function countsFromMentionsDistinctPapers(mentions) {
+  const byJournal    = new Map();
+  const byYear       = new Map();
+  const byCollection = new Map();
+  const byAuthor     = new Map();
+
+  const add = (map, key, paperId) => {
+    const k = (key || "").trim();
+    if (!k || !paperId) return;
+    if (!map.has(k)) map.set(k, new Set());
+    map.get(k).add(String(paperId));
+  };
+
+  for (const m of mentions) {
+    const pid = m.paperid ?? m.paperId ?? m.paper_id;
+    add(byJournal,    m.journal,    pid);
+    add(byYear,       String(m.pubYear), pid);
+    add(byCollection, m.collection, pid);
+
+    (m.author || "")
+      .split(";")
+      .map(a => a.trim())
+      .filter(Boolean)
+      .forEach(a => add(byAuthor, a, pid));
+  }
+
+  const toItems = (map) =>
+    [...map.entries()]
+      .map(([name, set]) => ({ name, count: set.size }))
+      .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
+
+  return {
+    facetJournals:    toItems(byJournal),
+    facetYears:       toItems(byYear),
+    facetCollections: toItems(byCollection),
+    facetAuthors:     toItems(byAuthor),
+  };
+}
+
+
+const {
+  facetJournals,
+  facetYears,
+  facetCollections,
+  facetAuthors
+} = useMemo(() => countsFromMentionsDistinctPapers(mentions), [mentions]);
+
   const deepLinkingClass = !!classLabelParam;
   const waitingClassData = deepLinkingClass && classesLoading && !selectedClassIri;
 
@@ -625,7 +662,7 @@ const resetSearchUI = () => {
   window.scrollTo(0, 0);
 }, [paperId]);
 
-const base = String(BASE_URL || "").replace(/\/+$/, "");
+//const base = String(BASE_URL || "").replace(/\/+$/, "");
 
 
   return (
@@ -640,7 +677,7 @@ const base = String(BASE_URL || "").replace(/\/+$/, "");
             <MenuButton />
           </Col>
           <Col className="text-center">
-          <Link to={{ pathname: `${base}/` }} aria-label="Go to Home">
+          <Link to={`https://hereditary.dei.unipd.it/app/gutbrainkb/`} aria-label="Go to Home">
             <img
               src="./img/gutbrain-logo-png.PNG"
               alt="Gut-Brain KB"
@@ -827,7 +864,7 @@ const base = String(BASE_URL || "").replace(/\/+$/, "");
   <AuthorFilter
     isOpen={showAuthorFilter}
     onToggle={() => setShowAuthorFilter(o => !o)}
-    allAuthors={allAuthors}
+    allAuthors={facetAuthors}
     selectedAuthors={filterAuthors}
     onChange={setFilterAuthors}
   />
@@ -835,7 +872,7 @@ const base = String(BASE_URL || "").replace(/\/+$/, "");
   {/* - Journal - */}
     <FacetFilter
     title="Journal"
-    items={allJournals.map(j => ({ name: j.value, count: j.count }))}
+    items={facetJournals}
     selectedItems={filterJournals}
     onChange={setFilterJournals}
   />
@@ -843,7 +880,7 @@ const base = String(BASE_URL || "").replace(/\/+$/, "");
   {/* — Year — */}
   <FacetFilter
     title="Year"
-    items={allYears.map(y => ({ name: y.value.toString(), count: y.count }))}
+    items={facetYears}
     selectedItems={filterYears}
     onChange={setFilterYears}
   />
@@ -851,7 +888,7 @@ const base = String(BASE_URL || "").replace(/\/+$/, "");
   {/* — Collection — */}
   <FacetFilter
     title="Collection"
-    items={allCollections.map(c => ({ name: c.value, count: c.count }))}
+    items={facetCollections}
     selectedItems={filterCollections}
     onChange={setFilterCollections}
   />
