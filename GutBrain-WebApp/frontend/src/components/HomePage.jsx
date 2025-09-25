@@ -8,6 +8,7 @@ import "../styles/LandingPage.css";
 import '../styles/HomePage.css';
 import Chip from '@mui/material/Chip';
 import { Link } from "react-router-dom";
+import { BASE_URL } from "../App";
 
 export default function HomePage() {
   const navigate = useNavigate();
@@ -74,7 +75,7 @@ const handleSearch = (overrideTerm) => {
             <Row className="mb-4">
               <Col>
                 <img
-                  src="./img/gutbrain-logo-png.PNG"
+                  src={BASE_URL + `/img/gutbrain-logo-png.PNG`}
                   alt="Gut-Brain KB"
                   className="landing-logo"
                 />
@@ -180,21 +181,21 @@ const handleSearch = (overrideTerm) => {
                      <a href="https://www.unipd.it/" target="_blank" rel="noopener noreferrer">
                        <img
                          className="logo-footer"
-                         src="./footer/unipd-logo.png"
+                         src={BASE_URL + `/footer/unipd-logo.png`}
                          alt="UniPD"
                        />
                      </a>
                      <a href="https://www.dei.unipd.it/" target="_blank" rel="noopener noreferrer">
                        <img
                          className="logo-footer"
-                         src="./footer/dei-logo_white.png"
+                         src={BASE_URL + `/footer/dei-logo_white.png`}
                          alt="DEI"
                        />
                      </a>
                      <a href="https://iiia.dei.unipd.it/" target="_blank" rel="noopener noreferrer">
                        <img
                          className="logo-footer"
-                         src="./footer/iiia-logo.png"
+                         src={BASE_URL + `/footer/iiia-logo.png`}
                         alt="IIIA"
                        />
                      </a>

@@ -679,7 +679,7 @@ const resetSearchUI = () => {
           <Col className="text-center">
           <Link to={`https://hereditary.dei.unipd.it/app/gutbrainkb/`} aria-label="Go to Home">
             <img
-              src="./img/gutbrain-logo-png.PNG"
+               src={BASE_URL + `/img/gutbrain-logo-png.PNG`}
               alt="Gut-Brain KB"
               style={{ maxWidth: "200px", width: "100%" }}
             />
@@ -763,7 +763,7 @@ const resetSearchUI = () => {
                   title="Go to Ontology Documentation"
                 >
                   <img 
-                    src="./img/images.png"
+                    src={BASE_URL + `/img/images.png`}
                     alt="Ontology Documentation" 
                     style={{ width: "24px", height: "24px", objectFit: "contain" }} 
                   />
@@ -1332,21 +1332,21 @@ const resetSearchUI = () => {
          <a href="https://www.unipd.it/" target="_blank" rel="noopener noreferrer">
            <img
              className="logo-footer"
-             src="./footer/unipd-logo.png"
+             src={BASE_URL + `/footer/unipd-logo.png`}
              alt="UniPD"
            />
          </a>
          <a href="https://www.dei.unipd.it/" target="_blank" rel="noopener noreferrer">
            <img
              className="logo-footer"
-             src="./footer/dei-logo_white.png"
+             src={BASE_URL + `/footer/dei-logo_white.png`}
              alt="DEI"
            />
          </a>
          <a href="https://iiia.dei.unipd.it/" target="_blank" rel="noopener noreferrer">
            <img
              className="logo-footer"
-             src="./footer/iiia-logo.png"
+             src={BASE_URL + `/footer/iiia-logo.png`}
             alt="IIIA"
            />
          </a>
